@@ -24,14 +24,14 @@ bool sCursors_NecessaryDrawCursors()
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 const char* sCursors_GetCursVoltage(Channel source, int numCur, char buffer[20])
 {
-    float voltage = mathFPGA.VoltageCursor(sCursors_GetCursPosU(source, numCur), SET_RANGE(source), SET_RSHIFT(source));
+    float voltage = MathFPGA::VoltageCursor(sCursors_GetCursPosU(source, numCur), SET_RANGE(source), SET_RSHIFT(source));
     return Voltage2String(voltage, true, buffer);
 }
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 const char* sCursors_GetCursorTime(Channel source, int numCur, char buffer[20])
 {
-    float time = mathFPGA.TimeCursor(CURS_POS_T(source, numCur), SET_TBASE);
+    float time = MathFPGA::TimeCursor(CURS_POS_T(source, numCur), SET_TBASE);
         
     return Time2String(time, true, buffer);
 }

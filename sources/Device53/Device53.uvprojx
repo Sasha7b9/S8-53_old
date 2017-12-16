@@ -48,14 +48,14 @@
             <NotGenerated>0</NotGenerated>
             <InvalidFlash>1</InvalidFlash>
           </TargetStatus>
-          <OutputDirectory>.\_obj\Device53\</OutputDirectory>
+          <OutputDirectory>.\_obj\</OutputDirectory>
           <OutputName>Device53</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
           <CreateHexFile>0</CreateHexFile>
           <DebugInformation>1</DebugInformation>
           <BrowseInformation>0</BrowseInformation>
-          <ListingPath>.\_lst\Device53\</ListingPath>
+          <ListingPath>.\_lst\</ListingPath>
           <HexFormatSelection>1</HexFormatSelection>
           <Merge32K>0</Merge32K>
           <CreateBatchFile>0</CreateBatchFile>
@@ -336,7 +336,7 @@
               <MiscControls>--cpp</MiscControls>
               <Define>USE_HAL_DRIVER, STM32F207xx, __cplusplus, S8_53</Define>
               <Undefine></Undefine>
-              <IncludePath>..\_libs\STM32Cube_F2\Drivers\CMSIS\Include;..\_libs\STM32Cube_F2\Drivers\CMSIS\Device\ST\STM32F2xx\Include;..\_libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Inc;..\_libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Core\Inc;..\_libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Class\MSC\Inc;..\_libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src;..\_libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Device_Library\Core\Inc;..\_libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Device_Library\Class\CDC\Inc;..\_libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\include;..\_libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\system;..\_libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\drivers;.\Device53;.\Device53\libs;..\common</IncludePath>
+              <IncludePath>..\libs\STM32Cube_F2\Drivers\CMSIS\Include;..\libs\STM32Cube_F2\Drivers\CMSIS\Device\ST\STM32F2xx\Include;..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Inc;..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Core\Inc;..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Class\MSC\Inc;..\libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src;..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Device_Library\Core\Inc;..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Device_Library\Class\CDC\Inc;..\libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\include;..\libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\system;..\libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\drivers;.\src;.\src\libs;..\libs\common</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -367,7 +367,7 @@
             <TextAddressRange>0x08000000</TextAddressRange>
             <DataAddressRange>0x20000000</DataAddressRange>
             <pXoBase></pXoBase>
-            <ScatterFile>.\Device53\Device53.sct</ScatterFile>
+            <ScatterFile>.\Device53.sct</ScatterFile>
             <IncludeLibs></IncludeLibs>
             <IncludeLibsPath></IncludeLibsPath>
             <Misc></Misc>
@@ -383,147 +383,147 @@
             <File>
               <FileName>stm32f2xx_hal.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal.c</FilePath>
             </File>
             <File>
               <FileName>stm32f2xx_hal_adc.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_adc.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_adc.c</FilePath>
             </File>
             <File>
               <FileName>stm32f2xx_hal_adc_ex.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_adc_ex.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_adc_ex.c</FilePath>
             </File>
             <File>
               <FileName>stm32f2xx_hal_cortex.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_cortex.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_cortex.c</FilePath>
             </File>
             <File>
               <FileName>stm32f2xx_hal_crc.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_crc.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_crc.c</FilePath>
             </File>
             <File>
               <FileName>stm32f2xx_hal_dac.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_dac.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_dac.c</FilePath>
             </File>
             <File>
               <FileName>stm32f2xx_hal_dac_ex.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_dac_ex.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_dac_ex.c</FilePath>
             </File>
             <File>
               <FileName>stm32f2xx_hal_dma.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_dma.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_dma.c</FilePath>
             </File>
             <File>
               <FileName>stm32f2xx_hal_dma_ex.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_dma_ex.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_dma_ex.c</FilePath>
             </File>
             <File>
               <FileName>stm32f2xx_hal_eth.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_eth.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_eth.c</FilePath>
             </File>
             <File>
               <FileName>stm32f2xx_hal_flash.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_flash.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_flash.c</FilePath>
             </File>
             <File>
               <FileName>stm32f2xx_hal_flash_ex.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_flash_ex.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_flash_ex.c</FilePath>
             </File>
             <File>
               <FileName>stm32f2xx_hal_gpio.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_gpio.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_gpio.c</FilePath>
             </File>
             <File>
               <FileName>stm32f2xx_hal_hcd.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_hcd.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_hcd.c</FilePath>
             </File>
             <File>
               <FileName>stm32f2xx_hal_pcd.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_pcd.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_pcd.c</FilePath>
             </File>
             <File>
               <FileName>stm32f2xx_hal_pcd_ex.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_pcd_ex.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_pcd_ex.c</FilePath>
             </File>
             <File>
               <FileName>stm32f2xx_hal_pwr.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_pwr.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_pwr.c</FilePath>
             </File>
             <File>
               <FileName>stm32f2xx_hal_pwr_ex.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_pwr_ex.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_pwr_ex.c</FilePath>
             </File>
             <File>
               <FileName>stm32f2xx_hal_rcc.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_rcc.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_rcc.c</FilePath>
             </File>
             <File>
               <FileName>stm32f2xx_hal_rcc_ex.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_rcc_ex.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_rcc_ex.c</FilePath>
             </File>
             <File>
               <FileName>stm32f2xx_hal_rtc.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_rtc.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_rtc.c</FilePath>
             </File>
             <File>
               <FileName>stm32f2xx_hal_rtc_ex.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_rtc_ex.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_rtc_ex.c</FilePath>
             </File>
             <File>
               <FileName>stm32f2xx_hal_spi.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_spi.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_spi.c</FilePath>
             </File>
             <File>
               <FileName>stm32f2xx_hal_sram.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_sram.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_sram.c</FilePath>
             </File>
             <File>
               <FileName>stm32f2xx_hal_tim.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_tim.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_tim.c</FilePath>
             </File>
             <File>
               <FileName>stm32f2xx_hal_tim_ex.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_tim_ex.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_tim_ex.c</FilePath>
             </File>
             <File>
               <FileName>stm32f2xx_ll_fsmc.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_ll_fsmc.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_ll_fsmc.c</FilePath>
             </File>
             <File>
               <FileName>stm32f2xx_ll_sdmmc.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_ll_sdmmc.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_ll_sdmmc.c</FilePath>
             </File>
             <File>
               <FileName>stm32f2xx_ll_usb.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_ll_usb.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_ll_usb.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -533,37 +533,37 @@
             <File>
               <FileName>usbh_msc.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Class\MSC\Src\usbh_msc.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Class\MSC\Src\usbh_msc.c</FilePath>
             </File>
             <File>
               <FileName>usbh_msc_bot.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Class\MSC\Src\usbh_msc_bot.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Class\MSC\Src\usbh_msc_bot.c</FilePath>
             </File>
             <File>
               <FileName>usbh_msc_scsi.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Class\MSC\Src\usbh_msc_scsi.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Class\MSC\Src\usbh_msc_scsi.c</FilePath>
             </File>
             <File>
               <FileName>usbh_core.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Core\Src\usbh_core.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Core\Src\usbh_core.c</FilePath>
             </File>
             <File>
               <FileName>usbh_ctlreq.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Core\Src\usbh_ctlreq.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Core\Src\usbh_ctlreq.c</FilePath>
             </File>
             <File>
               <FileName>usbh_ioreq.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Core\Src\usbh_ioreq.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Core\Src\usbh_ioreq.c</FilePath>
             </File>
             <File>
               <FileName>usbh_pipes.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Core\Src\usbh_pipes.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Core\Src\usbh_pipes.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -573,167 +573,167 @@
             <File>
               <FileName>udp.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\udp.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\udp.c</FilePath>
             </File>
             <File>
               <FileName>tcp_in.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\tcp_in.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\tcp_in.c</FilePath>
             </File>
             <File>
               <FileName>tcp_out.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\tcp_out.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\tcp_out.c</FilePath>
             </File>
             <File>
               <FileName>tcp.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\tcp.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\tcp.c</FilePath>
             </File>
             <File>
               <FileName>sys.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\sys.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\sys.c</FilePath>
             </File>
             <File>
               <FileName>stats.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\stats.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\stats.c</FilePath>
             </File>
             <File>
               <FileName>raw.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\raw.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\raw.c</FilePath>
             </File>
             <File>
               <FileName>pbuf.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\pbuf.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\pbuf.c</FilePath>
             </File>
             <File>
               <FileName>netif.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\netif.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\netif.c</FilePath>
             </File>
             <File>
               <FileName>memp.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\memp.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\memp.c</FilePath>
             </File>
             <File>
               <FileName>mem.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\mem.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\mem.c</FilePath>
             </File>
             <File>
               <FileName>init.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\init.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\init.c</FilePath>
             </File>
             <File>
               <FileName>dns.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\dns.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\dns.c</FilePath>
             </File>
             <File>
               <FileName>ip4_addr.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\ipv4\ip4_addr.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\ipv4\ip4_addr.c</FilePath>
             </File>
             <File>
               <FileName>ip4.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\ipv4\ip4.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\ipv4\ip4.c</FilePath>
             </File>
             <File>
               <FileName>inet_chksum.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\inet_chksum.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\inet_chksum.c</FilePath>
             </File>
             <File>
               <FileName>igmp.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\ipv4\igmp.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\ipv4\igmp.c</FilePath>
             </File>
             <File>
               <FileName>icmp.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\ipv4\icmp.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\ipv4\icmp.c</FilePath>
             </File>
             <File>
               <FileName>autoip.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\ipv4\autoip.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\ipv4\autoip.c</FilePath>
             </File>
             <File>
               <FileName>dhcp.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\ipv4\dhcp.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\ipv4\dhcp.c</FilePath>
             </File>
             <File>
               <FileName>def.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\def.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\def.c</FilePath>
             </File>
             <File>
               <FileName>tcpip.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\api\tcpip.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\api\tcpip.c</FilePath>
             </File>
             <File>
               <FileName>sockets.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\api\sockets.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\api\sockets.c</FilePath>
             </File>
             <File>
               <FileName>netdb.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\api\netdb.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\api\netdb.c</FilePath>
             </File>
             <File>
               <FileName>netbuf.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\api\netbuf.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\api\netbuf.c</FilePath>
             </File>
             <File>
               <FileName>err.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\api\err.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\api\err.c</FilePath>
             </File>
             <File>
               <FileName>api_msg.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\api\api_msg.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\api\api_msg.c</FilePath>
             </File>
             <File>
               <FileName>api_lib.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\api\api_lib.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\api\api_lib.c</FilePath>
             </File>
             <File>
               <FileName>ip.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\ip.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\ip.c</FilePath>
             </File>
             <File>
               <FileName>timeouts.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\timeouts.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\timeouts.c</FilePath>
             </File>
             <File>
               <FileName>etharp.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\ipv4\etharp.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\ipv4\etharp.c</FilePath>
             </File>
             <File>
               <FileName>ethernet.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\netif\ethernet.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\netif\ethernet.c</FilePath>
             </File>
             <File>
               <FileName>ip4_frag.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\ipv4\ip4_frag.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\ipv4\ip4_frag.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -743,102 +743,102 @@
             <File>
               <FileName>app_ethernet.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Device53\libs\app_ethernet.h</FilePath>
+              <FilePath>.\src\libs\app_ethernet.h</FilePath>
             </File>
             <File>
               <FileName>ethernetif.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Device53\libs\ethernetif.h</FilePath>
+              <FilePath>.\src\libs\ethernetif.h</FilePath>
             </File>
             <File>
               <FileName>ffconf.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Device53\libs\ffconf.h</FilePath>
+              <FilePath>.\src\libs\ffconf.h</FilePath>
             </File>
             <File>
               <FileName>lwipopts.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Device53\libs\lwipopts.h</FilePath>
+              <FilePath>.\src\libs\lwipopts.h</FilePath>
             </File>
             <File>
               <FileName>startup_stm32f207xx.s</FileName>
               <FileType>2</FileType>
-              <FilePath>.\Device53\libs\startup_stm32f207xx.s</FilePath>
+              <FilePath>.\src\libs\startup_stm32f207xx.s</FilePath>
             </File>
             <File>
               <FileName>stm32f2xx_hal_conf.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Device53\libs\stm32f2xx_hal_conf.h</FilePath>
+              <FilePath>.\src\libs\stm32f2xx_hal_conf.h</FilePath>
             </File>
             <File>
               <FileName>stm32f2xx_it.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Device53\libs\stm32f2xx_it.h</FilePath>
+              <FilePath>.\src\libs\stm32f2xx_it.h</FilePath>
             </File>
             <File>
               <FileName>system_stm32f2xx.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Device53\libs\system_stm32f2xx.c</FilePath>
+              <FilePath>.\src\libs\system_stm32f2xx.c</FilePath>
             </File>
             <File>
               <FileName>usbd_cdc_interface.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Device53\libs\usbd_cdc_interface.h</FilePath>
+              <FilePath>.\src\libs\usbd_cdc_interface.h</FilePath>
             </File>
             <File>
               <FileName>usbd_conf.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Device53\libs\usbd_conf.h</FilePath>
+              <FilePath>.\src\libs\usbd_conf.h</FilePath>
             </File>
             <File>
               <FileName>usbd_desc.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Device53\libs\usbd_desc.c</FilePath>
+              <FilePath>.\src\libs\usbd_desc.c</FilePath>
             </File>
             <File>
               <FileName>usbd_desc.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Device53\libs\usbd_desc.h</FilePath>
+              <FilePath>.\src\libs\usbd_desc.h</FilePath>
             </File>
             <File>
               <FileName>usbh_conf.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Device53\libs\usbh_conf.h</FilePath>
+              <FilePath>.\src\libs\usbh_conf.h</FilePath>
             </File>
             <File>
               <FileName>app_ethernet.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Device53\libs\app_ethernet.cpp</FilePath>
+              <FilePath>.\src\libs\app_ethernet.cpp</FilePath>
             </File>
             <File>
               <FileName>ethernetif.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Device53\libs\ethernetif.cpp</FilePath>
+              <FilePath>.\src\libs\ethernetif.cpp</FilePath>
             </File>
             <File>
               <FileName>stm32f2xx_hal_msp.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Device53\libs\stm32f2xx_hal_msp.cpp</FilePath>
+              <FilePath>.\src\libs\stm32f2xx_hal_msp.cpp</FilePath>
             </File>
             <File>
               <FileName>stm32f2xx_it.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Device53\libs\stm32f2xx_it.cpp</FilePath>
+              <FilePath>.\src\libs\stm32f2xx_it.cpp</FilePath>
             </File>
             <File>
               <FileName>usbd_cdc_interface.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Device53\libs\usbd_cdc_interface.cpp</FilePath>
+              <FilePath>.\src\libs\usbd_cdc_interface.cpp</FilePath>
             </File>
             <File>
               <FileName>usbd_conf.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Device53\libs\usbd_conf.cpp</FilePath>
+              <FilePath>.\src\libs\usbd_conf.cpp</FilePath>
             </File>
             <File>
               <FileName>usbh_conf.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Device53\libs\usbh_conf.cpp</FilePath>
+              <FilePath>.\src\libs\usbh_conf.cpp</FilePath>
             </File>
           </Files>
         </Group>
@@ -848,77 +848,77 @@
             <File>
               <FileName>check.bat</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Device53\check.bat</FilePath>
+              <FilePath>.\src\check.bat</FilePath>
             </File>
             <File>
               <FileName>defines.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Device53\defines.h</FilePath>
+              <FilePath>.\src\defines.h</FilePath>
             </File>
             <File>
               <FileName>Globals.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Device53\Globals.h</FilePath>
+              <FilePath>.\src\Globals.h</FilePath>
             </File>
             <File>
               <FileName>Log.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Device53\Log.h</FilePath>
+              <FilePath>.\src\Log.h</FilePath>
             </File>
             <File>
               <FileName>main.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Device53\main.h</FilePath>
+              <FilePath>.\src\main.h</FilePath>
             </File>
             <File>
               <FileName>main2.s</FileName>
               <FileType>2</FileType>
-              <FilePath>.\Device53\main2.s</FilePath>
+              <FilePath>.\src\main2.s</FilePath>
             </File>
             <File>
               <FileName>Tables.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Device53\Tables.h</FilePath>
+              <FilePath>.\src\Tables.h</FilePath>
             </File>
             <File>
               <FileName>Globals.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Device53\Globals.cpp</FilePath>
+              <FilePath>.\src\Globals.cpp</FilePath>
             </File>
             <File>
               <FileName>Log.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Device53\Log.cpp</FilePath>
+              <FilePath>.\src\Log.cpp</FilePath>
             </File>
             <File>
               <FileName>main.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Device53\main.cpp</FilePath>
+              <FilePath>.\src\main.cpp</FilePath>
             </File>
             <File>
               <FileName>Tables.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Device53\Tables.cpp</FilePath>
+              <FilePath>.\src\Tables.cpp</FilePath>
             </File>
             <File>
               <FileName>commonDefines.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\common\commonDefines.h</FilePath>
+              <FilePath>..\libs\common\commonDefines.h</FilePath>
             </File>
             <File>
               <FileName>commonDefines.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>..\common\commonDefines.cpp</FilePath>
+              <FilePath>..\libs\common\commonDefines.cpp</FilePath>
             </File>
             <File>
               <FileName>stub.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Device53\stub.cpp</FilePath>
+              <FilePath>.\src\stub.cpp</FilePath>
             </File>
             <File>
               <FileName>stub.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Device53\stub.h</FilePath>
+              <FilePath>.\src\stub.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -928,72 +928,72 @@
             <File>
               <FileName>Display.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Device53\Display\Display.cpp</FilePath>
+              <FilePath>.\src\Display\Display.cpp</FilePath>
             </File>
             <File>
               <FileName>Display.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Device53\Display\Display.h</FilePath>
+              <FilePath>.\src\Display\Display.h</FilePath>
             </File>
             <File>
               <FileName>PainterMem.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Device53\Display\PainterMem.h</FilePath>
+              <FilePath>.\src\Display\PainterMem.h</FilePath>
             </File>
             <File>
               <FileName>Symbols.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Device53\Display\Symbols.h</FilePath>
+              <FilePath>.\src\Display\Symbols.h</FilePath>
             </File>
             <File>
               <FileName>PainterMem.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Device53\Display\PainterMem.cpp</FilePath>
+              <FilePath>.\src\Display\PainterMem.cpp</FilePath>
             </File>
             <File>
               <FileName>Colors.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>..\common\Display\Colors.cpp</FilePath>
+              <FilePath>..\libs\common\Display\Colors.cpp</FilePath>
             </File>
             <File>
               <FileName>Colors.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\common\Display\Colors.h</FilePath>
+              <FilePath>..\libs\common\Display\Colors.h</FilePath>
             </File>
             <File>
               <FileName>Grid.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>..\common\Display\Grid.cpp</FilePath>
+              <FilePath>..\libs\common\Display\Grid.cpp</FilePath>
             </File>
             <File>
               <FileName>Grid.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\common\Display\Grid.h</FilePath>
+              <FilePath>..\libs\common\Display\Grid.h</FilePath>
             </File>
             <File>
               <FileName>Painter.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>..\common\Display\Painter.cpp</FilePath>
+              <FilePath>..\libs\common\Display\Painter.cpp</FilePath>
             </File>
             <File>
               <FileName>Painter.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\common\Display\Painter.h</FilePath>
+              <FilePath>..\libs\common\Display\Painter.h</FilePath>
             </File>
             <File>
               <FileName>PainterText.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>..\common\Display\PainterText.cpp</FilePath>
+              <FilePath>..\libs\common\Display\PainterText.cpp</FilePath>
             </File>
             <File>
               <FileName>DisplayPrimitives.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>..\common\Display\DisplayPrimitives.cpp</FilePath>
+              <FilePath>..\libs\common\Display\DisplayPrimitives.cpp</FilePath>
             </File>
             <File>
               <FileName>DisplayPrimitives.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\common\Display\DisplayPrimitives.h</FilePath>
+              <FilePath>..\libs\common\Display\DisplayPrimitives.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -1003,52 +1003,52 @@
             <File>
               <FileName>Font.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Device53\Display\font\Font.h</FilePath>
+              <FilePath>.\src\Display\font\Font.h</FilePath>
             </File>
             <File>
               <FileName>font5.inc</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Device53\Display\font\font5.inc</FilePath>
+              <FilePath>.\src\Display\font\font5.inc</FilePath>
             </File>
             <File>
               <FileName>font5display.inc</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Device53\Display\font\font5display.inc</FilePath>
+              <FilePath>.\src\Display\font\font5display.inc</FilePath>
             </File>
             <File>
               <FileName>font8.inc</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Device53\Display\font\font8.inc</FilePath>
+              <FilePath>.\src\Display\font\font8.inc</FilePath>
             </File>
             <File>
               <FileName>font8display.inc</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Device53\Display\font\font8display.inc</FilePath>
+              <FilePath>.\src\Display\font\font8display.inc</FilePath>
             </File>
             <File>
               <FileName>fontUGO.inc</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Device53\Display\font\fontUGO.inc</FilePath>
+              <FilePath>.\src\Display\font\fontUGO.inc</FilePath>
             </File>
             <File>
               <FileName>fontUGO2.inc</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Device53\Display\font\fontUGO2.inc</FilePath>
+              <FilePath>.\src\Display\font\fontUGO2.inc</FilePath>
             </File>
             <File>
               <FileName>fontUGO2display.inc</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Device53\Display\font\fontUGO2display.inc</FilePath>
+              <FilePath>.\src\Display\font\fontUGO2display.inc</FilePath>
             </File>
             <File>
               <FileName>fontUGOdisplay.inc</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Device53\Display\font\fontUGOdisplay.inc</FilePath>
+              <FilePath>.\src\Display\font\fontUGOdisplay.inc</FilePath>
             </File>
             <File>
               <FileName>Font.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Device53\Display\font\Font.cpp</FilePath>
+              <FilePath>.\src\Display\font\Font.cpp</FilePath>
             </File>
           </Files>
         </Group>
@@ -1058,22 +1058,22 @@
             <File>
               <FileName>Ethernet.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Device53\Ethernet\Ethernet.h</FilePath>
+              <FilePath>.\src\Ethernet\Ethernet.h</FilePath>
             </File>
             <File>
               <FileName>TcpSocket.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Device53\Ethernet\TcpSocket.h</FilePath>
+              <FilePath>.\src\Ethernet\TcpSocket.h</FilePath>
             </File>
             <File>
               <FileName>Ethernet.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Device53\Ethernet\Ethernet.cpp</FilePath>
+              <FilePath>.\src\Ethernet\Ethernet.cpp</FilePath>
             </File>
             <File>
               <FileName>TcpSocket.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Device53\Ethernet\TcpSocket.cpp</FilePath>
+              <FilePath>.\src\Ethernet\TcpSocket.cpp</FilePath>
             </File>
           </Files>
         </Group>
@@ -1083,22 +1083,22 @@
             <File>
               <FileName>FlashDrive.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Device53\FlashDrive\FlashDrive.cpp</FilePath>
+              <FilePath>.\src\FlashDrive\FlashDrive.cpp</FilePath>
             </File>
             <File>
               <FileName>FlashDrive.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Device53\FlashDrive\FlashDrive.h</FilePath>
+              <FilePath>.\src\FlashDrive\FlashDrive.h</FilePath>
             </File>
             <File>
               <FileName>FileManager.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Device53\FlashDrive\FileManager.cpp</FilePath>
+              <FilePath>.\src\FlashDrive\FileManager.cpp</FilePath>
             </File>
             <File>
               <FileName>FileManager.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Device53\FlashDrive\FileManager.h</FilePath>
+              <FilePath>.\src\FlashDrive\FileManager.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -1108,47 +1108,47 @@
             <File>
               <FileName>DataStorage.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Device53\FPGA\DataStorage.cpp</FilePath>
+              <FilePath>.\src\FPGA\DataStorage.cpp</FilePath>
             </File>
             <File>
               <FileName>DataStorage.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Device53\FPGA\DataStorage.h</FilePath>
+              <FilePath>.\src\FPGA\DataStorage.h</FilePath>
             </File>
             <File>
               <FileName>FPGA.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Device53\FPGA\FPGA.cpp</FilePath>
+              <FilePath>.\src\FPGA\FPGA.cpp</FilePath>
             </File>
             <File>
               <FileName>FPGA.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Device53\FPGA\FPGA.h</FilePath>
+              <FilePath>.\src\FPGA\FPGA.h</FilePath>
             </File>
             <File>
               <FileName>FPGACalibration.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Device53\FPGA\FPGACalibration.cpp</FilePath>
+              <FilePath>.\src\FPGA\FPGACalibration.cpp</FilePath>
             </File>
             <File>
               <FileName>FPGASettings.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Device53\FPGA\FPGASettings.cpp</FilePath>
+              <FilePath>.\src\FPGA\FPGASettings.cpp</FilePath>
             </File>
             <File>
               <FileName>FPGATypes.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Device53\FPGA\FPGATypes.h</FilePath>
+              <FilePath>.\src\FPGA\FPGATypes.h</FilePath>
             </File>
             <File>
               <FileName>FPGAMath.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>..\common\FPGA\FPGAMath.cpp</FilePath>
+              <FilePath>..\libs\common\FPGA\FPGAMath.cpp</FilePath>
             </File>
             <File>
               <FileName>FPGAMath.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\common\FPGA\FPGAMath.h</FilePath>
+              <FilePath>..\libs\common\FPGA\FPGAMath.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -1158,77 +1158,77 @@
             <File>
               <FileName>ADC.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Device53\Hardware\ADC.cpp</FilePath>
+              <FilePath>.\src\Hardware\ADC.cpp</FilePath>
             </File>
             <File>
               <FileName>ADC.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Device53\Hardware\ADC.h</FilePath>
+              <FilePath>.\src\Hardware\ADC.h</FilePath>
             </File>
             <File>
               <FileName>FLASH.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Device53\Hardware\FLASH.h</FilePath>
+              <FilePath>.\src\Hardware\FLASH.h</FilePath>
             </File>
             <File>
               <FileName>FSMC.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Device53\Hardware\FSMC.h</FilePath>
+              <FilePath>.\src\Hardware\FSMC.h</FilePath>
             </File>
             <File>
               <FileName>Hardware.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Device53\Hardware\Hardware.h</FilePath>
+              <FilePath>.\src\Hardware\Hardware.h</FilePath>
             </File>
             <File>
               <FileName>RTC.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Device53\Hardware\RTC.cpp</FilePath>
+              <FilePath>.\src\Hardware\RTC.cpp</FilePath>
             </File>
             <File>
               <FileName>RTC.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Device53\Hardware\RTC.h</FilePath>
+              <FilePath>.\src\Hardware\RTC.h</FilePath>
             </File>
             <File>
               <FileName>FLASH.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Device53\Hardware\FLASH.cpp</FilePath>
+              <FilePath>.\src\Hardware\FLASH.cpp</FilePath>
             </File>
             <File>
               <FileName>FSMC.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Device53\Hardware\FSMC.cpp</FilePath>
+              <FilePath>.\src\Hardware\FSMC.cpp</FilePath>
             </File>
             <File>
               <FileName>Hardware.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Device53\Hardware\Hardware.cpp</FilePath>
+              <FilePath>.\src\Hardware\Hardware.cpp</FilePath>
             </File>
             <File>
               <FileName>MSP_USBH.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Device53\Hardware\MSP_USBH.cpp</FilePath>
+              <FilePath>.\src\Hardware\MSP_USBH.cpp</FilePath>
             </File>
             <File>
               <FileName>Timer.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>..\common\Hardware\Timer.cpp</FilePath>
+              <FilePath>..\libs\common\Hardware\Timer.cpp</FilePath>
             </File>
             <File>
               <FileName>Timer.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\common\Hardware\Timer.h</FilePath>
+              <FilePath>..\libs\common\Hardware\Timer.h</FilePath>
             </File>
             <File>
               <FileName>Sound.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>..\common\Hardware\Sound.cpp</FilePath>
+              <FilePath>..\libs\common\Hardware\Sound.cpp</FilePath>
             </File>
             <File>
               <FileName>Sound.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\common\Hardware\Sound.h</FilePath>
+              <FilePath>..\libs\common\Hardware\Sound.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -1238,37 +1238,37 @@
             <File>
               <FileName>Menu.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>..\common\Menu\Menu.cpp</FilePath>
+              <FilePath>..\libs\common\Menu\Menu.cpp</FilePath>
             </File>
             <File>
               <FileName>Menu.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\common\Menu\Menu.h</FilePath>
+              <FilePath>..\libs\common\Menu\Menu.h</FilePath>
             </File>
             <File>
               <FileName>MenuItems.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>..\common\Menu\MenuItems.cpp</FilePath>
+              <FilePath>..\libs\common\Menu\MenuItems.cpp</FilePath>
             </File>
             <File>
               <FileName>MenuItems.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\common\Menu\MenuItems.h</FilePath>
+              <FilePath>..\libs\common\Menu\MenuItems.h</FilePath>
             </File>
             <File>
               <FileName>MenuItemsDefs.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\common\Menu\MenuItemsDefs.h</FilePath>
+              <FilePath>..\libs\common\Menu\MenuItemsDefs.h</FilePath>
             </File>
             <File>
               <FileName>MenuItemsGraphics.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>..\common\Menu\MenuItemsGraphics.cpp</FilePath>
+              <FilePath>..\libs\common\Menu\MenuItemsGraphics.cpp</FilePath>
             </File>
             <File>
               <FileName>MenuItemsLogic.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>..\common\Menu\MenuItemsLogic.cpp</FilePath>
+              <FilePath>..\libs\common\Menu\MenuItemsLogic.cpp</FilePath>
             </File>
           </Files>
         </Group>
@@ -1278,92 +1278,92 @@
             <File>
               <FileName>HelpContent.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Device53\Menu\Pages\HelpContent.h</FilePath>
+              <FilePath>.\src\Menu\Pages\HelpContent.h</FilePath>
             </File>
             <File>
               <FileName>HelpContentPages.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Device53\Menu\Pages\HelpContentPages.h</FilePath>
+              <FilePath>.\src\Menu\Pages\HelpContentPages.h</FilePath>
             </File>
             <File>
               <FileName>PageCursors.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Device53\Menu\Pages\PageCursors.h</FilePath>
+              <FilePath>.\src\Menu\Pages\PageCursors.h</FilePath>
             </File>
             <File>
               <FileName>PageHelp.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Device53\Menu\Pages\PageHelp.h</FilePath>
+              <FilePath>.\src\Menu\Pages\PageHelp.h</FilePath>
             </File>
             <File>
               <FileName>PageMemory.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Device53\Menu\Pages\PageMemory.h</FilePath>
+              <FilePath>.\src\Menu\Pages\PageMemory.h</FilePath>
             </File>
             <File>
               <FileName>HelpContent.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Device53\Menu\Pages\HelpContent.cpp</FilePath>
+              <FilePath>.\src\Menu\Pages\HelpContent.cpp</FilePath>
             </File>
             <File>
               <FileName>PageChannels.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Device53\Menu\Pages\PageChannels.cpp</FilePath>
+              <FilePath>.\src\Menu\Pages\PageChannels.cpp</FilePath>
             </File>
             <File>
               <FileName>PageCursors.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Device53\Menu\Pages\PageCursors.cpp</FilePath>
+              <FilePath>.\src\Menu\Pages\PageCursors.cpp</FilePath>
             </File>
             <File>
               <FileName>PageDebug.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Device53\Menu\Pages\PageDebug.cpp</FilePath>
+              <FilePath>.\src\Menu\Pages\PageDebug.cpp</FilePath>
             </File>
             <File>
               <FileName>PageDisplay.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Device53\Menu\Pages\PageDisplay.cpp</FilePath>
+              <FilePath>.\src\Menu\Pages\PageDisplay.cpp</FilePath>
             </File>
             <File>
               <FileName>PageHelp.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Device53\Menu\Pages\PageHelp.cpp</FilePath>
+              <FilePath>.\src\Menu\Pages\PageHelp.cpp</FilePath>
             </File>
             <File>
               <FileName>PageMeasures.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Device53\Menu\Pages\PageMeasures.cpp</FilePath>
+              <FilePath>.\src\Menu\Pages\PageMeasures.cpp</FilePath>
             </File>
             <File>
               <FileName>PageMemory.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Device53\Menu\Pages\PageMemory.cpp</FilePath>
+              <FilePath>.\src\Menu\Pages\PageMemory.cpp</FilePath>
             </File>
             <File>
               <FileName>PageService.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Device53\Menu\Pages\PageService.cpp</FilePath>
+              <FilePath>.\src\Menu\Pages\PageService.cpp</FilePath>
             </File>
             <File>
               <FileName>PageTime.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Device53\Menu\Pages\PageTime.cpp</FilePath>
+              <FilePath>.\src\Menu\Pages\PageTime.cpp</FilePath>
             </File>
             <File>
               <FileName>PageTrig.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Device53\Menu\Pages\PageTrig.cpp</FilePath>
+              <FilePath>.\src\Menu\Pages\PageTrig.cpp</FilePath>
             </File>
             <File>
               <FileName>Definition.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>..\common\Menu\Pages\Definition.cpp</FilePath>
+              <FilePath>..\libs\common\Menu\Pages\Definition.cpp</FilePath>
             </File>
             <File>
               <FileName>Definition.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\common\Menu\Pages\Definition.h</FilePath>
+              <FilePath>..\libs\common\Menu\Pages\Definition.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -1373,27 +1373,27 @@
             <File>
               <FileName>Controls.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Device53\Panel\Controls.h</FilePath>
+              <FilePath>.\src\Panel\Controls.h</FilePath>
             </File>
             <File>
               <FileName>Panel.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Device53\Panel\Panel.cpp</FilePath>
+              <FilePath>.\src\Panel\Panel.cpp</FilePath>
             </File>
             <File>
               <FileName>Panel.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Device53\Panel\Panel.h</FilePath>
+              <FilePath>.\src\Panel\Panel.h</FilePath>
             </File>
             <File>
               <FileName>Controls.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Device53\Panel\Controls.cpp</FilePath>
+              <FilePath>.\src\Panel\Controls.cpp</FilePath>
             </File>
             <File>
               <FileName>PanelFunctions.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Device53\Panel\PanelFunctions.cpp</FilePath>
+              <FilePath>.\src\Panel\PanelFunctions.cpp</FilePath>
               <FileOption>
                 <CommonProperty>
                   <UseCPPCompiler>2</UseCPPCompiler>
@@ -1453,117 +1453,117 @@
             <File>
               <FileName>Settings.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Device53\Settings\Settings.h</FilePath>
+              <FilePath>.\src\Settings\Settings.h</FilePath>
             </File>
             <File>
               <FileName>SettingsChannel.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Device53\Settings\SettingsChannel.h</FilePath>
+              <FilePath>.\src\Settings\SettingsChannel.h</FilePath>
             </File>
             <File>
               <FileName>SettingsCursors.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Device53\Settings\SettingsCursors.h</FilePath>
+              <FilePath>.\src\Settings\SettingsCursors.h</FilePath>
             </File>
             <File>
               <FileName>SettingsDebug.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Device53\Settings\SettingsDebug.h</FilePath>
+              <FilePath>.\src\Settings\SettingsDebug.h</FilePath>
             </File>
             <File>
               <FileName>SettingsDisplay.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Device53\Settings\SettingsDisplay.h</FilePath>
+              <FilePath>.\src\Settings\SettingsDisplay.h</FilePath>
             </File>
             <File>
               <FileName>SettingsMath.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Device53\Settings\SettingsMath.h</FilePath>
+              <FilePath>.\src\Settings\SettingsMath.h</FilePath>
             </File>
             <File>
               <FileName>SettingsMeasures.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Device53\Settings\SettingsMeasures.h</FilePath>
+              <FilePath>.\src\Settings\SettingsMeasures.h</FilePath>
             </File>
             <File>
               <FileName>SettingsMemory.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Device53\Settings\SettingsMemory.h</FilePath>
+              <FilePath>.\src\Settings\SettingsMemory.h</FilePath>
             </File>
             <File>
               <FileName>SettingsService.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Device53\Settings\SettingsService.h</FilePath>
+              <FilePath>.\src\Settings\SettingsService.h</FilePath>
             </File>
             <File>
               <FileName>SettingsTime.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Device53\Settings\SettingsTime.h</FilePath>
+              <FilePath>.\src\Settings\SettingsTime.h</FilePath>
             </File>
             <File>
               <FileName>SettingsTrig.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Device53\Settings\SettingsTrig.h</FilePath>
+              <FilePath>.\src\Settings\SettingsTrig.h</FilePath>
             </File>
             <File>
               <FileName>SettingsTypes.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Device53\Settings\SettingsTypes.h</FilePath>
+              <FilePath>.\src\Settings\SettingsTypes.h</FilePath>
             </File>
             <File>
               <FileName>Settings.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Device53\Settings\Settings.cpp</FilePath>
+              <FilePath>.\src\Settings\Settings.cpp</FilePath>
             </File>
             <File>
               <FileName>SettingsChannel.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Device53\Settings\SettingsChannel.cpp</FilePath>
+              <FilePath>.\src\Settings\SettingsChannel.cpp</FilePath>
             </File>
             <File>
               <FileName>SettingsCursors.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Device53\Settings\SettingsCursors.cpp</FilePath>
+              <FilePath>.\src\Settings\SettingsCursors.cpp</FilePath>
             </File>
             <File>
               <FileName>SettingsDebug.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Device53\Settings\SettingsDebug.cpp</FilePath>
+              <FilePath>.\src\Settings\SettingsDebug.cpp</FilePath>
             </File>
             <File>
               <FileName>SettingsDisplay.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Device53\Settings\SettingsDisplay.cpp</FilePath>
+              <FilePath>.\src\Settings\SettingsDisplay.cpp</FilePath>
             </File>
             <File>
               <FileName>SettingsMeasures.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Device53\Settings\SettingsMeasures.cpp</FilePath>
+              <FilePath>.\src\Settings\SettingsMeasures.cpp</FilePath>
             </File>
             <File>
               <FileName>SettingsMemory.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Device53\Settings\SettingsMemory.cpp</FilePath>
+              <FilePath>.\src\Settings\SettingsMemory.cpp</FilePath>
             </File>
             <File>
               <FileName>SettingsService.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Device53\Settings\SettingsService.cpp</FilePath>
+              <FilePath>.\src\Settings\SettingsService.cpp</FilePath>
             </File>
             <File>
               <FileName>SettingsTime.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Device53\Settings\SettingsTime.cpp</FilePath>
+              <FilePath>.\src\Settings\SettingsTime.cpp</FilePath>
             </File>
             <File>
               <FileName>commonSettings.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>..\common\Settings\commonSettings.cpp</FilePath>
+              <FilePath>..\libs\common\Settings\commonSettings.cpp</FilePath>
             </File>
             <File>
               <FileName>commonSettingsMath.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\common\Settings\commonSettingsMath.h</FilePath>
+              <FilePath>..\libs\common\Settings\commonSettingsMath.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -1573,72 +1573,72 @@
             <File>
               <FileName>ProcessingSignal.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Device53\Utils\ProcessingSignal.h</FilePath>
+              <FilePath>.\src\Utils\ProcessingSignal.h</FilePath>
             </File>
             <File>
               <FileName>ProcessingSignal.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Device53\Utils\ProcessingSignal.cpp</FilePath>
+              <FilePath>.\src\Utils\ProcessingSignal.cpp</FilePath>
             </File>
             <File>
               <FileName>Math.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>..\common\Utils\Math.cpp</FilePath>
+              <FilePath>..\libs\common\Utils\Math.cpp</FilePath>
             </File>
             <File>
               <FileName>Math.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\common\Utils\Math.h</FilePath>
+              <FilePath>..\libs\common\Utils\Math.h</FilePath>
             </File>
             <File>
               <FileName>StringUtils.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>..\common\Utils\StringUtils.cpp</FilePath>
+              <FilePath>..\libs\common\Utils\StringUtils.cpp</FilePath>
             </File>
             <File>
               <FileName>StringUtils.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\common\Utils\StringUtils.h</FilePath>
+              <FilePath>..\libs\common\Utils\StringUtils.h</FilePath>
             </File>
             <File>
               <FileName>Dictionary.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>..\common\Utils\Dictionary.cpp</FilePath>
+              <FilePath>..\libs\common\Utils\Dictionary.cpp</FilePath>
             </File>
             <File>
               <FileName>Dictionary.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\common\Utils\Dictionary.h</FilePath>
+              <FilePath>..\libs\common\Utils\Dictionary.h</FilePath>
             </File>
             <File>
               <FileName>CommonFunctions.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>..\common\Utils\CommonFunctions.cpp</FilePath>
+              <FilePath>..\libs\common\Utils\CommonFunctions.cpp</FilePath>
             </File>
             <File>
               <FileName>CommonFunctions.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\common\Utils\CommonFunctions.h</FilePath>
+              <FilePath>..\libs\common\Utils\CommonFunctions.h</FilePath>
             </File>
             <File>
               <FileName>Map.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>..\common\Utils\Map.cpp</FilePath>
+              <FilePath>..\libs\common\Utils\Map.cpp</FilePath>
             </File>
             <File>
               <FileName>Map.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\common\Utils\Map.h</FilePath>
+              <FilePath>..\libs\common\Utils\Map.h</FilePath>
             </File>
             <File>
               <FileName>Measures.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>..\common\Utils\Measures.cpp</FilePath>
+              <FilePath>..\libs\common\Utils\Measures.cpp</FilePath>
             </File>
             <File>
               <FileName>Measures.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\common\Utils\Measures.h</FilePath>
+              <FilePath>..\libs\common\Utils\Measures.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -1648,12 +1648,12 @@
             <File>
               <FileName>VCP.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Device53\VCP\VCP.h</FilePath>
+              <FilePath>.\src\VCP\VCP.h</FilePath>
             </File>
             <File>
               <FileName>VCP.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Device53\VCP\VCP.cpp</FilePath>
+              <FilePath>.\src\VCP\VCP.cpp</FilePath>
             </File>
           </Files>
         </Group>
@@ -1663,52 +1663,52 @@
             <File>
               <FileName>commonSCPI.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Device53\VCP\SCPI\commonSCPI.h</FilePath>
+              <FilePath>.\src\VCP\SCPI\commonSCPI.h</FilePath>
             </File>
             <File>
               <FileName>controlSCPI.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Device53\VCP\SCPI\controlSCPI.h</FilePath>
+              <FilePath>.\src\VCP\SCPI\controlSCPI.h</FilePath>
             </File>
             <File>
               <FileName>SCPI.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Device53\VCP\SCPI\SCPI.h</FilePath>
+              <FilePath>.\src\VCP\SCPI\SCPI.h</FilePath>
             </File>
             <File>
               <FileName>channelSCPI.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Device53\VCP\SCPI\channelSCPI.cpp</FilePath>
+              <FilePath>.\src\VCP\SCPI\channelSCPI.cpp</FilePath>
             </File>
             <File>
               <FileName>commonSCPI.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Device53\VCP\SCPI\commonSCPI.cpp</FilePath>
+              <FilePath>.\src\VCP\SCPI\commonSCPI.cpp</FilePath>
             </File>
             <File>
               <FileName>controlSCPI.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Device53\VCP\SCPI\controlSCPI.cpp</FilePath>
+              <FilePath>.\src\VCP\SCPI\controlSCPI.cpp</FilePath>
             </File>
             <File>
               <FileName>displaySCPI.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Device53\VCP\SCPI\displaySCPI.cpp</FilePath>
+              <FilePath>.\src\VCP\SCPI\displaySCPI.cpp</FilePath>
             </File>
             <File>
               <FileName>SCPI.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Device53\VCP\SCPI\SCPI.cpp</FilePath>
+              <FilePath>.\src\VCP\SCPI\SCPI.cpp</FilePath>
             </File>
             <File>
               <FileName>tbaseSCPI.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Device53\VCP\SCPI\tbaseSCPI.cpp</FilePath>
+              <FilePath>.\src\VCP\SCPI\tbaseSCPI.cpp</FilePath>
             </File>
             <File>
               <FileName>trigSCPI.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Device53\VCP\SCPI\trigSCPI.cpp</FilePath>
+              <FilePath>.\src\VCP\SCPI\trigSCPI.cpp</FilePath>
             </File>
           </Files>
         </Group>
@@ -1718,52 +1718,52 @@
             <File>
               <FileName>diskio.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\diskio.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\diskio.c</FilePath>
             </File>
             <File>
               <FileName>diskio.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\diskio.h</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\diskio.h</FilePath>
             </File>
             <File>
               <FileName>ff.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\ff.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\ff.c</FilePath>
             </File>
             <File>
               <FileName>ff.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\ff.h</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\ff.h</FilePath>
             </File>
             <File>
               <FileName>ff_gen_drv.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\ff_gen_drv.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\ff_gen_drv.c</FilePath>
             </File>
             <File>
               <FileName>ff_gen_drv.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\ff_gen_drv.h</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\ff_gen_drv.h</FilePath>
             </File>
             <File>
               <FileName>usbh_diskio.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\drivers\usbh_diskio.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\drivers\usbh_diskio.c</FilePath>
             </File>
             <File>
               <FileName>usbh_diskio.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\drivers\usbh_diskio.h</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\drivers\usbh_diskio.h</FilePath>
             </File>
             <File>
               <FileName>syscall.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\option\syscall.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\option\syscall.c</FilePath>
             </File>
             <File>
               <FileName>unicode.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\option\unicode.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\option\unicode.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -1773,22 +1773,22 @@
             <File>
               <FileName>usbd_core.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Device_Library\Core\Src\usbd_core.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Device_Library\Core\Src\usbd_core.c</FilePath>
             </File>
             <File>
               <FileName>usbd_ctlreq.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Device_Library\Core\Src\usbd_ctlreq.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Device_Library\Core\Src\usbd_ctlreq.c</FilePath>
             </File>
             <File>
               <FileName>usbd_ioreq.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Device_Library\Core\Src\usbd_ioreq.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Device_Library\Core\Src\usbd_ioreq.c</FilePath>
             </File>
             <File>
               <FileName>usbd_cdc.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Device_Library\Class\CDC\Src\usbd_cdc.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Device_Library\Class\CDC\Src\usbd_cdc.c</FilePath>
             </File>
           </Files>
         </Group>

@@ -416,13 +416,13 @@ void Display::DrawMath()
     float dataAbs0[FPGA_MAX_POINTS];
     float dataAbs1[FPGA_MAX_POINTS];
 
-    mathFPGA.PointsRel2Voltage(dataRel0, ds->length1channel, ds->range[A], ds->rShiftCh0, dataAbs0);
-    mathFPGA.PointsRel2Voltage(dataRel1, ds->length1channel, ds->range[B], ds->rShiftCh1, dataAbs1);
+    MathFPGA::PointsRel2Voltage(dataRel0, ds->length1channel, ds->range[A], ds->rShiftCh0, dataAbs0);
+    MathFPGA::PointsRel2Voltage(dataRel1, ds->length1channel, ds->range[B], ds->rShiftCh1, dataAbs1);
 
     Math::CalculateMathFunction(dataAbs0, dataAbs1, ds->length1channel);
     
     uint8 points[FPGA_MAX_POINTS];
-    mathFPGA.PointsVoltage2Rel(dataAbs0, ds->length1channel, SET_RANGE_MATH, SET_RSHIFT_MATH, points);
+    MathFPGA::PointsVoltage2Rel(dataAbs0, ds->length1channel, SET_RANGE_MATH, SET_RSHIFT_MATH, points);
 
     DrawDataChannel(points, Math, ds, Grid::MathTop(), Grid::MathBottom());
 
@@ -500,8 +500,8 @@ static void DRAW_SPECTRUM(const uint8 *data, int numPoints, Channel channel)
     int y1 = 0;
     int s = 2;
 
-    mathFPGA.PointsRel2Voltage(data, numPoints, gDSet->range[channel], channel == A ? gDSet->rShiftCh0 : gDSet->rShiftCh1, dataR);
-    mathFPGA.CalculateFFT(dataR, numPoints, spectrum, &freq0, &density0, &freq1, &density1, &y0, &y1);
+    MathFPGA::PointsRel2Voltage(data, numPoints, gDSet->range[channel], channel == A ? gDSet->rShiftCh0 : gDSet->rShiftCh1, dataR);
+    MathFPGA::CalculateFFT(dataR, numPoints, spectrum, &freq0, &density0, &freq1, &density1, &y0, &y1);
     DrawSpectrumChannel(spectrum, Color::CHAN[channel]);
     if (!MenuIsShown() || MenuIsMinimize())
     {
@@ -1061,8 +1061,8 @@ void Display::WriteCursors()
             Painter::DrawText(x, y1, sCursors_GetCursVoltage(source, 0, buffer));
             Painter::DrawText(x, y2, sCursors_GetCursVoltage(source, 1, buffer));
             x = startX + 49;
-            float pos0 = mathFPGA.VoltageCursor(sCursors_GetCursPosU(source, 0), SET_RANGE(source), SET_RSHIFT(source));
-            float pos1 = mathFPGA.VoltageCursor(sCursors_GetCursPosU(source, 1), SET_RANGE(source), SET_RSHIFT(source));
+            float pos0 = MathFPGA::VoltageCursor(sCursors_GetCursPosU(source, 0), SET_RANGE(source), SET_RSHIFT(source));
+            float pos1 = MathFPGA::VoltageCursor(sCursors_GetCursPosU(source, 1), SET_RANGE(source), SET_RSHIFT(source));
             float delta = fabsf(pos1 - pos0);
             Painter::DrawText(x, y1, ":dU=");
             Painter::DrawText(x + 17, y1, Voltage2String(delta, false, buffer));
@@ -1082,8 +1082,8 @@ void Display::WriteCursors()
             Painter::DrawText(x, y1, sCursors_GetCursorTime(source, 0, buffer));
             Painter::DrawText(x, y2, sCursors_GetCursorTime(source, 1, buffer));
             x = startX + 153;
-            float pos0 = mathFPGA.TimeCursor(CURS_POS_T0(source), SET_TBASE);
-            float pos1 = mathFPGA.TimeCursor(CURS_POS_T1(source) , SET_TBASE);
+            float pos0 = MathFPGA::TimeCursor(CURS_POS_T0(source), SET_TBASE);
+            float pos1 = MathFPGA::TimeCursor(CURS_POS_T1(source) , SET_TBASE);
             float delta = fabsf(pos1 - pos0);
             Painter::DrawText(x, y1, ":dT=");
             char buffer[20];

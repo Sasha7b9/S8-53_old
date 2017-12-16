@@ -74,7 +74,7 @@ static int firstPoint = 0;
 static int lastPoint = 0;
 static int numPoints = 0;
 
-static const MeasureCalculate sMeas[Meas_NumMeasures] =
+static const MeasureCalculate sMeas[NumMeasures] =
 {
     {"", 0, 0, false},
     {"CalculateVoltageMax",         CalculateVoltageMax,           Voltage2String, true},
@@ -101,7 +101,7 @@ static const MeasureCalculate sMeas[Meas_NumMeasures] =
     {"CalculatePhazaMinus",         CalculatePhazaMinus,           Phase2String, false}
 };
 
-static MeasureValue values[Meas_NumMeasures] = {{0.0f, 0.0f}};
+static MeasureValue values[NumMeasures] = {{0.0f, 0.0f}};
 
 static int markerHor[NumChannels][2] = {{ERROR_VALUE_INT}, {ERROR_VALUE_INT}};
 static int markerVert[NumChannels][2] = {{ERROR_VALUE_INT}, {ERROR_VALUE_INT}};
@@ -140,7 +140,7 @@ void Processing::CalculateMeasures()
         for(int elem = 0; elem < Measures::NumCols(); elem++)
         {
             Meas meas = Measures::Type(str, elem);
-            if (meas == Meas_TimeNarastaniya)
+            if (meas == TimeNarastaniya)
             {
                 meas = meas;
             }
@@ -170,24 +170,24 @@ float CalculateVoltageMax(Channel chan)
     float max = CalculateMaxRel(chan);
     
     EXIT_IF_ERROR_FLOAT(max);
-    if(MEAS_MARKED == Meas_VoltageMax)
+    if(MEAS_MARKED == VoltageMax)
     {
         markerHor[chan][0] = (int)max;                           // Здесь не округляем, потому что max может быть только целым
     }
 
-    return POINT_2_VOLTAGE(max, dataSet->range[chan], chan == A ? dataSet->rShiftCh0 : dataSet->rShiftCh1) * VALUE_MULTIPLIER(chan);
+    return MathFPGA::Point2Voltage(max, dataSet->range[chan], chan == A ? dataSet->rShiftCh0 : dataSet->rShiftCh1) * VALUE_MULTIPLIER(chan);
 }
 
 float CalculateVoltageMin(Channel chan)
 {
     float min = CalculateMinRel(chan);
     EXIT_IF_ERROR_FLOAT(min);
-    if(MEAS_MARKED == Meas_VoltageMin)
+    if(MEAS_MARKED == VoltageMin)
     {
         markerHor[chan][0] = (int)min;                           // Здесь не округляем, потому что min может быть только целым
     }
 
-    return POINT_2_VOLTAGE(min, dataSet->range[chan], chan == A ? dataSet->rShiftCh0 : dataSet->rShiftCh1) * VALUE_MULTIPLIER(chan);
+    return MathFPGA::Point2Voltage(min, dataSet->range[chan], chan == A ? dataSet->rShiftCh0 : dataSet->rShiftCh1) * VALUE_MULTIPLIER(chan);
 }
 
 float CalculateVoltagePic(Channel chan)
@@ -197,7 +197,7 @@ float CalculateVoltagePic(Channel chan)
 
     EXIT_IF_ERRORS_FLOAT(min, max);
 
-    if(MEAS_MARKED == Meas_VoltagePic)
+    if(MEAS_MARKED == VoltagePic)
     {
         markerHor[chan][0] = (int)CalculateMaxRel(chan);
         markerHor[chan][1] = (int)CalculateMinRel(chan);
@@ -209,12 +209,12 @@ float CalculateVoltageMinSteady(Channel chan)
 {
     float min = CalculateMinSteadyRel(chan);
     EXIT_IF_ERROR_FLOAT(min);
-    if(MEAS_MARKED == Meas_VoltageMinSteady)
+    if(MEAS_MARKED == VoltageMinSteady)
     {
         markerHor[chan][0] = (int)ROUND(min);
     }
 
-    return (POINT_2_VOLTAGE(min, dataSet->range[chan], chan == A ? dataSet->rShiftCh0 : dataSet->rShiftCh1) * VALUE_MULTIPLIER(chan));
+    return (MathFPGA::Point2Voltage(min, dataSet->range[chan], chan == A ? dataSet->rShiftCh0 : dataSet->rShiftCh1) * VALUE_MULTIPLIER(chan));
 }
 
 float CalculateVoltageMaxSteady(Channel chan)
@@ -223,7 +223,7 @@ float CalculateVoltageMaxSteady(Channel chan)
 
     EXIT_IF_ERROR_FLOAT(max);
 
-    if(MEAS_MARKED == Meas_VoltageMaxSteady)
+    if(MEAS_MARKED == VoltageMaxSteady)
     {
         markerHor[chan][0] = (int)max;
     }
@@ -231,7 +231,7 @@ float CalculateVoltageMaxSteady(Channel chan)
     Range range = dataSet->range[chan];
     uint rShift = chan == A ? dataSet->rShiftCh0 : dataSet->rShiftCh1;
 
-    return (POINT_2_VOLTAGE(max, range, rShift) * VALUE_MULTIPLIER(chan));
+    return (MathFPGA::Point2Voltage(max, range, rShift) * VALUE_MULTIPLIER(chan));
 }
 
 float CalculateVoltageVybrosPlus(Channel chan)
@@ -241,14 +241,14 @@ float CalculateVoltageVybrosPlus(Channel chan)
 
     EXIT_IF_ERRORS_FLOAT(max, maxSteady);
 
-    if (MEAS_MARKED == Meas_VoltageVybrosPlus)
+    if (MEAS_MARKED == VoltageVybrosPlus)
     {
         markerHor[chan][0] = (int)max;
         markerHor[chan][1] = (int)maxSteady;
     }
 
     int16 rShift = chan == A ? dataSet->rShiftCh0 : dataSet->rShiftCh1;
-    return fabsf(POINT_2_VOLTAGE(maxSteady, dataSet->range[chan], rShift) - POINT_2_VOLTAGE(max, dataSet->range[chan], rShift)) * VALUE_MULTIPLIER(chan);
+    return fabsf(MathFPGA::Point2Voltage(maxSteady, dataSet->range[chan], rShift) - MathFPGA::Point2Voltage(max, dataSet->range[chan], rShift)) * VALUE_MULTIPLIER(chan);
 }
 
 float CalculateVoltageVybrosMinus(Channel chan)
@@ -257,14 +257,14 @@ float CalculateVoltageVybrosMinus(Channel chan)
     float minSteady = CalculateMinSteadyRel(chan);
     EXIT_IF_ERRORS_FLOAT(min, minSteady);
 
-    if (MEAS_MARKED == Meas_VoltageVybrosMinus)
+    if (MEAS_MARKED == VoltageVybrosMinus)
     {
         markerHor[chan][0] = (int)min;
         markerHor[chan][1] = (int)minSteady;
     }
 
     int16 rShift = chan == A ? dataSet->rShiftCh0 : dataSet->rShiftCh1;
-    return fabsf(POINT_2_VOLTAGE(minSteady, dataSet->range[chan], rShift) - POINT_2_VOLTAGE(min, dataSet->range[chan], rShift)) * VALUE_MULTIPLIER(chan);
+    return fabsf(MathFPGA::Point2Voltage(minSteady, dataSet->range[chan], rShift) - MathFPGA::Point2Voltage(min, dataSet->range[chan], rShift)) * VALUE_MULTIPLIER(chan);
 }
 
 float CalculateVoltageAmpl(Channel chan)
@@ -274,7 +274,7 @@ float CalculateVoltageAmpl(Channel chan)
 
     EXIT_IF_ERRORS_FLOAT(min, max);
 
-    if(MEAS_MARKED == Meas_VoltageAmpl)
+    if(MEAS_MARKED == VoltageAmpl)
     {
         markerHor[chan][0] = (int)CalculateMaxSteadyRel(chan);
         markerHor[chan][1] = (int)CalculateMinSteadyRel(chan);
@@ -297,12 +297,12 @@ float CalculateVoltageAverage(Channel chan)
 
     uint8 aveRel = (uint8)((float)sum / period);
 
-    if(MEAS_MARKED == Meas_VoltageAverage)
+    if(MEAS_MARKED == VoltageAverage)
     {
         markerHor[chan][0] = aveRel;
     }
 
-    return (POINT_2_VOLTAGE(aveRel, dataSet->range[chan], chan == A ? dataSet->rShiftCh0 : dataSet->rShiftCh1) * VALUE_MULTIPLIER(chan));
+    return (MathFPGA::Point2Voltage(aveRel, dataSet->range[chan], chan == A ? dataSet->rShiftCh0 : dataSet->rShiftCh1) * VALUE_MULTIPLIER(chan));
 }
 
 float CalculateVoltageRMS(Channel chan)
@@ -315,13 +315,13 @@ float CalculateVoltageRMS(Channel chan)
     int16 rShift = chan == A ? dataSet->rShiftCh0 : dataSet->rShiftCh1;
     for(int i = firstPoint; i < firstPoint + period; i++)
     {
-        float volts = POINT_2_VOLTAGE(dataIn[chan][i], dataSet->range[chan], rShift);
+        float volts = MathFPGA::Point2Voltage(dataIn[chan][i], dataSet->range[chan], rShift);
         rms +=  volts * volts;
     }
 
-    if(MEAS_MARKED == Meas_VoltageRMS)
+    if(MEAS_MARKED == VoltageRMS)
     {
-        markerHor[chan][0] = mathFPGA.Voltage2Point(sqrtf(rms / period), dataSet->range[chan], rShift);
+        markerHor[chan][0] = MathFPGA::Voltage2Point(sqrtf(rms / period), dataSet->range[chan], rShift);
     }
 
     return sqrtf(rms / period) * VALUE_MULTIPLIER(chan);
@@ -559,7 +559,7 @@ float CalculateTimeNarastaniya(Channel chan)                    // WARN Здесь, в
 
     float retValue = TSHIFT_2_ABS((secondIntersection - firstIntersection) / 2.0f, dataSet->tBase);
 
-    if (MEAS_MARKED == Meas_TimeNarastaniya)
+    if (MEAS_MARKED == TimeNarastaniya)
     {
         markerHor[chan][0] = (int)max09;
         markerHor[chan][1] = (int)min01;
@@ -595,7 +595,7 @@ float CalculateTimeSpada(Channel chan)                          // WARN Аналогич
 
     float retValue = TSHIFT_2_ABS((secondIntersection - firstIntersection) / 2.0f, dataSet->tBase);
 
-    if (MEAS_MARKED == Meas_TimeSpada)
+    if (MEAS_MARKED == TimeSpada)
     {
         markerHor[chan][0] = (int)max09;
         markerHor[chan][1] = (int)min01;
@@ -1203,8 +1203,8 @@ void CountedToCurrentSettings()
 
         for (int i = 0; i < numPoints; i++)
         {
-            float absValue = POINT_2_VOLTAGE(dataOut0[i], dataSet->range[0], dataSet->rShiftCh0);
-            int relValue = (int)((absValue + MAX_VOLTAGE_ON_SCREEN(range) + RSHIFT_2_ABS(rShift, range)) / voltsInPixel[range] + MIN_VALUE);
+            float absValue = MathFPGA::Point2Voltage(dataOut0[i], dataSet->range[0], dataSet->rShiftCh0);
+            int relValue = (int)((absValue + MAX_VOLTAGE_ON_SCREEN(range) + RSHIFT_2_ABS(rShift, range)) / voltsInPoint[range] + MIN_VALUE);
 
             if (relValue < MIN_VALUE)       { dataOut0[i] = MIN_VALUE; }
             else if (relValue > MAX_VALUE)  { dataOut0[i] = MAX_VALUE; }
@@ -1218,8 +1218,8 @@ void CountedToCurrentSettings()
 
         for (int i = 0; i < numPoints; i++)
         {
-            float absValue = POINT_2_VOLTAGE(dataOut1[i], dataSet->range[1], dataSet->rShiftCh1);
-            int relValue = (int)((absValue + MAX_VOLTAGE_ON_SCREEN(range) + RSHIFT_2_ABS(rShift, range)) / voltsInPixel[range] + MIN_VALUE);
+            float absValue = MathFPGA::Point2Voltage(dataOut1[i], dataSet->range[1], dataSet->rShiftCh1);
+            int relValue = (int)((absValue + MAX_VOLTAGE_ON_SCREEN(range) + RSHIFT_2_ABS(rShift, range)) / voltsInPoint[range] + MIN_VALUE);
 
             if (relValue < MIN_VALUE)       { dataOut1[i] = MIN_VALUE; }
             else if (relValue > MAX_VALUE)  { dataOut1[i] = MAX_VALUE; }
