@@ -336,7 +336,7 @@
               <MiscControls>--cpp</MiscControls>
               <Define>USE_HAL_DRIVER, STM32F207xx, __cplusplus, S8_53</Define>
               <Undefine></Undefine>
-              <IncludePath>..\_libs\STM32Cube_F2\Drivers\CMSIS\Include;..\_libs\STM32Cube_F2\Drivers\CMSIS\Device\ST\STM32F2xx\Include;..\_libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Inc;..\_libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Core\Inc;..\_libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Class\MSC\Inc;..\_libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src;..\_libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\drivers;.\Boot53;.\Boot53\libs;..\common</IncludePath>
+              <IncludePath>..\libs\STM32Cube_F2\Drivers\CMSIS\Include;..\libs\STM32Cube_F2\Drivers\CMSIS\Device\ST\STM32F2xx\Include;..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Inc;..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Core\Inc;..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Class\MSC\Inc;..\libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src;..\libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\drivers;.\src;.\src\libs;..\libs\common</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -367,7 +367,7 @@
             <TextAddressRange>0x08000000</TextAddressRange>
             <DataAddressRange>0x20000000</DataAddressRange>
             <pXoBase></pXoBase>
-            <ScatterFile>.\Boot53\Boot53.sct</ScatterFile>
+            <ScatterFile>..\..\..\S8-54\sources\Loader\Loader54.sct</ScatterFile>
             <IncludeLibs></IncludeLibs>
             <IncludeLibsPath></IncludeLibsPath>
             <Misc></Misc>
@@ -438,42 +438,52 @@
             <File>
               <FileName>diskio.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\libs\STM32Cube_F4\Middlewares\Third_Party\FatFs\src\diskio.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\diskio.c</FilePath>
             </File>
             <File>
               <FileName>diskio.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\libs\STM32Cube_F4\Middlewares\Third_Party\FatFs\src\diskio.h</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\diskio.h</FilePath>
             </File>
             <File>
               <FileName>ff.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\libs\STM32Cube_F4\Middlewares\Third_Party\FatFs\src\ff.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\ff.c</FilePath>
             </File>
             <File>
               <FileName>ff.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\libs\STM32Cube_F4\Middlewares\Third_Party\FatFs\src\ff.h</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\ff.h</FilePath>
             </File>
             <File>
               <FileName>ff_gen_drv.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\libs\STM32Cube_F4\Middlewares\Third_Party\FatFs\src\ff_gen_drv.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\ff_gen_drv.c</FilePath>
             </File>
             <File>
               <FileName>ff_gen_drv.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\libs\STM32Cube_F4\Middlewares\Third_Party\FatFs\src\ff_gen_drv.h</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\ff_gen_drv.h</FilePath>
             </File>
             <File>
               <FileName>syscall.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\libs\STM32Cube_F4\Middlewares\Third_Party\FatFs\src\option\syscall.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\option\syscall.c</FilePath>
             </File>
             <File>
               <FileName>unicode.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\libs\STM32Cube_F4\Middlewares\Third_Party\FatFs\src\option\unicode.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\option\unicode.c</FilePath>
+            </File>
+            <File>
+              <FileName>usbh_diskio.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\drivers\usbh_diskio.c</FilePath>
+            </File>
+            <File>
+              <FileName>usbh_diskio.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\drivers\usbh_diskio.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -494,33 +504,458 @@
         </Group>
         <Group>
           <GroupName>HAL</GroupName>
+          <Files>
+            <File>
+              <FileName>stm32f2xx_hal.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f2xx_hal_cortex.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_cortex.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f2xx_hal_dma.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_dma.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f2xx_hal_dma_ex.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_dma_ex.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f2xx_hal_flash.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_flash.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f2xx_hal_flash_ex.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_flash_ex.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f2xx_hal_gpio.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_gpio.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f2xx_hal_hcd.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_hcd.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f2xx_hal_rcc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_rcc.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f2xx_hal_rcc_ex.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_rcc_ex.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f2xx_hal_spi.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_spi.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f2xx_hal_sram.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_sram.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f2xx_hal_tim.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_tim.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f2xx_hal_tim_ex.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_tim_ex.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f2xx_ll_fsmc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_ll_fsmc.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f2xx_ll_usb.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_ll_usb.c</FilePath>
+            </File>
+          </Files>
         </Group>
         <Group>
           <GroupName>Hardware</GroupName>
+          <Files>
+            <File>
+              <FileName>FLASH.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\Hardware\FLASH.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>FLASH.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\Hardware\FLASH.h</FilePath>
+            </File>
+            <File>
+              <FileName>FSMC.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\Hardware\FSMC.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>FSMC.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\Hardware\FSMC.h</FilePath>
+            </File>
+            <File>
+              <FileName>Hardware.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\Hardware\Hardware.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Hardware.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\Hardware\Hardware.h</FilePath>
+            </File>
+            <File>
+              <FileName>Timer.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\Hardware\Timer.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Timer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\Hardware\Timer.h</FilePath>
+            </File>
+          </Files>
         </Group>
         <Group>
           <GroupName>libs</GroupName>
+          <Files>
+            <File>
+              <FileName>ffconf.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\libs\ffconf.h</FilePath>
+            </File>
+            <File>
+              <FileName>startup_stm32f207xx.s</FileName>
+              <FileType>2</FileType>
+              <FilePath>.\src\libs\startup_stm32f207xx.s</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f2xx_hal_conf.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\libs\stm32f2xx_hal_conf.h</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f2xx_hal_msp.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\libs\stm32f2xx_hal_msp.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f2xx_it.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\libs\stm32f2xx_it.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f2xx_it.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\libs\stm32f2xx_it.h</FilePath>
+            </File>
+            <File>
+              <FileName>system_stm32f2xx.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\src\libs\system_stm32f2xx.c</FilePath>
+            </File>
+            <File>
+              <FileName>usbh_conf.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\libs\usbh_conf.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>usbh_conf.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\libs\usbh_conf.h</FilePath>
+            </File>
+          </Files>
         </Group>
         <Group>
           <GroupName>Panel</GroupName>
+          <Files>
+            <File>
+              <FileName>Controls.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\Panel\Controls.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Controls.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\Panel\Controls.h</FilePath>
+            </File>
+            <File>
+              <FileName>Panel.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\Panel\Panel.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Panel.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\Panel\Panel.h</FilePath>
+            </File>
+          </Files>
         </Group>
         <Group>
           <GroupName>Settings</GroupName>
+          <Files>
+            <File>
+              <FileName>Settings.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\Settings\Settings.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Settings.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\Settings\Settings.h</FilePath>
+            </File>
+            <File>
+              <FileName>SettingsMath.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\Settings\SettingsMath.h</FilePath>
+            </File>
+            <File>
+              <FileName>SettingsTypes.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\Settings\SettingsTypes.h</FilePath>
+            </File>
+          </Files>
         </Group>
         <Group>
           <GroupName>src</GroupName>
+          <Files>
+            <File>
+              <FileName>defines.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\defines.h</FilePath>
+            </File>
+            <File>
+              <FileName>globals.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\globals.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>globals.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\globals.h</FilePath>
+            </File>
+            <File>
+              <FileName>main.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>main.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main.h</FilePath>
+            </File>
+            <File>
+              <FileName>commonDefines.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\libs\common\commonDefines.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>commonDefines.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\libs\common\commonDefines.h</FilePath>
+            </File>
+            <File>
+              <FileName>structs.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\libs\common\structs.h</FilePath>
+            </File>
+          </Files>
         </Group>
         <Group>
           <GroupName>USBH</GroupName>
+          <Files>
+            <File>
+              <FileName>usbh_msc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Class\MSC\Src\usbh_msc.c</FilePath>
+            </File>
+            <File>
+              <FileName>usbh_msc_bot.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Class\MSC\Src\usbh_msc_bot.c</FilePath>
+            </File>
+            <File>
+              <FileName>usbh_msc_scsi.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Class\MSC\Src\usbh_msc_scsi.c</FilePath>
+            </File>
+            <File>
+              <FileName>usbh_core.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Core\Src\usbh_core.c</FilePath>
+            </File>
+            <File>
+              <FileName>usbh_ctlreq.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Core\Src\usbh_ctlreq.c</FilePath>
+            </File>
+            <File>
+              <FileName>usbh_ioreq.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Core\Src\usbh_ioreq.c</FilePath>
+            </File>
+            <File>
+              <FileName>usbh_pipes.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Core\Src\usbh_pipes.c</FilePath>
+            </File>
+            <File>
+              <FileName>usbh_core.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Core\Inc\usbh_core.h</FilePath>
+            </File>
+            <File>
+              <FileName>usbh_ctlreq.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Core\Inc\usbh_ctlreq.h</FilePath>
+            </File>
+            <File>
+              <FileName>usbh_def.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Core\Inc\usbh_def.h</FilePath>
+            </File>
+            <File>
+              <FileName>usbh_ioreq.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Core\Inc\usbh_ioreq.h</FilePath>
+            </File>
+            <File>
+              <FileName>usbh_pipes.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Core\Inc\usbh_pipes.h</FilePath>
+            </File>
+            <File>
+              <FileName>usbh_msc.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Class\MSC\Inc\usbh_msc.h</FilePath>
+            </File>
+            <File>
+              <FileName>usbh_msc_bot.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Class\MSC\Inc\usbh_msc_bot.h</FilePath>
+            </File>
+            <File>
+              <FileName>usbh_msc_scsi.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Class\MSC\Inc\usbh_msc_scsi.h</FilePath>
+            </File>
+          </Files>
         </Group>
         <Group>
           <GroupName>Utils</GroupName>
+          <Files>
+            <File>
+              <FileName>Dictionary.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\libs\common\Utils\Dictionary.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Dictionary.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\libs\common\Utils\Dictionary.h</FilePath>
+            </File>
+            <File>
+              <FileName>Math.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\libs\common\Utils\Math.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Math.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\libs\common\Utils\Math.h</FilePath>
+            </File>
+            <File>
+              <FileName>StringUtils.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\libs\common\Utils\StringUtils.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>StringUtils.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\libs\common\Utils\StringUtils.h</FilePath>
+            </File>
+          </Files>
         </Group>
         <Group>
           <GroupName>Display/fonts</GroupName>
+          <Files>
+            <File>
+              <FileName>Font.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\Display\font\Font.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Font.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\Display\font\Font.h</FilePath>
+            </File>
+            <File>
+              <FileName>font5.inc</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\Display\font\font5.inc</FilePath>
+            </File>
+            <File>
+              <FileName>font5display.inc</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\Display\font\font5display.inc</FilePath>
+            </File>
+            <File>
+              <FileName>font8.inc</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\Display\font\font8.inc</FilePath>
+            </File>
+            <File>
+              <FileName>font8display.inc</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\Display\font\font8display.inc</FilePath>
+            </File>
+            <File>
+              <FileName>fontUGO.inc</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\Display\font\fontUGO.inc</FilePath>
+            </File>
+            <File>
+              <FileName>fontUGO2.inc</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\Display\font\fontUGO2.inc</FilePath>
+            </File>
+            <File>
+              <FileName>fontUGO2display.inc</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\Display\font\fontUGO2display.inc</FilePath>
+            </File>
+            <File>
+              <FileName>fontUGOdisplay.inc</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\Display\font\fontUGOdisplay.inc</FilePath>
+            </File>
+          </Files>
         </Group>
         <Group>
           <GroupName>FPGA</GroupName>
+          <Files>
+            <File>
+              <FileName>FPGATypes.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\FPGA\FPGATypes.h</FilePath>
+            </File>
+          </Files>
         </Group>
       </Groups>
     </Target>
