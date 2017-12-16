@@ -175,7 +175,7 @@ float CalculateVoltageMax(Channel chan)
         markerHor[chan][0] = (int)max;                           // Здесь не округляем, потому что max может быть только целым
     }
 
-    return MathFPGA::Point2Voltage(max, dataSet->range[chan], chan == A ? dataSet->rShiftCh0 : dataSet->rShiftCh1) * VALUE_MULTIPLIER(chan);
+    return MathFPGA::Point2Voltage((uint8)ROUND(max), dataSet->range[chan], chan == A ? dataSet->rShiftCh0 : dataSet->rShiftCh1) * VALUE_MULTIPLIER(chan);
 }
 
 float CalculateVoltageMin(Channel chan)
@@ -187,7 +187,7 @@ float CalculateVoltageMin(Channel chan)
         markerHor[chan][0] = (int)min;                           // Здесь не округляем, потому что min может быть только целым
     }
 
-    return MathFPGA::Point2Voltage(min, dataSet->range[chan], chan == A ? dataSet->rShiftCh0 : dataSet->rShiftCh1) * VALUE_MULTIPLIER(chan);
+    return MathFPGA::Point2Voltage((uint8)ROUND(min), dataSet->range[chan], chan == A ? dataSet->rShiftCh0 : dataSet->rShiftCh1) * VALUE_MULTIPLIER(chan);
 }
 
 float CalculateVoltagePic(Channel chan)
@@ -214,7 +214,8 @@ float CalculateVoltageMinSteady(Channel chan)
         markerHor[chan][0] = (int)ROUND(min);
     }
 
-    return (MathFPGA::Point2Voltage(min, dataSet->range[chan], chan == A ? dataSet->rShiftCh0 : dataSet->rShiftCh1) * VALUE_MULTIPLIER(chan));
+    return (MathFPGA::Point2Voltage((uint8)ROUND(min), dataSet->range[chan], 
+        chan == A ? dataSet->rShiftCh0 : dataSet->rShiftCh1) * VALUE_MULTIPLIER(chan));
 }
 
 float CalculateVoltageMaxSteady(Channel chan)
@@ -231,7 +232,7 @@ float CalculateVoltageMaxSteady(Channel chan)
     Range range = dataSet->range[chan];
     uint rShift = chan == A ? dataSet->rShiftCh0 : dataSet->rShiftCh1;
 
-    return (MathFPGA::Point2Voltage(max, range, rShift) * VALUE_MULTIPLIER(chan));
+    return (MathFPGA::Point2Voltage((uint8)ROUND(max), range, rShift) * VALUE_MULTIPLIER(chan));
 }
 
 float CalculateVoltageVybrosPlus(Channel chan)
@@ -248,7 +249,8 @@ float CalculateVoltageVybrosPlus(Channel chan)
     }
 
     int16 rShift = chan == A ? dataSet->rShiftCh0 : dataSet->rShiftCh1;
-    return fabsf(MathFPGA::Point2Voltage(maxSteady, dataSet->range[chan], rShift) - MathFPGA::Point2Voltage(max, dataSet->range[chan], rShift)) * VALUE_MULTIPLIER(chan);
+    return fabsf(MathFPGA::Point2Voltage((uint8)ROUND(maxSteady), dataSet->range[chan], rShift) - 
+        MathFPGA::Point2Voltage((uint8)ROUND(max), dataSet->range[chan], rShift)) * VALUE_MULTIPLIER(chan);
 }
 
 float CalculateVoltageVybrosMinus(Channel chan)
@@ -264,7 +266,8 @@ float CalculateVoltageVybrosMinus(Channel chan)
     }
 
     int16 rShift = chan == A ? dataSet->rShiftCh0 : dataSet->rShiftCh1;
-    return fabsf(MathFPGA::Point2Voltage(minSteady, dataSet->range[chan], rShift) - MathFPGA::Point2Voltage(min, dataSet->range[chan], rShift)) * VALUE_MULTIPLIER(chan);
+    return fabsf(MathFPGA::Point2Voltage((uint8)ROUND(minSteady), dataSet->range[chan], rShift) - 
+        MathFPGA::Point2Voltage((uint8)ROUND(min), dataSet->range[chan], rShift)) * VALUE_MULTIPLIER(chan);
 }
 
 float CalculateVoltageAmpl(Channel chan)

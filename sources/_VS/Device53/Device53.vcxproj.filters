@@ -465,13 +465,13 @@
     <ClCompile Include="..\..\..\_libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Device_Library\Class\CDC\Src\usbd_cdc.c">
       <Filter>USBD</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\common\Utils\Math.cpp">
+    <ClCompile Include="..\..\libs\common\Utils\Math.cpp">
       <Filter>Utils</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\common\Utils\StringUtils.cpp">
+    <ClCompile Include="..\..\libs\common\Utils\StringUtils.cpp">
       <Filter>Utils</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\common\FPGA\FPGAMath.cpp">
+    <ClCompile Include="..\..\libs\common\FPGA\FPGAMath.cpp">
       <Filter>FPGA</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Device53\src\FPGA\FPGACalibration.cpp">
@@ -480,31 +480,31 @@
     <ClCompile Include="..\..\Device53\src\FPGA\FPGASettings.cpp">
       <Filter>FPGA</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\common\commonDefines.cpp">
+    <ClCompile Include="..\..\libs\common\commonDefines.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\common\Settings\commonSettings.cpp">
+    <ClCompile Include="..\..\libs\common\Settings\commonSettings.cpp">
       <Filter>Settings</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\common\Utils\CommonFunctions.cpp">
+    <ClCompile Include="..\..\libs\common\Utils\CommonFunctions.cpp">
       <Filter>Utils</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\common\Utils\Map.cpp">
+    <ClCompile Include="..\..\libs\common\Utils\Map.cpp">
       <Filter>Utils</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\common\Menu\Pages\Definition.cpp">
+    <ClCompile Include="..\..\libs\common\Menu\Pages\Definition.cpp">
       <Filter>Menu\Pages</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\common\Menu\Menu.cpp">
+    <ClCompile Include="..\..\libs\common\Menu\Menu.cpp">
       <Filter>Menu</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\common\Menu\MenuItems.cpp">
+    <ClCompile Include="..\..\libs\common\Menu\MenuItems.cpp">
       <Filter>Menu</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\common\Menu\MenuItemsGraphics.cpp">
+    <ClCompile Include="..\..\libs\common\Menu\MenuItemsGraphics.cpp">
       <Filter>Menu</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\common\Menu\MenuItemsLogic.cpp">
+    <ClCompile Include="..\..\libs\common\Menu\MenuItemsLogic.cpp">
       <Filter>Menu</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Device53\src\Display\Display.cpp">
@@ -513,22 +513,22 @@
     <ClCompile Include="..\..\Device53\src\Display\PainterMem.cpp">
       <Filter>Display</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\common\Display\Colors.cpp">
+    <ClCompile Include="..\..\libs\common\Display\Colors.cpp">
       <Filter>Display</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\common\Display\DisplayPrimitives.cpp">
+    <ClCompile Include="..\..\libs\common\Display\DisplayPrimitives.cpp">
       <Filter>Display</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\common\Display\Grid.cpp">
+    <ClCompile Include="..\..\libs\common\Display\Grid.cpp">
       <Filter>Display</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\common\Display\Painter.cpp">
+    <ClCompile Include="..\..\libs\common\Display\Painter.cpp">
       <Filter>Display</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\common\Display\PainterText.cpp">
+    <ClCompile Include="..\..\libs\common\Display\PainterText.cpp">
       <Filter>Display</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\common\Utils\Measures.cpp">
+    <ClCompile Include="..\..\libs\common\Utils\Measures.cpp">
       <Filter>Utils</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Device53\src\stub.cpp">
@@ -537,13 +537,13 @@
     <ClCompile Include="..\..\Device53\src\Settings\SettingsService.cpp">
       <Filter>Settings</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\common\Hardware\Timer.cpp">
+    <ClCompile Include="..\..\libs\common\Hardware\Timer.cpp">
       <Filter>Hardware</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Device53\src\FlashDrive\FileManager.cpp">
       <Filter>FlashDrive</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\common\Hardware\Sound.cpp">
+    <ClCompile Include="..\..\libs\common\Hardware\Sound.cpp">
       <Filter>Hardware</Filter>
     </ClCompile>
   </ItemGroup>
@@ -782,46 +782,46 @@
     <ClInclude Include="..\..\..\_libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\drivers\usbh_diskio.h">
       <Filter>FatFS</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\common\Utils\Math.h">
+    <ClInclude Include="..\..\libs\common\Utils\Math.h">
       <Filter>Utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\common\Utils\StringUtils.h">
+    <ClInclude Include="..\..\libs\common\Utils\StringUtils.h">
       <Filter>Utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\common\commonDefines.h">
+    <ClInclude Include="..\..\libs\common\commonDefines.h">
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Device53\src\FPGA\FPGATypes.h">
       <Filter>FPGA</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\common\FPGA\FPGAMath.h">
+    <ClInclude Include="..\..\libs\common\FPGA\FPGAMath.h">
       <Filter>FPGA</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\common\Settings\commonSettings.h">
+    <ClInclude Include="..\..\libs\common\Settings\commonSettings.h">
       <Filter>Settings</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\common\Settings\commonSettingsMath.h">
+    <ClInclude Include="..\..\libs\common\Settings\commonSettingsMath.h">
       <Filter>Settings</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\common\Utils\CommonFunctions.h">
+    <ClInclude Include="..\..\libs\common\Utils\CommonFunctions.h">
       <Filter>Utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\common\Utils\Map.h">
+    <ClInclude Include="..\..\libs\common\Utils\Map.h">
       <Filter>Utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\common\Menu\Pages\Definition.h">
+    <ClInclude Include="..\..\libs\common\Menu\Pages\Definition.h">
       <Filter>Menu\Pages</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\common\Menu\Menu.h">
+    <ClInclude Include="..\..\libs\common\Menu\Menu.h">
       <Filter>Menu</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\common\Menu\MenuDrawing.h">
+    <ClInclude Include="..\..\libs\common\Menu\MenuDrawing.h">
       <Filter>Menu</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\common\Menu\MenuItems.h">
+    <ClInclude Include="..\..\libs\common\Menu\MenuItems.h">
       <Filter>Menu</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\common\Menu\MenuItemsDefs.h">
+    <ClInclude Include="..\..\libs\common\Menu\MenuItemsDefs.h">
       <Filter>Menu</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Device53\src\Menu\Pages\PageDisplay.h">
@@ -836,25 +836,25 @@
     <ClInclude Include="..\..\Device53\src\Display\Symbols.h">
       <Filter>Display</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\common\Display\Colors.h">
+    <ClInclude Include="..\..\libs\common\Display\Colors.h">
       <Filter>Display</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\common\Display\DisplayPrimitives.h">
+    <ClInclude Include="..\..\libs\common\Display\DisplayPrimitives.h">
       <Filter>Display</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\common\Display\DisplayTypes.h">
+    <ClInclude Include="..\..\libs\common\Display\DisplayTypes.h">
       <Filter>Display</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\common\Display\Grid.h">
+    <ClInclude Include="..\..\libs\common\Display\Grid.h">
       <Filter>Display</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\common\Display\Painter.h">
+    <ClInclude Include="..\..\libs\common\Display\Painter.h">
       <Filter>Display</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\common\Display\Symbols.h">
+    <ClInclude Include="..\..\libs\common\Display\Symbols.h">
       <Filter>Display</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\common\Utils\Measures.h">
+    <ClInclude Include="..\..\libs\common\Utils\Measures.h">
       <Filter>Utils</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Device53\src\stub.h">
@@ -863,13 +863,13 @@
     <ClInclude Include="..\..\Device53\src\Menu\MenuPagesNames.h">
       <Filter>Menu</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\common\Hardware\Timer.h">
+    <ClInclude Include="..\..\libs\common\Hardware\Timer.h">
       <Filter>Hardware</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Device53\src\FlashDrive\FileManager.h">
       <Filter>FlashDrive</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\common\Hardware\Sound.h">
+    <ClInclude Include="..\..\libs\common\Hardware\Sound.h">
       <Filter>Hardware</Filter>
     </ClInclude>
   </ItemGroup>
