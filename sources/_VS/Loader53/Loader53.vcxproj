@@ -70,7 +70,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>..\..\..\_libs\forVS;..\..\..\S8-53\Boot53;..\..\..\S8-53\Boot53\libs;..\..\..\_libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Inc;..\..\..\_libs\STM32Cube_F2\Drivers\CMSIS\Device\ST\STM32F2xx\Include;..\..\..\_libs\STM32Cube_F2\Drivers\CMSIS\Include;..\..\..\_libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\drivers;..\..\..\_libs;..\..\..\common;$(IncludePath)</IncludePath>
+    <IncludePath>..\..\libs\common\_VS;..\..\Loader53\src;..\..\Loader53\src\libs;..\..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Inc;..\..\libs\STM32Cube_F2\Drivers\CMSIS\Device\ST\STM32F2xx\Include;..\..\libs\STM32Cube_F2\Drivers\CMSIS\Include;..\..\libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\drivers;..\..\libs\common;C:\My\Work\stm32\S8-53\sources\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Core\Inc;C:\My\Work\stm32\S8-53\sources\libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src;C:\My\Work\stm32\S8-53\sources\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Class\MSC\Inc</IncludePath>
     <OutDir>..\Debug\</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -121,28 +121,28 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\common\Utils\Math.cpp" />
-    <ClCompile Include="..\..\..\S8-53\Boot53\Display\Colors.cpp" />
-    <ClCompile Include="..\..\..\S8-53\Boot53\Display\Display.cpp" />
-    <ClCompile Include="..\..\..\S8-53\Boot53\Display\font\Font.cpp" />
-    <ClCompile Include="..\..\..\S8-53\Boot53\Display\Painter.cpp" />
-    <ClCompile Include="..\..\..\S8-53\Boot53\Display\PainterText.cpp" />
-    <ClCompile Include="..\..\..\S8-53\Boot53\FlashDrive\FlashDrive.cpp" />
-    <ClCompile Include="..\..\..\S8-53\Boot53\globals.cpp" />
-    <ClCompile Include="..\..\..\S8-53\Boot53\Hardware\FLASH.cpp" />
-    <ClCompile Include="..\..\..\S8-53\Boot53\Hardware\FSMC.cpp" />
-    <ClCompile Include="..\..\..\S8-53\Boot53\Hardware\Hardware.cpp" />
-    <ClCompile Include="..\..\..\S8-53\Boot53\Hardware\Timer.cpp" />
-    <ClCompile Include="..\..\..\S8-53\Boot53\libs\stm32f2xx_hal_msp.cpp" />
-    <ClCompile Include="..\..\..\S8-53\Boot53\libs\stm32f2xx_it.cpp" />
-    <ClCompile Include="..\..\..\S8-53\Boot53\libs\system_stm32f2xx.c">
+    <ClCompile Include="..\..\libs\common\Utils\Math.cpp" />
+    <ClCompile Include="..\..\Loader53\src\Display\Colors.cpp" />
+    <ClCompile Include="..\..\Loader53\src\Display\Display.cpp" />
+    <ClCompile Include="..\..\Loader53\src\Display\font\Font.cpp" />
+    <ClCompile Include="..\..\Loader53\src\Display\Painter.cpp" />
+    <ClCompile Include="..\..\Loader53\src\Display\PainterText.cpp" />
+    <ClCompile Include="..\..\Loader53\src\FlashDrive\FlashDrive.cpp" />
+    <ClCompile Include="..\..\Loader53\src\globals.cpp" />
+    <ClCompile Include="..\..\Loader53\src\Hardware\FLASH.cpp" />
+    <ClCompile Include="..\..\Loader53\src\Hardware\FSMC.cpp" />
+    <ClCompile Include="..\..\Loader53\src\Hardware\Hardware.cpp" />
+    <ClCompile Include="..\..\Loader53\src\Hardware\Timer.cpp" />
+    <ClCompile Include="..\..\Loader53\src\libs\stm32f2xx_hal_msp.cpp" />
+    <ClCompile Include="..\..\Loader53\src\libs\stm32f2xx_it.cpp" />
+    <ClCompile Include="..\..\Loader53\src\libs\system_stm32f2xx.c">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="..\..\..\S8-53\Boot53\libs\usbh_conf.cpp" />
-    <ClCompile Include="..\..\..\S8-53\Boot53\main.cpp" />
-    <ClCompile Include="..\..\..\S8-53\Boot53\Panel\Controls.cpp" />
-    <ClCompile Include="..\..\..\S8-53\Boot53\Panel\Panel.cpp" />
-    <ClCompile Include="..\..\..\S8-53\Boot53\Settings\Settings.cpp" />
+    <ClCompile Include="..\..\Loader53\src\libs\usbh_conf.cpp" />
+    <ClCompile Include="..\..\Loader53\src\main.cpp" />
+    <ClCompile Include="..\..\Loader53\src\Panel\Controls.cpp" />
+    <ClCompile Include="..\..\Loader53\src\Panel\Panel.cpp" />
+    <ClCompile Include="..\..\Loader53\src\Settings\Settings.cpp" />
     <ClCompile Include="..\..\..\_libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal.c">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
@@ -232,32 +232,44 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\common\Utils\Math.h" />
-    <ClInclude Include="..\..\..\S8-53\Boot53\defines.h" />
-    <ClInclude Include="..\..\..\S8-53\Boot53\Display\Colors.h" />
-    <ClInclude Include="..\..\..\S8-53\Boot53\Display\Display.h" />
-    <ClInclude Include="..\..\..\S8-53\Boot53\Display\DisplayTypes.h" />
-    <ClInclude Include="..\..\..\S8-53\Boot53\Display\font\Font.h" />
-    <ClInclude Include="..\..\..\S8-53\Boot53\Display\Painter.h" />
-    <ClInclude Include="..\..\..\S8-53\Boot53\Display\PainterC.h" />
-    <ClInclude Include="..\..\..\S8-53\Boot53\Display\PainterText.h" />
-    <ClInclude Include="..\..\..\S8-53\Boot53\FlashDrive\FlashDrive.h" />
-    <ClInclude Include="..\..\..\S8-53\Boot53\FPGA\FPGATypes.h" />
-    <ClInclude Include="..\..\..\S8-53\Boot53\globals.h" />
-    <ClInclude Include="..\..\..\S8-53\Boot53\Hardware\FLASH.h" />
-    <ClInclude Include="..\..\..\S8-53\Boot53\Hardware\FSMC.h" />
-    <ClInclude Include="..\..\..\S8-53\Boot53\Hardware\Hardware.h" />
-    <ClInclude Include="..\..\..\S8-53\Boot53\Hardware\Timer.h" />
-    <ClInclude Include="..\..\..\S8-53\Boot53\libs\ffconf.h" />
-    <ClInclude Include="..\..\..\S8-53\Boot53\libs\stm32f2xx_hal_conf.h" />
-    <ClInclude Include="..\..\..\S8-53\Boot53\libs\stm32f2xx_it.h" />
-    <ClInclude Include="..\..\..\S8-53\Boot53\libs\usbh_conf.h" />
-    <ClInclude Include="..\..\..\S8-53\Boot53\main.h" />
-    <ClInclude Include="..\..\..\S8-53\Boot53\Panel\Controls.h" />
-    <ClInclude Include="..\..\..\S8-53\Boot53\Panel\Panel.h" />
-    <ClInclude Include="..\..\..\S8-53\Boot53\Settings\Settings.h" />
-    <ClInclude Include="..\..\..\S8-53\Boot53\Settings\SettingsMath.h" />
-    <ClInclude Include="..\..\..\S8-53\Boot53\Settings\SettingsTypes.h" />
+    <ClInclude Include="..\..\libs\common\Utils\Math.h" />
+    <ClInclude Include="..\..\libs\common\_VS\ctype.h" />
+    <ClInclude Include="..\..\libs\common\_VS\integer.h" />
+    <ClInclude Include="..\..\libs\common\_VS\inttypes.h" />
+    <ClInclude Include="..\..\libs\common\_VS\limits.h" />
+    <ClInclude Include="..\..\libs\common\_VS\math.h" />
+    <ClInclude Include="..\..\libs\common\_VS\stdarg.h" />
+    <ClInclude Include="..\..\libs\common\_VS\stdint.h" />
+    <ClInclude Include="..\..\libs\common\_VS\stdio.h" />
+    <ClInclude Include="..\..\libs\common\_VS\stdlib.h" />
+    <ClInclude Include="..\..\libs\common\_VS\string.h" />
+    <ClInclude Include="..\..\libs\common\_VS\tchar.h" />
+    <ClInclude Include="..\..\libs\common\_VS\windows.h" />
+    <ClInclude Include="..\..\Loader53\src\defines.h" />
+    <ClInclude Include="..\..\Loader53\src\Display\Colors.h" />
+    <ClInclude Include="..\..\Loader53\src\Display\Display.h" />
+    <ClInclude Include="..\..\Loader53\src\Display\DisplayTypes.h" />
+    <ClInclude Include="..\..\Loader53\src\Display\font\Font.h" />
+    <ClInclude Include="..\..\Loader53\src\Display\Painter.h" />
+    <ClInclude Include="..\..\Loader53\src\Display\PainterC.h" />
+    <ClInclude Include="..\..\Loader53\src\Display\PainterText.h" />
+    <ClInclude Include="..\..\Loader53\src\FlashDrive\FlashDrive.h" />
+    <ClInclude Include="..\..\Loader53\src\FPGA\FPGATypes.h" />
+    <ClInclude Include="..\..\Loader53\src\globals.h" />
+    <ClInclude Include="..\..\Loader53\src\Hardware\FLASH.h" />
+    <ClInclude Include="..\..\Loader53\src\Hardware\FSMC.h" />
+    <ClInclude Include="..\..\Loader53\src\Hardware\Hardware.h" />
+    <ClInclude Include="..\..\Loader53\src\Hardware\Timer.h" />
+    <ClInclude Include="..\..\Loader53\src\libs\ffconf.h" />
+    <ClInclude Include="..\..\Loader53\src\libs\stm32f2xx_hal_conf.h" />
+    <ClInclude Include="..\..\Loader53\src\libs\stm32f2xx_it.h" />
+    <ClInclude Include="..\..\Loader53\src\libs\usbh_conf.h" />
+    <ClInclude Include="..\..\Loader53\src\main.h" />
+    <ClInclude Include="..\..\Loader53\src\Panel\Controls.h" />
+    <ClInclude Include="..\..\Loader53\src\Panel\Panel.h" />
+    <ClInclude Include="..\..\Loader53\src\Settings\Settings.h" />
+    <ClInclude Include="..\..\Loader53\src\Settings\SettingsMath.h" />
+    <ClInclude Include="..\..\Loader53\src\Settings\SettingsTypes.h" />
     <ClInclude Include="..\..\..\_libs\forVS\core_cm3.h" />
     <ClInclude Include="..\..\..\_libs\forVS\core_cm4.h" />
     <ClInclude Include="..\..\..\_libs\forVS\ctype.h" />
@@ -295,15 +307,15 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\..\S8-53\Boot53\Display\font\font5.inc" />
-    <None Include="..\..\..\S8-53\Boot53\Display\font\font5display.inc" />
-    <None Include="..\..\..\S8-53\Boot53\Display\font\font8.inc" />
-    <None Include="..\..\..\S8-53\Boot53\Display\font\font8display.inc" />
-    <None Include="..\..\..\S8-53\Boot53\Display\font\fontUGO.inc" />
-    <None Include="..\..\..\S8-53\Boot53\Display\font\fontUGO2.inc" />
-    <None Include="..\..\..\S8-53\Boot53\Display\font\fontUGO2display.inc" />
-    <None Include="..\..\..\S8-53\Boot53\Display\font\fontUGOdisplay.inc" />
-    <None Include="..\..\..\S8-53\Boot53\libs\startup_stm32f207xx.s">
+    <None Include="..\..\Loader53\src\Display\font\font5.inc" />
+    <None Include="..\..\Loader53\src\Display\font\font5display.inc" />
+    <None Include="..\..\Loader53\src\Display\font\font8.inc" />
+    <None Include="..\..\Loader53\src\Display\font\font8display.inc" />
+    <None Include="..\..\Loader53\src\Display\font\fontUGO.inc" />
+    <None Include="..\..\Loader53\src\Display\font\fontUGO2.inc" />
+    <None Include="..\..\Loader53\src\Display\font\fontUGO2display.inc" />
+    <None Include="..\..\Loader53\src\Display\font\fontUGOdisplay.inc" />
+    <None Include="..\..\Loader53\src\libs\startup_stm32f207xx.s">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </None>
     <None Include="..\..\..\_libs\forVS\algorithm" />
