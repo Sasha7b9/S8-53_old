@@ -7,7 +7,7 @@
 
   <Targets>
     <Target>
-      <TargetName>Boot53</TargetName>
+      <TargetName>Loader53</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <pCCUsed>5060528::V5.06 update 5 (build 528)::ARMCC</pCCUsed>
@@ -48,14 +48,14 @@
             <NotGenerated>0</NotGenerated>
             <InvalidFlash>1</InvalidFlash>
           </TargetStatus>
-          <OutputDirectory>.\_obj\Boot53\</OutputDirectory>
+          <OutputDirectory>.\_obj\</OutputDirectory>
           <OutputName>S8-53</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
           <CreateHexFile>0</CreateHexFile>
           <DebugInformation>1</DebugInformation>
           <BrowseInformation>0</BrowseInformation>
-          <ListingPath>.\_lst\Boot53\</ListingPath>
+          <ListingPath>.\_lst\</ListingPath>
           <HexFormatSelection>1</HexFormatSelection>
           <Merge32K>0</Merge32K>
           <CreateBatchFile>0</CreateBatchFile>
@@ -381,54 +381,54 @@
           <GroupName>Display</GroupName>
           <Files>
             <File>
-              <FileName>Colors.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Boot53\Display\Colors.h</FilePath>
-            </File>
-            <File>
-              <FileName>Display.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Boot53\Display\Display.h</FilePath>
-            </File>
-            <File>
-              <FileName>DisplayTypes.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Boot53\Display\DisplayTypes.h</FilePath>
-            </File>
-            <File>
-              <FileName>Painter.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Boot53\Display\Painter.h</FilePath>
-            </File>
-            <File>
-              <FileName>PainterC.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Boot53\Display\PainterC.h</FilePath>
-            </File>
-            <File>
-              <FileName>PainterText.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Boot53\Display\PainterText.h</FilePath>
-            </File>
-            <File>
               <FileName>Colors.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Boot53\Display\Colors.cpp</FilePath>
+              <FilePath>.\src\Display\Colors.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Colors.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\Display\Colors.h</FilePath>
             </File>
             <File>
               <FileName>Display.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Boot53\Display\Display.cpp</FilePath>
+              <FilePath>.\src\Display\Display.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Display.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\Display\Display.h</FilePath>
+            </File>
+            <File>
+              <FileName>DisplayTypes.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\Display\DisplayTypes.h</FilePath>
             </File>
             <File>
               <FileName>Painter.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Boot53\Display\Painter.cpp</FilePath>
+              <FilePath>.\src\Display\Painter.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Painter.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\Display\Painter.h</FilePath>
+            </File>
+            <File>
+              <FileName>PainterC.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\Display\PainterC.h</FilePath>
             </File>
             <File>
               <FileName>PainterText.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Boot53\Display\PainterText.cpp</FilePath>
+              <FilePath>.\src\Display\PainterText.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>PainterText.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\Display\PainterText.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -438,52 +438,42 @@
             <File>
               <FileName>diskio.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\diskio.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F4\Middlewares\Third_Party\FatFs\src\diskio.c</FilePath>
             </File>
             <File>
               <FileName>diskio.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\diskio.h</FilePath>
+              <FilePath>..\libs\STM32Cube_F4\Middlewares\Third_Party\FatFs\src\diskio.h</FilePath>
             </File>
             <File>
               <FileName>ff.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\ff.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F4\Middlewares\Third_Party\FatFs\src\ff.c</FilePath>
             </File>
             <File>
               <FileName>ff.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\ff.h</FilePath>
+              <FilePath>..\libs\STM32Cube_F4\Middlewares\Third_Party\FatFs\src\ff.h</FilePath>
             </File>
             <File>
               <FileName>ff_gen_drv.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\ff_gen_drv.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F4\Middlewares\Third_Party\FatFs\src\ff_gen_drv.c</FilePath>
             </File>
             <File>
               <FileName>ff_gen_drv.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\ff_gen_drv.h</FilePath>
+              <FilePath>..\libs\STM32Cube_F4\Middlewares\Third_Party\FatFs\src\ff_gen_drv.h</FilePath>
             </File>
             <File>
               <FileName>syscall.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\option\syscall.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F4\Middlewares\Third_Party\FatFs\src\option\syscall.c</FilePath>
             </File>
             <File>
               <FileName>unicode.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\option\unicode.c</FilePath>
-            </File>
-            <File>
-              <FileName>usbh_diskio.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\drivers\usbh_diskio.c</FilePath>
-            </File>
-            <File>
-              <FileName>usbh_diskio.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\drivers\usbh_diskio.h</FilePath>
+              <FilePath>..\libs\STM32Cube_F4\Middlewares\Third_Party\FatFs\src\option\unicode.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -491,464 +481,46 @@
           <GroupName>FlashDrive</GroupName>
           <Files>
             <File>
-              <FileName>FlashDrive.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Boot53\FlashDrive\FlashDrive.h</FilePath>
-            </File>
-            <File>
               <FileName>FlashDrive.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Boot53\FlashDrive\FlashDrive.cpp</FilePath>
+              <FilePath>.\src\FlashDrive\FlashDrive.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>FlashDrive.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\FlashDrive\FlashDrive.h</FilePath>
             </File>
           </Files>
         </Group>
         <Group>
           <GroupName>HAL</GroupName>
-          <Files>
-            <File>
-              <FileName>stm32f2xx_hal.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal.c</FilePath>
-            </File>
-            <File>
-              <FileName>stm32f2xx_hal_cortex.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_cortex.c</FilePath>
-            </File>
-            <File>
-              <FileName>stm32f2xx_hal_dma.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_dma.c</FilePath>
-            </File>
-            <File>
-              <FileName>stm32f2xx_hal_dma_ex.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_dma_ex.c</FilePath>
-            </File>
-            <File>
-              <FileName>stm32f2xx_hal_flash.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_flash.c</FilePath>
-            </File>
-            <File>
-              <FileName>stm32f2xx_hal_flash_ex.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_flash_ex.c</FilePath>
-            </File>
-            <File>
-              <FileName>stm32f2xx_hal_gpio.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_gpio.c</FilePath>
-            </File>
-            <File>
-              <FileName>stm32f2xx_hal_hcd.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_hcd.c</FilePath>
-            </File>
-            <File>
-              <FileName>stm32f2xx_hal_rcc.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_rcc.c</FilePath>
-            </File>
-            <File>
-              <FileName>stm32f2xx_hal_rcc_ex.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_rcc_ex.c</FilePath>
-            </File>
-            <File>
-              <FileName>stm32f2xx_hal_sram.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_sram.c</FilePath>
-            </File>
-            <File>
-              <FileName>stm32f2xx_hal_tim.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_tim.c</FilePath>
-            </File>
-            <File>
-              <FileName>stm32f2xx_hal_tim_ex.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_tim_ex.c</FilePath>
-            </File>
-            <File>
-              <FileName>stm32f2xx_ll_fsmc.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_ll_fsmc.c</FilePath>
-            </File>
-            <File>
-              <FileName>stm32f2xx_ll_usb.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_ll_usb.c</FilePath>
-            </File>
-            <File>
-              <FileName>stm32f2xx_hal_spi.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_spi.c</FilePath>
-            </File>
-          </Files>
         </Group>
         <Group>
           <GroupName>Hardware</GroupName>
-          <Files>
-            <File>
-              <FileName>FLASH.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Boot53\Hardware\FLASH.h</FilePath>
-            </File>
-            <File>
-              <FileName>FSMC.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Boot53\Hardware\FSMC.h</FilePath>
-            </File>
-            <File>
-              <FileName>Hardware.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Boot53\Hardware\Hardware.h</FilePath>
-            </File>
-            <File>
-              <FileName>Timer.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Boot53\Hardware\Timer.h</FilePath>
-            </File>
-            <File>
-              <FileName>FLASH.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\Boot53\Hardware\FLASH.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>FSMC.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\Boot53\Hardware\FSMC.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Hardware.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\Boot53\Hardware\Hardware.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Timer.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\Boot53\Hardware\Timer.cpp</FilePath>
-            </File>
-          </Files>
         </Group>
         <Group>
           <GroupName>libs</GroupName>
-          <Files>
-            <File>
-              <FileName>ffconf.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Boot53\libs\ffconf.h</FilePath>
-            </File>
-            <File>
-              <FileName>startup_stm32f207xx.s</FileName>
-              <FileType>2</FileType>
-              <FilePath>.\Boot53\libs\startup_stm32f207xx.s</FilePath>
-            </File>
-            <File>
-              <FileName>stm32f2xx_hal_conf.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Boot53\libs\stm32f2xx_hal_conf.h</FilePath>
-            </File>
-            <File>
-              <FileName>stm32f2xx_it.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Boot53\libs\stm32f2xx_it.h</FilePath>
-            </File>
-            <File>
-              <FileName>system_stm32f2xx.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Boot53\libs\system_stm32f2xx.c</FilePath>
-            </File>
-            <File>
-              <FileName>usbh_conf.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Boot53\libs\usbh_conf.h</FilePath>
-            </File>
-            <File>
-              <FileName>stm32f2xx_hal_msp.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\Boot53\libs\stm32f2xx_hal_msp.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>stm32f2xx_it.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\Boot53\libs\stm32f2xx_it.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>usbh_conf.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\Boot53\libs\usbh_conf.cpp</FilePath>
-            </File>
-          </Files>
         </Group>
         <Group>
           <GroupName>Panel</GroupName>
-          <Files>
-            <File>
-              <FileName>Controls.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Boot53\Panel\Controls.h</FilePath>
-            </File>
-            <File>
-              <FileName>Panel.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Boot53\Panel\Panel.h</FilePath>
-            </File>
-            <File>
-              <FileName>Controls.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\Boot53\Panel\Controls.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Panel.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\Boot53\Panel\Panel.cpp</FilePath>
-            </File>
-          </Files>
         </Group>
         <Group>
           <GroupName>Settings</GroupName>
-          <Files>
-            <File>
-              <FileName>Settings.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Boot53\Settings\Settings.h</FilePath>
-            </File>
-            <File>
-              <FileName>SettingsTypes.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Boot53\Settings\SettingsTypes.h</FilePath>
-            </File>
-            <File>
-              <FileName>Settings.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\Boot53\Settings\Settings.cpp</FilePath>
-            </File>
-          </Files>
         </Group>
         <Group>
           <GroupName>src</GroupName>
-          <Files>
-            <File>
-              <FileName>Boot53.sct</FileName>
-              <FileType>2</FileType>
-              <FilePath>.\Boot53\Boot53.sct</FilePath>
-              <FileOption>
-                <CommonProperty>
-                  <UseCPPCompiler>2</UseCPPCompiler>
-                  <RVCTCodeConst>0</RVCTCodeConst>
-                  <RVCTZI>0</RVCTZI>
-                  <RVCTOtherData>0</RVCTOtherData>
-                  <ModuleSelection>0</ModuleSelection>
-                  <IncludeInBuild>0</IncludeInBuild>
-                  <AlwaysBuild>0</AlwaysBuild>
-                  <GenerateAssemblyFile>2</GenerateAssemblyFile>
-                  <AssembleAssemblyFile>2</AssembleAssemblyFile>
-                  <PublicsOnly>2</PublicsOnly>
-                  <StopOnExitCode>11</StopOnExitCode>
-                  <CustomArgument></CustomArgument>
-                  <IncludeLibraryModules></IncludeLibraryModules>
-                  <ComprImg>1</ComprImg>
-                </CommonProperty>
-                <FileArmAds>
-                  <Aads>
-                    <interw>2</interw>
-                    <Ropi>2</Ropi>
-                    <Rwpi>2</Rwpi>
-                    <thumb>2</thumb>
-                    <SplitLS>2</SplitLS>
-                    <SwStkChk>2</SwStkChk>
-                    <NoWarn>2</NoWarn>
-                    <uSurpInc>2</uSurpInc>
-                    <useXO>2</useXO>
-                    <uClangAs>2</uClangAs>
-                    <VariousControls>
-                      <MiscControls></MiscControls>
-                      <Define></Define>
-                      <Undefine></Undefine>
-                      <IncludePath></IncludePath>
-                    </VariousControls>
-                  </Aads>
-                </FileArmAds>
-              </FileOption>
-            </File>
-            <File>
-              <FileName>defines.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Boot53\defines.h</FilePath>
-            </File>
-            <File>
-              <FileName>globals.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Boot53\globals.h</FilePath>
-            </File>
-            <File>
-              <FileName>main.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Boot53\main.h</FilePath>
-            </File>
-            <File>
-              <FileName>globals.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\Boot53\globals.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>main.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\Boot53\main.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>commonDefines.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>..\common\commonDefines.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>commonDefines.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\common\commonDefines.h</FilePath>
-            </File>
-          </Files>
         </Group>
         <Group>
           <GroupName>USBH</GroupName>
-          <Files>
-            <File>
-              <FileName>usbh_msc.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Class\MSC\Src\usbh_msc.c</FilePath>
-            </File>
-            <File>
-              <FileName>usbh_msc_bot.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Class\MSC\Src\usbh_msc_bot.c</FilePath>
-            </File>
-            <File>
-              <FileName>usbh_msc_scsi.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Class\MSC\Src\usbh_msc_scsi.c</FilePath>
-            </File>
-            <File>
-              <FileName>usbh_core.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Core\Src\usbh_core.c</FilePath>
-            </File>
-            <File>
-              <FileName>usbh_ctlreq.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Core\Src\usbh_ctlreq.c</FilePath>
-            </File>
-            <File>
-              <FileName>usbh_ioreq.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Core\Src\usbh_ioreq.c</FilePath>
-            </File>
-            <File>
-              <FileName>usbh_pipes.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\_libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Core\Src\usbh_pipes.c</FilePath>
-            </File>
-          </Files>
         </Group>
         <Group>
           <GroupName>Utils</GroupName>
-          <Files>
-            <File>
-              <FileName>StringUtils.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>..\common\Utils\StringUtils.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>StringUtils.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\common\Utils\StringUtils.h</FilePath>
-            </File>
-            <File>
-              <FileName>Dictionary.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>..\common\Utils\Dictionary.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Dictionary.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\common\Utils\Dictionary.h</FilePath>
-            </File>
-            <File>
-              <FileName>Math.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>..\common\Utils\Math.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Math.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\common\Utils\Math.h</FilePath>
-            </File>
-          </Files>
         </Group>
         <Group>
           <GroupName>Display/fonts</GroupName>
-          <Files>
-            <File>
-              <FileName>Font.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Boot53\Display\font\Font.h</FilePath>
-            </File>
-            <File>
-              <FileName>font5.inc</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Boot53\Display\font\font5.inc</FilePath>
-            </File>
-            <File>
-              <FileName>font5display.inc</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Boot53\Display\font\font5display.inc</FilePath>
-            </File>
-            <File>
-              <FileName>font8.inc</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Boot53\Display\font\font8.inc</FilePath>
-            </File>
-            <File>
-              <FileName>font8display.inc</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Boot53\Display\font\font8display.inc</FilePath>
-            </File>
-            <File>
-              <FileName>fontUGO.inc</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Boot53\Display\font\fontUGO.inc</FilePath>
-            </File>
-            <File>
-              <FileName>fontUGO2.inc</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Boot53\Display\font\fontUGO2.inc</FilePath>
-            </File>
-            <File>
-              <FileName>fontUGO2display.inc</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Boot53\Display\font\fontUGO2display.inc</FilePath>
-            </File>
-            <File>
-              <FileName>fontUGOdisplay.inc</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Boot53\Display\font\fontUGOdisplay.inc</FilePath>
-            </File>
-            <File>
-              <FileName>Font.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\Boot53\Display\font\Font.cpp</FilePath>
-            </File>
-          </Files>
         </Group>
         <Group>
           <GroupName>FPGA</GroupName>
-          <Files>
-            <File>
-              <FileName>FPGATypes.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Boot53\FPGA\FPGATypes.h</FilePath>
-            </File>
-          </Files>
         </Group>
       </Groups>
     </Target>

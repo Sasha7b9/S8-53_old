@@ -3,3 +3,6 @@
 *.obj
 *.tlog
 *.log
+
+sources/Loader53/_obj/*
+sources/Loader53/_lst/*
