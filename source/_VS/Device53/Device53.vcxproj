@@ -1,0 +1,584 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{F1BEFAC2-FA30-4A15-AA7C-5D80A2D2C827}</ProjectGuid>
+    <RootNamespace>Device53</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>..\Debug\</OutDir>
+    <IncludePath>..\..\..\_libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Inc;..\..\..\_libs\STM32Cube_F2\Drivers\CMSIS\Include;..\..\..\_libs\STM32Cube_F2\Drivers\CMSIS\Device\ST\STM32F2xx\Include;..\..\..\_libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\include;..\..\..\_libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\system;..\..\..\_libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\drivers;..\..\..\_libs\forVS;..\..\..\_libs;..\..\..\S8-53\Device53;..\..\..\S8-53\Device53\libs;..\..\..\common</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>USE_HAL_DRIVER;STM32F207xx;WIN32;S8_53;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <DisableSpecificWarnings>4514;4820</DisableSpecificWarnings>
+      <AdditionalOptions>-MP %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <TargetMachine>MachineARM</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\common\commonDefines.cpp" />
+    <ClCompile Include="..\..\..\common\Display\Colors.cpp" />
+    <ClCompile Include="..\..\..\common\Display\DisplayPrimitives.cpp" />
+    <ClCompile Include="..\..\..\common\Display\Grid.cpp" />
+    <ClCompile Include="..\..\..\common\Display\Painter.cpp" />
+    <ClCompile Include="..\..\..\common\Display\PainterText.cpp" />
+    <ClCompile Include="..\..\..\common\FPGA\FPGAMath.cpp" />
+    <ClCompile Include="..\..\..\common\Hardware\Sound.cpp" />
+    <ClCompile Include="..\..\..\common\Hardware\Timer.cpp" />
+    <ClCompile Include="..\..\..\common\Menu\Menu.cpp" />
+    <ClCompile Include="..\..\..\common\Menu\MenuItems.cpp" />
+    <ClCompile Include="..\..\..\common\Menu\MenuItemsGraphics.cpp" />
+    <ClCompile Include="..\..\..\common\Menu\MenuItemsLogic.cpp" />
+    <ClCompile Include="..\..\..\common\Menu\Pages\Definition.cpp" />
+    <ClCompile Include="..\..\..\common\Settings\commonSettings.cpp" />
+    <ClCompile Include="..\..\..\common\Utils\CommonFunctions.cpp" />
+    <ClCompile Include="..\..\..\common\Utils\Map.cpp" />
+    <ClCompile Include="..\..\..\common\Utils\Math.cpp" />
+    <ClCompile Include="..\..\..\common\Utils\Measures.cpp" />
+    <ClCompile Include="..\..\..\common\Utils\StringUtils.cpp" />
+    <ClCompile Include="..\..\..\S8-53\Device53\Display\Display.cpp" />
+    <ClCompile Include="..\..\..\S8-53\Device53\Display\font\Font.cpp" />
+    <ClCompile Include="..\..\..\S8-53\Device53\Display\PainterMem.cpp" />
+    <ClCompile Include="..\..\..\S8-53\Device53\Ethernet\Ethernet.cpp" />
+    <ClCompile Include="..\..\..\S8-53\Device53\Ethernet\TcpSocket.cpp" />
+    <ClCompile Include="..\..\..\S8-53\Device53\FlashDrive\FileManager.cpp" />
+    <ClCompile Include="..\..\..\S8-53\Device53\FlashDrive\FlashDrive.cpp" />
+    <ClCompile Include="..\..\..\S8-53\Device53\FPGA\DataStorage.cpp" />
+    <ClCompile Include="..\..\..\S8-53\Device53\FPGA\FPGA.cpp" />
+    <ClCompile Include="..\..\..\S8-53\Device53\FPGA\FPGACalibration.cpp" />
+    <ClCompile Include="..\..\..\S8-53\Device53\FPGA\FPGASettings.cpp" />
+    <ClCompile Include="..\..\..\S8-53\Device53\Globals.cpp" />
+    <ClCompile Include="..\..\..\S8-53\Device53\Hardware\ADC.cpp" />
+    <ClCompile Include="..\..\..\S8-53\Device53\Hardware\FLASH.cpp" />
+    <ClCompile Include="..\..\..\S8-53\Device53\Hardware\FSMC.cpp" />
+    <ClCompile Include="..\..\..\S8-53\Device53\Hardware\Hardware.cpp" />
+    <ClCompile Include="..\..\..\S8-53\Device53\Hardware\MSP_USBH.cpp" />
+    <ClCompile Include="..\..\..\S8-53\Device53\Hardware\RTC.cpp" />
+    <ClCompile Include="..\..\..\S8-53\Device53\libs\app_ethernet.cpp" />
+    <ClCompile Include="..\..\..\S8-53\Device53\libs\ethernetif.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\S8-53\Device53\libs\stm32f2xx_hal_msp.cpp" />
+    <ClCompile Include="..\..\..\S8-53\Device53\libs\stm32f2xx_it.cpp" />
+    <ClCompile Include="..\..\..\S8-53\Device53\libs\system_stm32f2xx.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\S8-53\Device53\libs\usbd_cdc_interface.cpp" />
+    <ClCompile Include="..\..\..\S8-53\Device53\libs\usbd_conf.cpp" />
+    <ClCompile Include="..\..\..\S8-53\Device53\libs\usbd_desc.c" />
+    <ClCompile Include="..\..\..\S8-53\Device53\libs\usbh_conf.cpp" />
+    <ClCompile Include="..\..\..\S8-53\Device53\Log.cpp" />
+    <ClCompile Include="..\..\..\S8-53\Device53\main.cpp" />
+    <ClCompile Include="..\..\..\S8-53\Device53\Menu\Pages\HelpContent.cpp" />
+    <ClCompile Include="..\..\..\S8-53\Device53\Menu\Pages\PageChannels.cpp" />
+    <ClCompile Include="..\..\..\S8-53\Device53\Menu\Pages\PageCursors.cpp" />
+    <ClCompile Include="..\..\..\S8-53\Device53\Menu\Pages\PageDebug.cpp" />
+    <ClCompile Include="..\..\..\S8-53\Device53\Menu\Pages\PageDisplay.cpp" />
+    <ClCompile Include="..\..\..\S8-53\Device53\Menu\Pages\PageHelp.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\S8-53\Device53\Menu\Pages\PageMeasures.cpp" />
+    <ClCompile Include="..\..\..\S8-53\Device53\Menu\Pages\PageMemory.cpp" />
+    <ClCompile Include="..\..\..\S8-53\Device53\Menu\Pages\PageService.cpp" />
+    <ClCompile Include="..\..\..\S8-53\Device53\Menu\Pages\PageTime.cpp" />
+    <ClCompile Include="..\..\..\S8-53\Device53\Menu\Pages\PageTrig.cpp" />
+    <ClCompile Include="..\..\..\S8-53\Device53\Panel\Controls.cpp" />
+    <ClCompile Include="..\..\..\S8-53\Device53\Panel\Panel.cpp" />
+    <ClCompile Include="..\..\..\S8-53\Device53\Panel\PanelFunctions.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\S8-53\Device53\Settings\Settings.cpp" />
+    <ClCompile Include="..\..\..\S8-53\Device53\Settings\SettingsChannel.cpp" />
+    <ClCompile Include="..\..\..\S8-53\Device53\Settings\SettingsCursors.cpp" />
+    <ClCompile Include="..\..\..\S8-53\Device53\Settings\SettingsDebug.cpp" />
+    <ClCompile Include="..\..\..\S8-53\Device53\Settings\SettingsDisplay.cpp" />
+    <ClCompile Include="..\..\..\S8-53\Device53\Settings\SettingsMeasures.cpp" />
+    <ClCompile Include="..\..\..\S8-53\Device53\Settings\SettingsMemory.cpp" />
+    <ClCompile Include="..\..\..\S8-53\Device53\Settings\SettingsService.cpp" />
+    <ClCompile Include="..\..\..\S8-53\Device53\Settings\SettingsTime.cpp" />
+    <ClCompile Include="..\..\..\S8-53\Device53\stub.cpp" />
+    <ClCompile Include="..\..\..\S8-53\Device53\Tables.cpp" />
+    <ClCompile Include="..\..\..\S8-53\Device53\Utils\ProcessingSignal.cpp" />
+    <ClCompile Include="..\..\..\S8-53\Device53\VCP\SCPI\channelSCPI.cpp" />
+    <ClCompile Include="..\..\..\S8-53\Device53\VCP\SCPI\commonSCPI.cpp" />
+    <ClCompile Include="..\..\..\S8-53\Device53\VCP\SCPI\controlSCPI.cpp" />
+    <ClCompile Include="..\..\..\S8-53\Device53\VCP\SCPI\displaySCPI.cpp" />
+    <ClCompile Include="..\..\..\S8-53\Device53\VCP\SCPI\SCPI.cpp" />
+    <ClCompile Include="..\..\..\S8-53\Device53\VCP\SCPI\tbaseSCPI.cpp" />
+    <ClCompile Include="..\..\..\S8-53\Device53\VCP\SCPI\trigSCPI.cpp" />
+    <ClCompile Include="..\..\..\S8-53\Device53\VCP\VCP.cpp" />
+    <ClCompile Include="..\..\..\_libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\_libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_adc.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\_libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_adc_ex.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\_libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_cortex.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\_libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_crc.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\_libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_dac.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\_libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_dac_ex.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\_libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_dma.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\_libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_dma_ex.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\_libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_eth.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\_libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_flash.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\_libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_flash_ex.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\_libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_gpio.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\_libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_hcd.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\_libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_pcd.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\_libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_pcd_ex.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\_libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_pwr.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\_libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_pwr_ex.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\_libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_rcc.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\_libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_rcc_ex.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\_libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_rtc.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\_libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_rtc_ex.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\_libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_spi.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\_libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_sram.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\_libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_tim.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\_libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_tim_ex.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\_libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_ll_fsmc.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\_libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_ll_sdmmc.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\_libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_ll_usb.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\_libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Device_Library\Class\CDC\Src\usbd_cdc.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\_libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Device_Library\Core\Src\usbd_core.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\_libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Device_Library\Core\Src\usbd_ctlreq.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\_libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Device_Library\Core\Src\usbd_ioreq.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\_libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Class\MSC\Src\usbh_msc.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\_libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Class\MSC\Src\usbh_msc_bot.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\_libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Class\MSC\Src\usbh_msc_scsi.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\_libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Core\Src\usbh_core.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\_libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Core\Src\usbh_ctlreq.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\_libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Core\Src\usbh_ioreq.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\_libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Core\Src\usbh_pipes.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\_libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\diskio.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\_libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\drivers\usbh_diskio.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\_libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\ff.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\_libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\ff_gen_drv.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\_libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\option\syscall.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\_libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\option\unicode.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\_libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\api\api_lib.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\_libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\api\api_msg.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\_libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\api\err.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\_libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\api\netbuf.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\_libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\api\netdb.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\_libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\api\sockets.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\_libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\def.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\_libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\dns.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\_libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\init.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\_libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\ip.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\_libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\ipv4\autoip.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\_libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\ipv4\dhcp.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\_libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\ipv4\etharp.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\_libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\ipv4\icmp.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\_libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\ipv4\igmp.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\_libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\ipv4\ip4.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\_libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\ipv4\ip4_addr.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\_libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\ipv4\ip4_frag.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\_libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\mem.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\_libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\memp.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\_libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\netif.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\_libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\pbuf.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\_libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\raw.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\_libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\stats.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\_libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\sys.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\_libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\tcp.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\_libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\tcp_in.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\_libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\tcp_out.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\_libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\timeouts.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\_libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\udp.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\_libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\netif\ethernet.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\common\commonDefines.h" />
+    <ClInclude Include="..\..\..\common\Display\Colors.h" />
+    <ClInclude Include="..\..\..\common\Display\DisplayPrimitives.h" />
+    <ClInclude Include="..\..\..\common\Display\DisplayTypes.h" />
+    <ClInclude Include="..\..\..\common\Display\Grid.h" />
+    <ClInclude Include="..\..\..\common\Display\Painter.h" />
+    <ClInclude Include="..\..\..\common\Display\Symbols.h" />
+    <ClInclude Include="..\..\..\common\FPGA\FPGAMath.h" />
+    <ClInclude Include="..\..\..\common\Hardware\Sound.h" />
+    <ClInclude Include="..\..\..\common\Hardware\Timer.h" />
+    <ClInclude Include="..\..\..\common\Menu\Menu.h" />
+    <ClInclude Include="..\..\..\common\Menu\MenuDrawing.h" />
+    <ClInclude Include="..\..\..\common\Menu\MenuItems.h" />
+    <ClInclude Include="..\..\..\common\Menu\MenuItemsDefs.h" />
+    <ClInclude Include="..\..\..\common\Menu\Pages\Definition.h" />
+    <ClInclude Include="..\..\..\common\Settings\commonSettings.h" />
+    <ClInclude Include="..\..\..\common\Settings\commonSettingsMath.h" />
+    <ClInclude Include="..\..\..\common\Utils\CommonFunctions.h" />
+    <ClInclude Include="..\..\..\common\Utils\Map.h" />
+    <ClInclude Include="..\..\..\common\Utils\Math.h" />
+    <ClInclude Include="..\..\..\common\Utils\Measures.h" />
+    <ClInclude Include="..\..\..\common\Utils\StringUtils.h" />
+    <ClInclude Include="..\..\..\S8-53\Device53\defines.h" />
+    <ClInclude Include="..\..\..\S8-53\Device53\Display\Display.h" />
+    <ClInclude Include="..\..\..\S8-53\Device53\Display\font\Font.h" />
+    <ClInclude Include="..\..\..\S8-53\Device53\Display\PainterMem.h" />
+    <ClInclude Include="..\..\..\S8-53\Device53\Display\Symbols.h" />
+    <ClInclude Include="..\..\..\S8-53\Device53\Ethernet\Ethernet.h" />
+    <ClInclude Include="..\..\..\S8-53\Device53\Ethernet\TcpSocket.h" />
+    <ClInclude Include="..\..\..\S8-53\Device53\FlashDrive\FileManager.h" />
+    <ClInclude Include="..\..\..\S8-53\Device53\FlashDrive\FlashDrive.h" />
+    <ClInclude Include="..\..\..\S8-53\Device53\FPGA\DataStorage.h" />
+    <ClInclude Include="..\..\..\S8-53\Device53\FPGA\FPGA.h" />
+    <ClInclude Include="..\..\..\S8-53\Device53\FPGA\FPGATypes.h" />
+    <ClInclude Include="..\..\..\S8-53\Device53\Globals.h" />
+    <ClInclude Include="..\..\..\S8-53\Device53\Hardware\ADC.h" />
+    <ClInclude Include="..\..\..\S8-53\Device53\Hardware\FLASH.h" />
+    <ClInclude Include="..\..\..\S8-53\Device53\Hardware\FSMC.h" />
+    <ClInclude Include="..\..\..\S8-53\Device53\Hardware\Hardware.h" />
+    <ClInclude Include="..\..\..\S8-53\Device53\Hardware\RTC.h" />
+    <ClInclude Include="..\..\..\S8-53\Device53\libs\app_ethernet.h" />
+    <ClInclude Include="..\..\..\S8-53\Device53\libs\ethernetif.h" />
+    <ClInclude Include="..\..\..\S8-53\Device53\libs\ffconf.h" />
+    <ClInclude Include="..\..\..\S8-53\Device53\libs\lwipopts.h" />
+    <ClInclude Include="..\..\..\S8-53\Device53\libs\stm32f2xx_hal_conf.h" />
+    <ClInclude Include="..\..\..\S8-53\Device53\libs\stm32f2xx_it.h" />
+    <ClInclude Include="..\..\..\S8-53\Device53\libs\usbd_cdc_interface.h" />
+    <ClInclude Include="..\..\..\S8-53\Device53\libs\usbd_conf.h" />
+    <ClInclude Include="..\..\..\S8-53\Device53\libs\usbd_desc.h" />
+    <ClInclude Include="..\..\..\S8-53\Device53\libs\usbh_conf.h" />
+    <ClInclude Include="..\..\..\S8-53\Device53\Log.h" />
+    <ClInclude Include="..\..\..\S8-53\Device53\main.h" />
+    <ClInclude Include="..\..\..\S8-53\Device53\Menu\MenuPagesNames.h" />
+    <ClInclude Include="..\..\..\S8-53\Device53\Menu\Pages\HelpContent.h" />
+    <ClInclude Include="..\..\..\S8-53\Device53\Menu\Pages\HelpContentPages.h" />
+    <ClInclude Include="..\..\..\S8-53\Device53\Menu\Pages\PageCursors.h" />
+    <ClInclude Include="..\..\..\S8-53\Device53\Menu\Pages\PageDisplay.h" />
+    <ClInclude Include="..\..\..\S8-53\Device53\Menu\Pages\PageHelp.h" />
+    <ClInclude Include="..\..\..\S8-53\Device53\Menu\Pages\PageMemory.h" />
+    <ClInclude Include="..\..\..\S8-53\Device53\Panel\Controls.h" />
+    <ClInclude Include="..\..\..\S8-53\Device53\Panel\Panel.h" />
+    <ClInclude Include="..\..\..\S8-53\Device53\Settings\Settings.h" />
+    <ClInclude Include="..\..\..\S8-53\Device53\Settings\SettingsChannel.h" />
+    <ClInclude Include="..\..\..\S8-53\Device53\Settings\SettingsCursors.h" />
+    <ClInclude Include="..\..\..\S8-53\Device53\Settings\SettingsDebug.h" />
+    <ClInclude Include="..\..\..\S8-53\Device53\Settings\SettingsDisplay.h" />
+    <ClInclude Include="..\..\..\S8-53\Device53\Settings\SettingsMath.h" />
+    <ClInclude Include="..\..\..\S8-53\Device53\Settings\SettingsMeasures.h" />
+    <ClInclude Include="..\..\..\S8-53\Device53\Settings\SettingsMemory.h" />
+    <ClInclude Include="..\..\..\S8-53\Device53\Settings\SettingsService.h" />
+    <ClInclude Include="..\..\..\S8-53\Device53\Settings\SettingsTime.h" />
+    <ClInclude Include="..\..\..\S8-53\Device53\Settings\SettingsTrig.h" />
+    <ClInclude Include="..\..\..\S8-53\Device53\Settings\SettingsTypes.h" />
+    <ClInclude Include="..\..\..\S8-53\Device53\stub.h" />
+    <ClInclude Include="..\..\..\S8-53\Device53\Tables.h" />
+    <ClInclude Include="..\..\..\S8-53\Device53\Utils\ProcessingSignal.h" />
+    <ClInclude Include="..\..\..\S8-53\Device53\VCP\SCPI\commonSCPI.h" />
+    <ClInclude Include="..\..\..\S8-53\Device53\VCP\SCPI\controlSCPI.h" />
+    <ClInclude Include="..\..\..\S8-53\Device53\VCP\SCPI\SCPI.h" />
+    <ClInclude Include="..\..\..\S8-53\Device53\VCP\VCP.h" />
+    <ClInclude Include="..\..\..\_libs\forVS\core_cm3.h" />
+    <ClInclude Include="..\..\..\_libs\forVS\core_cm4.h" />
+    <ClInclude Include="..\..\..\_libs\forVS\ctype.h" />
+    <ClInclude Include="..\..\..\_libs\forVS\ff.h" />
+    <ClInclude Include="..\..\..\_libs\forVS\ff_gen_drv.h" />
+    <ClInclude Include="..\..\..\_libs\forVS\inttypes.h" />
+    <ClInclude Include="..\..\..\_libs\forVS\limits.h" />
+    <ClInclude Include="..\..\..\_libs\forVS\math.h" />
+    <ClInclude Include="..\..\..\_libs\forVS\stdarg.h" />
+    <ClInclude Include="..\..\..\_libs\forVS\stdint.h" />
+    <ClInclude Include="..\..\..\_libs\forVS\stdio.h" />
+    <ClInclude Include="..\..\..\_libs\forVS\stdlib.h" />
+    <ClInclude Include="..\..\..\_libs\forVS\stm32f4xx_hal.h" />
+    <ClInclude Include="..\..\..\_libs\forVS\string.h" />
+    <ClInclude Include="..\..\..\_libs\forVS\tchar.h" />
+    <ClInclude Include="..\..\..\_libs\forVS\usbd_cdc.h" />
+    <ClInclude Include="..\..\..\_libs\forVS\usbd_core.h" />
+    <ClInclude Include="..\..\..\_libs\forVS\usbd_def.h" />
+    <ClInclude Include="..\..\..\_libs\forVS\usbd_ioreq.h" />
+    <ClInclude Include="..\..\..\_libs\forVS\usbh_core.h" />
+    <ClInclude Include="..\..\..\_libs\forVS\usbh_def.h" />
+    <ClInclude Include="..\..\..\_libs\forVS\usbh_msc.h" />
+    <ClInclude Include="..\..\..\_libs\forVS\usbh_msc_bot.h" />
+    <ClInclude Include="..\..\..\_libs\forVS\windows.h" />
+    <ClInclude Include="..\..\..\_libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\diskio.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="..\..\..\_libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\drivers\usbh_diskio.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="..\..\..\_libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\ff.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="..\..\..\_libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\ff_gen_drv.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\S8-53\Device53\Display\font\font5.inc" />
+    <None Include="..\..\..\S8-53\Device53\Display\font\font5display.inc" />
+    <None Include="..\..\..\S8-53\Device53\Display\font\font8.inc" />
+    <None Include="..\..\..\S8-53\Device53\Display\font\font8display.inc" />
+    <None Include="..\..\..\S8-53\Device53\Display\font\fontUGO.inc" />
+    <None Include="..\..\..\S8-53\Device53\Display\font\fontUGO2.inc" />
+    <None Include="..\..\..\S8-53\Device53\Display\font\fontUGO2display.inc" />
+    <None Include="..\..\..\S8-53\Device53\Display\font\fontUGOdisplay.inc" />
+    <None Include="..\..\..\S8-53\Device53\Hardware\DisplayHardware.inc" />
+    <None Include="..\..\..\S8-53\Device53\libs\startup_stm32f207xx.s">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </None>
+    <None Include="..\..\..\S8-53\Device53\main2.s" />
+    <None Include="..\..\..\_libs\forVS\algorithm" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
