@@ -1,0 +1,53 @@
+
+ROM used:   2666/48320 (6%)
+            2666/48320 (6%) including unused fragments
+
+            1.0 Average locations per line
+            6.6 Average locations per statement
+
+RAM used:   157/3956 (4%) at main() level
+            157/3956 (4%) worst case
+
+Stack used: 3 worst case (1 in main + 2 for interrupts)
+Stack size: 30
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+  734   403 100  mn_sever.c
+  756     0   0  C:\Program Files\PICC\devices\18F2515.h
+ 1129     0   0  P18F2515.INC
+----- -----
+ 2619   403 Total
+
+Page ROM  %  RAM   Vol Diff  Functions:
+---- --- --- ---   --- ----  ----------
+0     38   1    1             @delay_ms1
+0     32   1    0             @const724
+0     32   1    0             @const727
+0    130   2    0   907  9.1  Prd_kn
+0   2232  42    2 17219 12.5  MAIN
+0     28   1    0   115  1.7  pit_bkl
+0     28   1    0   136  1.8  pit_bykl
+ Inline         0             @cinit1
+
+Program metrics:
+    Functions               4
+    Statements              403
+    Comments                1319
+    Volume (V)              19618
+    Difficulty (D)          25.6
+    Effort to implement (E) 501665
+    Time to implement (T)   7 hours, 45 minutes
+    Est Delivered Bugs (B)  2
+    Cyclomatic Complexity   106
+    Maintainability (MI)    53
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00002     4  0  
+00004-00006     0  4  
+00008-00094   142  0  
+00096-0BCBE  2520  45650  
+
+
+
