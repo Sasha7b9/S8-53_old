@@ -28,10 +28,6 @@ extern "C" {
     
 void Hardware_Init()
 {
-    HAL_Init();
-
-    SystemClock_Config();
-
     __GPIOA_CLK_ENABLE();
     __GPIOB_CLK_ENABLE();
     __GPIOC_CLK_ENABLE();
@@ -39,37 +35,17 @@ void Hardware_Init()
     __GPIOE_CLK_ENABLE();
     __GPIOF_CLK_ENABLE();
     __GPIOG_CLK_ENABLE();
+
     __DMA1_CLK_ENABLE();        // Для DAC1 (бикалка)
-    
-    __TIM2_CLK_ENABLE();        // Для тиков
     __TIM7_CLK_ENABLE();        // Для DAC1 (бикалка)
     __PWR_CLK_ENABLE();
-
     __SYSCFG_CLK_ENABLE();
 
+    HAL_Init();
+
+    SystemClock_Config();
+
     HAL_NVIC_SetPriority(SysTick_IRQn, 0, 0);
-
-    // Таймер для тиков
-    TIM_HandleTypeDef tim2handle =
-    {
-        TIM2,
-        {
-            0,
-            TIM_COUNTERMODE_UP,
-            0xffffffff,
-            TIM_CLOCKDIVISION_DIV1
-        }
-    };
-
-    if (HAL_TIM_Base_Init(&tim2handle) != HAL_OK)
-    {
-        ERROR_HANDLER();
-    }
-
-    if (HAL_TIM_Base_Start(&tim2handle) != HAL_OK)
-    {
-        ERROR_HANDLER();
-    }
 
     Sound::Init();
     

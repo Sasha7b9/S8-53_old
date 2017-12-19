@@ -15,10 +15,6 @@ static void SystemClock_Config();
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void Hardware::Init() 
 {
-    HAL_Init();
-
-    SystemClock_Config();
-
     __GPIOA_CLK_ENABLE();
     __GPIOB_CLK_ENABLE();
     __GPIOC_CLK_ENABLE();
@@ -26,11 +22,16 @@ void Hardware::Init()
     __GPIOE_CLK_ENABLE();
     __GPIOF_CLK_ENABLE();
     __GPIOG_CLK_ENABLE();
+
     __DMA1_CLK_ENABLE();        // Для DAC1 (бикалка)
     __TIM7_CLK_ENABLE();        // Для DAC1 (бикалка)
     __DAC_CLK_ENABLE();         // Для бикалки
     __PWR_CLK_ENABLE();
     __SYSCFG_CLK_ENABLE();
+
+    HAL_Init();
+
+    SystemClock_Config();
 
     HAL_NVIC_SetPriority(SysTick_IRQn, 0, 0);
 
