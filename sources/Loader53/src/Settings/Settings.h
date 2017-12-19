@@ -3,6 +3,11 @@
 #include "SettingsTypes.h"
 #include "Panel/Controls.h"
 #include "SettingsMath.h"
+#include "Settings/SettingsDisplay.h"
+
+
+#define LANG    (set.common.lang)
+#define LANG_RU (LANG == Russian)
 
 
 // Настройки изображения
@@ -17,12 +22,12 @@ typedef struct
     uint16              colors[16];
     ModeDrawSignal      modeDrawSignal;         // Режим отрисовки сигнала
     TypeGrid            typeGrid;               // Тип сетки
-    NumAccumulation     numAccumulation;        // Число накоплений сигнала на экране
-    NumAveraging        numAve;                 // Число усреднений сигнала
+    ENumAccumulation    numAccumulation;        // Число накоплений сигнала на экране
+    ENumAveraging       numAve;                 // Число усреднений сигнала
     ModeAveraging       modeAve;                // Тип усреднений по измерениям
-    NumMinMax           numMinMax;              // Число измерений для определения минимумов и максимумов
+    ENumMinMax          numMinMax;              // Число измерений для определения минимумов и максимумов
     DisplaySmoothing    smoothing;              // Число точек для скользящего фильтра
-    NumSignalsInSec     numSignalsInSec;        // Число считываний сигнала в секунду
+    ENumSignalsInSec    numSignalsInSec;        // Число считываний сигнала в секунду
     Channel             lastAffectedChannel;    // Здесь хранится номер последнего канала, которым управляли ручками. Нужно для того, чтобы знать,
                                                 // какой сигнал рисовать наверху.
     ModeAccumulation    modeAccumulation;       // Задаёт режим накопления сигналов

@@ -121,13 +121,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\libs\common\Display\Colors.cpp" />
+    <ClCompile Include="..\..\libs\common\Display\Painter.cpp" />
+    <ClCompile Include="..\..\libs\common\Display\PainterText.cpp" />
     <ClCompile Include="..\..\libs\common\Hardware\Timer.cpp" />
     <ClCompile Include="..\..\libs\common\Utils\Math.cpp" />
-    <ClCompile Include="..\..\Loader53\src\Display\Colors.cpp" />
     <ClCompile Include="..\..\Loader53\src\Display\Display.cpp" />
     <ClCompile Include="..\..\Loader53\src\Display\font\Font.cpp" />
-    <ClCompile Include="..\..\Loader53\src\Display\Painter.cpp" />
-    <ClCompile Include="..\..\Loader53\src\Display\PainterText.cpp" />
     <ClCompile Include="..\..\Loader53\src\FlashDrive\FlashDrive.cpp" />
     <ClCompile Include="..\..\Loader53\src\globals.cpp" />
     <ClCompile Include="..\..\Loader53\src\Hardware\FLASH.cpp" />
@@ -232,6 +232,8 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\libs\common\Display\Colors.h" />
+    <ClInclude Include="..\..\libs\common\Display\Painter.h" />
     <ClInclude Include="..\..\libs\common\Hardware\Timer.h" />
     <ClInclude Include="..\..\libs\common\Utils\Math.h" />
     <ClInclude Include="..\..\libs\common\_VS\ctype.h" />
@@ -247,13 +249,9 @@
     <ClInclude Include="..\..\libs\common\_VS\tchar.h" />
     <ClInclude Include="..\..\libs\common\_VS\windows.h" />
     <ClInclude Include="..\..\Loader53\src\defines.h" />
-    <ClInclude Include="..\..\Loader53\src\Display\Colors.h" />
     <ClInclude Include="..\..\Loader53\src\Display\Display.h" />
-    <ClInclude Include="..\..\Loader53\src\Display\DisplayTypes.h" />
+    <ClInclude Include="..\..\Loader53\src\Display\_DisplayTypes.h" />
     <ClInclude Include="..\..\Loader53\src\Display\font\Font.h" />
-    <ClInclude Include="..\..\Loader53\src\Display\Painter.h" />
-    <ClInclude Include="..\..\Loader53\src\Display\PainterC.h" />
-    <ClInclude Include="..\..\Loader53\src\Display\PainterText.h" />
     <ClInclude Include="..\..\Loader53\src\FlashDrive\FlashDrive.h" />
     <ClInclude Include="..\..\Loader53\src\FPGA\FPGATypes.h" />
     <ClInclude Include="..\..\Loader53\src\globals.h" />

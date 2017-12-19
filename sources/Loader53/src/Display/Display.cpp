@@ -1,5 +1,7 @@
 #include "Display.h"
-#include "Painter.h"
+#include "Display/Colors.h"
+#include "Display/Painter.h"
+#include "Display/font/Font.h"
 #include "Hardware/Timer.h"
 #include "main.h"
 #include "Utils/Math.h"
@@ -51,8 +53,11 @@ void Display::Init()
     ms->display.timePrev = 0;
     ms->display.direction = 10.0f;
 
-    gColorBack = COLOR_BLACK;
-    gColorFill = COLOR_WHITE;
+    Color::InitGlobalColors();
+
+    Painter::ResetFlash();
+
+    Painter::LoadPalette();
 
     for (int i = 0; i < 14; i++)
     {
@@ -62,15 +67,9 @@ void Display::Init()
         set.display.colors[i + 2] = (uint16)MAKE_COLOR((int)red, (int)green, (int)blue);
     }
 
-    Painter_ResetFlash();
-
     InitHardware();
 
-    Painter_LoadPalette(0);
-    Painter_LoadPalette(1);
-    Painter_LoadPalette(2);
-
-    Painter_SetFont(TypeFont_8);
+    Painter::SetFont(TypeFont_8);
     
     InitPoints();
 }
@@ -80,8 +79,8 @@ void DrawButton(int x, int y, char *text)
 {
     int width = 25;
     int height = 20;
-    Painter_DrawRectangle(x, y, width, height);
-    Painter_DrawStringInCenterRect(x, y, width + 2, height - 1, text);
+    Painter::DrawRectangle(x, y, width, height);
+    Painter::DrawStringInCenterRect(x, y, width + 2, height - 1, text);
 }
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
@@ -93,13 +92,13 @@ void Display::Update1()
 
     uint time = gTimeMS;
 
-    Painter_BeginScene(COLOR_BLACK);
+    Painter::BeginScene(Color::BLACK);
 
-    Painter_DrawTextFormatting(5, 200, COLOR_WHITE, "%f секунд", gTimeMS / 1000.0f);
+    Painter::DrawFormText(5, 200, Color::WHITE, "%f секунд", gTimeMS / 1000.0f);
 
-    Painter_DrawTextFormatting(5, 220, COLOR_WHITE, "min = %d max = %d, current = %d", min , max, current);
+    Painter::DrawFormText(5, 220, Color::WHITE, "min = %d max = %d, current = %d", min , max, current);
 
-    Painter_EndScene();
+    Painter::EndScene();
 
     current = gTimeMS - time;
 
@@ -121,20 +120,20 @@ void Display::Update()
     uint dT = gTimeMS - ms->display.timePrev;
     ms->display.timePrev = gTimeMS;
 
-    Painter_BeginScene(COLOR_BLACK);
+    Painter::BeginScene(Color::BLACK);
 
-    Painter_SetColor(COLOR_WHITE);
+    Painter::SetColor(Color::WHITE);
 
     if (ms->state == State_Start || ms->state == State_Ok)
     {
-        Painter_BeginScene(gColorBack);
-        Painter_SetColor(gColorFill);
-        Painter_DrawRectangle(0, 0, 319, 239);
+        Painter::BeginScene(Color::BACK);
+        Painter::SetColor(Color::FILL);
+        Painter::DrawRectangle(0, 0, 319, 239);
         DrawBigMNIPI();
-        Painter_SetColor(COLOR_WHITE);
-        Painter_DrawStringInCenterRect(0, 180, 320, 20, "Для получения помощи нажмите и удерживайте кнопку ПОМОЩЬ");
-        Painter_DrawStringInCenterRect(0, 205, 320, 20, "Отдел маркетинга: тел./факс. 8-017-262-57-50");
-        Painter_DrawStringInCenterRect(0, 220, 320, 20, "Разработчики: e-mail: mnipi-24(@)tut.by, тел. 8-017-262-57-51");
+        Painter::SetColor(Color::WHITE);
+        Painter::DrawStringInCenterRect(0, 180, 320, 20, "Для получения помощи нажмите и удерживайте кнопку ПОМОЩЬ");
+        Painter::DrawStringInCenterRect(0, 205, 320, 20, "Отдел маркетинга: тел./факс. 8-017-262-57-50");
+        Painter::DrawStringInCenterRect(0, 220, 320, 20, "Разработчики: e-mail: mnipi-24(@)tut.by, тел. 8-017-262-57-51");
     }
     else if (ms->state == State_Mount)
     {
@@ -142,33 +141,33 @@ void Display::Update()
     }
     else if (ms->state == State_WrongFlash)
     {
-        Painter_DrawStringInCenterRectC(0, 0, 320, 200, "НЕ УДАЛОСЬ ПРОЧИТАТЬ ДИСК", COLOR_FLASH_10);
-        Painter_DrawStringInCenterRectC(0, 20, 320, 200, "УБЕДИТЕСЬ, ЧТО ФАЙЛОВАЯ СИСТЕМА FAT32", COLOR_WHITE);
+        Painter::DrawStringInCenterRect(0, 0, 320, 200, "НЕ УДАЛОСЬ ПРОЧИТАТЬ ДИСК", Color::FLASH_10);
+        Painter::DrawStringInCenterRect(0, 20, 320, 200, "УБЕДИТЕСЬ, ЧТО ФАЙЛОВАЯ СИСТЕМА FAT32", Color::WHITE);
     }
     else if (ms->state == State_RequestAction)
     {
-        Painter_DrawStringInCenterRect(0, 0, 320, 200, "Обнаружено программное обеспечение");
-        Painter_DrawStringInCenterRect(0, 20, 320, 200, "Установить его?");
+        Painter::DrawStringInCenterRect(0, 0, 320, 200, "Обнаружено программное обеспечение");
+        Painter::DrawStringInCenterRect(0, 20, 320, 200, "Установить его?");
 
         DrawButton(290, 55, "ДА");
         DrawButton(290, 195, "НЕТ");
     }
     else if (ms->state == State_Upgrade)
     {
-        Painter_DrawStringInCenterRect(0, 0, 320, 190, "Подождите завершения");
-        Painter_DrawStringInCenterRect(0, 0, 320, 220, "установки программного обеспечения");
+        Painter::DrawStringInCenterRect(0, 0, 320, 190, "Подождите завершения");
+        Painter::DrawStringInCenterRect(0, 0, 320, 220, "установки программного обеспечения");
 
         int height = 30;
         int fullWidth = 280;
         int width = (int)(fullWidth * ms->percentUpdate);
 
-        Painter_FillRegion(20, 130, width, height);
-        Painter_DrawRectangle(20, 130, fullWidth, height);
+        Painter::FillRegion(20, 130, width, height);
+        Painter::DrawRectangle(20, 130, fullWidth, height);
     }
 
-    Painter_DrawTextFormatting(10, 10, COLOR_WHITE, "%f", gTimeMS / 1000.0f);
+    Painter::DrawFormText(10, 10, Color::WHITE, "%f", gTimeMS / 1000.0f);
 
-    Painter_EndScene();
+    Painter::EndScene();
     ms->display.isRun = false;
 }
 
@@ -198,12 +197,12 @@ void DrawProgressBar(uint dT)
     int dH = 15;
     int y0 = 50;
 
-    Painter_DrawStringInCenterRectC(X, y0, WIDTH, 10, "Обнаружен USB-диск.", COLOR_WHITE);
-    Painter_DrawStringInCenterRect(X, y0 + dH, WIDTH, 10, "Идёт поиск программного обеспечения");
-    Painter_DrawStringInCenterRect(X, y0 + 2 * dH, WIDTH, 10, "Подождите...");
+    Painter::DrawStringInCenterRect(X, y0, WIDTH, 10, "Обнаружен USB-диск.", Color::WHITE);
+    Painter::DrawStringInCenterRect(X, y0 + dH, WIDTH, 10, "Идёт поиск программного обеспечения");
+    Painter::DrawStringInCenterRect(X, y0 + 2 * dH, WIDTH, 10, "Подождите...");
 
-    Painter_DrawRectangle(X, Y, WIDTH, HEIGHT);
-    Painter_FillRegion(X, Y, (int)ms->display.value, HEIGHT);
+    Painter::DrawRectangle(X, Y, WIDTH, HEIGHT);
+    Painter::FillRegion(X, Y, (int)ms->display.value, HEIGHT);
 }
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -229,7 +228,7 @@ static void DrawBigMNIPI()
     int numColor = (int)(time / (float)TIME_WAIT * 13.0f);
     Limitation<int>(&numColor, 0, 13);
 
-    Painter_SetColor((Color)(numColor + 2));
+    Painter::SetColor(Color((uint8)(numColor + 2)));
 
     float amplitude = 3.0f - (time / (TIME_WAIT / 2.0f)) * 3;
     LIMIT_BELOW(amplitude, 0.0f);
@@ -251,8 +250,97 @@ static void DrawBigMNIPI()
         int y = array[i].y;
         if (x > 0 && x < 319 && y > 0 && y < 239)
         {
-            Painter_SetPoint(x, y);
+            Painter::SetPoint(x, y);
         }
+    }
+}
+
+//----------------------------------------------------------------------------------------------------------------------------------------------------
+static bool ByteFontNotEmpty(int eChar, int byte)
+{
+    static const uint8 *bytes = 0;
+    static int prevChar = -1;
+    if (eChar != prevChar)
+    {
+        prevChar = eChar;
+        bytes = font->symbol[prevChar].bytes;
+    }
+    return bytes[byte];
+}
+
+//----------------------------------------------------------------------------------------------------------------------------------------------------
+static bool BitInFontIsExist(int eChar, int numByte, int bit)
+{
+    static uint8 prevByte = 0;      // WARN здесь точно статики нужны?
+    static int prevChar = -1;
+    static int prevNumByte = -1;
+    if (prevNumByte != numByte || prevChar != eChar)
+    {
+        prevByte = font->symbol[eChar].bytes[numByte];
+        prevChar = eChar;
+        prevNumByte = numByte;
+    }
+    return prevByte & (1 << bit);
+}
+
+//----------------------------------------------------------------------------------------------------------------------------------------------------
+static int DrawBigCharInBuffer(int eX, int eY, int size, char symbol, uint8 buffer[320][240])
+{
+    int8 width = (int8)font->symbol[symbol].width;
+    int8 height = (int8)font->height;
+
+    for (int b = 0; b < height; b++)
+    {
+        if (ByteFontNotEmpty(symbol, b))
+        {
+            int x = eX;
+            int y = eY + b * size + 9 - height;
+            int endBit = 8 - width;
+            for (int bit = 7; bit >= endBit; bit--)
+            {
+                if (BitInFontIsExist(symbol, b, bit))
+                {
+                    for (int i = 0; i < size; i++)
+                    {
+                        for (int j = 0; j < size; j++)
+                        {
+                            int fullX = x + i;
+                            int fullY = y + j;
+
+                            if (fullX >= 0 && fullX < 320 && fullY >= 0 && fullY < 240)
+                            {
+                                buffer[fullX][fullY] = 1;
+                            }
+                        }
+                    }
+                }
+                x += size;
+            }
+        }
+    }
+
+    return eX + width * size;
+}
+
+//----------------------------------------------------------------------------------------------------------------------------------------------------
+static void DrawBigTextInBuffer(int eX, int eY, int size, const char* text, uint8 buffer[320][240])
+{
+    for (int x = 0; x < 320; x++)
+    {
+        for (int y = 0; y < 240; y++)
+        {
+            buffer[x][y] = 0;
+        }
+    }
+
+    int numSymbols = strlen(text);
+
+    int x = eX;
+
+    for (int i = 0; i < numSymbols; i++)
+    {
+        x = DrawBigCharInBuffer(x, eY, size, text[i], buffer);
+        x += size;
     }
 }
 
@@ -261,7 +349,7 @@ static void InitPoints()
 {
     uint8 buffer[320][240];
 
-    Painter_DrawBigTextInBuffer(31, 70, 9, "МНИПИ", buffer);
+    DrawBigTextInBuffer(31, 70, 9, "МНИПИ", buffer);
 
     for (int x = 0; x < 320; x++)
     {

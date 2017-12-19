@@ -138,9 +138,6 @@
     <ClCompile Include="..\..\libs\common\Utils\Math.cpp">
       <Filter>Utils</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Loader53\src\Display\Colors.cpp">
-      <Filter>Display</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Loader53\src\Panel\Controls.cpp">
       <Filter>Panel</Filter>
     </ClCompile>
@@ -168,12 +165,6 @@
     <ClCompile Include="..\..\Loader53\src\main.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Loader53\src\Display\Painter.cpp">
-      <Filter>Display</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Loader53\src\Display\PainterText.cpp">
-      <Filter>Display</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Loader53\src\Panel\Panel.cpp">
       <Filter>Panel</Filter>
     </ClCompile>
@@ -194,6 +185,15 @@
     </ClCompile>
     <ClCompile Include="..\..\libs\common\Hardware\Timer.cpp">
       <Filter>Hardware</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\common\Display\Colors.cpp">
+      <Filter>Display</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\common\Display\Painter.cpp">
+      <Filter>Display</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\common\Display\PainterText.cpp">
+      <Filter>Display</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -281,9 +281,6 @@
     <ClInclude Include="..\..\libs\common\Utils\Math.h">
       <Filter>Utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Loader53\src\Display\Colors.h">
-      <Filter>Display</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Loader53\src\Panel\Controls.h">
       <Filter>Panel</Filter>
     </ClInclude>
@@ -292,9 +289,6 @@
     </ClInclude>
     <ClInclude Include="..\..\Loader53\src\defines.h">
       <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Loader53\src\Display\DisplayTypes.h">
-      <Filter>Display</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Loader53\src\libs\ffconf.h">
       <Filter>libs</Filter>
@@ -322,15 +316,6 @@
     </ClInclude>
     <ClInclude Include="..\..\Loader53\src\main.h">
       <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Loader53\src\Display\Painter.h">
-      <Filter>Display</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Loader53\src\Display\PainterC.h">
-      <Filter>Display</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Loader53\src\Display\PainterText.h">
-      <Filter>Display</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Loader53\src\Panel\Panel.h">
       <Filter>Panel</Filter>
@@ -394,6 +379,15 @@
     </ClInclude>
     <ClInclude Include="..\..\Loader53\src\Log.h">
       <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\common\Display\Colors.h">
+      <Filter>Display</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\common\Display\Painter.h">
+      <Filter>Display</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Loader53\src\Display\_DisplayTypes.h">
+      <Filter>Display</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

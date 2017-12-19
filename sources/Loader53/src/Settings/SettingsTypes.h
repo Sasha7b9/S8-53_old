@@ -10,72 +10,6 @@ typedef enum
     ColorScheme_BlackLetters        // В этом случае заголовки элементов меню пишутся чёрным - не очень красиво выглядит
 } ColorScheme;
 
-// Режим отрисовки сигнала.
-typedef enum
-{
-    ModeDrawSignal_Lines = 0,   // линиями
-    ModeDrawSignal_Points = 1   // точками
-} ModeDrawSignal;
-
-// Тип сетки на экране.
-typedef enum
-{
-    TypeGrid_1,
-    TypeGrid_2,
-    TypeGrid_3,
-    TypeGrid_4,
-    TG_Size
-} TypeGrid;
-
-// Количество накоплений.
-typedef enum
-{
-    NumAccumulation_1,
-    NumAccumulation_2,
-    NumAccumulation_4,
-    NumAccumulation_8,
-    NumAccumulation_16,
-    NumAccumulation_32,
-    NumAccumulation_64,
-    NumAccumulation_128,
-    NumAccumulation_Infinity
-} NumAccumulation;
-
-// Количество усреднений по измерениям.
-typedef enum
-{
-    NumAveraging_1,
-    NumAveraging_2,
-    NumAveraging_4,
-    NumAveraging_8,
-    NumAveraging_16,
-    NumAveraging_32,
-    NumAveraging_64,
-    NumAveraging_128,
-    NumAveraging_256,
-    NumAveraging_512
-} NumAveraging;
-
-// Тип усреднений по измерениям
-typedef enum
-{
-    Averaging_Accurately,   // Усреднять точно.
-    Averaging_Around        // Усреднять приблизительно.
-} ModeAveraging;
-
-// Количество измерений для расчёта минимального и максимального значений.
-typedef enum
-{
-    NumMinMax_1,
-    NumMinMax_2,
-    NumMinMax_4,
-    NumMinMax_8,
-    NumMinMax_16,
-    NumMinMax_32,
-    NumMinMax_64,
-    NumMinMax_128
-} NumMinMax;
-
 // Количество точек для расчёта сглаживания.
 typedef enum
 {
@@ -91,16 +25,6 @@ typedef enum
     DisplaySmooth_10points = 9
 } DisplaySmoothing;
 
-// Ограничение FPS.
-typedef enum
-{
-    NumSignalsInSec_25,
-    NumSignalsInSec_10,
-    NumSignalsInSec_5,
-    NumSignalsInSec_2,
-    NumSignalsInSec_1
-} NumSignalsInSec;
-
 // Режим отображения пропущенных сигналов при ограничении частоты кадров.
 typedef enum
 {
@@ -108,31 +32,6 @@ typedef enum
     Missed_Show,    // Выводить на экран
     Missed_Average  // Устреднять и выводить на экран
 } MissedSignals;
-
-typedef enum
-{
-    ModeAccumulation_NoReset,   // В этом режиме показываются строго N последних
-    ModeAccumulation_Reset      // В этом режиме набираются N последних и потом сбрасываются
-} ModeAccumulation;
-
-// Режим отображения дополнительных боковых маркеров смещения по напряжению 
-typedef enum
-{
-    AM_Hide,        // Никода не выводить
-    AM_Show,        // Всегда выводить
-    AM_AutoHide     // Выводить и прятать через timeShowLevels
-} AltMarkers;
-
-// Через какое время после последнего нажатия кнопки скрывать меню
-typedef enum
-{
-    MenuAutoHide_None    = 0,    // Никогда
-    MenuAutoHide_5       = 5,    // Через 5 секунд
-    MenuAutoHide_10      = 10,   // Через 10 секунд
-    MenuAutoHide_15      = 15,   // Через 15 секунд
-    MenuAutoHide_30      = 30,   // Через 30 секунд
-    MenuAutoHide_60      = 60    // Через 60 секунд
-} MenuAutoHide;
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // ChannelX
