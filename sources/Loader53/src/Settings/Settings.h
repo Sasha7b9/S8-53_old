@@ -241,8 +241,7 @@ typedef struct
     SettingsCommon      common;                     // системные настройки
     SettingsDebug       debug;                      // настройки режима отладки       (меню ОТЛАДКА)
     int temp;
+    static void Load();
 } Settings;
 
 extern Settings set;
-
-void    Settings_Load();    // Загрузить настройки

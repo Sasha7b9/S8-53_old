@@ -37,7 +37,7 @@ int main()
 
     Hardware::Init();
 
-    Settings_Load();
+    Settings::Load();
 
     Timer_PauseOnTime(250);
     ms->state = State_Start;
