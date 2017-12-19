@@ -39,18 +39,18 @@ int main()
 
     Settings::Load();
 
-    Timer_PauseOnTime(250);
+    Timer::PauseOnTime(250);
     ms->state = State_Start;
 
     Display::Init();
 
-    Timer_Enable(kTemp, 10, Display::Update);
+    Timer::SetAndEnable(kTemp, Display::Update, 10);
 
-    uint timeStart = HAL_GetTick();
+    uint timeStart = gTimeMS;
 
     drive.Init();
 
-    while (HAL_GetTick() - timeStart < TIME_WAIT && !drive.Update())
+    while (gTimeMS - timeStart < TIME_WAIT && !drive.Update())
     {
     }
 
@@ -90,14 +90,14 @@ int main()
     }
     else if (ms->state == State_WrongFlash) // Диск не удалось примонтировать
     {
-        Timer_PauseOnTime(5000);
+        Timer::PauseOnTime(5000);
     }
 
     ms->state = State_Ok;
 
     Panel_DeInit();
 
-    Timer_Disable(kTemp);
+    Timer::Disable(kTemp);
 
     while (Display::IsRun())
     {

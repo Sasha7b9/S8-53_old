@@ -121,6 +121,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\libs\common\Hardware\Timer.cpp" />
     <ClCompile Include="..\..\libs\common\Utils\Math.cpp" />
     <ClCompile Include="..\..\Loader53\src\Display\Colors.cpp" />
     <ClCompile Include="..\..\Loader53\src\Display\Display.cpp" />
@@ -132,7 +133,6 @@
     <ClCompile Include="..\..\Loader53\src\Hardware\FLASH.cpp" />
     <ClCompile Include="..\..\Loader53\src\Hardware\FSMC.cpp" />
     <ClCompile Include="..\..\Loader53\src\Hardware\Hardware.cpp" />
-    <ClCompile Include="..\..\Loader53\src\Hardware\Timer.cpp" />
     <ClCompile Include="..\..\Loader53\src\libs\stm32f2xx_hal_msp.cpp" />
     <ClCompile Include="..\..\Loader53\src\libs\stm32f2xx_it.cpp" />
     <ClCompile Include="..\..\Loader53\src\libs\system_stm32f2xx.c">
@@ -232,6 +232,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\libs\common\Hardware\Timer.h" />
     <ClInclude Include="..\..\libs\common\Utils\Math.h" />
     <ClInclude Include="..\..\libs\common\_VS\ctype.h" />
     <ClInclude Include="..\..\libs\common\_VS\integer.h" />
@@ -259,11 +260,11 @@
     <ClInclude Include="..\..\Loader53\src\Hardware\FLASH.h" />
     <ClInclude Include="..\..\Loader53\src\Hardware\FSMC.h" />
     <ClInclude Include="..\..\Loader53\src\Hardware\Hardware.h" />
-    <ClInclude Include="..\..\Loader53\src\Hardware\Timer.h" />
     <ClInclude Include="..\..\Loader53\src\libs\ffconf.h" />
     <ClInclude Include="..\..\Loader53\src\libs\stm32f2xx_hal_conf.h" />
     <ClInclude Include="..\..\Loader53\src\libs\stm32f2xx_it.h" />
     <ClInclude Include="..\..\Loader53\src\libs\usbh_conf.h" />
+    <ClInclude Include="..\..\Loader53\src\Log.h" />
     <ClInclude Include="..\..\Loader53\src\main.h" />
     <ClInclude Include="..\..\Loader53\src\Panel\Controls.h" />
     <ClInclude Include="..\..\Loader53\src\Panel\Panel.h" />

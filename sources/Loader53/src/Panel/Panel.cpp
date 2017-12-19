@@ -121,10 +121,10 @@ static PanelButton ButtonIsPress(uint16 command)
 
     if(command < (B_NumButtons | 0x80) && command > (B_Empty | 0x80))
     {
-        if(HAL_GetTick() - timePrevPressButton > 100)
+        if(gTimeMS - timePrevPressButton > 100)
         {
             button = (PanelButton)(command & 0x7f);
-            timePrevPressButton = HAL_GetTick();
+            timePrevPressButton = gTimeMS;
         }
     }
 

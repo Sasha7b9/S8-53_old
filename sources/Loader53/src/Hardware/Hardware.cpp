@@ -9,31 +9,6 @@
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-static TIM_HandleTypeDef handleTIM6forTimer =
-{
-    TIM6,
-    {
-        119,                    // Init.Prescaler
-        TIM_COUNTERMODE_UP,     // Init.CounterMode
-        500,                    // Init.Period
-        TIM_CLOCKDIVISION_DIV1  // Init.ClockDivision
-    }
-};
-
-// Таймер для тиков
-TIM_HandleTypeDef tim2handle =
-{
-    TIM2,
-    {
-        0,
-        TIM_COUNTERMODE_UP,
-        0xffffffff,
-        TIM_CLOCKDIVISION_DIV1
-    }
-};
-
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 static void SystemClock_Config();
 
 
@@ -52,32 +27,16 @@ void Hardware::Init()
     __GPIOF_CLK_ENABLE();
     __GPIOG_CLK_ENABLE();
     __DMA1_CLK_ENABLE();        // Для DAC1 (бикалка)
-    
-    __TIM6_CLK_ENABLE();        // Для отсчёта миллисекунд
-    __TIM2_CLK_ENABLE();        // Для тиков
     __TIM7_CLK_ENABLE();        // Для DAC1 (бикалка)
     __DAC_CLK_ENABLE();         // Для бикалки
     __PWR_CLK_ENABLE();
-
     __SYSCFG_CLK_ENABLE();
 
     HAL_NVIC_SetPriority(SysTick_IRQn, 0, 0);
 
-    // Timer  /////////////////////////////////////////////////////////////////
-    //RCC_PCLK1Config(RCC_HCLK_Div1);
-
-    // Таймер для мс
-    HAL_NVIC_SetPriority(TIM6_DAC_IRQn, 2, 0);
-    HAL_NVIC_EnableIRQ(TIM6_DAC_IRQn);
-
-    HAL_TIM_Base_Init(&handleTIM6forTimer);
-
-    HAL_TIM_Base_Start_IT(&handleTIM6forTimer);
-
-    HAL_TIM_Base_Init(&tim2handle);
-    HAL_TIM_Base_Start(&tim2handle);
-
     Panel_Init();
+
+    Timer::Init();
 
     FSMC_Init();
     
@@ -116,40 +75,14 @@ void Hardware::DeInit()
     __GPIOG_CLK_DISABLE();
     __DMA1_CLK_DISABLE();        // Для DAC1 (бикалка)
 
-    __TIM6_CLK_DISABLE();        // Для отсчёта миллисекунд
-    __TIM2_CLK_DISABLE();        // Для тиков
     __TIM7_CLK_DISABLE();        // Для DAC1 (бикалка)
     __DAC_CLK_DISABLE();         // Для бикалки
     __PWR_CLK_DISABLE();
 
     __SYSCFG_CLK_DISABLE();
 
-    HAL_NVIC_DisableIRQ(TIM6_DAC_IRQn);
-    HAL_TIM_Base_DeInit(&handleTIM6forTimer);
-    HAL_TIM_Base_Stop_IT(&handleTIM6forTimer);
-
-    HAL_TIM_Base_DeInit(&tim2handle);
-    HAL_TIM_Base_Stop(&tim2handle);
+    Timer::DeInit();
 }
-
-#ifdef __cplusplus
-extern "C" {
-#endif
-
-//----------------------------------------------------------------------------------------------------------------------------------------------------
-void TIM6_DAC_IRQHandler()
-{
-    if (__HAL_TIM_GET_FLAG(&handleTIM6forTimer, TIM_FLAG_UPDATE) == SET && __HAL_TIM_GET_ITSTATUS(&handleTIM6forTimer, TIM_IT_UPDATE))
-    {
-        Timer_Update1ms();
-        __HAL_TIM_CLEAR_FLAG(&handleTIM6forTimer, TIM_FLAG_UPDATE);
-        __HAL_TIM_CLEAR_IT(&handleTIM6forTimer, TIM_IT_UPDATE);
-    }
-}
-
-#ifdef __cplusplus
-}
-#endif
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 static void SystemClock_Config()

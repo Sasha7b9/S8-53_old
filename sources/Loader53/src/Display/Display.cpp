@@ -91,19 +91,17 @@ void Display::Update1()
     static uint max = 0;
     static uint current = 0;
 
-    uint time = HAL_GetTick();
+    uint time = gTimeMS;
 
     Painter_BeginScene(COLOR_BLACK);
 
-    Painter_DrawTextFormatting(5, 200, COLOR_WHITE, "%f секунд", HAL_GetTick() / 1000.0f);
-
-//    Painter_DrawTextFormatting(5, 210, COLOR_WHITE, "%d frames", numFrames);
+    Painter_DrawTextFormatting(5, 200, COLOR_WHITE, "%f секунд", gTimeMS / 1000.0f);
 
     Painter_DrawTextFormatting(5, 220, COLOR_WHITE, "min = %d max = %d, current = %d", min , max, current);
 
     Painter_EndScene();
 
-    current = HAL_GetTick() - time;
+    current = gTimeMS - time;
 
     if (current < min)
     {
@@ -120,8 +118,8 @@ void Display::Update()
 {
     ms->display.isRun = true;
 
-    uint dT = HAL_GetTick() - ms->display.timePrev;
-    ms->display.timePrev = HAL_GetTick();
+    uint dT = gTimeMS - ms->display.timePrev;
+    ms->display.timePrev = gTimeMS;
 
     Painter_BeginScene(COLOR_BLACK);
 
@@ -168,8 +166,7 @@ void Display::Update()
         Painter_DrawRectangle(20, 130, fullWidth, height);
     }
 
-    //DrawFrames();
-    //DrawSeconds();
+    Painter_DrawTextFormatting(10, 10, COLOR_WHITE, "%f", gTimeMS / 1000.0f);
 
     Painter_EndScene();
     ms->display.isRun = false;
@@ -224,10 +221,10 @@ static void DrawBigMNIPI()
     if (first)
     {
         first = false;
-        startTime = HAL_GetTick();
+        startTime = gTimeMS;
     }
 
-    uint time = HAL_GetTick() - startTime;
+    uint time = gTimeMS - startTime;
 
     int numColor = (int)(time / (float)TIME_WAIT * 13.0f);
     Limitation<int>(&numColor, 0, 13);
@@ -279,26 +276,3 @@ static void InitPoints()
         }
     }
 }
-
-/*
-//----------------------------------------------------------------------------------------------------------------------------------------------------
-static void DrawSeconds()
-{
-    Painter_DrawTextFormatting(5, 200, COLOR_WHITE, "%f секунд", HAL_GetTick() / 1000.0f);
-}
-
-//----------------------------------------------------------------------------------------------------------------------------------------------------
-static void DrawFrames()
-{
-    static int numFrames = 0;
-
-    numFrames++;
-    
-    for (int i = 0; i < numFrames; i++)
-    {
-        Painter_SetPoint(i + 1, 1);
-    }
-
-    Painter_DrawTextFormatting(5, 15, COLOR_WHITE, "%d кадров", numFrames);
-}
-*/

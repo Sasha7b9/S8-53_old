@@ -73,7 +73,7 @@
         <LExpSel>0</LExpSel>
       </OPTXL>
       <OPTFL>
-        <tvExp>0</tvExp>
+        <tvExp>1</tvExp>
         <tvExpOptDlg>0</tvExpOptDlg>
         <IsCurrentTarget>1</IsCurrentTarget>
       </OPTFL>
@@ -133,7 +133,7 @@
         <SetRegEntry>
           <Number>0</Number>
           <Key>DLGUARM</Key>
-          <Name>/</Name>
+          <Name>Њт=</Name>
         </SetRegEntry>
         <SetRegEntry>
           <Number>0</Number>
@@ -150,52 +150,28 @@
         <Bp>
           <Number>0</Number>
           <Type>0</Type>
-          <LineNumber>60</LineNumber>
+          <LineNumber>234</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134486718</Address>
+          <Address>134491686</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>&lt;1&gt;.\src\FPGA\FPGA.cpp</Filename>
+          <Filename>&lt;1&gt;..\libs\common\Menu\Menu.cpp</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\Device53\src/FPGA/FPGA.cpp\60</Expression>
-        </Bp>
-        <Bp>
-          <Number>1</Number>
-          <Type>0</Type>
-          <LineNumber>188</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>134488388</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>&lt;1&gt;.\src\FPGA\FPGA.cpp</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\Device53\src/FPGA/FPGA.cpp\188</Expression>
-        </Bp>
-        <Bp>
-          <Number>2</Number>
-          <Type>0</Type>
-          <LineNumber>160</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>134488310</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>&lt;1&gt;.\src\FPGA\FPGA.cpp</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\Device53\src/FPGA/FPGA.cpp\160</Expression>
+          <Expression>\\Device53\../libs/common/Menu/Menu.cpp\234</Expression>
         </Bp>
       </Breakpoint>
+      <MemoryWindow1>
+        <Mm>
+          <WinNumber>1</WinNumber>
+          <SubType>0</SubType>
+          <ItemText>bufferForButtons</ItemText>
+          <AccSizeX>0</AccSizeX>
+        </Mm>
+      </MemoryWindow1>
       <Tracepoint>
         <THDelay>0</THDelay>
       </Tracepoint>
@@ -1947,7 +1923,7 @@
 
   <Group>
     <GroupName>FPGA</GroupName>
-    <tvExp>1</tvExp>
+    <tvExp>0</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -2251,7 +2227,7 @@
 
   <Group>
     <GroupName>Menu</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>

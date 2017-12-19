@@ -71,7 +71,7 @@ static void OnTimerFlashDisplay()
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 void Painter_ResetFlash()
 {
-    Timer_Enable(kFlashDisplay, 400, OnTimerFlashDisplay);
+    Timer::SetAndEnable(kFlashDisplay, OnTimerFlashDisplay, 400);
     inverseColors = false;
 }
 
@@ -141,7 +141,7 @@ void Painter_SendToDisplay(uint8 *bytes, int numBytes)
     for (int i = 0; i < numBytes; i += 4)
     {
         while (HAL_GPIO_ReadPin(GPIOG, GPIO_PIN_11) == GPIO_PIN_RESET) {};
-        Timer_PauseOnTicks(50);
+        Timer::PauseOnTicks(50);
         *ADDR_CDISPLAY = *bytes++;
         *ADDR_CDISPLAY = *bytes++;
         *ADDR_CDISPLAY = *bytes++;

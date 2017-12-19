@@ -189,11 +189,11 @@
     <ClCompile Include="..\..\Loader53\src\libs\system_stm32f2xx.c">
       <Filter>libs</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Loader53\src\Hardware\Timer.cpp">
-      <Filter>Hardware</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Loader53\src\libs\usbh_conf.cpp">
       <Filter>USBH</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\common\Hardware\Timer.cpp">
+      <Filter>Hardware</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -350,9 +350,6 @@
     <ClInclude Include="..\..\Loader53\src\libs\stm32f2xx_it.h">
       <Filter>libs</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Loader53\src\Hardware\Timer.h">
-      <Filter>Hardware</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Loader53\src\libs\usbh_conf.h">
       <Filter>USBH</Filter>
     </ClInclude>
@@ -391,6 +388,12 @@
     </ClInclude>
     <ClInclude Include="..\..\libs\common\_VS\windows.h">
       <Filter>_VS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\common\Hardware\Timer.h">
+      <Filter>Hardware</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Loader53\src\Log.h">
+      <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
