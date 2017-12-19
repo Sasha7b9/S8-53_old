@@ -40,12 +40,11 @@ int main()
     Settings_Load();
 
     Timer_PauseOnTime(250);
-    /*
     ms->state = State_Start;
 
-    Display_Init();
+    Display::Init();
 
-    Timer_Enable(kTemp, 10, Display_Update);
+    Timer_Enable(kTemp, 10, Display::Update);
 
     uint timeStart = HAL_GetTick();
 
@@ -100,16 +99,15 @@ int main()
 
     Timer_Disable(kTemp);
 
-    while (Display_IsRun())
+    while (Display::IsRun())
     {
     }
 
-    Display_Update();
+    Display::Update();
 
     HAL_DeInit();
 
     free(ms);
-    */
 
     Hardware_DeInit();
 

@@ -113,5 +113,4 @@ private:
                                 );
     /// Вывести значение уровня синхронизации. 
     static void WriteValueTrigLevel();
-
 };

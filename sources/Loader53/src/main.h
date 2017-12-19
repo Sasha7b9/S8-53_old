@@ -37,28 +37,28 @@ typedef enum
 
 typedef struct
 {
-    bool isRun;
+    bool  isRun;
     float value;
     float direction;
-    uint timePrev;
-} Display;
+    uint  timePrev;
+} DisplayStruct;
 
 typedef struct
 {
-    FATFS USBDISKFatFS;
-    char USBDISKPath[4];
+    FATFS     USBDISKFatFS;
+    char      USBDISKPath[4];
     StateDisk state;
-    FIL file;
-    int connection;
-    int active;
+    FIL       file;
+    int       connection;
+    int       active;
 } FlashDrive;
 
 typedef struct
 {
-    FlashDrive drive;
-    Display display;
-    float percentUpdate;
-    State state;
+    FlashDrive    drive;
+    DisplayStruct display;
+    float         percentUpdate;
+    State         state;
 } MainStruct;
 
 
