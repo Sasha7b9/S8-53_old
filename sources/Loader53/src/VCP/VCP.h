@@ -1,3 +1,9 @@
 #pragma once
 
-#define VCP_FLUSH()
+
+class VCP
+{
+public:
+    static void Flush() { };
+    static void SendDataSynch(uint8 *, int) { };
+};

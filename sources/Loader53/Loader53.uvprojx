@@ -947,6 +947,9 @@
             </File>
           </Files>
         </Group>
+        <Group>
+          <GroupName>VCP</GroupName>
+        </Group>
       </Groups>
     </Target>
   </Targets>

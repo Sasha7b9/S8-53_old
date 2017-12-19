@@ -252,6 +252,8 @@
     <ClInclude Include="..\..\Loader53\src\Display\Display.h" />
     <ClInclude Include="..\..\Loader53\src\Display\_DisplayTypes.h" />
     <ClInclude Include="..\..\Loader53\src\Display\font\Font.h" />
+    <ClInclude Include="..\..\Loader53\src\Ethernet\Ethernet.h" />
+    <ClInclude Include="..\..\Loader53\src\Ethernet\TcpSocket.h" />
     <ClInclude Include="..\..\Loader53\src\FlashDrive\FlashDrive.h" />
     <ClInclude Include="..\..\Loader53\src\FPGA\FPGATypes.h" />
     <ClInclude Include="..\..\Loader53\src\globals.h" />
@@ -304,6 +306,7 @@
     <ClInclude Include="..\..\..\_libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\ff_gen_drv.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClInclude>
+    <ClInclude Include="..\..\Loader53\src\VCP\VCP.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\Loader53\src\Display\font\font5.inc" />
