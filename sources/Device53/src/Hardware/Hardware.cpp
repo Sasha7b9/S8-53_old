@@ -80,6 +80,8 @@ void Hardware_Init()
     ADConverter::Init();
 
     FDrive::Init();
+
+    Timer::Init();
     
 // Analog and DAC programmable SPI ////////////////////////////////////////
 

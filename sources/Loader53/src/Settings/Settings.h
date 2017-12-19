@@ -1,4 +1,4 @@
-#pragma once
+  #pragma once
 #include "defines.h"
 #include "SettingsTypes.h"
 #include "Panel/Controls.h"
@@ -8,26 +8,28 @@
 // Настройки изображения
 typedef struct
 {
-    int16               timeShowLevels;             // Время, в течение которого нужно показывать уровни смещения
-    int16               shiftInMemory;              // Показывает смещение левого края сетки относительно нулевого байта памяти. Нужно для правильного отображения сигнала в окне.
-    int16               timeMessages;               // Время в секундах, на которое сообщение остаётся на экране
-    int16               brightness;                 // Яркость дисплея (только для цветного)
-    int16               brightnessGrid;             // Яркость сетки от 0 до 100
+    int16               timeShowLevels;         // Время, в течение которого нужно показывать уровни смещения
+    int16               shiftInMemory;          // Показывает смещение левого края сетки относительно нулевого байта памяти. Нужно для правильного
+                                                // отображения сигнала в окне.
+    int16               timeMessages;           // Время в секундах, на которое сообщение остаётся на экране
+    int16               brightness;             // Яркость дисплея (только для цветного)
+    int16               brightnessGrid;         // Яркость сетки от 0 до 100
     uint16              colors[16];
-    ModeDrawSignal      modeDrawSignal;             // Режим отрисовки сигнала
-    TypeGrid            typeGrid;                   // Тип сетки
-    NumAccumulation     numAccumulation;            // Число накоплений сигнала на экране
-    NumAveraging        numAve;                     // Число усреднений сигнала
-    ModeAveraging       modeAve;                    // Тип усреднений по измерениям
-    NumMinMax           numMinMax;                  // Число измерений для определения минимумов и максимумов
-    DisplaySmoothing    smoothing;                  // Число точек для скользящего фильтра
-    NumSignalsInSec     numSignalsInSec;            // Число считываний сигнала в секунду
-    Channel             lastAffectedChannel;        // Здесь хранится номер последнего канала, которым управляли ручками. Нужно для того, чтобы знать, какой сигнал рисовать наверху.
-    ModeAccumulation    modeAccumulation;           // Задаёт режим накопления сигналов
-    AltMarkers          altMarkers;                 // Режим отображения дополнительных боковых маркеров смещений
-    MenuAutoHide        menuAutoHide;               // Через сколько времени после последнего нажатия клавиши прятать меню 
-    bool                showFullMemoryWindow;       // Показывать ли окно памяти вверху экрана.
-    bool                showStringNavigation;       // Показывать ли строку текущего состояния меню.
+    ModeDrawSignal      modeDrawSignal;         // Режим отрисовки сигнала
+    TypeGrid            typeGrid;               // Тип сетки
+    NumAccumulation     numAccumulation;        // Число накоплений сигнала на экране
+    NumAveraging        numAve;                 // Число усреднений сигнала
+    ModeAveraging       modeAve;                // Тип усреднений по измерениям
+    NumMinMax           numMinMax;              // Число измерений для определения минимумов и максимумов
+    DisplaySmoothing    smoothing;              // Число точек для скользящего фильтра
+    NumSignalsInSec     numSignalsInSec;        // Число считываний сигнала в секунду
+    Channel             lastAffectedChannel;    // Здесь хранится номер последнего канала, которым управляли ручками. Нужно для того, чтобы знать,
+                                                // какой сигнал рисовать наверху.
+    ModeAccumulation    modeAccumulation;       // Задаёт режим накопления сигналов
+    AltMarkers          altMarkers;             // Режим отображения дополнительных боковых маркеров смещений
+    MenuAutoHide        menuAutoHide;           // Через сколько времени после последнего нажатия клавиши прятать меню 
+    bool                showFullMemoryWindow;   // Показывать ли окно памяти вверху экрана.
+    bool                showStringNavigation;   // Показывать ли строку текущего состояния меню.
 } SettingsDisplay;
 
 
@@ -70,25 +72,26 @@ typedef struct
     SampleType      sampleType;
     PeackDetMode    peakDet;
     bool            selfRecorder;           // Включен ли режим самописца.
-    FPGA_NUM_POINTS oldNumPoints;           // Когда переключаемся в режим пикового детектора, устанавливаем количество точек в 1024, а сюда записываем то, что было, чтобы потом восстановить
+    FPGA_NUM_POINTS oldNumPoints;           // Когда переключаемся в режим пикового детектора, устанавливаем количество точек в 1024, а сюда 
+                                            // записываем то, что было, чтобы потом восстановить
 } SettingsTime;
 
 
 // Настройки курсоров
 typedef struct
 {
-    CursCntrl           cntrlU[NumChannels];                    // Активные курсоры напряжения.
-    CursCntrl           cntrlT[NumChannels];                    // Активные курсоры напряжения.
-    Channel             source;                                 // Источник - к какому каналу относятся курсоры.
-    float               posCurU[NumChannels][2];                // Текущие позиции курсоров напряжения обоих каналов.
-    float               posCurT[NumChannels][2];                // Текущие позиции курсоров времени обоих каналов.
-    float               deltaU100percents[2];                   // Расстояние между курсорами напряжения для 100%, для обоих каналов.
-    float               deltaT100percents[2];                   // Расстояние между курсорами времени для 100%, для обоих каналов.
-    CursMovement        movement;                               // Как перемещаться курсорам - по точкам или по процентам.
-    CursActive          active;                                 // Какие курсоры сейчас активны.
-    CursLookMode        lookMode[2];                            // Режимы слежения за курсорами для двух пар курсоров.
-    bool                showFreq;                               // Установленное в true значение, что нужно показывать на экране значение 1/dT между курсорами.
-    bool                showCursors;                            // Показывать ли курсоры
+    CursCntrl           cntrlU[NumChannels];        // Активные курсоры напряжения.
+    CursCntrl           cntrlT[NumChannels];        // Активные курсоры напряжения.
+    Channel             source;                     // Источник - к какому каналу относятся курсоры.
+    float               posCurU[NumChannels][2];    // Текущие позиции курсоров напряжения обоих каналов.
+    float               posCurT[NumChannels][2];    // Текущие позиции курсоров времени обоих каналов.
+    float               deltaU100percents[2];       // Расстояние между курсорами напряжения для 100%, для обоих каналов.
+    float               deltaT100percents[2];       // Расстояние между курсорами времени для 100%, для обоих каналов.
+    CursMovement        movement;                   // Как перемещаться курсорам - по точкам или по процентам.
+    CursActive          active;                     // Какие курсоры сейчас активны.
+    CursLookMode        lookMode[2];                // Режимы слежения за курсорами для двух пар курсоров.
+    bool                showFreq;                   // Установленное в true значение, что нужно показывать на экране значение 1/dT между курсорами.
+    bool                showCursors;                // Показывать ли курсоры
 } SettingsCursors;
 
 typedef  struct

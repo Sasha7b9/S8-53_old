@@ -4,6 +4,9 @@
 *.tlog
 *.log
 *.lib
+*.out
+*.scvd
+JLink*
 
 sources/Loader53/_obj/*
 sources/Loader53/_lst/*
