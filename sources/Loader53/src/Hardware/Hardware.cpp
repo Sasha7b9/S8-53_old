@@ -38,7 +38,7 @@ static void SystemClock_Config();
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-void Hardware_Init() 
+void Hardware::Init() 
 {
     HAL_Init();
 
@@ -103,7 +103,7 @@ void Hardware_Init()
 
 }
 
-void Hardware_DeInit()
+void Hardware::DeInit()
 {
     HAL_DeInit();
 

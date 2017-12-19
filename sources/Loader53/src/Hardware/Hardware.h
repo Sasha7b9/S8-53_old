@@ -24,10 +24,9 @@ typedef enum
 } TypeWriteAnalog;
 
 
-void Hardware_Init();
-
-void Hardware_DeInit();
-
-void Hardware_WriteToAnalog(TypeWriteAnalog type, uint data);
-
-void Hardware_WriteToDAC(TypeWriteDAC type, uint16 data);
+class Hardware
+{
+public:
+    static void Init();
+    static void DeInit();
+};

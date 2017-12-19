@@ -35,7 +35,7 @@ int main()
     ms = (MainStruct *)malloc(sizeof(MainStruct));
     ms->percentUpdate = 0.0f;
 
-    Hardware_Init();
+    Hardware::Init();
 
     Settings_Load();
 
@@ -109,7 +109,7 @@ int main()
 
     free(ms);
 
-    Hardware_DeInit();
+    Hardware::DeInit();
 
     __disable_irq();
     // Теперь переходим на основную программу
