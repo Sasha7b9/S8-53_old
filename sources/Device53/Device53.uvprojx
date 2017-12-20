@@ -336,7 +336,7 @@
               <MiscControls>--cpp</MiscControls>
               <Define>USE_HAL_DRIVER, STM32F207xx, __cplusplus, S8_53, OSCI</Define>
               <Undefine></Undefine>
-              <IncludePath>..\libs\STM32Cube_F2\Drivers\CMSIS\Include;..\libs\STM32Cube_F2\Drivers\CMSIS\Device\ST\STM32F2xx\Include;..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Inc;..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Core\Inc;..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Class\MSC\Inc;..\libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src;..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Device_Library\Core\Inc;..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Device_Library\Class\CDC\Inc;..\libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\include;..\libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\system;..\libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\drivers;.\src;.\src\libs;..\libs\common</IncludePath>
+              <IncludePath>..\libs\STM32Cube_F2\Drivers\CMSIS\Include;..\libs\STM32Cube_F2\Drivers\CMSIS\Device\ST\STM32F2xx\Include;..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Inc;..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Core\Inc;..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Class\MSC\Inc;..\libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src;..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Device_Library\Core\Inc;..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Device_Library\Class\CDC\Inc;..\libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\include;..\libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\system;..\libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\drivers;..\libs\common;.\src;.\src\libs</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -845,11 +845,6 @@
         <Group>
           <GroupName>src</GroupName>
           <Files>
-            <File>
-              <FileName>check.bat</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\check.bat</FilePath>
-            </File>
             <File>
               <FileName>defines.h</FileName>
               <FileType>5</FileType>

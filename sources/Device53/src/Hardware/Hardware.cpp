@@ -36,8 +36,6 @@ void Hardware_Init()
     __GPIOF_CLK_ENABLE();
     __GPIOG_CLK_ENABLE();
 
-    __DMA1_CLK_ENABLE();        // Для DAC1 (бикалка)
-    __TIM7_CLK_ENABLE();        // Для DAC1 (бикалка)
     __PWR_CLK_ENABLE();
     __SYSCFG_CLK_ENABLE();
 

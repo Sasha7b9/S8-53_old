@@ -404,6 +404,9 @@
     <ClInclude Include="..\..\Loader53\src\Ethernet\TcpSocket.h">
       <Filter>Ethernet</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\libs\common\stub.h">
+      <Filter>src</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\_libs\forVS\algorithm">
