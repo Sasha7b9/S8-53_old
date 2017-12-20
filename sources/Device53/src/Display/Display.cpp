@@ -1282,8 +1282,6 @@ void Display::Update()
 
     Painter::SetColor(Color::FILL);
 
-    LOG_WRITE("%f", gTimeMS / 1000.0f);
-
     Painter::EndScene();
 
     if (gMemory.needForSaveToFlashDrive == 1)
