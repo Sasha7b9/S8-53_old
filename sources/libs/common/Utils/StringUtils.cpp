@@ -18,77 +18,66 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 StringUtils su;
 
-static int NumDigitsInIntPart(float value);
-
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 char *Voltage2String(float voltage, bool alwaysSign, char buffer[20])
 {
-    buffer[0] = 0;
-    char *suffix;
     if (voltage == ERROR_VALUE_FLOAT)
     {
-        strcat(buffer, ERROR_STRING_VALUE);
+        strcpy(buffer, ERROR_STRING_VALUE);
         return buffer;
     }
-    else if (fabsf(voltage) + 0.5e-4f < 1e-3f)
+
+    pString suf[2][4] =
     {
-        suffix = LANG_RU ? "\x10ìêÂ" : "\x10uV";
-        voltage *= 1e6f;
-    }
-    else if (fabsf(voltage) + 0.5e-4f < 1.0f)
-    {
-        suffix = LANG_RU ? "\x10ìÂ" : "\x10mV";
-        voltage *= 1e3f;
-    }
-    else if (fabsf(voltage) + 0.5e-4f < 1000.0f)
-    {
-        suffix = LANG_RU ? "\x10Â" : "\x10V";
-    }
-    else
-    {
-        suffix = LANG_RU ? "\x10êÂ" : "\x10kV";
-        voltage *= 1e-3f;
-    }
+        {"\x10ìêÂ", "\x10ìÂ", "\x10Â", "\x10êÂ"},
+        {"\x10uV",  "\x10mV", "\x10V", "\x10kV"}
+    };
+
+    static const float factor[4] = {1e6f, 1e3f, 1.0f, 1e-3f};
+
+    int num = 0;
+    float absValue = fabsf(voltage) + 0.5e-4f;
+
+    if      (absValue < 1e-3f) { num = 0; }
+    else if (absValue < 1.0f)  { num = 1; }
+    else if (absValue < 1e3f)  { num = 2; }
+    else                       { num = 3; }
 
     CHAR_BUF(bufferOut, 20);
 
-    Float2String(voltage, alwaysSign, 4, bufferOut);
-    strcat(buffer, bufferOut);
-    strcat(buffer, suffix);
+    Float2String(voltage * factor[num], alwaysSign, 4, bufferOut);
+    strcpy(buffer, bufferOut);
+    strcat(buffer, suf[LANG][num]);
     return buffer;
 }
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 char *Float2String(float value, bool alwaysSign, int numDigits, char bufferOut[20])
 {
-    bufferOut[0] = 0;
-    char *pBuffer = bufferOut;
-
     if (value == ERROR_VALUE_FLOAT)
     {
-        strcat(bufferOut, ERROR_STRING_VALUE);
+        strcpy(bufferOut, ERROR_STRING_VALUE);
         return bufferOut;
     }
 
-    if (!alwaysSign)
+    value = Math::RoundFloat(value, numDigits);
+    
+    char *pBuffer = bufferOut;
+
+    if (value < 0)
     {
-        if (value < 0)
-        {
-            *pBuffer = '-';
-            pBuffer++;
-        }
+        *pBuffer++ = '-';
     }
-    else
+    else if (alwaysSign)
     {
-        *pBuffer = value < 0 ? '-' : '+';
-        pBuffer++;
+        *pBuffer++ = '+';
     }
 
     char format[] = "%4.2f\0\0";
 
     format[1] = (char)numDigits + 0x30;
 
-    int numDigitsInInt = NumDigitsInIntPart(value);
+    int numDigitsInInt = Math::DigitsInIntPart(value);
 
     format[3] = (char)((numDigits - numDigitsInInt) + 0x30);
     if (numDigits == numDigitsInInt)
@@ -96,13 +85,14 @@ char *Float2String(float value, bool alwaysSign, int numDigits, char bufferOut[2
         format[5] = '.';
     }
 
-    snprintf(pBuffer, 19, format, fabsf(value));
+    float absValue = fabsf(value);
+    snprintf(pBuffer, 19, format, absValue);
 
     float val = atof(pBuffer);
 
-    if (NumDigitsInIntPart(val) != numDigitsInInt)
+    if (Math::DigitsInIntPart(val) != numDigitsInInt)
     {
-        numDigitsInInt = NumDigitsInIntPart(val);
+        numDigitsInInt = Math::DigitsInIntPart(val);
         format[3] = (char)((numDigits - numDigitsInInt) + 0x30);
         if (numDigits == numDigitsInInt)
         {
@@ -121,68 +111,34 @@ char *Float2String(float value, bool alwaysSign, int numDigits, char bufferOut[2
 }
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
-static int NumDigitsInIntPart(float value)
-{
-    float fabsValue = fabsf(value);
-
-    int numDigitsInInt = 0;
-    if (fabsValue >= 10000)
-    {
-        numDigitsInInt = 5;
-    }
-    else if (fabsValue >= 1000)
-    {
-        numDigitsInInt = 4;
-    }
-    else if (fabsValue >= 100)
-    {
-        numDigitsInInt = 3;
-    }
-    else if (fabsValue >= 10)
-    {
-        numDigitsInInt = 2;
-    }
-    else
-    {
-        numDigitsInInt = 1;
-    }
-
-    return numDigitsInInt;
-}
-
-//----------------------------------------------------------------------------------------------------------------------------------------------------
 char *Time2String(float time, bool alwaysSign, char buffer[20])
 {
-    buffer[0] = 0;
-    char *suffix = 0;
     if (time == ERROR_VALUE_FLOAT)
     {
-        strcat(buffer, ERROR_STRING_VALUE);
+        strcpy(buffer, ERROR_STRING_VALUE);
         return buffer;
     }
-    else if (fabsf(time) + 0.5e-10f < 1e-6f)
+    
+    pString suffix[2][4] =
     {
-        suffix = LANG_RU ? "íñ" : "ns";
-        time *= 1e9f;
-    }
-    else if (fabsf(time) + 0.5e-7f < 1e-3f)
-    {
-        suffix = LANG_RU ? "ìêñ" : "us";
-        time *= 1e6f;
-    }
-    else if (fabsf(time) + 0.5e-3f < 1.0f)
-    {
-        suffix = LANG_RU ? "ìñ" : "ms";
-        time *= 1e3f;
-    }
-    else
-    {
-        suffix = LANG_RU ? "ñ" : "s";
-    }
+        {"íñ", "ìêñ", "ìñ", "ñ"},
+        {"ns", "us",  "ms", "s"}
+    };
+
+    static const float factor[4] = {1e9f, 1e6f, 1e3f, 1.0f};
+
+    float absTime = fabsf(time);
+
+    int num = 0;
+
+    if      (absTime + 0.5e-10f < 1e-6f) {          }
+    else if (absTime + 0.5e-7f < 1e-3f)  { num = 1; }
+    else if (absTime + 0.5e-3f < 1.0f)   { num = 2; }
+    else                                 { num = 3; }
 
     char bufferOut[20];
-    strcat(buffer, Float2String(time, alwaysSign, 4, bufferOut));
-    strcat(buffer, suffix);
+    strcpy(buffer, Float2String(time * factor[num], alwaysSign, 4, bufferOut));
+    strcat(buffer, suffix[LANG][num]);
     return buffer;
 }
 
