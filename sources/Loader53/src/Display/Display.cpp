@@ -57,8 +57,6 @@ void Display::Init()
 
     Painter::ResetFlash();
 
-    Painter::LoadPalette();
-
     for (int i = 0; i < 14; i++)
     {
         float red = i / 14.0f * 31.0f + 0.5f;
@@ -70,6 +68,8 @@ void Display::Init()
     InitHardware();
 
     Painter::SetFont(TypeFont_8);
+
+    Painter::LoadPalette();
     
     InitPoints();
 }
@@ -164,8 +164,6 @@ void Display::Update()
         Painter::FillRegion(20, 130, width, height);
         Painter::DrawRectangle(20, 130, fullWidth, height);
     }
-
-    Painter::DrawFormText(10, 10, Color::WHITE, "%f", gTimeMS / 1000.0f);
 
     Painter::EndScene();
     ms->display.isRun = false;

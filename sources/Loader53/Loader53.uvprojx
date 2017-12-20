@@ -949,6 +949,13 @@
         </Group>
         <Group>
           <GroupName>VCP</GroupName>
+          <Files>
+            <File>
+              <FileName>VCP.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\VCP\VCP.h</FilePath>
+            </File>
+          </Files>
         </Group>
       </Groups>
     </Target>

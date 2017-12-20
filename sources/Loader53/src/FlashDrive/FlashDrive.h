@@ -5,13 +5,11 @@
 class FDrive
 {
 public:
-    void Init();
-    bool Update();
-    bool FileExist(char *fileName);
-    int OpenFileForRead(char *fileName);
+    static void Init();
+    static bool Update();
+    static bool FileExist(char *fileName);
+    static int OpenFileForRead(char *fileName);
     /// Считывает из открытого файла numBytes байт. Возвращает число реально считанных байт
-    int ReadFromFile(int numBytes, uint8 *buffer);
-    void CloseOpenedFile();
+    static int ReadFromFile(int numBytes, uint8 *buffer);
+    static void CloseOpenedFile();
 };
-
-extern FDrive drive;

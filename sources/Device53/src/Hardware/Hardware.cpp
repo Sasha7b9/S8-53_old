@@ -45,8 +45,6 @@ void Hardware_Init()
 
     SystemClock_Config();
 
-    HAL_NVIC_SetPriority(SysTick_IRQn, 0, 0);
-
     Sound::Init();
     
     Panel::Init();

@@ -33,7 +33,7 @@ static PanelButton ButtonIsPress(uint16 command);
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-void Panel_Init()
+void Panel::Init()
 {
     /*
         SPI1
@@ -79,7 +79,7 @@ void Panel_Init()
 
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
-void Panel_DeInit()
+void Panel::DeInit()
 {
     HAL_NVIC_DisableIRQ(SPI1_IRQn);
     HAL_NVIC_DisableIRQ(EXTI0_IRQn);
@@ -87,7 +87,7 @@ void Panel_DeInit()
 
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
-PanelButton Panel_PressedButton()
+PanelButton Panel::PressedButton()
 {
     return pressedButton;
 }

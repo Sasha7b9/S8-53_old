@@ -43,25 +43,19 @@ static const char *addrNamesForWrite[32] =
 */
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-void FSMC_Init();
-uint8 FSMC_Read(uint8 *address);
-void FSMC_Write(uint8 *address, uint8 value);
-
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-uint8 FSMC_Read(uint8 *address)
+uint8 FSMC::Read(uint8 *address)
 {
     return(*(address));
 }
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
-void FSMC_Write(uint8 *address, uint8 value)
+void FSMC::Write(uint8 *address, uint8 value)
 {
     *address = value;
 }
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
-void FSMC_Init()
+void FSMC::Init()
 {
     static const FSMC_NORSRAM_TimingTypeDef sramTiming =
     {

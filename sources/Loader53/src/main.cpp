@@ -48,10 +48,11 @@ int main()
 
     uint timeStart = gTimeMS;
 
-    drive.Init();
+    FDrive::Init();
 
-    while (gTimeMS - timeStart < TIME_WAIT && !drive.Update())
+    while (gTimeMS - timeStart < TIME_WAIT && !FDrive::Update())
     {
+        volatile uint time = gTimeMS;
     }
 
     if ((ms->drive.connection && ms->drive.active == 0) ||  // Если флеша подключена, но в активное состояние почему-то не перешла
@@ -63,13 +64,13 @@ int main()
 
     if (ms->state == State_Mount)                           // Это означает, что диск удачно примонтирован
     {
-        if (drive.FileExist(FILE_NAME))                    // Если на диске обнаружена прошивка
+        if (FDrive::FileExist(FILE_NAME))                    // Если на диске обнаружена прошивка
         {
             ms->state = State_RequestAction;
 
             while (1)
             {
-                PanelButton button = Panel_PressedButton();
+                PanelButton button = Panel::PressedButton();
                 if (button == B_F1)
                 {
                     ms->state = State_Upgrade;
@@ -95,7 +96,7 @@ int main()
 
     ms->state = State_Ok;
 
-    Panel_DeInit();
+    Panel::DeInit();
 
     Timer::Disable(kTemp);
 
@@ -129,13 +130,13 @@ void Upgrade()
 
     FLASH_Prepare();
 
-    int size = drive.OpenFileForRead(FILE_NAME);
+    int size = FDrive::OpenFileForRead(FILE_NAME);
     int fullSize = size;
     uint address = ADDR_SECTOR_PROGRAM_0;
 
     while (size)
     {
-        int readedBytes = drive.ReadFromFile(sizeSector, buffer);
+        int readedBytes = FDrive::ReadFromFile(sizeSector, buffer);
         FLASH_WriteData(address, buffer, readedBytes);
         size -= readedBytes;
         address += readedBytes;
@@ -143,7 +144,7 @@ void Upgrade()
         ms->percentUpdate = 1.0f - (float)size / fullSize;
     }
 
-    drive.CloseOpenedFile();
+    FDrive::CloseOpenedFile();
 }
 
 
