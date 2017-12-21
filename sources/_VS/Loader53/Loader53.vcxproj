@@ -253,10 +253,7 @@
     <ClInclude Include="..\..\Loader53\src\Display\Display.h" />
     <ClInclude Include="..\..\Loader53\src\Display\_DisplayTypes.h" />
     <ClInclude Include="..\..\Loader53\src\Display\font\Font.h" />
-    <ClInclude Include="..\..\Loader53\src\Ethernet\Ethernet.h" />
-    <ClInclude Include="..\..\Loader53\src\Ethernet\TcpSocket.h" />
     <ClInclude Include="..\..\Loader53\src\FlashDrive\FlashDrive.h" />
-    <ClInclude Include="..\..\Loader53\src\FPGA\FPGATypes.h" />
     <ClInclude Include="..\..\Loader53\src\globals.h" />
     <ClInclude Include="..\..\Loader53\src\Hardware\FLASH.h" />
     <ClInclude Include="..\..\Loader53\src\Hardware\FSMC.h" />

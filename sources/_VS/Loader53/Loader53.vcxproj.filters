@@ -40,17 +40,11 @@
     <Filter Include="src">
       <UniqueIdentifier>{a9221ba6-b6de-48ea-9b58-7a31cdecd9db}</UniqueIdentifier>
     </Filter>
-    <Filter Include="FPGA">
-      <UniqueIdentifier>{abb63513-dc6e-4ff0-a465-7f777ce7fb4b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="_VS">
       <UniqueIdentifier>{b51bc987-5717-4ec9-bfc2-1baf971ac85c}</UniqueIdentifier>
     </Filter>
     <Filter Include="VCP">
       <UniqueIdentifier>{32ce9683-4a59-477d-bbc7-3b26236012d0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Ethernet">
-      <UniqueIdentifier>{15437f0b-5848-4b46-a29e-57f9f26ea033}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -308,9 +302,6 @@
     <ClInclude Include="..\..\Loader53\src\Display\font\Font.h">
       <Filter>Display\fonts</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Loader53\src\FPGA\FPGATypes.h">
-      <Filter>FPGA</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Loader53\src\Hardware\FSMC.h">
       <Filter>Hardware</Filter>
     </ClInclude>
@@ -391,12 +382,6 @@
     </ClInclude>
     <ClInclude Include="..\..\Loader53\src\VCP\VCP.h">
       <Filter>VCP</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Loader53\src\Ethernet\Ethernet.h">
-      <Filter>Ethernet</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Loader53\src\Ethernet\TcpSocket.h">
-      <Filter>Ethernet</Filter>
     </ClInclude>
     <ClInclude Include="..\..\libs\common\stub.h">
       <Filter>src</Filter>
