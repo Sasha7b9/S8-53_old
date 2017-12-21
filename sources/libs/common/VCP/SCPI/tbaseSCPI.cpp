@@ -138,7 +138,7 @@ void Process_PEACKDET(uint8 *buffer)
         {0}
     };
     ENTER_ANALYSIS
-        if (value < 2) { SET_PEAKDET = (value == 0) ? PeackDet_Disable : PeackDet_Enable; OnChanged_PeakDet(true); } // WARN SCPI для пикового детектора переделать
+        if (value < 2) { SET_PEAKDET = (value == 0) ? PeakDet_Disabled : PeakDet_Enabled; OnChanged_PeakDet(true); } // WARN SCPI для пикового детектора переделать
         else if (2 == value)
         {
             SCPI_SEND(":TBASE:PEACKDET %s", SET_PEAKDET ? "ON" : "OFF");

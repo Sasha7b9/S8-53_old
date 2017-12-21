@@ -387,7 +387,7 @@ void FPGA::SetDeltaTShift(int16 shift)
 }
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
-void FPGA::SetPeackDetMode(PeackDetMode peackDetMode)
+void FPGA::SetPeackDetMode(PeakDetMode peackDetMode)
 {
     SET_PEAKDET = peackDetMode;
     LoadRegUPR();
@@ -408,7 +408,7 @@ void FPGA::LoadRegUPR()
     {
         _SET_BIT(data, 0);
     }
-    if (!PEAKDET_IS_DISABLE)
+    if (!SET_PEAKDET_IS_DISABLED)
     {
         _SET_BIT(data, 1);
     }

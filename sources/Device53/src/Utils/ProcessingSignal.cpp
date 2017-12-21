@@ -940,7 +940,7 @@ void Processing::SetSignal(uint8 *data0, uint8 *data1, DataSettings *ds, int _fi
     
     int numSmoothing = sDisplay_NumPointSmoothing();
 
-    int length = ds->length1channel * (ds->peakDet == PeackDet_Disable ? 1 : 2);
+    int length = ds->length1channel * (ds->peakDet == PeakDet_Disabled ? 1 : 2);
 
     Math::CalculateFiltrArray(data0, &dataIn[A][0], length, numSmoothing);
     Math::CalculateFiltrArray(data1, &dataIn[B][0], length, numSmoothing);
@@ -1183,7 +1183,7 @@ void CountedToCurrentSettings()
     memset(dataOut0, 0, FPGA_MAX_POINTS);
     memset(dataOut1, 0, FPGA_MAX_POINTS);
     
-    int numPoints = dataSet->length1channel * (dataSet->peakDet == PeackDet_Disable ? 1 : 2);
+    int numPoints = dataSet->length1channel * (dataSet->peakDet == PeakDet_Disabled ? 1 : 2);
 
     int16 dataTShift = dataSet->tShift;
     int16 curTShift = SET_TSHIFT;

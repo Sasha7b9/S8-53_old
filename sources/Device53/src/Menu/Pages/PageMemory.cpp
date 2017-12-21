@@ -733,7 +733,7 @@ void OnPressMemoryExtMask()
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 static bool FuncActiveMemoryNumPoinst()
 {
-    return PEAKDET_IS_DISABLE;
+    return SET_PEAKDET_IS_DISABLED;
 }
 
 DEF_CHOICE_3(       mcMemoryNumPoints,                                                                                        //--- œ¿Ãﬂ“‹ - “Ó˜ÍË ---

@@ -50,7 +50,7 @@ void OnChanged_PeakDet(bool active)
     {
         FPGA::SetPeackDetMode(SET_PEAKDET);
         FPGA::SetTBase(SET_TBASE);
-        if (PEAKDET_IS_DISABLE)
+        if (SET_PEAKDET_IS_DISABLED)
         {
             int8 shift[2][3] =
             {
@@ -66,14 +66,14 @@ void OnChanged_PeakDet(bool active)
             FPGA::WriteToHardware(WR_ADD_RSHIFT_DAC1, 3, false);     // Почему-то при пиковом детекторе смещение появляется. Вот его и компенсируем.
             FPGA::WriteToHardware(WR_ADD_RSHIFT_DAC2, 3, false);
         }
-        if (PEAKDET_IS_DISABLE)
+        if (SET_PEAKDET_IS_DISABLED)
         {
             int centerX = SHIFT_IN_MEMORY + Grid::Width() / 2;
             SHIFT_IN_MEMORY = centerX * 2 - Grid::Width() / 2;
             ENUM_POINTS = set.time.oldNumPoints;
             ChangeC_Memory_NumPoints(true);
         }
-        else if (PEAKDET_IS_ENABLE)
+        else if (SET_PEAKDET_IS_ENABLED)
         {
             int centerX = SHIFT_IN_MEMORY + Grid::Width() / 2;
             SHIFT_IN_MEMORY = centerX / 2 - Grid::Width() / 2;

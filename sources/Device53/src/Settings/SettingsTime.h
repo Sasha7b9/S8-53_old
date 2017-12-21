@@ -27,8 +27,8 @@
 #define SAMPLE_TYPE_IS_REAL                 (SAMPLE_TYPE == SampleType_Real)
 
 #define SET_PEAKDET                         (set.time.peakDet)      ///< SettingsTime.peakDet
-#define PEAKDET_IS_DISABLE                  (SET_PEAKDET == PeackDet_Disable)
-#define PEAKDET_IS_ENABLE                   (SET_PEAKDET == PeackDet_Enable)
+#define SET_PEAKDET_IS_DISABLED             (SET_PEAKDET == PeakDet_Disabled)
+#define SET_PEAKDET_IS_ENABLED              (SET_PEAKDET == PeakDet_Enabled)
 
 #define SELFRECORDER                        (set.time.selfRecorder) ///< SettingsTime.selfRecorder
 
@@ -60,10 +60,10 @@ typedef enum
 /// Режим работы пикового детектора.
 typedef enum
 {
-    PeackDet_Disable,
-    PeackDet_Enable,
-    PeackDet_Average
-} PeackDetMode;
+    PeakDet_Disabled,
+    PeakDet_Enabled,
+    PeakDet_Average
+} PeakDetMode;
 
 /// Число точек сигнала, с которым идёт работа.
 typedef enum
@@ -83,7 +83,7 @@ typedef struct
     FunctionTime        timeDivXPos;
     TPos                tPos;           ///< Привязка синхронизации к памяти.
     SampleType          sampleType;     ///< Тип выборки для режима рандомизатора.
-    PeackDetMode        peakDet;        ///< Режим работы пикового детектора
+    PeakDetMode        peakDet;        ///< Режим работы пикового детектора
     bool                selfRecorder;   ///< Включен ли режим самописца.
     ENUM_POINTS_FPGA    oldNumPoints;   ///< \brief Когда переключаемся в режим пикового детектора, устанавливаем количество точек в 1024, а сюда 
                                         /// записываем то, что было, чтобы потом восстановить.
@@ -96,9 +96,9 @@ void sTime_SetTBase(TBase tBase);
 /// Сохранить смещение по времени в относительных единицах.
 void sTime_SetTShift(int16 shift);                   
 /// Узнать привязку отсительно уровня синхронизации в точках.
-int sTime_TPosInPoints(PeackDetMode peakDet, int numPoints, TPos tPos);
+int sTime_TPosInPoints(PeakDetMode peakDet, int numPoints, TPos tPos);
 /// Смещение по времени в точках экрана. Т.к. на канал у нас работают два АЦП поочерёдно, это значение отличается от засылаемого в аппаратную часть в два раза.
-int sTime_TShiftInPoints(PeackDetMode peakDet);
+int sTime_TShiftInPoints(PeakDetMode peakDet);
 /// Минимальное смещение по времени, которое может быть записано в аппаратную часть.
 int16 sTime_TShiftMin();
 /// Смещение по времени, соответствующее позиции TPos.

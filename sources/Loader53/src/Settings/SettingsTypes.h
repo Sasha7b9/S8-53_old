@@ -189,10 +189,10 @@ typedef enum
 
 typedef enum
 {
-    PeackDet_Disable,
-    PeackDet_Enable,
-    PeackDet_Average
-} PeackDetMode;
+    PeakDet_Disabled,
+    PeakDet_Enabled,
+    PeakDet_Average
+} PeakDetMode;
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Cursors
