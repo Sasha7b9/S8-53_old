@@ -23,3 +23,7 @@
 #ifndef COLOR_SCHEME_IS_WHITE_LETTERS
 #define COLOR_SCHEME_IS_WHITE_LETTERS true
 #endif
+
+#ifndef SHOW_STRING_NAVI_TEMP
+#define SHOW_STRING_NAVI_TEMP   false
+#endif
