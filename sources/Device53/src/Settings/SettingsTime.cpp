@@ -22,7 +22,7 @@ void sTime_SetTBase(TBase tBase)
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 void sTime_SetTShift(int16 shift)
 {
-    TSHIFT = shift;
+    SET_TSHIFT = shift;
     FPGA::ClearData();
 }
 
@@ -54,7 +54,7 @@ int sTime_TPosInPoints(PeackDetMode peakDet, int numPoints, TPos tPos)
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 int sTime_TShiftInPoints(PeackDetMode peakDet)
 {
-    return TSHIFT * (peakDet == PeackDet_Disable ? 2 : 1);
+    return SET_TSHIFT * (peakDet == PeackDet_Disable ? 2 : 1);
 }
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------

@@ -205,7 +205,7 @@ void FPGA::SetTBase(TBase tBase)
     }
     if (tBase < TBaseSize && (int)tBase >= 0)
     {
-        float tShiftAbsOld = TSHIFT_2_ABS(TSHIFT, SET_TBASE);
+        float tShiftAbsOld = TSHIFT_2_ABS(SET_TSHIFT, SET_TBASE);
         sTime_SetTBase(tBase);
         LoadTBase();
         FPGA::SetTShift(TSHIFT_2_REL(tShiftAbsOld, SET_TBASE));
@@ -434,7 +434,7 @@ void FPGA::LoadKoeffCalibration(Channel chan)
 void FPGA::LoadTShift()
 {
     static const int16 k[TBaseSize] = {50, 20, 10, 5, 2};
-    int16 tShift = TSHIFT - sTime_TShiftMin() + 1;
+    int16 tShift = SET_TSHIFT - sTime_TShiftMin() + 1;
     int16 tShiftOld = tShift;
     TBase tBase = SET_TBASE;
     if (tBase < TBase_100ns)

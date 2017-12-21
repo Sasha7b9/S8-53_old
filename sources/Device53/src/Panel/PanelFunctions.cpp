@@ -196,7 +196,7 @@ void ChangeTrigLev(int *prevTime, void(*f)(TrigSource, int16), TrigSource trigSo
 void ChangeTShift(int *prevTime, void(*f)(int), int16 relStep)
 {
     int count = CalculateCount(prevTime);
-    int tShiftOld = TSHIFT;
+    int tShiftOld = SET_TSHIFT;
     float step = (float)(relStep * count);
     if (step < 0)
     {
@@ -213,7 +213,7 @@ void ChangeTShift(int *prevTime, void(*f)(int), int16 relStep)
         }
     }
 
-    int16 tShift = (int16)(TSHIFT + step);
+    int16 tShift = (int16)(SET_TSHIFT + step);
     if (((tShiftOld > 0) && (tShift < 0)) || (tShiftOld < 0 && tShift > 0))
     {
         tShift = 0;

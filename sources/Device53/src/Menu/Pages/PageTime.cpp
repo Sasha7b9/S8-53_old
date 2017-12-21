@@ -100,7 +100,7 @@ DEF_CHOICE_2(       mcPeakDet,                                                  
 void OnChanged_TPos(bool active)
 {
     ChangeC_Memory_NumPoints(active);
-    FPGA::SetTShift(TSHIFT);
+    FPGA::SetTShift(SET_TSHIFT);
 }
 
 DEF_CHOICE_3(       mcTPos,                                                                                                   //--- –¿«¬≈–“ ¿ - To ---

@@ -1103,7 +1103,7 @@ void FPGA::FillDataPointer(DataSettings *dp)
     dp->rShiftCh0 = SET_RSHIFT_A;
     dp->rShiftCh1 = SET_RSHIFT_B;
     dp->tBase = SET_TBASE;
-    dp->tShift = TSHIFT;
+    dp->tShift = SET_TSHIFT;
     dp->modeCouple0 = SET_COUPLE_A;
     dp->modeCouple1 = SET_COUPLE_B;
     dp->length1channel = sMemory_GetNumPoints(false);

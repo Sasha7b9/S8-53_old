@@ -2006,7 +2006,7 @@ void Display::DrawLowPart()
     char buffer[100] = {0};
 
     TBase tBase = SET_TBASE;
-    int16 tShift = TSHIFT;
+    int16 tShift = SET_TSHIFT;
 
     if (!MODE_WORK_IS_DIR)
     {

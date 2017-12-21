@@ -1186,7 +1186,7 @@ void CountedToCurrentSettings()
     int numPoints = dataSet->length1channel * (dataSet->peakDet == PeackDet_Disable ? 1 : 2);
 
     int16 dataTShift = dataSet->tShift;
-    int16 curTShift = TSHIFT;
+    int16 curTShift = SET_TSHIFT;
 
     int16 dTShift = curTShift - dataTShift;
     for (int i = 0; i < numPoints; i++)
