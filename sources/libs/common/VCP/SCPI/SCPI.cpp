@@ -4,6 +4,7 @@
 #include "controlSCPI.h"
 #include "Utils/StringUtils.h"
 #include <ctype.h>
+#include <string.h>
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -22,16 +23,16 @@ static int pointer = 0;
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-void SCPI_AddNewData(uint8 *data, uint length)
+void SCPI::AddNewData(uint8 *data, uint length)
 {
-    memcpy(&buffer[pointer], data, length);
+    memcpy(&buffer[pointer], data, (int)length);
     pointer += length;
 
 label_another:
 
     for (int i = 0; i < pointer; i++)
     {
-        buffer[i] = toupper(buffer[i]);
+        buffer[i] = (uint8)toupper((char)buffer[i]);
 
         if (buffer[i] == 0x0d || buffer[i] == 0x0a)
         {
@@ -41,7 +42,7 @@ label_another:
                 ++pBuffer;
             }
 
-            SCPI_ParseNewCommand(pBuffer);
+            ParseNewCommand(pBuffer);
             if (i == pointer - 1)
             {
                 pointer = 0;                // Если буфер пуст - выходим
@@ -49,7 +50,7 @@ label_another:
             }
             else                            // Если в буфере есть есть данные
             {
-                uint8 *pBuffer = buffer;
+                pBuffer = buffer;
                 for (++i; i < pointer; i++)
                 {
                     *pBuffer = buffer[i];   // копируем их в начало
@@ -64,7 +65,7 @@ label_another:
 
 
 //---------------------------------------------------------------------------------------------------------------------------------------------------
-void SCPI_ParseNewCommand(uint8 *buffer)
+void SCPI::ParseNewCommand(uint8 *data)
 {
     static const StructCommand commands[] =
     {
@@ -96,12 +97,12 @@ void SCPI_ParseNewCommand(uint8 *buffer)
     {0}
     };
     
-    SCPI_ProcessingCommand(commands, buffer);
+    ProcessingCommand(commands, data);
 }
 
 
 //---------------------------------------------------------------------------------------------------------------------------------------------------
-void SCPI_ProcessingCommand(const StructCommand *commands, uint8 *buffer) 
+void SCPI::ProcessingCommand(const StructCommand *commands, uint8 *buffer) 
 {
     int sizeNameCommand = FindNumSymbolsInCommand(buffer);
     if (sizeNameCommand == 0) 
@@ -144,7 +145,7 @@ int FindNumSymbolsInCommand(uint8 *buffer)
 
 
 //---------------------------------------------------------------------------------------------------------------------------------------------------
-bool SCPI_FirstIsInt(uint8 *buffer, int *value, int min, int max)
+bool SCPI::FirstIsInt(uint8 *buffer, int *value, int min, int max)
 {
     Word param;
     if (SU::GetWord((const char *)buffer, &param, 0))

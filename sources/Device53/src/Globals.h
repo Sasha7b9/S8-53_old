@@ -28,6 +28,8 @@ extern DAC_HandleTypeDef handleDAC;
 #define FDRIVE_IS_CONNECTED (gBF.flashDriveIsConnected)
 #define SHOW_DEBUG_MENU     (gBF.showDebugMenu)
 #define FPGA_CAN_READ_DATA  (gBF.FPGAcanReadData)
+#define LAN_IS_CONNECTED    (gBF.ethIsConnected)   
+#define CONNECTED_TO_USB    (gBF.connectToHost)
 
 
 typedef struct

@@ -1,7 +1,7 @@
 #include "defines.h"
 #include "VCP.h"
 #include "Utils/Math.h"
-#include "SCPI/SCPI.h"
+#include "VCP/SCPI/SCPI.h"
 #include "usbd_desc.h"
 #include "usbd_cdc_interface.h"
 #include "Hardware/Timer.h"
