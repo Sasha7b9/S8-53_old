@@ -202,13 +202,6 @@
     <ClCompile Include="..\..\Device53\src\Settings\SettingsTime.cpp" />
     <ClCompile Include="..\..\Device53\src\Tables.cpp" />
     <ClCompile Include="..\..\Device53\src\Utils\ProcessingSignal.cpp" />
-    <ClCompile Include="..\..\Device53\src\VCP\SCPI\channelSCPI.cpp" />
-    <ClCompile Include="..\..\Device53\src\VCP\SCPI\commonSCPI.cpp" />
-    <ClCompile Include="..\..\Device53\src\VCP\SCPI\controlSCPI.cpp" />
-    <ClCompile Include="..\..\Device53\src\VCP\SCPI\displaySCPI.cpp" />
-    <ClCompile Include="..\..\Device53\src\VCP\SCPI\SCPI.cpp" />
-    <ClCompile Include="..\..\Device53\src\VCP\SCPI\tbaseSCPI.cpp" />
-    <ClCompile Include="..\..\Device53\src\VCP\SCPI\trigSCPI.cpp" />
     <ClCompile Include="..\..\Device53\src\VCP\VCP.cpp" />
     <ClCompile Include="..\..\..\_libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal.c">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
@@ -441,6 +434,13 @@
     <ClCompile Include="..\..\..\_libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\netif\ethernet.c">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="..\..\libs\common\VCP\SCPI\channelSCPI.cpp" />
+    <ClCompile Include="..\..\libs\common\VCP\SCPI\commonSCPI.cpp" />
+    <ClCompile Include="..\..\libs\common\VCP\SCPI\controlSCPI.cpp" />
+    <ClCompile Include="..\..\libs\common\VCP\SCPI\displaySCPI.cpp" />
+    <ClCompile Include="..\..\libs\common\VCP\SCPI\SCPI.cpp" />
+    <ClCompile Include="..\..\libs\common\VCP\SCPI\tbaseSCPI.cpp" />
+    <ClCompile Include="..\..\libs\common\VCP\SCPI\trigSCPI.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\libs\common\commonDefines.h" />
@@ -520,9 +520,6 @@
     <ClInclude Include="..\..\Device53\src\Settings\SettingsTypes.h" />
     <ClInclude Include="..\..\Device53\src\Tables.h" />
     <ClInclude Include="..\..\Device53\src\Utils\ProcessingSignal.h" />
-    <ClInclude Include="..\..\Device53\src\VCP\SCPI\commonSCPI.h" />
-    <ClInclude Include="..\..\Device53\src\VCP\SCPI\controlSCPI.h" />
-    <ClInclude Include="..\..\Device53\src\VCP\SCPI\SCPI.h" />
     <ClInclude Include="..\..\Device53\src\VCP\VCP.h" />
     <ClInclude Include="..\..\..\_libs\forVS\core_cm3.h" />
     <ClInclude Include="..\..\..\_libs\forVS\core_cm4.h" />
@@ -560,6 +557,9 @@
     <ClInclude Include="..\..\..\_libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\ff_gen_drv.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClInclude>
+    <ClInclude Include="..\..\libs\common\VCP\SCPI\commonSCPI.h" />
+    <ClInclude Include="..\..\libs\common\VCP\SCPI\controlSCPI.h" />
+    <ClInclude Include="..\..\libs\common\VCP\SCPI\SCPI.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\Device53\src\Display\font\font5.inc" />

@@ -411,27 +411,6 @@
     <ClCompile Include="..\..\Device53\src\VCP\VCP.cpp">
       <Filter>VCP</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Device53\src\VCP\SCPI\channelSCPI.cpp">
-      <Filter>VCP\SCPI</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Device53\src\VCP\SCPI\commonSCPI.cpp">
-      <Filter>VCP\SCPI</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Device53\src\VCP\SCPI\controlSCPI.cpp">
-      <Filter>VCP\SCPI</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Device53\src\VCP\SCPI\displaySCPI.cpp">
-      <Filter>VCP\SCPI</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Device53\src\VCP\SCPI\SCPI.cpp">
-      <Filter>VCP\SCPI</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Device53\src\VCP\SCPI\tbaseSCPI.cpp">
-      <Filter>VCP\SCPI</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Device53\src\VCP\SCPI\trigSCPI.cpp">
-      <Filter>VCP\SCPI</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\_libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\diskio.c">
       <Filter>FatFS</Filter>
     </ClCompile>
@@ -539,6 +518,27 @@
     </ClCompile>
     <ClCompile Include="..\..\libs\common\Log.cpp">
       <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\common\VCP\SCPI\channelSCPI.cpp">
+      <Filter>VCP\SCPI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\common\VCP\SCPI\commonSCPI.cpp">
+      <Filter>VCP\SCPI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\common\VCP\SCPI\controlSCPI.cpp">
+      <Filter>VCP\SCPI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\common\VCP\SCPI\displaySCPI.cpp">
+      <Filter>VCP\SCPI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\common\VCP\SCPI\SCPI.cpp">
+      <Filter>VCP\SCPI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\common\VCP\SCPI\tbaseSCPI.cpp">
+      <Filter>VCP\SCPI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\common\VCP\SCPI\trigSCPI.cpp">
+      <Filter>VCP\SCPI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -752,15 +752,6 @@
     <ClInclude Include="..\..\Device53\src\VCP\VCP.h">
       <Filter>VCP</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Device53\src\VCP\SCPI\commonSCPI.h">
-      <Filter>VCP\SCPI</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Device53\src\VCP\SCPI\controlSCPI.h">
-      <Filter>VCP\SCPI</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Device53\src\VCP\SCPI\SCPI.h">
-      <Filter>VCP\SCPI</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\_libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\diskio.h">
       <Filter>FatFS</Filter>
     </ClInclude>
@@ -868,6 +859,15 @@
     </ClInclude>
     <ClInclude Include="..\..\libs\common\stub.h">
       <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\common\VCP\SCPI\commonSCPI.h">
+      <Filter>VCP\SCPI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\common\VCP\SCPI\controlSCPI.h">
+      <Filter>VCP\SCPI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\common\VCP\SCPI\SCPI.h">
+      <Filter>VCP\SCPI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
