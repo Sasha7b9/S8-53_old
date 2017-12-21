@@ -1,5 +1,6 @@
 #pragma once
 #include "Hardware/Timer.h"
+#include "defines.h"
 
 
 #define IsRegSetActiveOnCursors()           true
@@ -13,3 +14,5 @@ void Measure_RotateRegSet(int);
 
 
 #define SOUND_VOLUME 100
+
+

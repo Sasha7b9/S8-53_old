@@ -391,5 +391,14 @@ Range& operator--(Range &range)
     return range;
 }
 
+//----------------------------------------------------------------------------------------------------------------------------------------------------
+float MaxDBforFFT(FFTmaxDB maxDB)
+{
+    static const float arrayMAX_DB_FOR_FFT[] = {-40.0f, -60.0f, -80.0f};
+
+    return arrayMAX_DB_FOR_FFT[maxDB];
+}
+
 /** @}
  */
+

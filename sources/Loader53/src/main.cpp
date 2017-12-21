@@ -52,7 +52,6 @@ int main()
 
     while (gTimeMS - timeStart < TIME_WAIT && !FDrive::Update())
     {
-        volatile uint time = gTimeMS;
     }
 
     if ((ms->drive.connection && ms->drive.active == 0) ||  // Если флеша подключена, но в активное состояние почему-то не перешла

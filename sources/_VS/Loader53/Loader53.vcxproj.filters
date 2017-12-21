@@ -329,9 +329,6 @@
     <ClInclude Include="..\..\Loader53\src\Settings\Settings.h">
       <Filter>Settings</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Loader53\src\Settings\SettingsMath.h">
-      <Filter>Settings</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Loader53\src\Settings\SettingsTypes.h">
       <Filter>Settings</Filter>
     </ClInclude>

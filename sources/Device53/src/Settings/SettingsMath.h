@@ -1,5 +1,4 @@
 #pragma once
-#include "Settings/commonSettingsMath.h"
 
 
 /** @addtogroup Settings
@@ -24,6 +23,7 @@
 #define WINDOW_FFT_IS_HANN          (WINDOW_FFT == WindowFFT_Hann)
 
 #define MAX_DB_FFT                  (set.math.fftMaxDB)                 ///< SettingsMath.fftMaxDB
+#define MAX_DB_FOR_FFT              MaxDBforFFT(MAX_DB_FFT)
 
 #define MATH_FUNC                   (set.math.func)                     ///< SettingsMath.func
 #define MATH_FUNC_IS_SUM            (MATH_FUNC == Function_Sum)
@@ -128,6 +128,7 @@ typedef struct
     int16           rShift;         ///< Смещение по вертикальной оси математического сигнала.
 } SettingsMath;
 
+float MaxDBforFFT(FFTmaxDB maxDB);
 
 /** @}  @}
  */

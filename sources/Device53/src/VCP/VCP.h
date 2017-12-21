@@ -1,6 +1,10 @@
 #pragma once
 
 
+#define VCP_FLUSH()                         VCP::Flush()
+#define VCP_SEND_DATA_SYNCH(buffer, size)   VCP::SendDataSynch(buffer, size)
+
+
 class VCP
 {
 public:

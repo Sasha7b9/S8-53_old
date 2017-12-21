@@ -2,7 +2,6 @@
 #include "defines.h"
 #include "SettingsTypes.h"
 #include "Panel/Controls.h"
-#include "SettingsMath.h"
 #include "Settings/SettingsDisplay.h"
 
 

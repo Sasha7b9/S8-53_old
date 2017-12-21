@@ -706,11 +706,6 @@
               <FilePath>.\src\Settings\Settings.h</FilePath>
             </File>
             <File>
-              <FileName>SettingsMath.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\Settings\SettingsMath.h</FilePath>
-            </File>
-            <File>
               <FileName>SettingsTypes.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\Settings\SettingsTypes.h</FilePath>
