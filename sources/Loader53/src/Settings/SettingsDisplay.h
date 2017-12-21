@@ -103,17 +103,17 @@ typedef enum
 /// Количество усреднений по измерениям.
 typedef enum
 {
-    NumAveraging_1,
-    NumAveraging_2,
-    NumAveraging_4,
-    NumAveraging_8,
-    NumAveraging_16,
-    NumAveraging_32,
-    NumAveraging_64,
-    NumAveraging_128,
-    NumAveraging_256,
-    NumAveraging_512
-} ENumAveraging;
+    ENumAverage_1,
+    ENumAverage_2,
+    ENumAverage_4,
+    ENumAverage_8,
+    ENumAverage_16,
+    ENumAverage_32,
+    ENumAverage_64,
+    ENumAverage_128,
+    ENumAverage_256,
+    ENumAverage_512
+} ENumAverage;
 
 /// Тип усреднений по измерениям.
 typedef enum

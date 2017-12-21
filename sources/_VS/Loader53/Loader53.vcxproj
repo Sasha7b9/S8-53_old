@@ -266,6 +266,7 @@
     <ClInclude Include="..\..\Loader53\src\Panel\Controls.h" />
     <ClInclude Include="..\..\Loader53\src\Panel\Panel.h" />
     <ClInclude Include="..\..\Loader53\src\Settings\Settings.h" />
+    <ClInclude Include="..\..\Loader53\src\Settings\SettingsDisplay.h" />
     <ClInclude Include="..\..\Loader53\src\Settings\SettingsTypes.h" />
     <ClInclude Include="..\..\..\_libs\forVS\core_cm3.h" />
     <ClInclude Include="..\..\..\_libs\forVS\core_cm4.h" />

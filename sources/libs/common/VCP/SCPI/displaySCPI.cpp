@@ -150,7 +150,7 @@ static void Process_ACCUM_MODE(uint8 *buffer)
 }
 
 //---------------------------------------------------------------------------------------------------------------------------------------------------
-static void Process_ACCUM_CLEAR(uint8 *buffer)
+static void Process_ACCUM_CLEAR(uint8 *)
 {
     OnPress_Accumulation_Clear();
 }
@@ -175,7 +175,7 @@ static void Process_AVERAGE_NUMBER(uint8 *buffer)
     };
 
     ENTER_ANALYSIS
-        if (value <= 9) { ENUM_AVE = (ENumAveraging)value; }
+        if (value <= 9) { ENUM_AVE = (ENumAverage)value; }
         else if (10 == value)
         {
             SCPI_SEND(":DISPLAY:AVERAGE:NUMBER %s", map[ENUM_AVE].key);
