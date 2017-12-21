@@ -5,6 +5,7 @@
 #include "Utils/StringUtils.h"
 #include <ctype.h>
 #include <string.h>
+#include "usbd_conf.h"
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -102,16 +103,16 @@ void SCPI::ParseNewCommand(uint8 *data)
 
 
 //---------------------------------------------------------------------------------------------------------------------------------------------------
-void SCPI::ProcessingCommand(const StructCommand *commands, uint8 *buffer) 
+void SCPI::ProcessingCommand(const StructCommand *commands, uint8 *data) 
 {
-    int sizeNameCommand = FindNumSymbolsInCommand(buffer);
+    int sizeNameCommand = FindNumSymbolsInCommand(data);
     if (sizeNameCommand == 0) 
     {
         return;
     }
     for (int i = 0; i < sizeNameCommand; i++)
     {
-        buffer[i] = toupper(buffer[i]);
+        data[i] = (uint8)toupper((char)data[i]);
     }
     int numCommand = -1;
     char *name = 0;
@@ -119,11 +120,11 @@ void SCPI::ProcessingCommand(const StructCommand *commands, uint8 *buffer)
     {
         numCommand++;   
         name = commands[numCommand].name;
-    } while (name != 0 && (!EqualsStrings((char*)buffer, name, sizeNameCommand)));
+    } while (name != 0 && (!EqualsStrings((char*)data, name, sizeNameCommand)));
 
     if (name != 0) 
     {
-        commands[numCommand].func(buffer + sizeNameCommand + 1);
+        commands[numCommand].func(data + sizeNameCommand + 1);
     }
     else
     {
@@ -131,24 +132,22 @@ void SCPI::ProcessingCommand(const StructCommand *commands, uint8 *buffer)
     }
 }
 
-
 //---------------------------------------------------------------------------------------------------------------------------------------------------
-int FindNumSymbolsInCommand(uint8 *buffer)
+int FindNumSymbolsInCommand(uint8 *data)
 {
     int pos = 0;
-    while ((buffer[pos] != ':') && (buffer[pos] != ' ') && (buffer[pos] != '\x0d'))
+    while ((data[pos] != ':') && (data[pos] != ' ') && (data[pos] != '\x0d'))
     {
         pos++;
     }
     return pos;
 }
 
-
 //---------------------------------------------------------------------------------------------------------------------------------------------------
-bool SCPI::FirstIsInt(uint8 *buffer, int *value, int min, int max)
+bool SCPI::FirstIsInt(uint8 *data, int *value, int min, int max)
 {
     Word param;
-    if (SU::GetWord((const char *)buffer, &param, 0))
+    if (SU::GetWord((const char *)data, &param, 0))
     {
         char *n = (char *)malloc(param.numSymbols + 1);
         memcpy(n, param.address, param.numSymbols);
