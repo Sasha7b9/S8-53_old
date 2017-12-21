@@ -170,12 +170,12 @@ void FPGA::SetRange(Channel chan, Range range)
     if (range < RangeSize && (int)range >= 0)
     {
         float rShiftAbs = RSHIFT_2_ABS(SET_RSHIFT(chan), SET_RANGE(chan));
-        float trigLevAbs = RSHIFT_2_ABS(TRIG_LEVEL(chan), SET_RANGE(chan));
+        float trigLevAbs = RSHIFT_2_ABS(SET_TRIGLEV(chan), SET_RANGE(chan));
         sChannel_SetRange(chan, range);
         if (LINKING_RSHIFT_IS_VOLTAGE)
         {
             SET_RSHIFT(chan) = RSHIFT_2_REL(rShiftAbs, range);
-            TRIG_LEVEL(chan) = RSHIFT_2_REL(trigLevAbs, range);
+            SET_TRIGLEV(chan) = RSHIFT_2_REL(trigLevAbs, range);
         }
         LoadRange(chan);
     }
@@ -340,9 +340,9 @@ void FPGA::SetTrigLev(TrigSource chan, int16 trigLev)
         trigLev = (trigLev + 1) & 0xfffe;
     }
 
-    if (TRIG_LEVEL(chan) != trigLev)
+    if (SET_TRIGLEV(chan) != trigLev)
     {
-        TRIG_LEVEL(chan) = trigLev;
+        SET_TRIGLEV(chan) = trigLev;
         LoadTrigLev();
         Display::RotateTrigLev();
     }
@@ -352,7 +352,7 @@ void FPGA::SetTrigLev(TrigSource chan, int16 trigLev)
 void FPGA::LoadTrigLev()
 {
     uint16 data = 0xa000;
-    uint16 trigLev = TRIG_LEVEL_SOURCE;
+    uint16 trigLev = SET_TRIGLEV_SOURCE;
     trigLev = TrigLevMax + TrigLevMin - trigLev;
     data |= trigLev << 2;
     // FPGA_WriteToHardware(WR_DAC_LOW, data.byte[0], true);
@@ -501,7 +501,7 @@ void FPGA::SetTrigSource(TrigSource trigSource)
     SetAttribChannelsAndTrig(TypeWriteAnalog_TrigParam);
     if (!TRIGSOURCE_IS_EXT)
     {
-        SetTrigLev(TRIGSOURCE, TRIG_LEVEL_SOURCE);
+        SetTrigLev(TRIGSOURCE, SET_TRIGLEV_SOURCE);
     }
 }
 

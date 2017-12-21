@@ -14,7 +14,7 @@
 #define START_MODE_IS_AUTO      (START_MODE == StartMode_Auto)          ///< \c true, если автоматический режим запуска.
 
 #define TRIGSOURCE              (set.trig.source)                       ///< SettingsTrig.source
-#define TRIGSOURCE_IS_EXT       (TRIGSOURCE == TrigSource_Ext)         ///< \c true, если внешний источник синхронизации.
+#define TRIGSOURCE_IS_EXT       (TRIGSOURCE == TrigSource_Ext)          ///< \c true, если внешний источник синхронизации.
 
 #define TRIG_POLARITY           (set.trig.polarity)                     ///< SettingsTrig.polarity
 #define TRIG_POLARITY_IS_FRONT  (TRIG_POLARITY == TrigPolarity_Front)   ///< \c true, если синхронизация по фронту.
@@ -22,10 +22,10 @@
 #define TRIG_INPUT              (set.trig.input)                        ///< SettingsTrig.input
 #define TRIG_INPUT_IS_AC        (TRIG_INPUT == TrigInput_AC)            ///< \c true, если закрытый вход синхронизации.
 
-#define TRIG_LEVEL(source)      (set.trig.levelRel[source])             ///< SettingsTrig.levelRel
-#define TRIG_LEVEL_SOURCE       (TRIG_LEVEL(TRIGSOURCE))               /// set.trig.levelRel[set.trig.source]
-#define TRIG_LEVEL_A            (TRIG_LEVEL(A))                         ///< set.trig.levelRel[A]
-#define TRIG_LEVEL_B            (TRIG_LEVEL(B))                         ///< set.trig.levelRel[B]
+#define SET_TRIGLEV(source)     (set.trig.levelRel[source])             ///< SettingsTrig.levelRel
+#define SET_TRIGLEV_SOURCE      (SET_TRIGLEV(TRIGSOURCE))               /// set.trig.levelRel[set.trig.source]
+#define SET_TRIGLEV_A           (SET_TRIGLEV(A))                        ///< set.trig.levelRel[A]
+#define SET_TRIGLEV_B           (SET_TRIGLEV(B))                        ///< set.trig.levelRel[B]
 
 #define MODE_LONG_PRESS_TRIG    (set.trig.modeLongPressTrig)            ///< SettingsTrig.modeLongPressTrig
 /// если \c true, то длительное нажатие кнопки \b СИНХР сбрасывает уровень синхронизации в 0.

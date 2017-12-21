@@ -1107,8 +1107,8 @@ void FPGA::FillDataPointer(DataSettings *dp)
     dp->modeCouple0 = SET_COUPLE_A;
     dp->modeCouple1 = SET_COUPLE_B;
     dp->length1channel = sMemory_GetNumPoints(false);
-    dp->trigLevCh0 = TRIG_LEVEL_A;
-    dp->trigLevCh1 = TRIG_LEVEL_B;
+    dp->trigLevCh0 = SET_TRIGLEV_A;
+    dp->trigLevCh1 = SET_TRIGLEV_B;
     dp->peakDet = (uint)SET_PEAKDET;
     dp->multiplier0 = SET_DIVIDER_A;
     dp->multiplier1 = SET_DIVIDER_B;

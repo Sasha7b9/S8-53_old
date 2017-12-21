@@ -1306,7 +1306,7 @@ void Display::WriteValueTrigLevel()
 {
     if (gBF.showLevelTrigLev == 1 && MODE_WORK_IS_DIR)
     {
-        float trigLev = RSHIFT_2_ABS(TRIG_LEVEL_SOURCE, SET_RANGE(TRIGSOURCE));     // WARN Здесь для внешней синхронизации неправильно рассчитывается уровень.
+        float trigLev = RSHIFT_2_ABS(SET_TRIGLEV_SOURCE, SET_RANGE(TRIGSOURCE));     // WARN Здесь для внешней синхронизации неправильно рассчитывается уровень.
         TrigSource trigSource = TRIGSOURCE;
         if (TRIG_INPUT_IS_AC && trigSource <= TrigSource_B)
         {
@@ -1603,7 +1603,7 @@ void Display::DrawCursorTrigLevel()
     {
         return;
     }
-    int trigLev = TRIG_LEVEL(chan) + ((chan == TrigSource_Ext) ? 0 : SET_RSHIFT(chan) - RShiftZero);
+    int trigLev = SET_TRIGLEV(chan) + ((chan == TrigSource_Ext) ? 0 : SET_RSHIFT(chan) - RShiftZero);
     float scale = 1.0f / ((TrigLevMax - TrigLevMin) / 2 / Grid::ChannelHeight());
     int y0 = (int)((GRID_TOP + Grid::ChannelBottom()) / 2 + scale * (TrigLevZero - TrigLevMin));
     int y = (int)(y0 - scale * (trigLev - TrigLevMin));
@@ -1649,7 +1649,7 @@ void Display::DrawCursorTrigLevel()
         int shiftFullMin = RShiftMin + TrigLevMin;
         int shiftFullMax = RShiftMax + TrigLevMax;
         scale = (float)height / (shiftFullMax - shiftFullMin);
-        int shiftFull = TRIG_LEVEL_SOURCE + (TRIGSOURCE_IS_EXT ? 0 : SET_RSHIFT(chan));
+        int shiftFull = SET_TRIGLEV_SOURCE + (TRIGSOURCE_IS_EXT ? 0 : SET_RSHIFT(chan));
         int yFull = (int)(GRID_TOP + DELTA + height - scale * (shiftFull - RShiftMin - TrigLevMin) - 4);
         Painter::FillRegion(left + 2, yFull + 1, 4, 6, Color::Trig());
         Painter::SetFont(TypeFont_5);
