@@ -9,6 +9,7 @@
 #include "Menu/Pages/PageCursors.h"
 #include "Menu/Pages/PageDisplay.h"
 #include "Menu/Pages/PageMemory.h"
+#include "Pages/commonPages.h"
 #include "Panel/Panel.h"
 #include "Utils/Math.h"
 
@@ -669,7 +670,7 @@ bool Menu::NeedForFireSetLED()
             name == PageSB_Measures_Tune        || 
             name == PageSB_Memory_Last          || 
             name == PageSB_Memory_Internal      ||
-            IsRegSetActiveOnCursors()           ||
+            REG_SET_ACTIVE_ON_CURSORS           ||
             (name == PageSB_Service_Function && FUNC_MODE_DRAW_IS_ENABLED)
         )
     {

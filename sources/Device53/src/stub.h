@@ -3,7 +3,6 @@
 #include "defines.h"
 
 
-#define IsRegSetActiveOnCursors()           true
 #define FUNC_MODE_DRAW_IS_ENABLED           true
 #define PageDisplay_Init()
 #define COLOR_SCHEME_IS_WHITE_LETTERS       true
