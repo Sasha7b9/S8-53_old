@@ -95,7 +95,7 @@ static void Process_MAPPING(uint8 *buffer)
     ENTER_ANALYSIS
         if (1 == value)         { MODE_DRAW_SIGNAL = ModeDrawSignal_Points; }
         else if (2 == value)    { MODE_DRAW_SIGNAL = ModeDrawSignal_Lines; }
-        else if (3 == value)    { SCPI_SEND(":DISPLAY:MAPPING %s", MODE_DRAW_IS_SIGNAL_LINES ? "LINES" : "POINTS"); }
+        else if (3 == value)    { SCPI_SEND(":DISPLAY:MAPPING %s", MODE_DRAW_SIGNAL_IS_LINES ? "LINES" : "POINTS"); }
     LEAVE_ANALYSIS
 }
 
@@ -121,8 +121,8 @@ static void Process_ACCUM_NUMBER(uint8 *buffer)
         {0}
     };
     ENTER_ANALYSIS
-        if (value <= 7)         { ENUM_ACCUM = (ENumAccumulation)value; }
-        else if (8 == value)    { ENUM_ACCUM = NumAccumulation_Infinity; }
+        if (value <= 7)         { ENUM_ACCUM = (ENumAccum)value; }
+        else if (8 == value)    { ENUM_ACCUM = ENumAccum_Infinity; }
         else if (9 == value)
         {
             SCPI_SEND(":DISPLAY:ACCUMULATION:NUMBER %s", map[ENUM_ACCUM].key);

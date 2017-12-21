@@ -383,7 +383,7 @@ void DrawDataChannel(uint8 *data, Channel chan, DataSettings *ds, int minY, int 
     }
 
     Painter::SetColor(Color::CHAN[chan]);
-    if(MODE_DRAW_IS_SIGNAL_LINES)
+    if(MODE_DRAW_SIGNAL_IS_LINES)
     {
         /*
         if (set.display.numAveraging > NumAveraging_1)

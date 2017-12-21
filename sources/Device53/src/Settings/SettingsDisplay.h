@@ -24,7 +24,7 @@
 #define DISPLAY_COLOR(num)          (set.display.colors[num])                   ///< SettingsDisplay.colors
 
 #define MODE_DRAW_SIGNAL            (set.display.modeDrawSignal)                ///< SettingsDisplay.modeDrawSignal
-#define MODE_DRAW_IS_SIGNAL_LINES   (MODE_DRAW_SIGNAL == ModeDrawSignal_Lines)  ///< \c true, если сигнал выводится линиями.
+#define MODE_DRAW_SIGNAL_IS_LINES   (MODE_DRAW_SIGNAL == ModeDrawSignal_Lines)  ///< \c true, если сигнал выводится линиями.
 
 #define TYPE_GRID                   (set.display.typeGrid)                      ///< SettingsDisplay.typeGrid
 #define TYPE_GRID_IS_1              (TYPE_GRID == TypeGrid_1)                   ///< Установлен тип сетки TypeGrid_1.
@@ -32,8 +32,8 @@
 #define TYPE_GRID_IS_3              (TYPE_GRID == TypeGrid_3)                   ///< Установлен тип сетки TypeGrid_3.
 
 #define ENUM_ACCUM                  (set.display.enumAccumulation)              ///< SettingsDisplay.numAccumulation
-#define ENUM_ACCUM_IS_NONE          (ENUM_ACCUM == NumAccumulation_1)           ///< \c true, если накопление выключено.
-#define ENUM_ACCUM_IS_INFINITY      (ENUM_ACCUM == NumAccumulation_Infinity)    ///< \c true, если установлено бесконечное число накоплений.
+#define ENUM_ACCUM_IS_NONE          (ENUM_ACCUM == ENumAccum_1)           ///< \c true, если накопление выключено.
+#define ENUM_ACCUM_IS_INFINITY      (ENUM_ACCUM == ENumAccum_Infinity)    ///< \c true, если установлено бесконечное число накоплений.
 #define NUM_ACCUM                   (1 << (int)set.display.enumAccumulation)    ///< Количество накоплений.
 
 #define ENUM_AVE                    (set.display.enumAve)                       ///< SettingsDisplay.enumAve
@@ -89,16 +89,16 @@ typedef enum
 /// Перечисление накоплений.
 typedef enum
 {
-    NumAccumulation_1,
-    NumAccumulation_2,
-    NumAccumulation_4,
-    NumAccumulation_8,
-    NumAccumulation_16,
-    NumAccumulation_32,
-    NumAccumulation_64,
-    NumAccumulation_128,
-    NumAccumulation_Infinity
-} ENumAccumulation;
+    ENumAccum_1,
+    ENumAccum_2,
+    ENumAccum_4,
+    ENumAccum_8,
+    ENumAccum_16,
+    ENumAccum_32,
+    ENumAccum_64,
+    ENumAccum_128,
+    ENumAccum_Infinity
+} ENumAccum;
 
 /// Количество усреднений по измерениям.
 typedef enum
@@ -206,7 +206,7 @@ typedef struct
     uint16              colors[16];                 ///< Цвета.
     ModeDrawSignal      modeDrawSignal;             ///< Режим отрисовки сигнала.
     TypeGrid            typeGrid;                   ///< Тип сетки.
-    ENumAccumulation    enumAccumulation;           ///< Перечисление накоплений сигнала на экране.
+    ENumAccum    enumAccumulation;           ///< Перечисление накоплений сигнала на экране.
     ENumAveraging       enumAve;                    ///< Перечисление усреднений сигнала.
     ModeAveraging       modeAve;                    ///< Тип усреднений по измерениям.
     ENumMinMax          enumMinMax;                 ///< Число измерений для определения минимумов и максимумов.
