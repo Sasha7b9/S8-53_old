@@ -73,7 +73,7 @@
         <LExpSel>0</LExpSel>
       </OPTXL>
       <OPTFL>
-        <tvExp>1</tvExp>
+        <tvExp>0</tvExp>
         <tvExpOptDlg>0</tvExpOptDlg>
         <IsCurrentTarget>1</IsCurrentTarget>
       </OPTFL>
@@ -3073,24 +3073,24 @@
     <File>
       <GroupNumber>18</GroupNumber>
       <FileNumber>226</FileNumber>
-      <FileType>5</FileType>
+      <FileType>8</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\src\VCP\SCPI\commonSCPI.h</PathWithFileName>
-      <FilenameWithoutPath>commonSCPI.h</FilenameWithoutPath>
+      <PathWithFileName>..\libs\common\VCP\SCPI\channelSCPI.cpp</PathWithFileName>
+      <FilenameWithoutPath>channelSCPI.cpp</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
     <File>
       <GroupNumber>18</GroupNumber>
       <FileNumber>227</FileNumber>
-      <FileType>5</FileType>
+      <FileType>8</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\src\VCP\SCPI\controlSCPI.h</PathWithFileName>
-      <FilenameWithoutPath>controlSCPI.h</FilenameWithoutPath>
+      <PathWithFileName>..\libs\common\VCP\SCPI\commonSCPI.cpp</PathWithFileName>
+      <FilenameWithoutPath>commonSCPI.cpp</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -3101,8 +3101,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\src\VCP\SCPI\SCPI.h</PathWithFileName>
-      <FilenameWithoutPath>SCPI.h</FilenameWithoutPath>
+      <PathWithFileName>..\libs\common\VCP\SCPI\commonSCPI.h</PathWithFileName>
+      <FilenameWithoutPath>commonSCPI.h</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -3113,20 +3113,20 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\src\VCP\SCPI\channelSCPI.cpp</PathWithFileName>
-      <FilenameWithoutPath>channelSCPI.cpp</FilenameWithoutPath>
+      <PathWithFileName>..\libs\common\VCP\SCPI\controlSCPI.cpp</PathWithFileName>
+      <FilenameWithoutPath>controlSCPI.cpp</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
     <File>
       <GroupNumber>18</GroupNumber>
       <FileNumber>230</FileNumber>
-      <FileType>8</FileType>
+      <FileType>5</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\src\VCP\SCPI\commonSCPI.cpp</PathWithFileName>
-      <FilenameWithoutPath>commonSCPI.cpp</FilenameWithoutPath>
+      <PathWithFileName>..\libs\common\VCP\SCPI\controlSCPI.h</PathWithFileName>
+      <FilenameWithoutPath>controlSCPI.h</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -3137,8 +3137,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\src\VCP\SCPI\controlSCPI.cpp</PathWithFileName>
-      <FilenameWithoutPath>controlSCPI.cpp</FilenameWithoutPath>
+      <PathWithFileName>..\libs\common\VCP\SCPI\displaySCPI.cpp</PathWithFileName>
+      <FilenameWithoutPath>displaySCPI.cpp</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -3149,20 +3149,20 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\src\VCP\SCPI\displaySCPI.cpp</PathWithFileName>
-      <FilenameWithoutPath>displaySCPI.cpp</FilenameWithoutPath>
+      <PathWithFileName>..\libs\common\VCP\SCPI\SCPI.cpp</PathWithFileName>
+      <FilenameWithoutPath>SCPI.cpp</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
     <File>
       <GroupNumber>18</GroupNumber>
       <FileNumber>233</FileNumber>
-      <FileType>8</FileType>
+      <FileType>5</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\src\VCP\SCPI\SCPI.cpp</PathWithFileName>
-      <FilenameWithoutPath>SCPI.cpp</FilenameWithoutPath>
+      <PathWithFileName>..\libs\common\VCP\SCPI\SCPI.h</PathWithFileName>
+      <FilenameWithoutPath>SCPI.h</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -3173,7 +3173,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\src\VCP\SCPI\tbaseSCPI.cpp</PathWithFileName>
+      <PathWithFileName>..\libs\common\VCP\SCPI\tbaseSCPI.cpp</PathWithFileName>
       <FilenameWithoutPath>tbaseSCPI.cpp</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -3185,7 +3185,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\src\VCP\SCPI\trigSCPI.cpp</PathWithFileName>
+      <PathWithFileName>..\libs\common\VCP\SCPI\trigSCPI.cpp</PathWithFileName>
       <FilenameWithoutPath>trigSCPI.cpp</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>

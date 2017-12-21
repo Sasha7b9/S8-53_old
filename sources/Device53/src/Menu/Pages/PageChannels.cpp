@@ -61,7 +61,7 @@ DEF_CHOICE_2(       mcInputA,                                                   
 );
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
-void OnChanged_CoupleA(bool active)
+void OnChanged_ChanA_Couple(bool active)
 {
     FPGA::SetModeCouple(A, SET_COUPLE_A);
 }
@@ -73,7 +73,7 @@ DEF_CHOICE_3(       mcCoupleA,                                                  
     "Пост",  "AC",
     "Перем", "DC",
     "Земля", "Ground",
-    SET_COUPLE_A, pChanA, FuncActive, OnChanged_CoupleA, FuncDraw
+    SET_COUPLE_A, pChanA, FuncActive, OnChanged_ChanA_Couple, FuncDraw
 );
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
@@ -145,7 +145,7 @@ DEF_CHOICE_2(       mcInputB,                                                   
 );
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
-void OnChanged_CoupleB(bool active)
+void OnChanged_ChanB_Couple(bool active)
 {
     FPGA::SetModeCouple(B, SET_COUPLE_B);
 }
@@ -157,7 +157,7 @@ DEF_CHOICE_3(       mcCoupleB,                                                  
     "Пост",  "AC",
     "Перем", "DC",
     "Земля", "Ground",
-    SET_COUPLE_B, pChanB, FuncActive, OnChanged_CoupleB, FuncDraw
+    SET_COUPLE_B, pChanB, FuncActive, OnChanged_ChanB_Couple, FuncDraw
 );
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------

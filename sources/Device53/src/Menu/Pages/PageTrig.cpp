@@ -16,7 +16,7 @@ extern const PageBase mainPage;
 extern const PageBase mpAutoFind;
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
-void OnPress_Mode(bool active)
+void OnChanged_TrigMode(bool active)
 {
     FPGA::Stop(false);
     if (!START_MODE_IS_SINGLE)
@@ -41,7 +41,7 @@ DEF_CHOICE_3(       mcMode,                                                     
     "Авто ",       "Auto",
     "Ждущий",      "Wait",
     "Однократный", "Single",
-    START_MODE, pTrig, FuncActive, OnPress_Mode, FuncDraw
+    START_MODE, pTrig, FuncActive, OnChanged_TrigMode, FuncDraw
 );
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
