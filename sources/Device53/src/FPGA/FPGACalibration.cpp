@@ -420,7 +420,7 @@ int16 CalculateAdditionRShift(Channel chan, Range range)
     FPGA::SetRange(chan, range);
     FPGA::SetRShift(chan, RShiftZero);
     FPGA::SetTBase(TBase_200us);
-    FPGA::SetTrigSource(chan == A ? TrigSource_ChannelA : TrigSource_ChannelB);
+    FPGA::SetTrigSource(chan == A ? TrigSource_A : TrigSource_B);
     FPGA::SetTrigPolarity(TrigPolarity_Front);
     FPGA::SetTrigLev((TrigSource)chan, TrigLevZero);
 

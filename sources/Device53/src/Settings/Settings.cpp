@@ -49,7 +49,7 @@ static const Settings defaultSettings =
         ENumAccum_1,                // numAccumulation
         ENumAverage_1,              // numAveraging
         Averaging_Accurately,       // modeAveraging
-        NumMinMax_1,                // enumMinMax
+        ENumMinMax_1,               // enumMinMax
         Smoothing_Disable,          // smoothing
         NumSignalsInSec_25,         // num signals in one second
         A,                          // lastAffectedChannel
@@ -91,7 +91,7 @@ static const Settings defaultSettings =
     // trig
     {
         StartMode_Auto,
-        TrigSource_ChannelA,
+        TrigSource_A,
         TrigPolarity_Front,
         TrigInput_Full,
         {TrigLevZero, TrigLevZero, TrigLevZero},
