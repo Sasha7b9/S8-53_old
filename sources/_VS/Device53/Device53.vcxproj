@@ -458,9 +458,9 @@
     <ClInclude Include="..\..\libs\common\Menu\MenuDrawing.h" />
     <ClInclude Include="..\..\libs\common\Menu\MenuItems.h" />
     <ClInclude Include="..\..\libs\common\Menu\MenuItemsDefs.h" />
+    <ClInclude Include="..\..\libs\common\Menu\Pages\commonPages.h" />
     <ClInclude Include="..\..\libs\common\Menu\Pages\Definition.h" />
     <ClInclude Include="..\..\libs\common\Settings\commonSettings.h" />
-    <ClInclude Include="..\..\libs\common\Settings\commonSettingsMath.h" />
     <ClInclude Include="..\..\libs\common\Utils\CommonFunctions.h" />
     <ClInclude Include="..\..\libs\common\Utils\Map.h" />
     <ClInclude Include="..\..\libs\common\Utils\Math.h" />

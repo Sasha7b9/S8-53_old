@@ -797,9 +797,6 @@
     <ClInclude Include="..\..\libs\common\Settings\commonSettings.h">
       <Filter>Settings</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\libs\common\Settings\commonSettingsMath.h">
-      <Filter>Settings</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\libs\common\Utils\CommonFunctions.h">
       <Filter>Utils</Filter>
     </ClInclude>
@@ -868,6 +865,9 @@
     </ClInclude>
     <ClInclude Include="..\..\libs\common\Hardware\Sound.h">
       <Filter>Hardware</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\common\Menu\Pages\commonPages.h">
+      <Filter>Menu\Pages</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
