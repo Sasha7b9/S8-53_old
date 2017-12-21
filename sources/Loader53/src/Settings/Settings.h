@@ -5,10 +5,6 @@
 #include "Settings/SettingsDisplay.h"
 
 
-#define LANG    (set.common.lang)
-#define LANG_RU (LANG == Russian)
-
-
 // Настройки изображения
 typedef struct
 {

@@ -135,7 +135,6 @@
     <ClCompile Include="..\..\libs\common\Menu\MenuItemsGraphics.cpp" />
     <ClCompile Include="..\..\libs\common\Menu\MenuItemsLogic.cpp" />
     <ClCompile Include="..\..\libs\common\Menu\Pages\Definition.cpp" />
-    <ClCompile Include="..\..\libs\common\Settings\commonSettings.cpp" />
     <ClCompile Include="..\..\libs\common\Utils\CommonFunctions.cpp" />
     <ClCompile Include="..\..\libs\common\Utils\Map.cpp" />
     <ClCompile Include="..\..\libs\common\Utils\Math.cpp" />

@@ -483,9 +483,6 @@
     <ClCompile Include="..\..\libs\common\commonDefines.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\libs\common\Settings\commonSettings.cpp">
-      <Filter>Settings</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\libs\common\Utils\CommonFunctions.cpp">
       <Filter>Utils</Filter>
     </ClCompile>
