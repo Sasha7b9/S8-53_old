@@ -297,9 +297,6 @@
     <ClCompile Include="..\..\Device53\src\Globals.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Device53\src\Log.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Device53\src\main.cpp">
       <Filter>src</Filter>
     </ClCompile>
@@ -543,6 +540,9 @@
     <ClCompile Include="..\..\libs\common\Hardware\Sound.cpp">
       <Filter>Hardware</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\libs\common\Log.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Device53\src\libs\app_ethernet.h">
@@ -651,9 +651,6 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Device53\src\Globals.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Device53\src\Log.h">
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Device53\src\main.h">
@@ -865,6 +862,9 @@
     </ClInclude>
     <ClInclude Include="..\..\libs\common\Menu\Pages\commonPages.h">
       <Filter>Menu\Pages</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\common\Log.h">
+      <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -380,9 +380,6 @@
     <ClInclude Include="..\..\libs\common\Hardware\Timer.h">
       <Filter>Hardware</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Loader53\src\Log.h">
-      <Filter>src</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\libs\common\Display\Colors.h">
       <Filter>Display</Filter>
     </ClInclude>

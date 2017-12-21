@@ -265,7 +265,6 @@
     <ClInclude Include="..\..\Loader53\src\libs\stm32f2xx_hal_conf.h" />
     <ClInclude Include="..\..\Loader53\src\libs\stm32f2xx_it.h" />
     <ClInclude Include="..\..\Loader53\src\libs\usbh_conf.h" />
-    <ClInclude Include="..\..\Loader53\src\Log.h" />
     <ClInclude Include="..\..\Loader53\src\main.h" />
     <ClInclude Include="..\..\Loader53\src\Panel\Controls.h" />
     <ClInclude Include="..\..\Loader53\src\Panel\Panel.h" />

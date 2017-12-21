@@ -63,7 +63,6 @@ void PowerDown()                        // B_Power
 {
     Menu::ShortPressOnPageItem((Page *)Menu::OpenedItem(), 0);
     Settings_Save();
-    Log_DisconnectLoggerUSB();
     Panel::TransmitData(0x04);           // Посылаем команду выключения
 }
 

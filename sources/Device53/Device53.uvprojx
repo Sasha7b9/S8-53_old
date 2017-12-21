@@ -856,11 +856,6 @@
               <FilePath>.\src\Globals.h</FilePath>
             </File>
             <File>
-              <FileName>Log.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\Log.h</FilePath>
-            </File>
-            <File>
               <FileName>main.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main.h</FilePath>
@@ -879,11 +874,6 @@
               <FileName>Globals.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\Globals.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Log.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\Log.cpp</FilePath>
             </File>
             <File>
               <FileName>main.cpp</FileName>
@@ -911,9 +901,14 @@
               <FilePath>.\src\stub.cpp</FilePath>
             </File>
             <File>
-              <FileName>stub.h</FileName>
+              <FileName>Log.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\libs\common\Log.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Log.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\stub.h</FilePath>
+              <FilePath>..\libs\common\Log.h</FilePath>
             </File>
           </Files>
         </Group>
