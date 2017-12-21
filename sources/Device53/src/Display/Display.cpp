@@ -6,6 +6,7 @@
 #include "font/Font.h"
 #include "Hardware/RTC.h"
 #include "Hardware/Sound.h"
+#include "Hardware/Timer.h"
 #include "Menu/Menu.h"
 #include "Utils/Math.h"
 #include "Utils/ProcessingSignal.h"

@@ -27,3 +27,7 @@
 #ifndef SHOW_STRING_NAVI_TEMP
 #define SHOW_STRING_NAVI_TEMP   false
 #endif
+
+#ifndef SOUND_VOLUME
+#define SOUND_VOLUME 100
+#endif

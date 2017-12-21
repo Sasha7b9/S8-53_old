@@ -851,9 +851,6 @@
     <ClInclude Include="..\..\libs\common\Utils\Measures.h">
       <Filter>Utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Device53\src\stub.h">
-      <Filter>src</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Device53\src\Menu\MenuPagesNames.h">
       <Filter>Menu</Filter>
     </ClInclude>

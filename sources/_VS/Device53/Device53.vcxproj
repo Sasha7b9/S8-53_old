@@ -517,7 +517,6 @@
     <ClInclude Include="..\..\Device53\src\Settings\SettingsTime.h" />
     <ClInclude Include="..\..\Device53\src\Settings\SettingsTrig.h" />
     <ClInclude Include="..\..\Device53\src\Settings\SettingsTypes.h" />
-    <ClInclude Include="..\..\Device53\src\stub.h" />
     <ClInclude Include="..\..\Device53\src\Tables.h" />
     <ClInclude Include="..\..\Device53\src\Utils\ProcessingSignal.h" />
     <ClInclude Include="..\..\Device53\src\VCP\SCPI\commonSCPI.h" />
