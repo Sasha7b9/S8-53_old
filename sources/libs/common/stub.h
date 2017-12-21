@@ -1,6 +1,9 @@
 #pragma once
 
 
+#ifndef DISPLAY_RUN_AFTER_DRAW                                                                                                    // Display/Display.h
+#define                                     DISPLAY_RUN_AFTER_DRAW(func)
+#endif
 #ifndef SOCKET_SEND                                                                                                            // Ethernet/TcpSocket.h
 #define                                     SOCKET_SEND(buffer, size)
 #endif

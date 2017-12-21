@@ -4,6 +4,7 @@
 #include "VCP/VCP.h"
 #include "Settings/Settings.h"
 #include "Utils/Map.h"
+#include "stub.h"
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -302,7 +303,7 @@ static void Process_GRID_BRIGHTNESS(uint8 *buffer)
     if (SCPI::FirstIsInt(buffer, &intVal, 0, 100))
     {
         BRIGHTNESS_GRID = (int16)intVal;
-        Display::RunAfterDraw(OnChanged_Grid_Brightness);
+        DISPLAY_RUN_AFTER_DRAW(OnChanged_Grid_Brightness);
     }
     else
     {
