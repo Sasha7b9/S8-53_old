@@ -249,7 +249,7 @@ DEF_PAGE_SB(        mspMeasTune,                                                
     0,
     &sbMeasTuneMarkers,
     &sbMeasTuneSettings,
-    PageSB_Measures_Tune, &pMeasures, IsActiveButtonMeasuresTune, EmptyPressPage, FuncDrawPage, Measure_RotateRegSet
+    PageSB_Measures_Tune, &pMeasures, IsActiveButtonMeasuresTune, EmptyPressPage, FuncDrawPage, FuncRegSetPage
 );
 
 
