@@ -6,6 +6,7 @@
 *.lib
 *.out
 *.scvd
+*.uvgui*
 JLink*
 
 sources/Loader53/_obj/*
