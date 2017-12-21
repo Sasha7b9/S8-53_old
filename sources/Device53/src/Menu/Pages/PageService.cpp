@@ -702,7 +702,6 @@ static void Information_Draw()
 
 static void OnPress_Information()
 {
-    Menu::OpenPageAndSetItCurrent(PageSB_Service_Information);
     Display::SetDrawMode(DrawMode_Hand, Information_Draw);
 }
 

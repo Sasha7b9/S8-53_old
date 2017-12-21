@@ -172,7 +172,6 @@ DEF_SMALL_BUTTON(   sbMemLastNext,                                              
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 void PressSB_MemLast_IntEnter()
 {
-    Menu::OpenPageAndSetItCurrent(PageSB_Memory_Internal);
     MODE_WORK = ModeWork_ROM;
     FLASHMem::GetData(gMemory.currentNumIntSignal, &gDSmemInt, &gData0memInt, &gData1memInt);
     gMemory.exitFromIntToLast = 1;
@@ -690,15 +689,12 @@ static void PressSB_SetName_Exit()
     Display::RemoveAddDrawFunction();
     if (gMemory.exitFromModeSetNameTo == RETURN_TO_DISABLE_MENU)
     {
-        Menu::ShortPressOnPageItem(Menu::PagePointerFromName(PageSB_Memory_SetName), 0);
     }
     else if (gMemory.exitFromModeSetNameTo == RETURN_TO_LAST_MEM)
     {
-        Menu::OpenPageAndSetItCurrent(PageSB_Memory_Last);
     }
     else if (gMemory.exitFromModeSetNameTo == RETURN_TO_INT_MEM)
     {
-        Menu::OpenPageAndSetItCurrent(PageSB_Memory_Internal);
     }
     gMemory.exitFromModeSetNameTo = RETURN_TO_DISABLE_MENU;
 }
@@ -716,13 +712,11 @@ void PressSB_MemInt_Exit()
     FLASHMem::GetData(gMemory.currentNumIntSignal, &gDSmemInt, &gData0memInt, &gData1memInt);
     if (gMemory.exitFromIntToLast == 1)
     {
-        Menu::OpenPageAndSetItCurrent(PageSB_Memory_Last);
         MODE_WORK = ModeWork_RAM;
         gMemory.exitFromIntToLast = 0;
     }
     else
     {
-        Menu::ShortPressOnPageItem(Menu::PagePointerFromName(PageSB_Memory_Internal), 0);
     }
 }
 
@@ -733,7 +727,6 @@ DEF_SMALL_BUTTON_EXIT(  sbExitMemInt,                                           
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 void OnPressMemoryExtMask()
 {
-    Menu::OpenPageAndSetItCurrent(PageSB_Memory_Drive_Mask);
     Display::SetAddDrawFunction(DrawSetMask);
 }
 
@@ -961,7 +954,6 @@ void Memory_SaveSignalToFlashDrive()
     {
         if (FILE_NAMING_MODE_IS_HAND)
         {
-            Menu::OpenPageAndSetItCurrent(PageSB_Memory_SetName);
             Display::SetAddDrawFunction(DrawSetName);
         }
         else
@@ -1068,7 +1060,6 @@ DEF_SMALL_BUTTON(   sbExitFileManager,                                          
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void OnPress_Drive_Manager()
 {
-    Menu::OpenPageAndSetItCurrent(PageSB_Memory_Drive_Manager);
     Display::SetDrawMode(DrawMode_Hand, FileManager::Draw);
     gBF.needRedrawFileManager = 1;
 }
@@ -1108,7 +1099,6 @@ DEF_PAGE_6(         mspMemoryExt,                                               
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 static void OnPressMemoryInt()
 {
-    Menu::OpenPageAndSetItCurrent(PageSB_Memory_Internal);
     MODE_WORK = ModeWork_ROM;
     FLASHMem::GetData(gMemory.currentNumIntSignal, &gDSmemInt, &gData0memInt, &gData1memInt);
 }

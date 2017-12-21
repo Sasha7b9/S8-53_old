@@ -61,7 +61,6 @@ void StartDown()                        // B_Start
 
 void PowerDown()                        // B_Power
 {
-    Menu::ShortPressOnPageItem((Page *)Menu::OpenedItem(), 0);
     Settings_Save();
     Panel::TransmitData(0x04);           // Посылаем команду выключения
 }

@@ -679,7 +679,6 @@ static void Draw_EnterSerialNumber()
 
 static void OnPress_SerialNumber()
 {
-    Menu::OpenPageAndSetItCurrent(PageSB_Debug_SerialNumber);
     Display::SetAddDrawFunction(Draw_EnterSerialNumber);
     MALLOC_EXTRAMEM(StructForSN, s);
     s->number = 01;

@@ -525,9 +525,6 @@
     <ClCompile Include="..\..\libs\common\Utils\Measures.cpp">
       <Filter>Utils</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Device53\src\stub.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Device53\src\Settings\SettingsService.cpp">
       <Filter>Settings</Filter>
     </ClCompile>
@@ -864,6 +861,12 @@
       <Filter>Menu\Pages</Filter>
     </ClInclude>
     <ClInclude Include="..\..\libs\common\Log.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\common\Menu\commonMenu.h">
+      <Filter>Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\common\stub.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>

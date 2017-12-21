@@ -896,11 +896,6 @@
               <FilePath>..\libs\common\commonDefines.cpp</FilePath>
             </File>
             <File>
-              <FileName>stub.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\stub.cpp</FilePath>
-            </File>
-            <File>
               <FileName>Log.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>..\libs\common\Log.cpp</FilePath>
