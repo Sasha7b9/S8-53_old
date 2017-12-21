@@ -3,7 +3,6 @@
 #include "defines.h"
 
 
-#define Measures_ShorPressOnSmallButtonSettings()
 #define Measure_ShortPressOnSmallButonMarker()
 void Measure_RotateRegSet(int);
 

@@ -35,7 +35,6 @@ void DrawSB_MeasTune_Settings(int x, int y)
 
 void PressSB_MeasTune_Settings()
 {
-    Measures_ShorPressOnSmallButtonSettings();
 }
 
 void DrawSB_MeasTune_Markers(int x, int y)
