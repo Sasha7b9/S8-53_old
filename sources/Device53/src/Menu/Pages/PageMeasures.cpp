@@ -46,7 +46,7 @@ void DrawSB_MeasTune_Markers(int x, int y)
 
 void PressSB_MeasTune_Markers()
 {
-    Measure_ShortPressOnSmallButonMarker();
+    //Measure_ShortPressOnSmallButonMarker();
 }
 
 void RotateRegMeasureSetField(int angle)
