@@ -34,7 +34,9 @@ typedef struct
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /// ¬озвращает позицию активного пункта на странице namePage
-#define MENU_POS_ACT_ITEM(namePage) (set.menu.posActItem[namePage])
+#define MENU_POS_ACT_ITEM(name)     (set.menu.posActItem[name])
+
+#define MENU_CURRENT_SUBPAGE(name)  (set.menu.currentSubPage[name])
 
 #define MENU_IS_SHOWN               (set.menu.isShown)
 
