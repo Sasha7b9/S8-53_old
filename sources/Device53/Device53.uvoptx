@@ -154,7 +154,7 @@
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>C:\My\Work\stm32\S8-53\sources\libs\STM32Cube_F2\Drivers\CMSIS\Include\core_cm3.h</Filename>
+          <Filename>&lt;1&gt;..\libs\STM32Cube_F2\Drivers\CMSIS\Include\core_cm3.h</Filename>
           <ExecCommand></ExecCommand>
           <Expression>\\Device53\../libs/STM32Cube_F2/Drivers/CMSIS/Include/core_cm3.h\1662</Expression>
         </Bp>
@@ -170,7 +170,7 @@
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>..\libs\common\Menu\Menu.cpp</Filename>
+          <Filename>&lt;1&gt;..\libs\common\Menu\Menu.cpp</Filename>
           <ExecCommand></ExecCommand>
           <Expression>\\Device53\../libs/common/Menu/Menu.cpp\234</Expression>
         </Bp>
