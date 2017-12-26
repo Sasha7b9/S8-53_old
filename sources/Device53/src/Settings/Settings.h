@@ -40,31 +40,31 @@ typedef struct
 
 #define MENU_IS_SHOWN               (set.menu.isShown)
 
-#define MAC_ADDR0       (set.eth.mac0)
-#define MAC_ADDR1       (set.eth.mac1)
-#define MAC_ADDR2       (set.eth.mac2)
-#define MAC_ADDR3       (set.eth.mac3)
-#define MAC_ADDR4       (set.eth.mac4)
-#define MAC_ADDR5       (set.eth.mac5)
+#define MAC_ADDR0                   (set.eth.mac0)
+#define MAC_ADDR1                   (set.eth.mac1)
+#define MAC_ADDR2                   (set.eth.mac2)
+#define MAC_ADDR3                   (set.eth.mac3)
+#define MAC_ADDR4                   (set.eth.mac4)
+#define MAC_ADDR5                   (set.eth.mac5)
 
-#define IP_ADDR0        (set.eth.ip0)
-#define IP_ADDR1        (set.eth.ip1)
-#define IP_ADDR2        (set.eth.ip2)
-#define IP_ADDR3        (set.eth.ip3)
+#define IP_ADDR0                    (set.eth.ip0)
+#define IP_ADDR1                    (set.eth.ip1)
+#define IP_ADDR2                    (set.eth.ip2)
+#define IP_ADDR3                    (set.eth.ip3)
 
-#define PORT            (set.eth.port)
+#define PORT                        (set.eth.port)
 
-#define NETMASK_ADDR0   (set.eth.mask0)
-#define NETMASK_ADDR1   (set.eth.mask1)
-#define NETMASK_ADDR2   (set.eth.mask2)
-#define NETMASK_ADDR3   (set.eth.mask3)
+#define NETMASK_ADDR0               (set.eth.mask0)
+#define NETMASK_ADDR1               (set.eth.mask1)
+#define NETMASK_ADDR2               (set.eth.mask2)
+#define NETMASK_ADDR3               (set.eth.mask3)
 
-#define GW_ADDR0        (set.eth.gw0)
-#define GW_ADDR1        (set.eth.gw1)
-#define GW_ADDR2        (set.eth.gw2)
-#define GW_ADDR3        (set.eth.gw3)
+#define GW_ADDR0                    (set.eth.gw0)
+#define GW_ADDR1                    (set.eth.gw1)
+#define GW_ADDR2                    (set.eth.gw2)
+#define GW_ADDR3                    (set.eth.gw3)
 
-#define ETH_ENABLE      (set.eth.enable)
+#define ETH_ENABLE                  (set.eth.enable)
 
 
 typedef struct
@@ -98,25 +98,25 @@ typedef struct
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#define LANG            (set.common.lang)       ///< SettingsCommon.lang
+#define LANG            (set.common.lang)   ///< SettingsCommon.lang
 #define LANG_RU         (LANG == Russian)
 #define LANG_EN         (LANG == English)
                                     
 typedef struct
 {
-    int     countEnables;               ///< Количество включений. Увеличивается при каждом включении.
-    int     countErasedFlashData;       ///< Сколько раз стирался первый сектор с ресурсами.
-    int     countErasedFlashSettings;   ///< Сколько раз стирался сектор с настройкаи.
-    int     workingTimeInSecs;          ///< Время работы в секундах.
-    Language lang;                      ///< Язык меню.
+    int     countEnables;                   ///< Количество включений. Увеличивается при каждом включении.
+    int     countErasedFlashData;           ///< Сколько раз стирался первый сектор с ресурсами.
+    int     countErasedFlashSettings;       ///< Сколько раз стирался сектор с настройкаи.
+    int     workingTimeInSecs;              ///< Время работы в секундах.
+    Language lang;                          ///< Язык меню.
 } SettingsCommon;
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 typedef struct
 {
-    bool    all;            ///< Показывать значения всех регистров.
-    bool    flag;           ///< Выводить ли флаг готовности.
+    bool    all;                            ///< Показывать значения всех регистров.
+    bool    flag;                           ///< Выводить ли флаг готовности.
     bool    rShiftA;
     bool    rShiftB;
     bool    trigLev;
@@ -166,20 +166,18 @@ typedef  struct
     int16           numStrings;                 ///< Число строк в консоли.
     int8            sizeFont;                   ///< Размер шрифта консоли - 0 - 5, 1 - 8,
     bool            consoleInPause;             ///< \brief Признак того, что консоль находится в режиме паузы. Режим паузы означает, что новые 
-                                                    /// сообщения она не записывает и не сохраняет.
+                                                /// сообщения она не записывает и не сохраняет.
     BalanceADCtype  balanceADCtype;             ///< Тип балансировки.
     int16           balanceADC[2];              ///< Значение дополнительного смещения АЦП для ручной балансировки.
     StretchADCtype  stretchADCtype;             ///< Тип растяжки канала.
     int16           stretchADC[2];              ///< Значение растяжки канала для ручного режима.
-    //RShiftADCtype   rShiftADCtype;
-    //int16           rShiftADC[RangeSize][2];    // Дополнительное смещение для каналов в режиме ручного управления. 0 - range == Range_2mV, 1 - все остальные
     int16           numMeasuresForGates;        ///< Число измерений для ворот.
     int16           shiftT0;                    ///< Дополнительное смещение по времени для данной развёртки режима рандомизатора.
     bool            showStats;                  ///< Показывать статистику на экране (fps, например).
     int16           numAveForRand;              ///< По скольким измерениям усреднять сигнал в режиме рандомизатора.
     bool            viewAlteraWrittingData;     ///< Показывать ли данные, идущие в альтеру.
     bool            viewAllAlteraWrittingData;  ///< \brief Показывать ли все данные, идущие в альтеру (если false, то постоянно идущие команды вроде 
-                                                    /// START, STOP не показываются).
+                                                /// START, STOP не показываются).
     int16           altShift;                   ///< Добавочное смещение для устранения эффекта горизонтальной помехи синхронизации.
     OutputRegisters showRegisters;
 } SettingsDebug;
@@ -193,13 +191,14 @@ typedef struct
 } SettingsMenu;
 
 
-void CurrentPageSBregSet(int angle);                                ///< Повернуть ручку УСТАНОВКА на текущей странице малых кнопок.
-const SButton*  GetSmallButton(PanelButton button);             ///< Вернуть указатель на малую кнопку, соответствующую данной кнопки панели.
+void CurrentPageSBregSet(int angle);                ///< Повернуть ручку УСТАНОВКА на текущей странице малых кнопок.
+const SButton*  GetSmallButton(PanelButton button); ///< Вернуть указатель на малую кнопку, соответствующую данной кнопки панели.
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /// Струкура хранит все настройки прибора.
-typedef struct
+struct Settings
 {
+public:
     uint                size;
     SettingsDisplay     display;            ///< настройки изображения          (меню ДИСПЛЕЙ).
     SettingsChannel     chan[NumChannels];  ///< настройки каналов              (меню КАНАЛ 1 и КАНАЛ 2).
@@ -215,16 +214,13 @@ typedef struct
     SettingsMenu        menu;               ///< состояние меню.
     SettingsDebug       debug;              ///< настройки режима отладки       (меню ОТЛАДКА).
     uint                crc32;              ///< контрольная сумма. Используется для проверки корректности сохранённых настроек
-    //int temp[5];
-} Settings;
+    void Load(bool _default);               ///< \brief Загрузить настройки. Если _default == true, загружаются настройки по умолчанию, иначе пытается 
+                                            ///< загрузить настройки из ПЗУ, а в случае неудачи - тоже настройки по умолчанию.
+    void Save();                            ///< Сохранить настройки во флеш-память.
+    bool DebugModeEnable();                 ///< Возвращает true, если включён режим отладки.
+};
 
 extern Settings set;
-
-void Settings_Load(bool _default);      ///< \brief Загрузить настройки. Если _default == true, загружаются настройки по умолчанию, иначе пытается 
-                                        ///< загрузить настройки из ПЗУ, а в случае неудачи - тоже настройки по умолчанию.
-void Settings_Save();                   ///< Сохранить настройки во флеш-память.
-bool Settings_DebugModeEnable();        ///< Возвращает true, если включён режим отладки.
-
 
 /** @}
  */
