@@ -299,28 +299,6 @@ void Settings::Save()
 }
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
-void CurrentPageSBregSet(int angle)
-{
-    Page *page = (Page *)Menu::OpenedItem();
-    if (page->funcRegSetSB)
-    {
-        page->funcRegSetSB(angle);
-    }
-}
-
-//----------------------------------------------------------------------------------------------------------------------------------------------------
-const SButton* GetSmallButton(PanelButton button)
-{
-    if(Menu::IsMinimize() && button >= B_Menu && button <= B_F5)
-    {
-        Page *page = (Page *)Menu::OpenedItem();
-        SButton *sb = (SButton *)page->items[button - B_Menu];
-        return sb;
-    }
-    return NULL;
-}
-
-//----------------------------------------------------------------------------------------------------------------------------------------------------
 Range& operator++(Range &range)
 {
     range = (Range)((int)range + 1);
