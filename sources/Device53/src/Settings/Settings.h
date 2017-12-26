@@ -194,10 +194,6 @@ typedef struct
 
 
 
-void SetMenuPosActItem(NamePage namePage, int8 pos);                ///< Установить позицию активного пункта на странице namePage.
-int8 MenuCurrentSubPage(NamePage namePage);                         ///< Возвращает номер текущей подстраницы страницы namePage.
-void SetMenuCurrentSubPage(NamePage namePage, int8 posSubPage);     ///< Устанавливает номер текущей подстраницы в странице namePage.
-bool MenuIsShown();                                             ///< Отображено ли меню на экране.
 void ShowMenu(bool show);                                           ///< Отобразить/скрыть меню.
 bool MenuPageDebugIsActive();                                   ///< Активна ли страница отладки.
 void SetMenuPageDebugActive(bool active);                           ///< Сделать/разделать активной страницу отладки.
@@ -232,8 +228,6 @@ void Settings_Load(bool _default);      ///< \brief Загрузить настройки. Если _d
                                         ///< загрузить настройки из ПЗУ, а в случае неудачи - тоже настройки по умолчанию.
 void Settings_Save();                   ///< Сохранить настройки во флеш-память.
 bool Settings_DebugModeEnable();        ///< Возвращает true, если включён режим отладки.
-/// Возвращает true, если значение, записанное в 
-bool CheckSumIsCorrect();
 
 
 /** @}

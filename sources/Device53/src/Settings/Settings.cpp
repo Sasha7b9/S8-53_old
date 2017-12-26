@@ -310,26 +310,6 @@ bool Settings_DebugModeEnable()
     return true;
 }
 
-void SetMenuPosActItem(NamePage namePage, int8 pos)
-{
-    set.menu.posActItem[namePage] = pos;
-}
-
-int8 MenuCurrentSubPage(NamePage namePage)
-{
-    return set.menu.currentSubPage[namePage];
-}
-
-void SetMenuCurrentSubPage(NamePage namePage, int8 posSubPage)
-{
-    set.menu.currentSubPage[namePage] = posSubPage;
-}
-
-bool MenuIsShown()
-{
-    return set.menu.isShown;
-}
-
 void ShowMenu(bool show)
 {
     set.menu.isShown = show;

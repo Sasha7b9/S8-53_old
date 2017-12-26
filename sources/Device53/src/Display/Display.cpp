@@ -504,7 +504,7 @@ static void DRAW_SPECTRUM(const uint8 *data, int numPoints, Channel channel)
     MathFPGA::PointsRel2Voltage(data, numPoints, gDSet->range[channel], channel == A ? gDSet->rShiftCh0 : gDSet->rShiftCh1, dataR);
     MathFPGA::CalculateFFT(dataR, numPoints, spectrum, &freq0, &density0, &freq1, &density1, &y0, &y1);
     DrawSpectrumChannel(spectrum, Color::CHAN[channel]);
-    if (!MenuIsShown() || Menu::IsMinimize())
+    if (!MENU_IS_SHOWN || Menu::IsMinimize())
     {
         Color color = Color::FILL;
         WriteParametersFFT(channel, freq0, density0, freq1, density1);
@@ -1526,7 +1526,7 @@ void Display::DrawGrid(int left, int top, int width, int height)
         Painter::DrawHLine(top, 1, left - 2);
         Painter::DrawHLine(top, right + 2, SCREEN_WIDTH - 2);
 
-        if (!Menu::IsMinimize() || !MenuIsShown())
+        if (!Menu::IsMinimize() || !MENU_IS_SHOWN)
         {
             Painter::DrawVLine(1, top + 2, bottom - 2);
             Painter::DrawVLine(318, top + 2, bottom - 2);
@@ -1589,7 +1589,7 @@ void DrawScaleLine(int x, bool forTrigLev)
 //---------------------------------------------------------------------------------------------------------------------------------------------------
 void Display::DrawCursorsWindow()
 {
-    if((!Menu::IsMinimize() || !MenuIsShown()) && gBF.drawRShiftMarkers == 1)
+    if((!Menu::IsMinimize() || !MENU_IS_SHOWN) && gBF.drawRShiftMarkers == 1)
     {
         DrawScaleLine(2, false);
     }
@@ -1711,7 +1711,7 @@ void Display::DrawCursorRShift(Channel chan)
     Painter::SetFont(TypeFont_5);
     int dY = 0;
 
-    if((!Menu::IsMinimize() || !MenuIsShown()) && gBF.drawRShiftMarkers == 1)
+    if((!Menu::IsMinimize() || !MENU_IS_SHOWN) && gBF.drawRShiftMarkers == 1)
     {
         Painter::FillRegion(4, yFull - 3, 4, 6, Color::CHAN[chan]);
         Painter::DrawChar(5, yFull - 9 + dY, chan == A ? '1' : '2', Color::BACK);
