@@ -61,7 +61,7 @@ void StartDown()                        // B_Start
 
 void PowerDown()                        // B_Power
 {
-    Settings_Save();
+    Settings::Save();
     Panel::TransmitData(0x04);           // Посылаем команду выключения
 }
 

@@ -328,7 +328,7 @@ void DrawParametersChannel(Channel chan, int eX, int eY, bool inProgress)
         ProgressBar_Draw(bar);
     }
 
-    if(Settings_DebugModeEnable())
+    if(true)
     {
         int x = inProgress ? 5 : eX;
         int y = eY + (inProgress ? 110 : 0);

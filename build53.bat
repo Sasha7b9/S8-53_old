@@ -22,7 +22,7 @@ echo ERROR!!! Loader53 failed!!!
 "c:\Program Files\Notepad++\notepad++.exe" -multiInst -alwaysOnTop sources\Loader53\Loader53.out -n1000 -x0 -y0
 goto FineLoader53
 
-:BadDevice54
+:BadDevice53
 echo ERROR!!! Device53 failed!!!
 "c:\Program Files\Notepad++\notepad++.exe" -multiInst -alwaysOnTop sources\Device53\Device53.out -n1000 -x0 -y0
 goto FineDevice53

@@ -38,7 +38,7 @@ int main()
 {
     Hardware_Init();
     Init();
-    Settings_Load(false);
+    Settings::Load(false);
     FPGA::Init();    
     Timer::PauseOnTime(250);
     FPGA::OnPressStartStop();

@@ -52,7 +52,7 @@ static void OnPress_ResetSettings()
 
     if (Panel::WaitPressingButton() == B_Start)
     {
-        Settings_Load(true);
+        Settings::Load(true);
     }
 
     Timer::Disable(kTimerDisplay);
