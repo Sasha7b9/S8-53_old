@@ -194,7 +194,6 @@ typedef struct
 
 
 
-int8 MenuPosActItem(NamePage namePage);                             ///< ¬озвращает позицию активного пункта на странице namePage.
 void SetMenuPosActItem(NamePage namePage, int8 pos);                ///< ”становить позицию активного пункта на странице namePage.
 int8 MenuCurrentSubPage(NamePage namePage);                         ///< ¬озвращает номер текущей подстраницы страницы namePage.
 void SetMenuCurrentSubPage(NamePage namePage, int8 posSubPage);     ///< ”станавливает номер текущей подстраницы в странице namePage.
