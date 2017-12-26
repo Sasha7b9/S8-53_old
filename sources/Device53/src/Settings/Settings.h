@@ -188,15 +188,11 @@ typedef struct
 {
     int8        posActItem[Page_NumPages];      ///< Позиция ативного пункта. bit7 == 1 - item is opened, 0x7f - нет активного пункта
     int8        currentSubPage[Page_NumPages];  ///< Номер текущей подстраницы.
-    bool        pageDebugActive;                ///< Активна ли кнопка отладки в меню.
+    bool        notUsing;
     unsigned    isShown : 1;                    ///< Меню показано.
 } SettingsMenu;
 
 
-
-void ShowMenu(bool show);                                           ///< Отобразить/скрыть меню.
-bool MenuPageDebugIsActive();                                   ///< Активна ли страница отладки.
-void SetMenuPageDebugActive(bool active);                           ///< Сделать/разделать активной страницу отладки.
 void CurrentPageSBregSet(int angle);                                ///< Повернуть ручку УСТАНОВКА на текущей странице малых кнопок.
 const SButton*  GetSmallButton(PanelButton button);             ///< Вернуть указатель на малую кнопку, соответствующую данной кнопки панели.
 

@@ -235,16 +235,8 @@ static const Settings defaultSettings =
 
 Settings set;
 
-/*
-static void LoadDefaultColors() 
-{
-    for(int color = 0; color < NUM_COLORS; color++) 
-    {
-        set.display.colors[color] = defaultSettings.display.colors[color];
-    }
-}
-*/
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void Settings_Load(bool _default)
 {
     set = defaultSettings;
@@ -300,32 +292,19 @@ void Settings_Load(bool _default)
     SETTINGS_IS_LOADED = 1;
 }
 
+//----------------------------------------------------------------------------------------------------------------------------------------------------
 void Settings_Save()
 {
     FLASHMem::SaveSettings();
 }
 
+//----------------------------------------------------------------------------------------------------------------------------------------------------
 bool Settings_DebugModeEnable()
 {
     return true;
 }
 
-void ShowMenu(bool show)
-{
-    set.menu.isShown = show;
-    Menu::SetAutoHide(true);
-}
-
-bool MenuPageDebugIsActive()
-{
-    return set.menu.pageDebugActive;
-}
-
-void SetMenuPageDebugActive(bool active)
-{
-    set.menu.pageDebugActive = active;
-}
-
+//----------------------------------------------------------------------------------------------------------------------------------------------------
 void CurrentPageSBregSet(int angle)
 {
     Page *page = (Page *)Menu::OpenedItem();
@@ -335,6 +314,7 @@ void CurrentPageSBregSet(int angle)
     }
 }
 
+//----------------------------------------------------------------------------------------------------------------------------------------------------
 const SButton* GetSmallButton(PanelButton button)
 {
     if(Menu::IsMinimize() && button >= B_Menu && button <= B_F5)
