@@ -377,9 +377,6 @@
     <ClInclude Include="..\..\libs\common\Display\Painter.h">
       <Filter>Display</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Loader53\src\Display\_DisplayTypes.h">
-      <Filter>Display</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Loader53\src\VCP\VCP.h">
       <Filter>VCP</Filter>
     </ClInclude>

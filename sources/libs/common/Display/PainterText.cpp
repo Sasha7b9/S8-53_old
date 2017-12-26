@@ -2,7 +2,6 @@
 #include "Display/Font/font.h"
 #include "Settings/Settings.h"
 #include "Utils/Math.h"
-#include "Menu/Menu.h"
 #include <stdarg.h>
 #include "stub.h"
 
@@ -411,7 +410,8 @@ static bool FindNextTransfer(const char *letters, int8 *lettersInSyllable)
     {
         return false;
     }
-    if (CompareArrays(template3, consonant, 4) || CompareArrays(template4, consonant, 4) || CompareArrays(template5, consonant, 4) || CompareArrays(template6, consonant, 4))
+    if (CompareArrays(template3, consonant, 4) || CompareArrays(template4, consonant, 4) || CompareArrays(template5, consonant, 4) || 
+        CompareArrays(template6, consonant, 4))
     {
         *lettersInSyllable = 3;
         return true;
@@ -670,7 +670,8 @@ int Painter::DrawStringInCenterRect(int eX, int eY, int width, int eHeight, cons
 }
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
-void Painter::DrawStringInCenterRectOnBackgroundC(int x, int y, int width, int height, const char *text, Color colorText, int widthBorder, Color colorBackground)
+void Painter::DrawStringInCenterRectOnBackgroundC(int x, int y, int width, int height, const char *text, Color colorText, int widthBorder, 
+                                                  Color colorBackground)
 {
     int lenght = Font_GetLengthText(text);
     int eX = DrawStringInCenterRect(x, y, width, height, text, colorBackground);
@@ -687,29 +688,6 @@ int Painter::DrawStringInCenterRectAndBoundItC(int x, int y, int width, int heig
     FillRegion(x + 1, y + 1, width - 2, height - 2, colorBackground);
     SetColor(colorFill);
     return DrawStringInCenterRect(x, y, width, height, text);
-}
-
-//----------------------------------------------------------------------------------------------------------------------------------------------------
-void Painter::DrawHintsForSmallButton(int x, int y, int width, void *smallButton)
-{
-    SButton *sb = (SButton*)smallButton;
-    if(sb->numHints == 0)
-    {
-        return;
-    }
-    FillRegion(x, y, width, 239 - y, Color::BACK);
-    DrawRectangle(x, y, width, 239 - y, Color::FILL);
-    const StructHelpSmallButton *structHelp = &sb->hintUGO[0];
-    x += 3;
-    y += 3;
-    for(int i = 0; i < sb->numHints; i++)
-    {
-        DrawRectangle(x, y, WIDTH_SB, WIDTH_SB);
-        structHelp->funcDrawUGO(x, y);
-        int yNew = DrawTextInRectWithTransfers(x + 23, y + 1, width - 30, 20, structHelp->helpUGO[LANG]);
-        y = ((yNew - y) < 22) ? (y + 22) : yNew;
-        structHelp++;
-    }
 }
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------

@@ -251,7 +251,6 @@
     <ClInclude Include="..\..\libs\common\_VS\windows.h" />
     <ClInclude Include="..\..\Loader53\src\defines.h" />
     <ClInclude Include="..\..\Loader53\src\Display\Display.h" />
-    <ClInclude Include="..\..\Loader53\src\Display\_DisplayTypes.h" />
     <ClInclude Include="..\..\Loader53\src\Display\font\Font.h" />
     <ClInclude Include="..\..\Loader53\src\FlashDrive\FlashDrive.h" />
     <ClInclude Include="..\..\Loader53\src\globals.h" />
