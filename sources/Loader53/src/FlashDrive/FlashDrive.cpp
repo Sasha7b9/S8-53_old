@@ -144,8 +144,13 @@ static bool GetNameFile(const char *fullPath, int numFile, char *nameFileOut, St
     memcpy(s->nameDir, fullPath, strlen(fullPath));
     s->nameDir[strlen(fullPath)] = '\0';
 
+#ifdef STM32F207xx
     s->fno.lfname = s->lfn;
     s->fno.lfsize = sizeof(s->lfn);
+#else
+    strcpy(s->fno.fname, s->lfn);
+    s->fno.fsize = strlen(s->lfn);
+#endif
 
     DIR *pDir = &s->dir;
     FILINFO *pFNO = &s->fno;
@@ -171,7 +176,11 @@ static bool GetNameFile(const char *fullPath, int numFile, char *nameFileOut, St
                 }
                 alreadyNull = true;
             }
+#ifdef STM32F207xx
             char *fn = *(pFNO->lfname) ? pFNO->lfname : pFNO->fname;
+#else
+            char *fn = (char *)&pFNO->fname;
+#endif
             if (numFile == numFiles && (pFNO->fattrib & AM_DIR) == 0)
             {
                 strcpy(nameFileOut, fn);
@@ -211,7 +220,11 @@ static bool GetNextNameFile(char *nameFileOut, StructForReadDir *s)
         }
         else
         {
+#ifdef STM32F207xx
             char *fn = *(pFNO->lfname) ? pFNO->lfname : pFNO->fname;
+#else
+            char *fn = (char *)&pFNO->fname;
+#endif
             if ((pFNO->fattrib & AM_DIR) == 0 && pFNO->fname[0] != '.')
             {
                 strcpy(nameFileOut, fn);
@@ -226,7 +239,11 @@ int FDrive::OpenFileForRead(char *fileName)
 {
     if (f_open(&ms->drive.file, fileName, FA_READ) == FR_OK)
     {
+#ifdef STM32F207xx
         return (int)ms->drive.file.fsize;
+#else
+        return (int)f_size(&ms->drive.file);
+#endif
     }
     return -1;
 }

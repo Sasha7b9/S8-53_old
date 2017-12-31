@@ -52,6 +52,8 @@
 / Function Configurations
 /---------------------------------------------------------------------------*/
 
+#define  HOST_HANDLE   handleUSBH
+
 #define _FS_READONLY	0
 /* This option switches read-only configuration. (0:Read/Write or 1:Read-only)
 /  Read-only configuration removes writing API functions, f_write(), f_sync(),

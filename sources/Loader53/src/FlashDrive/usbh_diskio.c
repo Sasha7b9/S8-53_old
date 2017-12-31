@@ -54,7 +54,7 @@
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
-extern USBH_HandleTypeDef  hUSB_Host;
+extern USBH_HandleTypeDef  HOST_HANDLE;
 
 /* Private function prototypes -----------------------------------------------*/
 DSTATUS USBH_initialize (BYTE);
@@ -105,7 +105,7 @@ DSTATUS USBH_status(BYTE lun)
 {
   DRESULT res = RES_ERROR;
 
-  if(USBH_MSC_UnitIsReady(&hUSB_Host, lun))
+  if(USBH_MSC_UnitIsReady(&HOST_HANDLE, lun))
   {
     res = RES_OK;
   }
@@ -130,13 +130,13 @@ DRESULT USBH_read(BYTE lun, BYTE *buff, DWORD sector, UINT count)
   DRESULT res = RES_ERROR;
   MSC_LUNTypeDef info;
 
-  if(USBH_MSC_Read(&hUSB_Host, lun, sector, buff, count) == USBH_OK)
+  if(USBH_MSC_Read(&HOST_HANDLE, lun, sector, buff, count) == USBH_OK)
   {
     res = RES_OK;
   }
   else
   {
-    USBH_MSC_GetLUNInfo(&hUSB_Host, lun, &info);
+    USBH_MSC_GetLUNInfo(&HOST_HANDLE, lun, &info);
 
     switch (info.sense.asc)
     {
@@ -170,13 +170,13 @@ DRESULT USBH_write(BYTE lun, const BYTE *buff, DWORD sector, UINT count)
   DRESULT res = RES_ERROR;
   MSC_LUNTypeDef info;
 
-  if(USBH_MSC_Write(&hUSB_Host, lun, sector, (BYTE *)buff, count) == USBH_OK)
+  if(USBH_MSC_Write(&HOST_HANDLE, lun, sector, (BYTE *)buff, count) == USBH_OK)
   {
     res = RES_OK;
   }
   else
   {
-    USBH_MSC_GetLUNInfo(&hUSB_Host, lun, &info);
+    USBH_MSC_GetLUNInfo(&HOST_HANDLE, lun, &info);
 
     switch (info.sense.asc)
     {
@@ -224,7 +224,7 @@ DRESULT USBH_ioctl(BYTE lun, BYTE cmd, void *buff)
 
   /* Get number of sectors on the disk (DWORD) */
   case GET_SECTOR_COUNT :
-    if(USBH_MSC_GetLUNInfo(&hUSB_Host, lun, &info) == USBH_OK)
+    if(USBH_MSC_GetLUNInfo(&HOST_HANDLE, lun, &info) == USBH_OK)
     {
       *(DWORD*)buff = info.capacity.block_nbr;
       res = RES_OK;
@@ -237,7 +237,7 @@ DRESULT USBH_ioctl(BYTE lun, BYTE cmd, void *buff)
 
   /* Get R/W sector size (WORD) */
   case GET_SECTOR_SIZE :
-    if(USBH_MSC_GetLUNInfo(&hUSB_Host, lun, &info) == USBH_OK)
+    if(USBH_MSC_GetLUNInfo(&HOST_HANDLE, lun, &info) == USBH_OK)
     {
       *(DWORD*)buff = info.capacity.block_size;
       res = RES_OK;
@@ -251,7 +251,7 @@ DRESULT USBH_ioctl(BYTE lun, BYTE cmd, void *buff)
     /* Get erase block size in unit of sector (DWORD) */
   case GET_BLOCK_SIZE :
 
-    if(USBH_MSC_GetLUNInfo(&hUSB_Host, lun, &info) == USBH_OK)
+    if(USBH_MSC_GetLUNInfo(&HOST_HANDLE, lun, &info) == USBH_OK)
     {
       *(DWORD*)buff = info.capacity.block_size;
       res = RES_OK;
