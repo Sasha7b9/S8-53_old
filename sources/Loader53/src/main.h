@@ -1,6 +1,14 @@
 #pragma once
 #include "defines.h"
+
+#ifdef STM32F207xx
 #include <stm32f2xx_hal.h>
+#endif
+
+#ifdef STM32F746xx
+#include <stm32f7xx_hal.h>
+#endif
+
 #include <ff.h>
     
 

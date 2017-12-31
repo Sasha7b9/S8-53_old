@@ -14,16 +14,16 @@
       <uAC6>0</uAC6>
       <TargetOption>
         <TargetCommonOption>
-          <Device>STM32F217IGTx</Device>
+          <Device>STM32F746IGTx</Device>
           <Vendor>STMicroelectronics</Vendor>
-          <PackID>Keil.STM32F2xx_DFP.2.7.0</PackID>
+          <PackID>Keil.STM32F7xx_DFP.2.9.0</PackID>
           <PackURL>http://www.keil.com/pack</PackURL>
-          <Cpu>IRAM(0x20000000,0x20000) IROM(0x08000000,0x100000) CPUTYPE("Cortex-M3") CLOCK(12000000) ELITTLE</Cpu>
+          <Cpu>IRAM(0x20010000,0x40000) IRAM2(0x20000000,0x10000) IROM(0x08000000,0x100000) IROM2(0x00200000,0x100000) CPUTYPE("Cortex-M7") FPU3(SFPU) CLOCK(12000000) ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
           <StartupFile></StartupFile>
-          <FlashDriverDll>UL2CM3(-S0 -C0 -P0 -FD20000000 -FC1000 -FN1 -FF0STM32F2xx_1024 -FS08000000 -FL0100000 -FP0($$Device:STM32F217IGTx$CMSIS\Flash\STM32F2xx_1024.FLM))</FlashDriverDll>
+          <FlashDriverDll>UL2CM3(-S0 -C0 -P0 -FD20010000 -FC1000 -FN1 -FF0STM32F7x_1024 -FS08000000 -FL0100000 -FP0($$Device:STM32F746IGTx$CMSIS\Flash\STM32F7x_1024.FLM))</FlashDriverDll>
           <DeviceId>0</DeviceId>
-          <RegisterFile>$$Device:STM32F217IGTx$Drivers\CMSIS\Device\ST\STM32F2xx\Include\stm32f2xx.h</RegisterFile>
+          <RegisterFile>$$Device:STM32F746IGTx$Drivers\CMSIS\Device\ST\STM32F7xx\Include\stm32f7xx.h</RegisterFile>
           <MemoryEnv></MemoryEnv>
           <Cmp></Cmp>
           <Asm></Asm>
@@ -33,7 +33,7 @@
           <SLE66CMisc></SLE66CMisc>
           <SLE66AMisc></SLE66AMisc>
           <SLE66LinkerMisc></SLE66LinkerMisc>
-          <SFDFile>$$Device:STM32F217IGTx$CMSIS\SVD\STM32F21x.svd</SFDFile>
+          <SFDFile>$$Device:STM32F746IGTx$CMSIS\SVD\STM32F7x6_v1r1.svd</SFDFile>
           <bCustSvd>0</bCustSvd>
           <UseEnv>0</UseEnv>
           <BinPath></BinPath>
@@ -48,14 +48,14 @@
             <NotGenerated>0</NotGenerated>
             <InvalidFlash>1</InvalidFlash>
           </TargetStatus>
-          <OutputDirectory>.\_obj\</OutputDirectory>
+          <OutputDirectory>.\_obj\Open\</OutputDirectory>
           <OutputName>S8-53</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
           <CreateHexFile>0</CreateHexFile>
           <DebugInformation>1</DebugInformation>
           <BrowseInformation>0</BrowseInformation>
-          <ListingPath>.\_lst\</ListingPath>
+          <ListingPath>.\_lst\Open\</ListingPath>
           <HexFormatSelection>1</HexFormatSelection>
           <Merge32K>0</Merge32K>
           <CreateBatchFile>0</CreateBatchFile>
@@ -112,11 +112,11 @@
           <SimDllName>SARMCM3.DLL</SimDllName>
           <SimDllArguments> -REMAP -MPU</SimDllArguments>
           <SimDlgDll>DCM.DLL</SimDlgDll>
-          <SimDlgDllArguments>-pCM3</SimDlgDllArguments>
+          <SimDlgDllArguments>-pCM7</SimDlgDllArguments>
           <TargetDllName>SARMCM3.DLL</TargetDllName>
           <TargetDllArguments> -MPU</TargetDllArguments>
           <TargetDlgDll>TCM.DLL</TargetDlgDll>
-          <TargetDlgDllArguments>-pCM3</TargetDlgDllArguments>
+          <TargetDlgDllArguments>-pCM7</TargetDlgDllArguments>
         </DllOption>
         <DebugOption>
           <OPTHX>
@@ -138,7 +138,7 @@
           </Flash1>
           <bUseTDR>1</bUseTDR>
           <Flash2>BIN\UL2CM3.DLL</Flash2>
-          <Flash3>"" ()</Flash3>
+          <Flash3></Flash3>
           <Flash4></Flash4>
           <pFcarmOut></pFcarmOut>
           <pFcarmGrp></pFcarmGrp>
@@ -174,7 +174,7 @@
             <AdsLsxf>1</AdsLsxf>
             <RvctClst>0</RvctClst>
             <GenPPlst>0</GenPPlst>
-            <AdsCpuType>"Cortex-M3"</AdsCpuType>
+            <AdsCpuType>"Cortex-M7"</AdsCpuType>
             <RvctDeviceName></RvctDeviceName>
             <mOS>0</mOS>
             <uocRom>0</uocRom>
@@ -183,16 +183,16 @@
             <hadIRAM>1</hadIRAM>
             <hadXRAM>0</hadXRAM>
             <uocXRam>0</uocXRam>
-            <RvdsVP>0</RvdsVP>
-            <hadIRAM2>0</hadIRAM2>
-            <hadIROM2>0</hadIROM2>
+            <RvdsVP>2</RvdsVP>
+            <hadIRAM2>1</hadIRAM2>
+            <hadIROM2>1</hadIROM2>
             <StupSel>8</StupSel>
             <useUlib>0</useUlib>
             <EndSel>0</EndSel>
             <uLtcg>0</uLtcg>
             <nSecure>0</nSecure>
-            <RoSelD>3</RoSelD>
-            <RwSelD>3</RwSelD>
+            <RoSelD>4</RoSelD>
+            <RwSelD>4</RwSelD>
             <CodeSel>0</CodeSel>
             <OptFeed>0</OptFeed>
             <NoZi1>0</NoZi1>
@@ -209,7 +209,7 @@
             <Ra2Chk>0</Ra2Chk>
             <Ra3Chk>0</Ra3Chk>
             <Im1Chk>1</Im1Chk>
-            <Im2Chk>0</Im2Chk>
+            <Im2Chk>1</Im2Chk>
             <OnChipMemories>
               <Ocm1>
                 <Type>0</Type>
@@ -243,8 +243,8 @@
               </Ocm6>
               <IRAM>
                 <Type>0</Type>
-                <StartAddress>0x20000000</StartAddress>
-                <Size>0x20000</Size>
+                <StartAddress>0x20010000</StartAddress>
+                <Size>0x40000</Size>
               </IRAM>
               <IROM>
                 <Type>1</Type>
@@ -278,8 +278,8 @@
               </OCR_RVCT4>
               <OCR_RVCT5>
                 <Type>1</Type>
-                <StartAddress>0x0</StartAddress>
-                <Size>0x0</Size>
+                <StartAddress>0x200000</StartAddress>
+                <Size>0x100000</Size>
               </OCR_RVCT5>
               <OCR_RVCT6>
                 <Type>0</Type>
@@ -298,13 +298,13 @@
               </OCR_RVCT8>
               <OCR_RVCT9>
                 <Type>0</Type>
-                <StartAddress>0x20000000</StartAddress>
-                <Size>0x20000</Size>
+                <StartAddress>0x20010000</StartAddress>
+                <Size>0x40000</Size>
               </OCR_RVCT9>
               <OCR_RVCT10>
                 <Type>0</Type>
-                <StartAddress>0x0</StartAddress>
-                <Size>0x0</Size>
+                <StartAddress>0x20000000</StartAddress>
+                <Size>0x10000</Size>
               </OCR_RVCT10>
             </OnChipMemories>
             <RvctStartVector></RvctStartVector>
@@ -334,9 +334,9 @@
             <v6Rtti>0</v6Rtti>
             <VariousControls>
               <MiscControls>--cpp</MiscControls>
-              <Define>USE_HAL_DRIVER, STM32F207xx, __cplusplus, S8_53</Define>
+              <Define>USE_HAL_DRIVER, STM32F746xx, __cplusplus, S8_53</Define>
               <Undefine></Undefine>
-              <IncludePath>..\libs\STM32Cube_F2\Drivers\CMSIS\Include;..\libs\STM32Cube_F2\Drivers\CMSIS\Device\ST\STM32F2xx\Include;..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Inc;..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Core\Inc;..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Class\MSC\Inc;..\libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src;..\libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\drivers;.\src;.\src\libs;..\libs\common</IncludePath>
+              <IncludePath>..\libs\STM32Cube_F7\Drivers\CMSIS\Include;..\libs\STM32Cube_F7\Drivers\CMSIS\Device\ST\STM32F7xx\Include;..\libs\STM32Cube_F7\Drivers\STM32F7xx_HAL_Driver\Inc;..\libs\STM32Cube_F7\Middlewares\ST\STM32_USB_Host_Library\Core\Inc;..\libs\STM32Cube_F7\Middlewares\ST\STM32_USB_Host_Library\Class\MSC\Inc;..\libs\STM32Cube_F7\Middlewares\Third_Party\FatFs\src;..\libs\STM32Cube_F7\Middlewares\Third_Party\FatFs\src\drivers;.\src;.\src\libs;..\libs\common</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -423,52 +423,42 @@
             <File>
               <FileName>diskio.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\diskio.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F7\Middlewares\Third_Party\FatFs\src\diskio.c</FilePath>
             </File>
             <File>
               <FileName>diskio.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\diskio.h</FilePath>
+              <FilePath>..\libs\STM32Cube_F7\Middlewares\Third_Party\FatFs\src\diskio.h</FilePath>
             </File>
             <File>
               <FileName>ff.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\ff.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F7\Middlewares\Third_Party\FatFs\src\ff.c</FilePath>
             </File>
             <File>
               <FileName>ff.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\ff.h</FilePath>
+              <FilePath>..\libs\STM32Cube_F7\Middlewares\Third_Party\FatFs\src\ff.h</FilePath>
             </File>
             <File>
               <FileName>ff_gen_drv.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\ff_gen_drv.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F7\Middlewares\Third_Party\FatFs\src\ff_gen_drv.c</FilePath>
             </File>
             <File>
               <FileName>ff_gen_drv.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\ff_gen_drv.h</FilePath>
+              <FilePath>..\libs\STM32Cube_F7\Middlewares\Third_Party\FatFs\src\ff_gen_drv.h</FilePath>
             </File>
             <File>
               <FileName>syscall.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\option\syscall.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F7\Middlewares\Third_Party\FatFs\src\option\syscall.c</FilePath>
             </File>
             <File>
               <FileName>unicode.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\option\unicode.c</FilePath>
-            </File>
-            <File>
-              <FileName>usbh_diskio.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\drivers\usbh_diskio.c</FilePath>
-            </File>
-            <File>
-              <FileName>usbh_diskio.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\drivers\usbh_diskio.h</FilePath>
+              <FilePath>..\libs\STM32Cube_F7\Middlewares\Third_Party\FatFs\src\option\unicode.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -485,90 +475,100 @@
               <FileType>5</FileType>
               <FilePath>.\src\FlashDrive\FlashDrive.h</FilePath>
             </File>
+            <File>
+              <FileName>usbh_diskio.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\src\FlashDrive\usbh_diskio.c</FilePath>
+            </File>
+            <File>
+              <FileName>usbh_diskio.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\FlashDrive\usbh_diskio.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
           <GroupName>HAL</GroupName>
           <Files>
             <File>
-              <FileName>stm32f2xx_hal.c</FileName>
+              <FileName>stm32f7xx_hal.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F7\Drivers\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal.c</FilePath>
             </File>
             <File>
-              <FileName>stm32f2xx_hal_cortex.c</FileName>
+              <FileName>stm32f7xx_hal_cortex.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_cortex.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F7\Drivers\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_cortex.c</FilePath>
             </File>
             <File>
-              <FileName>stm32f2xx_hal_dma.c</FileName>
+              <FileName>stm32f7xx_hal_dma.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_dma.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F7\Drivers\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_dma.c</FilePath>
             </File>
             <File>
-              <FileName>stm32f2xx_hal_dma_ex.c</FileName>
+              <FileName>stm32f7xx_hal_dma_ex.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_dma_ex.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F7\Drivers\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_dma_ex.c</FilePath>
             </File>
             <File>
-              <FileName>stm32f2xx_hal_flash.c</FileName>
+              <FileName>stm32f7xx_hal_flash.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_flash.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F7\Drivers\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_flash.c</FilePath>
             </File>
             <File>
-              <FileName>stm32f2xx_hal_flash_ex.c</FileName>
+              <FileName>stm32f7xx_hal_flash_ex.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_flash_ex.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F7\Drivers\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_flash_ex.c</FilePath>
             </File>
             <File>
-              <FileName>stm32f2xx_hal_gpio.c</FileName>
+              <FileName>stm32f7xx_hal_gpio.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_gpio.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F7\Drivers\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_gpio.c</FilePath>
             </File>
             <File>
-              <FileName>stm32f2xx_hal_hcd.c</FileName>
+              <FileName>stm32f7xx_hal_hcd.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_hcd.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F7\Drivers\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_hcd.c</FilePath>
             </File>
             <File>
-              <FileName>stm32f2xx_hal_rcc.c</FileName>
+              <FileName>stm32f7xx_hal_rcc.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_rcc.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F7\Drivers\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_rcc.c</FilePath>
             </File>
             <File>
-              <FileName>stm32f2xx_hal_rcc_ex.c</FileName>
+              <FileName>stm32f7xx_hal_rcc_ex.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_rcc_ex.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F7\Drivers\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_rcc_ex.c</FilePath>
             </File>
             <File>
-              <FileName>stm32f2xx_hal_spi.c</FileName>
+              <FileName>stm32f7xx_hal_spi.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_spi.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F7\Drivers\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_spi.c</FilePath>
             </File>
             <File>
-              <FileName>stm32f2xx_hal_sram.c</FileName>
+              <FileName>stm32f7xx_hal_sram.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_sram.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F7\Drivers\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_sram.c</FilePath>
             </File>
             <File>
-              <FileName>stm32f2xx_hal_tim.c</FileName>
+              <FileName>stm32f7xx_hal_tim.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_tim.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F7\Drivers\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_tim.c</FilePath>
             </File>
             <File>
-              <FileName>stm32f2xx_hal_tim_ex.c</FileName>
+              <FileName>stm32f7xx_hal_tim_ex.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_tim_ex.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F7\Drivers\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_tim_ex.c</FilePath>
             </File>
             <File>
-              <FileName>stm32f2xx_ll_fsmc.c</FileName>
+              <FileName>stm32f7xx_ll_fmc.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_ll_fsmc.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F7\Drivers\STM32F7xx_HAL_Driver\Src\stm32f7xx_ll_fmc.c</FilePath>
             </File>
             <File>
-              <FileName>stm32f2xx_ll_usb.c</FileName>
+              <FileName>stm32f7xx_ll_usb.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_ll_usb.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F7\Drivers\STM32F7xx_HAL_Driver\Src\stm32f7xx_ll_usb.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -631,14 +631,14 @@
               <FilePath>.\src\libs\startup_stm32f207xx.s</FilePath>
             </File>
             <File>
-              <FileName>stm32f2xx_hal_conf.h</FileName>
+              <FileName>stm32f7xx_hal_conf.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\libs\stm32f2xx_hal_conf.h</FilePath>
+              <FilePath>.\src\libs\stm32f7xx_hal_conf.h</FilePath>
             </File>
             <File>
-              <FileName>stm32f2xx_hal_msp.cpp</FileName>
+              <FileName>stm32f7xx_hal_msp.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\src\libs\stm32f2xx_hal_msp.cpp</FilePath>
+              <FilePath>.\src\libs\stm32f7xx_hal_msp.cpp</FilePath>
             </File>
             <File>
               <FileName>stm32f2xx_it.cpp</FileName>
@@ -651,11 +651,6 @@
               <FilePath>.\src\libs\stm32f2xx_it.h</FilePath>
             </File>
             <File>
-              <FileName>system_stm32f2xx.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\src\libs\system_stm32f2xx.c</FilePath>
-            </File>
-            <File>
               <FileName>usbh_conf.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\libs\usbh_conf.cpp</FilePath>
@@ -664,6 +659,11 @@
               <FileName>usbh_conf.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\libs\usbh_conf.h</FilePath>
+            </File>
+            <File>
+              <FileName>system_stm32f7xx.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\src\libs\system_stm32f7xx.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -755,6 +755,11 @@
               <FileType>5</FileType>
               <FilePath>..\libs\common\structs.h</FilePath>
             </File>
+            <File>
+              <FileName>Log.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\Log.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -763,77 +768,77 @@
             <File>
               <FileName>usbh_msc.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Class\MSC\Src\usbh_msc.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F7\Middlewares\ST\STM32_USB_Host_Library\Class\MSC\Src\usbh_msc.c</FilePath>
             </File>
             <File>
               <FileName>usbh_msc_bot.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Class\MSC\Src\usbh_msc_bot.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F7\Middlewares\ST\STM32_USB_Host_Library\Class\MSC\Src\usbh_msc_bot.c</FilePath>
             </File>
             <File>
               <FileName>usbh_msc_scsi.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Class\MSC\Src\usbh_msc_scsi.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F7\Middlewares\ST\STM32_USB_Host_Library\Class\MSC\Src\usbh_msc_scsi.c</FilePath>
             </File>
             <File>
               <FileName>usbh_core.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Core\Src\usbh_core.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F7\Middlewares\ST\STM32_USB_Host_Library\Core\Src\usbh_core.c</FilePath>
             </File>
             <File>
               <FileName>usbh_ctlreq.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Core\Src\usbh_ctlreq.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F7\Middlewares\ST\STM32_USB_Host_Library\Core\Src\usbh_ctlreq.c</FilePath>
             </File>
             <File>
               <FileName>usbh_ioreq.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Core\Src\usbh_ioreq.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F7\Middlewares\ST\STM32_USB_Host_Library\Core\Src\usbh_ioreq.c</FilePath>
             </File>
             <File>
               <FileName>usbh_pipes.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Core\Src\usbh_pipes.c</FilePath>
+              <FilePath>..\libs\STM32Cube_F7\Middlewares\ST\STM32_USB_Host_Library\Core\Src\usbh_pipes.c</FilePath>
             </File>
             <File>
               <FileName>usbh_core.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Core\Inc\usbh_core.h</FilePath>
+              <FilePath>..\libs\STM32Cube_F7\Middlewares\ST\STM32_USB_Host_Library\Core\Inc\usbh_core.h</FilePath>
             </File>
             <File>
               <FileName>usbh_ctlreq.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Core\Inc\usbh_ctlreq.h</FilePath>
+              <FilePath>..\libs\STM32Cube_F7\Middlewares\ST\STM32_USB_Host_Library\Core\Inc\usbh_ctlreq.h</FilePath>
             </File>
             <File>
               <FileName>usbh_def.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Core\Inc\usbh_def.h</FilePath>
+              <FilePath>..\libs\STM32Cube_F7\Middlewares\ST\STM32_USB_Host_Library\Core\Inc\usbh_def.h</FilePath>
             </File>
             <File>
               <FileName>usbh_ioreq.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Core\Inc\usbh_ioreq.h</FilePath>
+              <FilePath>..\libs\STM32Cube_F7\Middlewares\ST\STM32_USB_Host_Library\Core\Inc\usbh_ioreq.h</FilePath>
             </File>
             <File>
               <FileName>usbh_pipes.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Core\Inc\usbh_pipes.h</FilePath>
+              <FilePath>..\libs\STM32Cube_F7\Middlewares\ST\STM32_USB_Host_Library\Core\Inc\usbh_pipes.h</FilePath>
             </File>
             <File>
               <FileName>usbh_msc.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Class\MSC\Inc\usbh_msc.h</FilePath>
+              <FilePath>..\libs\STM32Cube_F7\Middlewares\ST\STM32_USB_Host_Library\Class\MSC\Inc\usbh_msc.h</FilePath>
             </File>
             <File>
               <FileName>usbh_msc_bot.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Class\MSC\Inc\usbh_msc_bot.h</FilePath>
+              <FilePath>..\libs\STM32Cube_F7\Middlewares\ST\STM32_USB_Host_Library\Class\MSC\Inc\usbh_msc_bot.h</FilePath>
             </File>
             <File>
               <FileName>usbh_msc_scsi.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Class\MSC\Inc\usbh_msc_scsi.h</FilePath>
+              <FilePath>..\libs\STM32Cube_F7\Middlewares\ST\STM32_USB_Host_Library\Class\MSC\Inc\usbh_msc_scsi.h</FilePath>
             </File>
           </Files>
         </Group>

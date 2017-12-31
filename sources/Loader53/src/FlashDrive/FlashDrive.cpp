@@ -2,7 +2,15 @@
 #include "globals.h"
 #include <usbh_def.h>
 #include <ff_gen_drv.h>
+
+#ifdef STM32F207xx
 #include <usbh_diskio.h>
+#endif
+
+#ifdef STM32F746xx
+#include "usbh_diskio.h"
+#endif
+
 #include <usbh_core.h>
 #include <usbh_msc.h>
 #include "ffconf.h"

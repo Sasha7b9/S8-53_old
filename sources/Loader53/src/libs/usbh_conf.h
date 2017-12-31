@@ -2,7 +2,14 @@
 #define __USBH_CONF_H
 
 /* Includes ------------------------------------------------------------------*/
+#ifdef STM32f207xx
 #include "stm32f2xx.h"
+#endif
+
+#ifdef STM32F746xx
+#include "stm32f7xx.h"
+#endif
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -17,6 +24,8 @@
 #define USBH_MAX_DATA_BUFFER                  0x200
 #define USBH_DEBUG_LEVEL                      0
 #define USBH_USE_OS                           0
+
+#include "defines.h"
     
 /* Exported constants --------------------------------------------------------*/
 /* Exported macro ------------------------------------------------------------*/
