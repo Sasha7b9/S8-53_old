@@ -3,6 +3,7 @@
 HCD_HandleTypeDef handleHCD;
 USBH_HandleTypeDef handleUSBH;
 
+#pragma clang diagnostic ignored "-Wmissing-field-initializers"
 
 SPI_HandleTypeDef handleSPI =
 {
@@ -21,3 +22,5 @@ SPI_HandleTypeDef handleSPI =
         7                               // InitCRCPolynomial
     }
 };
+
+#pragma clang diagnostic warning "-Wmissing-field-initializers"

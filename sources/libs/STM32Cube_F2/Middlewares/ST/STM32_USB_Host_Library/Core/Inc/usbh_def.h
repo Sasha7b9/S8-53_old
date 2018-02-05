@@ -48,6 +48,8 @@
   * @brief This file is includes USB descriptors
   * @{
   */ 
+     
+#pragma clang diagnostic ignored "-Wpadded"
 
 #ifndef NULL
 #define NULL  0
@@ -483,6 +485,8 @@ typedef struct _USBH_HandleTypeDef
 #ifdef __cplusplus
 }
 #endif
+
+#pragma clang diagnostic warning "-Wpadded"
 
 #endif /* USBH_DEF_H */
 

@@ -100,11 +100,11 @@ bool FDrive::Update()
 }
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------
-void ToLower(char *str)
+static void ToLower(char *str)
 {
     while (*str)
     {
-        *str = tolower(*str);
+        *str = (char)tolower(*str);
         str++;
     }
 }

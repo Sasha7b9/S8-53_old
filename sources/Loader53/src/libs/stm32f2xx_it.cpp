@@ -1,5 +1,8 @@
 #include "defines.h"
 
+#pragma clang diagnostic ignored "-Wmissing-prototypes"
+#pragma clang diagnostic ignored "-Wmissing-noreturn"
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -81,3 +84,6 @@ void DMA1_Stream5_IRQHandler()
 #ifdef __cplusplus
 }
 #endif
+
+#pragma clang diagnostic warning "-Wmissing-prototypes"
+#pragma clang diagnostic warning "-Wmissing-noreturn"

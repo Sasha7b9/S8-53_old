@@ -15,13 +15,11 @@ void SVC_Handler();
 void DebugMon_Handler();
 void PendSV_Handler();
 void SysTick_Handler();
-
 void EXTI0_IRQHandler();
 void SPI1_IRQHandler();
-
 void OTG_FS_IRQHandler();
-    
 void OTG_HS_IRQHandler();
+void TIM3_IRQHandler();
 
 #ifdef __cplusplus
 }

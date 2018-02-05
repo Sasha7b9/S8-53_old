@@ -5,7 +5,7 @@
 #include "Settings/Settings.h"
 #include "Display/Display.h"
 #include "Hardware/Timer.h"
-
+#include "stm32f2xx_it.h"
 #include <stdio.h>
 #include <string.h>
 
@@ -69,7 +69,9 @@ void Panel::Init()
     {
         GPIO_PIN_0,
         GPIO_MODE_IT_RISING,
-        GPIO_NOPULL
+        GPIO_NOPULL,
+        GPIO_SPEED_HIGH,
+        GPIO_AF0_RTC_50Hz
     };
     HAL_GPIO_Init(GPIOG, &isGPIOG);
 

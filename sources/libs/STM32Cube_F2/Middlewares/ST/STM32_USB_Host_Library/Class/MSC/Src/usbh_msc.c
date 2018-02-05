@@ -43,6 +43,10 @@
 #include "usbh_msc_bot.h"    
 #include "usbh_msc_scsi.h"
 
+#pragma clang diagnostic ignored "-Wunused-parameter"
+#pragma clang diagnostic ignored "-Wswitch-enum"
+#pragma clang diagnostic ignored "-Wconversion"
+#pragma clang diagnostic ignored "-Wimplicit-fallthrough"
 
 /** @addtogroup USBH_LIB
   * @{
@@ -781,6 +785,11 @@ USBH_StatusTypeDef USBH_MSC_Write(USBH_HandleTypeDef *phost,
   MSC_Handle->state = MSC_IDLE;
   return USBH_OK;
 }
+
+#pragma clang diagnostic warning "-Wunused-parameter"
+#pragma clang diagnostic warning "-Wswitch-enum"
+#pragma clang diagnostic warning "-Wconversion"
+#pragma clang diagnostic warning "-Wimplicit-fallthrough"
 
 /**
   * @}

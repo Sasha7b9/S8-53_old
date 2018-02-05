@@ -138,7 +138,7 @@ void Upgrade()
         int readedBytes = FDrive::ReadFromFile(sizeSector, buffer);
         FLASH_WriteData(address, buffer, readedBytes);
         size -= readedBytes;
-        address += readedBytes;
+        address += (uint)readedBytes;
 
         ms->percentUpdate = 1.0f - (float)size / fullSize;
     }

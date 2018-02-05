@@ -30,6 +30,10 @@
 #include "usbh_msc_scsi.h"
 #include "usbh_msc_bot.h"
 
+#pragma clang diagnostic ignored "-Wswitch-enum"
+#pragma clang diagnostic ignored "-Wsign-conversion"
+#pragma clang diagnostic ignored "-Wconversion"
+
 
 /** @addtogroup USBH_LIB
   * @{
@@ -431,6 +435,9 @@ USBH_StatusTypeDef USBH_MSC_SCSI_Read(USBH_HandleTypeDef *phost,
   return error;
 }
 
+#pragma clang diagnostic warning "-Wswitch-enum"
+#pragma clang diagnostic warning "-Wsign-conversion"
+#pragma clang diagnostic warning "-Wconversion"
 
 /**
   * @}

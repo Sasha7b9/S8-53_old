@@ -64,6 +64,8 @@
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f2xx_hal.h"
 
+#pragma clang diagnostic ignored "-Wconversion"
+
 /** @addtogroup STM32F2xx_HAL_Driver
   * @{
   */
@@ -695,6 +697,8 @@ static uint8_t FLASH_OB_GetBOR(void)
   /* Return the FLASH BOR level */
   return (uint8_t)(*(__IO uint8_t *)(OPTCR_BYTE0_ADDRESS) & (uint8_t)0x0C);
 }
+
+#pragma clang diagnostic warning "-Wconversion"
 
 /**
   * @}

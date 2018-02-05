@@ -44,6 +44,8 @@
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f2xx_hal_def.h"
 
+#pragma clang diagnostic ignored "-Wpadded"
+
 /** @addtogroup STM32F2xx_HAL_Driver
   * @{
   */
@@ -123,7 +125,7 @@ typedef enum
   HAL_DMA_STATE_BUSY              = 0x02U,  /*!< DMA process is ongoing              */
   HAL_DMA_STATE_TIMEOUT           = 0x03U,  /*!< DMA timeout state                   */
   HAL_DMA_STATE_ERROR             = 0x04U,  /*!< DMA error state                     */
-  HAL_DMA_STATE_ABORT             = 0x05U,  /*!< DMA Abort state                     */
+  HAL_DMA_STATE_ABORT             = 0x05U   /*!< DMA Abort state                     */
 }HAL_DMA_StateTypeDef;
 
 /** 
@@ -785,6 +787,8 @@ uint32_t             HAL_DMA_GetError(DMA_HandleTypeDef *hdma);
 #ifdef __cplusplus
 }
 #endif
+
+#pragma clang diagnostic warning "-Wpadded"
 
 #endif /* __STM32F2xx_HAL_DMA_H */
 

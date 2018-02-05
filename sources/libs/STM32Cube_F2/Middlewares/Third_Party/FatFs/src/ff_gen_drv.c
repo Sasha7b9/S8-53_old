@@ -47,6 +47,9 @@
 /* Includes ------------------------------------------------------------------*/
 #include "ff_gen_drv.h"
 
+#pragma clang diagnostic ignored "-Wmissing-variable-declarations"
+#pragma clang diagnostic ignored "-Wunused-parameter"
+
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
@@ -146,6 +149,9 @@ uint8_t FATFS_GetAttachedDriversNbr(void)
 {
   return disk.nbr;
 }
- 
+
+#pragma clang diagnostic warning "-Wmissing-variable-declarations"
+#pragma clang diagnostic warning "-Wunused-parameter"
+
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
 

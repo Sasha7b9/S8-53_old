@@ -66,6 +66,7 @@ typedef struct
 typedef struct
 {
     TBase           tBase;                  // Масштаб по времени.
+    uint8           unUsed;
     int16           tShiftRel;              // Смещение по времени
     FunctionTime    timeDivXPos;
     TPos            tPos;
@@ -83,6 +84,9 @@ typedef struct
     CursCntrl           cntrlU[NumChannels];        // Активные курсоры напряжения.
     CursCntrl           cntrlT[NumChannels];        // Активные курсоры напряжения.
     Channel             source;                     // Источник - к какому каналу относятся курсоры.
+    uint8               notUsed0;
+    uint8               notUsed1;
+    uint8               notUsed2;
     float               posCurU[NumChannels][2];    // Текущие позиции курсоров напряжения обоих каналов.
     float               posCurT[NumChannels][2];    // Текущие позиции курсоров времени обоих каналов.
     float               deltaU100percents[2];       // Расстояние между курсорами напряжения для 100%, для обоих каналов.
@@ -92,6 +96,8 @@ typedef struct
     CursLookMode        lookMode[2];                // Режимы слежения за курсорами для двух пар курсоров.
     bool                showFreq;                   // Установленное в true значение, что нужно показывать на экране значение 1/dT между курсорами.
     bool                showCursors;                // Показывать ли курсоры
+    uint8               notUsed3;
+    uint8               notUsed4;
 } SettingsCursors;
 
 typedef  struct
@@ -140,6 +146,7 @@ typedef struct
     ModeRegSet      modeRegSet;             // Функция ручки УСТАНОВКА - масштаб по времени или смещение по вертикали
     Range           range;
     Multiplier      multiplier;
+    uint8           unUsed;
     int16           rShift;
 } SettingsMath;
 
@@ -180,15 +187,19 @@ typedef struct
     uint8 gw3;
 
     bool enable;
+    uint8 notUsed0;
 } SettingsEthernet;
                                     
 typedef struct
 {
-    int     countEnables;               // Количество включений. Увеличивается при каждом включении
-    int     countErasedFlashData;       // Сколько раз стирался первый сектор с ресурсами
-    int     countErasedFlashSettings;   // Сколько раз стирался сектор с настройкаи
-    int     workingTimeInSecs;          // Время работы в секундах
-    Language lang;                      // Язык меню
+    int         countEnables;               // Количество включений. Увеличивается при каждом включении
+    int         countErasedFlashData;       // Сколько раз стирался первый сектор с ресурсами
+    int         countErasedFlashSettings;   // Сколько раз стирался сектор с настройкаи
+    int         workingTimeInSecs;          // Время работы в секундах
+    Language    lang;                       // Язык меню
+    uint8       notUsed0;
+    uint8       notUsed1;
+    uint8       notUsed2;
 } SettingsCommon;
 
 typedef struct
@@ -213,14 +224,15 @@ typedef  struct
     int8            sizeFont;                   // Размер шрифта консоли - 0 - 5, 1 - 8,
     bool            consoleInPause;             // Признак того, что консоль находится в режиме паузы. Режим паузы означает, что новые сообщения она не записывает и не сохраняет.
     BalanceADCtype  balanceADCtype;             // Тип балансировки.
+    uint8           notUsed0;
     int16           balanceADC[2];              // Значение дополнительного смещения АЦП для ручной балансировки.
     StretchADCtype  stretchADCtype;             // Тип растяжки канала.
+    uint8           notUsed1;
     int16           stretchADC[2];              // Значение растяжки канала для ручного режима.
-    //RShiftADCtype   rShiftADCtype;
-    //int16           rShiftADC[RangeSize][2];    // Дополнительное смещение для каналов в режиме ручного управления. 0 - range == Range_2mV, 1 - все остальные
     int16           numMeasuresForGates;        // Число измерений для ворот.
     int16           shiftT0;                    // Дополнительное смещение по времени для данной развёртки режима рандомизатора.
     bool            showStats;                  // Показывать статистику на экране (fps, например).
+    uint8           notUsed2;
     int16           numAveForRand;              // По скольким измерениям усреднять сигнал в режиме рандомизатора.
     bool            viewAlteraWrittingData;     // Показывать ли данные, идущие в альтеру.
     bool            viewAllAlteraWrittingData;  // Показывать ли все данные, идущие в альтеру (если false, то постоянно идущие команды вроде START, STOP не показываются).
@@ -233,10 +245,14 @@ typedef struct
 {
     SettingsDisplay     display;                    // настройки изображения          (меню ДИСПЛЕЙ)
     SettingsTime        time;                       // временнЫе настройки            (меню РАЗВЁРТКА)
+    uint8               notUsed0;
+    uint8               notUsed1;
     SettingsCursors     cursors;                    // настройки курсорных измерений  (меню КУРСОРЫ)
     SettingsMemory      memory;                     // настройки режимов памяти       (меню ПАМЯТЬ)
+    uint8               notUsed2;
     SettingsMath        math;                       // настройки режима математических измерений
     SettingsService     service;                    // дополнительные настройки       (меню СЕРВИС)
+    uint8               notUsed3;
     SettingsEthernet    eth;
     SettingsCommon      common;                     // системные настройки
     SettingsDebug       debug;                      // настройки режима отладки       (меню ОТЛАДКА)

@@ -45,7 +45,9 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f2xx_ll_usb.h"
-   
+
+#pragma clang diagnostic ignored "-Wpadded"
+
 /** @addtogroup STM32F2xx_HAL_Driver
   * @{
   */
@@ -258,6 +260,8 @@ uint32_t            HAL_HCD_GetCurrentSpeed(HCD_HandleTypeDef *hhcd);
 #ifdef __cplusplus
 }
 #endif
+
+#pragma clang diagnostic warning "-Wpadded"
 
 #endif /* __STM32F2xx_HAL_HCD_H */
 

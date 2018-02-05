@@ -1,7 +1,7 @@
 #include "Display.h"
 #include "Display/Colors.h"
 #include "Display/Painter.h"
-#include "Display/font/Font.h"
+#include "Display/Font/Font.h"
 #include "Hardware/Timer.h"
 #include "main.h"
 #include "Utils/Math.h"
@@ -14,12 +14,13 @@ typedef struct
 {
     uint16 x;
     uint8 y;
+    uint8 notUsed;
 } Vector;
 
 
-int numPoints = 0;
+static int numPoints = 0;
 #define SIZE_ARRAY 7000
-Vector array[SIZE_ARRAY];
+static Vector array[SIZE_ARRAY];
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -31,7 +32,7 @@ static void InitPoints();
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-void InitHardware()
+static void InitHardware()
 {
     GPIO_InitTypeDef isGPIO_ =
     {
@@ -75,7 +76,7 @@ void Display::Init()
 }
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------
-void DrawButton(int x, int y, char *text)
+static void DrawButton(int x, int y, char *text)
 {
     int width = 25;
     int height = 20;
@@ -94,7 +95,7 @@ void Display::Update1()
 
     Painter::BeginScene(Color::BLACK);
 
-    Painter::DrawFormText(5, 200, Color::WHITE, "%f секунд", gTimeMS / 1000.0f);
+    Painter::DrawFormText(5, 200, Color::WHITE, "%f секунд", gTimeMS / 1000.0);
 
     Painter::DrawFormText(5, 220, Color::WHITE, "min = %d max = %d, current = %d", min , max, current);
 
@@ -331,7 +332,7 @@ static void DrawBigTextInBuffer(int eX, int eY, int size, const char* text, uint
         }
     }
 
-    int numSymbols = strlen(text);
+    int numSymbols = (int)strlen(text);
 
     int x = eX;
 

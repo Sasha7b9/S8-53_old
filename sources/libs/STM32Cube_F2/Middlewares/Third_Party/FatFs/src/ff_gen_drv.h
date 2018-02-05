@@ -56,6 +56,8 @@
 #include "diskio.h"
 #include "ff.h"
 
+#pragma clang diagnostic ignored "-Wpadded"
+
 /* Exported types ------------------------------------------------------------*/
 
 /** 
@@ -100,6 +102,8 @@ uint8_t FATFS_GetAttachedDriversNbr(void);
 #ifdef __cplusplus
 }
 #endif
+
+#pragma clang diagnostic warning "-Wpadded"
 
 #endif /* __FF_GEN_DRV_H */
 

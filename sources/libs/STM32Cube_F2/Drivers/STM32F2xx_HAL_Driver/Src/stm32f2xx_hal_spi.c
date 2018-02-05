@@ -152,6 +152,9 @@
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f2xx_hal.h"
 
+#pragma clang diagnostic ignored "-Wcast-align"
+#pragma clang diagnostic ignored "-Wconversion"
+
 /** @addtogroup STM32F2xx_HAL_Driver
   * @{
   */
@@ -2718,6 +2721,9 @@ static void SPI_CloseTx_ISR(SPI_HandleTypeDef *hspi)
     HAL_SPI_TxCpltCallback(hspi);
   }
 }
+
+#pragma clang diagnostic warning "-Wcast-align"
+#pragma clang diagnostic warning "-Wconversion"
 
 /**
   * @}

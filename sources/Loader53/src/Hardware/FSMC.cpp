@@ -87,7 +87,10 @@ void FSMC::Init()
             FSMC_EXTENDED_MODE_DISABLE,         // Init.ExtendedMode
             FSMC_ASYNCHRONOUS_WAIT_DISABLE,     // Init.AsynchronousWait
             FSMC_WRITE_BURST_DISABLE            // Init.WriteBurst
-        }
+        },
+        HAL_UNLOCKED,
+        HAL_SRAM_STATE_RESET,
+        0
     };
     
     HAL_SRAM_Init((SRAM_HandleTypeDef*)(&sramHandle), (FSMC_NORSRAM_TimingTypeDef*)(&sramTiming), (FSMC_NORSRAM_TimingTypeDef*)(&sramTiming));

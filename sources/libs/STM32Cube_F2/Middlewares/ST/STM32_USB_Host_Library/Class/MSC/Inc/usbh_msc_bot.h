@@ -37,6 +37,8 @@
 #include "usbh_core.h"
 #include "usbh_msc_bot.h"
 
+#pragma clang diagnostic ignored "-Wpadded"
+
 /** @addtogroup USBH_LIB
   * @{
   */
@@ -218,6 +220,8 @@ USBH_StatusTypeDef USBH_MSC_BOT_Error(USBH_HandleTypeDef *phost, uint8_t lun);
 #ifdef __cplusplus
 }
 #endif
+
+#pragma clang diagnostic warning "-Wpadded"
 
 #endif  /* __USBH_MSC_BOT_H__ */
 

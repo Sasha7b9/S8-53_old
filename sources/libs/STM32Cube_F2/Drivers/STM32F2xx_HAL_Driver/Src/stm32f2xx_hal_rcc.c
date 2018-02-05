@@ -84,6 +84,8 @@
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f2xx_hal.h"
 
+#pragma clang diagnostic ignored "-Wconversion"
+
 /** @addtogroup STM32F2xx_HAL_Driver
   * @{
   */
@@ -1183,6 +1185,8 @@ __attribute__((weak)) void HAL_RCC_CSSCallback(void)
             the HAL_RCC_CSSCallback could be implemented in the user file
    */
 }
+
+#pragma clang diagnostic warning "-Wconversion"
 
 /**
   * @}

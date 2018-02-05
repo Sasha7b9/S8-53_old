@@ -48,6 +48,9 @@
 #include <string.h>
 #include "ff_gen_drv.h"
 
+#pragma clang diagnostic ignored "-Wmissing-variable-declarations"
+#pragma clang diagnostic ignored "-Wunused-parameter"
+
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
@@ -315,6 +318,10 @@ DRESULT USBH_ioctl(BYTE lun, BYTE cmd, void *buff)
   
   return res;
 }
+
+#pragma clang diagnostic warning "-Wmissing-variable-declarations"
+#pragma clang diagnostic warning "-Wunused-parameter"
+
 #endif /* _USE_IOCTL == 1 */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

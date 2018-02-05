@@ -44,6 +44,8 @@
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f2xx_hal_def.h"
 
+#pragma clang diagnostic ignored "-Wpadded"
+
 /** @addtogroup STM32F2xx_HAL_Driver
   * @{
   */
@@ -419,6 +421,8 @@ void HAL_MPU_ConfigRegion(MPU_Region_InitTypeDef *MPU_Init);
 #ifdef __cplusplus
 }
 #endif
+
+#pragma clang diagnostic warning "-Wpadded"
 
 #endif /* __STM32F2xx_HAL_CORTEX_H */
  

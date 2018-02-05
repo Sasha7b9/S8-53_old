@@ -1,6 +1,6 @@
 #include "defines.h"
 #include "Settings.h"
-#include "Hardware/FLASH.H"
+#include "Hardware/FLASH.h"
 #include "Display/Display.h"
 #include "Display/Colors.h"
 #include "Panel/Panel.h"
@@ -57,6 +57,7 @@ static const Settings defaultSettings =
     // time
     {
         TBase_200us,
+        0,                          // unUsed
         0,                          // set.time.tShiftRel
         FunctionTime_Time,
         TPos_Center,
@@ -65,20 +66,27 @@ static const Settings defaultSettings =
         false,
         FNP_1024
     },
+    0,
+    0,
     // cursors
     {
         { CursCntrl_Disable, CursCntrl_Disable },   // CursCntrl U
         { CursCntrl_Disable, CursCntrl_Disable },   // CursCntrl T
         ChanA,                                      // source
-        { 60.0f,  140.0f, 60.0f, 140.0f },          // posCur U
-        { 80.0f,  200.0f, 80.0f, 200.0f },          // posCur T
+        0,                                          // notUsed0
+        0,                                          // notUsed1
+        0,                                          // notUsed2
+        { {60.0f,  140.0f}, {60.0f, 140.0f} },      // posCur U
+        { {80.0f,  200.0f}, {80.0f, 200.0f} },      // posCur T
         { 80.0f,  80.0f },                          // расстояние между курсорами напряжения для 100%
         { 120.0f, 120.0f },                         // расстояние между курсорами времени для 100%
         CursMovement_Points,                        // CursMovement
         CursActive_None,                            // CursActive
         { CursLookMode_None, CursLookMode_None },   // Режим слежения курсоров.
         false,                                      // showFreq
-        false                                       // showCursors
+        false,                                      // showCursors
+        0,                                          // notUsed3
+        0                                           // notUsed4
     },
     // memory
     {
@@ -96,6 +104,7 @@ static const Settings defaultSettings =
         ModeBtnMemory_Menu,
         ModeSaveSignal_BMP
     },
+    0,
     // math
     {
         ScaleFFT_Log,
@@ -112,9 +121,10 @@ static const Settings defaultSettings =
         false,
         FuncModeDraw_Disable,       // modeDrawMath
         ModeRegSet_Range,           // modeRegSet
-        Range_50mV,
-        Multiplier_1,
-        0
+        Range_50mV,                 // range
+        Multiplier_1,               // multiplier
+        0,                          // unUsed
+        0                           // rShift
     },
     // service
     {
@@ -124,57 +134,67 @@ static const Settings defaultSettings =
         0,                          // IP-адрес (временно)  WARN
         ColorScheme_WhiteLetters    // colorScheme
     },
+    0,                              // notUsed3
+    // ethernet
     {
         0x8b, 0x2e, 0xaf, 0x8f, 0x13, 0x00, // mac
         192, 168, 1, 200,                   // ip
         7,
         255, 255, 255, 0,                   // netmask
-        192, 168, 1, 1                      // gateway
+        192, 168, 1, 1,                     // gateway
+        false,                              // enable
+        0                                   // notUsed0
     },
     // common
     {
-        0
+        0,                      // countEnables
+        0,                      // countErasedFlashData
+        0,                      // countErasedFlashSettings
+        0,                      // workingTimeInSecs
+        Russian,                // language
+        0,                      // notUsed0
+        0,                      // notUsed1
+        0                       // notUsed2
     },
     // debug
     {
         0,                      // numStrings
         0,                      // размер шрифта - 5
         0,                      // consoleInPause
-        BalanceADC_Settings,    // balanceADC
-        {0, 5},                 // shiftADC
-        StretchADC_Settings,    // stretch
-        {128, 128},             // stretchADC
-//      RShiftADC_Settings,
+        BalanceADC_Settings,    // balanceADCtype
+        0,                      // notUsed0
+        {0, 5},                 // balanceADC[2]
+        StretchADC_Settings,    // stretchADCtype
+        0,                      // notUsed1
+        {128, 128},             // stretchADC[2]
         1000,                   // numMeasuresForGates
         0,                      // shiftT0
         false,                  // showStats
+        0,                      // notUsed2
         6,                      // numAveForRand
         false,                  // view altera writting data
         false,                  // view all altera writting data
         0,                      // alt shift
         {
             false,              // показывать ли флаг готовности
+            false,              // flag
             false,              // rShift0
             false,              // rShift1
-            false               // trigLev
+            false,              // trigLev
+            {false, false},     // range[2]
+            {false, false},     // chanParam[2]
+            false,              // trigParam
+            false,              // tShift
+            false               // tBase
         }
-    }
+    },
+    0
 };
 
 Settings set;
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-void LoadDefaultColors()
-{
-    for (int color = 0; color < Color::NUMBER.value; color++)
-    {
-        set.display.colors[color] = defaultSettings.display.colors[color];
-    }
-}
-
-
-//----------------------------------------------------------------------------------------------------------------------------------------------------
 void Settings::Load()
 {
     set = defaultSettings;

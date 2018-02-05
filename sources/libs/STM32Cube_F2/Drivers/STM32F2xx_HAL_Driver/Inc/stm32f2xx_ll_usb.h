@@ -44,6 +44,8 @@
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f2xx_hal_def.h"
 
+#pragma clang diagnostic ignored "-Wpadded"
+
 /** @addtogroup STM32F2xx_HAL
   * @{
   */
@@ -452,6 +454,8 @@ HAL_StatusTypeDef USB_StopHost(USB_OTG_GlobalTypeDef *USBx);
 #ifdef __cplusplus
 }
 #endif
+
+#pragma clang diagnostic warning "-Wpadded"
 
 
 #endif /* __STM32F2xx_LL_USB_H */
