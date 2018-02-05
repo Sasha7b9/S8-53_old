@@ -59,6 +59,9 @@ typedef struct
     CursCntrl       cntrlU[NumChannels];        ///< јктивные курсоры напр€жени€.
     CursCntrl       cntrlT[NumChannels];        ///< јктивные курсоры напр€жени€.
     Channel         source;                     ///< »сточник - к какому каналу относ€тс€ курсоры.
+    uint8           notUsed0;
+    uint8           notUsed1;
+    uint8           notUsed2;
     float           posCurU[NumChannels][2];    ///< “екущие позиции курсоров напр€жени€ обоих каналов.
     float           posCurT[NumChannels][2];    ///< “екущие позиции курсоров времени обоих каналов.
     float           deltaU100percents[2];       ///< –ассто€ние между курсорами напр€жени€ дл€ 100%, дл€ обоих каналов.
@@ -68,6 +71,8 @@ typedef struct
     CursLookMode    lookMode[2];                ///< –ежимы слежени€ за курсорами дл€ двух пар курсоров.
     bool            showFreq;                   ///< ”становленное в true значение, что нужно показывать на экране значение 1/dT между курсорами.
     bool            showCursors;                ///< ѕоказывать ли курсоры.
+    uint8           notUsed3;
+    uint8           notUsed4;
 } SettingsCursors;
 
 

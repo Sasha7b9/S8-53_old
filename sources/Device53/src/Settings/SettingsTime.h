@@ -79,11 +79,12 @@ typedef enum
 typedef struct
 { //-V802
     TBase               tBase;          ///< Масштаб по времени.
+    uint8               notUsed;
     int16               tShiftRel;      ///< Смещение по времени.
     FunctionTime        timeDivXPos;
     TPos                tPos;           ///< Привязка синхронизации к памяти.
     SampleType          sampleType;     ///< Тип выборки для режима рандомизатора.
-    PeakDetMode        peakDet;        ///< Режим работы пикового детектора
+    PeakDetMode         peakDet;        ///< Режим работы пикового детектора
     bool                selfRecorder;   ///< Включен ли режим самописца.
     ENUM_POINTS_FPGA    oldNumPoints;   ///< \brief Когда переключаемся в режим пикового детектора, устанавливаем количество точек в 1024, а сюда 
                                         /// записываем то, что было, чтобы потом восстановить.

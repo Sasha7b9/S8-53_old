@@ -1,5 +1,3 @@
-
-
 #include "main.h"
 #include "Globals.h"
 #include "VCP/VCP.h"
@@ -68,7 +66,7 @@ static int8_t CDC_Itf_DeInit()
 
 
 //---------------------------------------------------------------------------------------------------------------------------------------------------
-static int8_t CDC_Itf_Control (uint8_t cmd, uint8_t* pbuf, uint16_t length)
+static int8_t CDC_Itf_Control (uint8_t cmd, uint8_t* pbuf, uint16_t)
 { 
     switch (cmd)
     {

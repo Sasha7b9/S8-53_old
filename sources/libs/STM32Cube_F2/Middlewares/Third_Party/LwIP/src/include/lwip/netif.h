@@ -49,6 +49,8 @@
 #include "lwip/pbuf.h"
 #include "lwip/stats.h"
 
+#pragma clang diagnostic ignored "-Wpadded"
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -470,5 +472,7 @@ err_t netif_add_ip6_address(struct netif *netif, const ip6_addr_t *ip6addr, s8_t
 #ifdef __cplusplus
 }
 #endif
+
+#pragma clang diagnostic warning "-Wpadded"
 
 #endif /* LWIP_HDR_NETIF_H */

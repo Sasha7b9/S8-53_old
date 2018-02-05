@@ -51,6 +51,8 @@
 #include "lwip/ip6_addr.h"
 #include "lwip/prot/tcp.h"
 
+#pragma clang diagnostic ignored "-Wpadded"
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -498,6 +500,8 @@ void tcp_netif_ip_addr_changed(const ip_addr_t* old_addr, const ip_addr_t* new_a
 #ifdef __cplusplus
 }
 #endif
+
+#pragma clang diagnostic warning "-Wpadded"
 
 #endif /* LWIP_TCP */
 

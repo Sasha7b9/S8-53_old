@@ -62,6 +62,10 @@
 
 #include <string.h>
 
+#pragma clang diagnostic ignored "-Wswitch-enum"
+#pragma clang diagnostic ignored "-Wsign-conversion"
+#pragma clang diagnostic ignored "-Wconversion"
+
 #ifndef TCP_LOCAL_PORT_RANGE_START
 /* From http://www.iana.org/assignments/port-numbers:
    "The Dynamic and/or Private Ports are those from 49152 through 65535" */
@@ -2092,6 +2096,11 @@ tcp_pcbs_sane(void)
   }
   return 1;
 }
+
+#pragma clang diagnostic warning "-Wswitch-enum"
+#pragma clang diagnostic warning "-Wsign-conversion"
+#pragma clang diagnostic warning "-Wconversion"
+
 #endif /* TCP_DEBUG */
 
 #endif /* LWIP_TCP */

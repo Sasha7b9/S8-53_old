@@ -126,6 +126,10 @@ void eth_rx_irq()
 
 #include <string.h>
 
+#pragma clang diagnostic ignored "-Wcovered-switch-default"
+#pragma clang diagnostic ignored "-Wsign-conversion"
+#pragma clang diagnostic ignored "-Wbad-function-cast"
+
 #define SIZEOF_STRUCT_PBUF        LWIP_MEM_ALIGN_SIZE(sizeof(struct pbuf))
 /* Since the pool is created in memp, PBUF_POOL_BUFSIZE will be automatically
    aligned there. Therefore, PBUF_POOL_BUFSIZE_ALIGNED can be used here. */
@@ -1427,3 +1431,7 @@ pbuf_strstr(const struct pbuf* p, const char* substr)
   }
   return pbuf_memfind(p, substr, (u16_t)substr_len, 0);
 }
+
+#pragma clang diagnostic warning "-Wcovered-switch-default"
+#pragma clang diagnostic warning "-Wsign-conversion"
+#pragma clang diagnostic warning "-Wbad-function-cast"

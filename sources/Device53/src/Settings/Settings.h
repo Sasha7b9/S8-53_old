@@ -93,7 +93,8 @@ typedef struct
     uint8 gw2;
     uint8 gw3;
 
-    bool enable;
+    bool  enable;
+    uint8 notUsed;
 } SettingsEthernet;
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -104,11 +105,14 @@ typedef struct
                                     
 typedef struct
 {
-    int     countEnables;                   ///< Количество включений. Увеличивается при каждом включении.
-    int     countErasedFlashData;           ///< Сколько раз стирался первый сектор с ресурсами.
-    int     countErasedFlashSettings;       ///< Сколько раз стирался сектор с настройкаи.
-    int     workingTimeInSecs;              ///< Время работы в секундах.
-    Language lang;                          ///< Язык меню.
+    int         countEnables;                   ///< Количество включений. Увеличивается при каждом включении.
+    int         countErasedFlashData;           ///< Сколько раз стирался первый сектор с ресурсами.
+    int         countErasedFlashSettings;       ///< Сколько раз стирался сектор с настройкаи.
+    int         workingTimeInSecs;              ///< Время работы в секундах.
+    Language    lang;                          ///< Язык меню.
+    uint8       notUsed0;
+    uint8       notUsed1;
+    uint8       notUsed2;
 } SettingsCommon;
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -168,12 +172,15 @@ typedef  struct
     bool            consoleInPause;             ///< \brief Признак того, что консоль находится в режиме паузы. Режим паузы означает, что новые 
                                                 /// сообщения она не записывает и не сохраняет.
     BalanceADCtype  balanceADCtype;             ///< Тип балансировки.
+    uint8           notUsed0;
     int16           balanceADC[2];              ///< Значение дополнительного смещения АЦП для ручной балансировки.
     StretchADCtype  stretchADCtype;             ///< Тип растяжки канала.
+    uint8           notUsed1;
     int16           stretchADC[2];              ///< Значение растяжки канала для ручного режима.
     int16           numMeasuresForGates;        ///< Число измерений для ворот.
     int16           shiftT0;                    ///< Дополнительное смещение по времени для данной развёртки режима рандомизатора.
     bool            showStats;                  ///< Показывать статистику на экране (fps, например).
+    uint8           notUsed2;
     int16           numAveForRand;              ///< По скольким измерениям усреднять сигнал в режиме рандомизатора.
     bool            viewAlteraWrittingData;     ///< Показывать ли данные, идущие в альтеру.
     bool            viewAllAlteraWrittingData;  ///< \brief Показывать ли все данные, идущие в альтеру (если false, то постоянно идущие команды вроде 
@@ -188,6 +195,7 @@ typedef struct
     int8        currentSubPage[Page_NumPages];  ///< Номер текущей подстраницы.
     bool        notUsing;
     unsigned    isShown : 1;                    ///< Меню показано.
+    unsigned    notUsed : 7;
 } SettingsMenu;
 
 
@@ -198,14 +206,20 @@ struct Settings
 public:
     uint                size;
     SettingsDisplay     display;            ///< настройки изображения          (меню ДИСПЛЕЙ).
+    uint8               notUsed0;
+    uint8               notUsed1;
     SettingsChannel     chan[NumChannels];  ///< настройки каналов              (меню КАНАЛ 1 и КАНАЛ 2).
     SettingsTrig        trig;               ///< настройки синхронизации        (меню СИНХР).
     SettingsTime        time;               ///< временнЫе настройки            (меню РАЗВЁРТКА).
+    uint8               notUsed2;
+    uint8               notUsed3;
     SettingsCursors     cursors;            ///< настройки курсорных измерений  (меню КУРСОРЫ).
     SettingsMemory      memory;             ///< настройки режимов памяти       (меню ПАМЯТЬ).
+    uint8               notUsed4;
     SettingsMeasures    measures;           ///< настройки измерений            (меню ИЗМЕРЕНИЯ).
     SettingsMath        math;               ///< настройки режима математических измерений.
     SettingsService     service;            ///< дополнительные настройки       (меню СЕРВИС).
+    uint8               notUsed5;
     SettingsEthernet    eth;                ///< настройки для соединения по локальной сети.
     SettingsCommon      common;             ///< системные настройки.
     SettingsMenu        menu;               ///< состояние меню.

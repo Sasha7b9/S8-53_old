@@ -50,6 +50,7 @@
   */ 
      
 #pragma clang diagnostic ignored "-Wpadded"
+#pragma clang diagnostic ignored "-Wc++98-compat-pedantic"
 
 #ifndef NULL
 #define NULL  0
@@ -486,6 +487,7 @@ typedef struct _USBH_HandleTypeDef
 }
 #endif
 
+#pragma clang diagnostic warning "-Wc++98-compat-pedantic"
 #pragma clang diagnostic warning "-Wpadded"
 
 #endif /* USBH_DEF_H */

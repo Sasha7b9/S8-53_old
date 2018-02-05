@@ -2,7 +2,7 @@
 
 #include <stm32f2xx_hal.h>
 #include "commonDefines.h"
-#include "globals.h"
+#include "Globals.h"
 
 #define NUM_VER "1.3"
 

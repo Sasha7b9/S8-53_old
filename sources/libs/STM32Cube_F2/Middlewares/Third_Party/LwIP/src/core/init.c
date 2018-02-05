@@ -61,6 +61,8 @@
 #include "netif/ppp/ppp_opts.h"
 #include "netif/ppp/ppp_impl.h"
 
+#pragma clang diagnostic ignored "-Wpadded"
+
 #ifndef LWIP_SKIP_PACKING_CHECK
 
 #ifdef PACK_STRUCT_USE_INCLUDES
@@ -381,3 +383,5 @@ lwip_init(void)
   sys_timeouts_init();
 #endif /* LWIP_TIMERS */
 }
+
+#pragma clang diagnostic warning "-Wpadded"

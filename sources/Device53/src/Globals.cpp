@@ -1,5 +1,3 @@
-
-
 #include "defines.h"
 #include "Globals.h"
 #include "Display/DisplayTypes.h"
@@ -11,6 +9,8 @@ void *extraMEM = 0;
 HCD_HandleTypeDef handleHCD;
 
 USBH_HandleTypeDef handleUSBH;
+
+#pragma clang diagnostic ignored "-Wmissing-field-initializers"
 
 SPI_HandleTypeDef handleSPI =
 {
@@ -30,7 +30,6 @@ SPI_HandleTypeDef handleSPI =
     }
 };
 
-
 ADC_HandleTypeDef handleADC;
 
 
@@ -38,6 +37,8 @@ DAC_HandleTypeDef handleDAC =
 {
     DAC
 };
+
+#pragma clang diagnostic warning "-Wmissing-field-initializers"
 
 
 BitField gBF =
@@ -72,10 +73,13 @@ BitField gBF =
     1,  // panelIsRunning
     
     // Governor
-    0,
-    0,
-    0,
-    0,
+    0,  // inMoveIncrease
+    0,  // inModeDecrease
+    
+    0,  // notUsed0
+    
+    0,  // addressGovernor
+    0,  // timeStartMS
 
     0,  // cableVCPisConnected
     0,  // connectToHost
@@ -92,7 +96,9 @@ BitField gBF =
 
     0,  // tuneTime
 
-    GRID_BOTTOM // topMeasures
+    GRID_BOTTOM,    // topMeasures
+    
+    0   // notUsed1
 };
 
 
@@ -104,7 +110,8 @@ GMemory gMemory =
     0,  // runningFPGAbeforeSmallButtons
     0,  // exitFromIntToLast
     0,  // после установки имени и сохранения на флешку возвращаемся в основное рабочее окно
-    0   // needForSaveToFlashDrive
+    0,  // needForSaveToFlashDrive
+    0   // notUsed
 };
 
 

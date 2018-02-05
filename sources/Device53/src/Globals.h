@@ -73,6 +73,9 @@ typedef struct
     // Governor
     uint inMoveIncrease             : 1;
     uint inMoveDecrease             : 1;
+    
+    uint notUsed0                   : 2;
+    
     uint addressGovernor            : 32;
     uint timeStartMS                : 32;
 
@@ -98,6 +101,7 @@ typedef struct
 
     int topMeasures                 : 9;    // Верх таблицы вывода измерений. Это значение нужно для нормального вывода сообщений на экран - чтобы 
                                             // они ничего не перекрывали
+    uint notUsed1                   : 13;
 } BitField;
 
 
@@ -121,6 +125,7 @@ typedef struct
     uint    exitFromModeSetNameTo           : 2;    // Куда возвращаться из окна установки имени при сохранении : 0 - в основное меню, 1 - в окно 
                                                     // последних, 2 - в окно Внутр ЗУ, 3 - в основно окно в выключенным меню
     uint    needForSaveToFlashDrive         : 1;    // Если 1, то нужно сохранить после отрисовки на флешку.
+    uint8   notUsed                         : 2;
 } GMemory;
 
 
@@ -158,12 +163,14 @@ typedef struct
 
 typedef struct
 {
-    uint hours : 5;
-    uint minutes : 6;
-    uint seconds : 6;
-    uint year : 7;
-    uint month : 4;
-    uint day : 5;
+    uint hours      : 5;
+    uint minutes    : 6;
+    uint seconds    : 6;
+    uint year       : 7;
+    uint month      : 4;
+    uint notUsed0   : 4;
+    uint day        : 5;
+    uint notUsed1   : 27;
 } PackedTime;
 
 typedef struct
@@ -173,12 +180,15 @@ typedef struct
     uint        rShiftCh0       : 10;   // Смещение по напряжению
     uint        rShiftCh1       : 10;
     uint        trigLevCh0      : 10;   // Уровень синхронизации
+    uint        notUsed0        : 2;
     int16       tShift;                 // Смещение по времени
     ModeCouple  modeCouple1     : 2;
+    uint        notUsed1        : 6;
     Range       range[2];               // Масштаб по напряжению обоих каналов.
 
     uint        trigLevCh1      : 10;
     uint        length1channel  : 11;   // Сколько занимает в байтах длина измерения одного канала
+    uint        notUsed2        : 3;
     TBase       tBase           : 5;    // Масштаб по времени
     ModeCouple  modeCouple0     : 2;    // Режим канала по входу
     uint        peakDet         : 2;    // Включен ли пиковый детектор
@@ -187,8 +197,9 @@ typedef struct
 
     uint        inverseCh0      : 1;
     uint        inverseCh1      : 1;
-    Divider  multiplier0     : 1;
-    Divider  multiplier1     : 1;
+    Divider     multiplier0     : 1;
+    Divider     multiplier1     : 1;
+    uint        notUsed3        : 17;
     PackedTime  time;
 } DataSettings;
 

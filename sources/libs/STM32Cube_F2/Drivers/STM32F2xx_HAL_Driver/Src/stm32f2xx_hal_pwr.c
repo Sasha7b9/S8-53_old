@@ -40,6 +40,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f2xx_hal.h"
+#pragma clang diagnostic ignored "-Wsign-conversion"
 
 /** @addtogroup STM32F2xx_HAL_Driver
   * @{

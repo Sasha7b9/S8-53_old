@@ -50,6 +50,10 @@
 #include "usbd_desc.h"
 #include "usbd_conf.h"
 
+#pragma clang diagnostic ignored "-Wmissing-variable-declarations"
+#pragma clang diagnostic ignored "-Wstrict-prototypes"
+#pragma clang diagnostic ignored "-Wunused-parameter"
+
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
 #define USBD_VID                      0x0483
@@ -299,5 +303,5 @@ static void IntToUnicode (uint32_t value , uint8_t *pbuf , uint8_t len)
     pbuf[ 2* idx + 1] = 0;
   }
 }
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
 
+/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

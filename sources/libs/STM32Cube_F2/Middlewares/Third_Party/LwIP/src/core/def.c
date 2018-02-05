@@ -59,6 +59,8 @@
 
 #include <string.h>
 
+#pragma clang diagnostic ignored "-Wsign-conversion"
+
 #if BYTE_ORDER == LITTLE_ENDIAN
 
 #if !defined(lwip_htons)
@@ -216,3 +218,5 @@ lwip_itoa(char* result, size_t bufsize, int number)
   }
 }
 #endif
+
+#pragma clang diagnostic warning "-Wsign-conversion"

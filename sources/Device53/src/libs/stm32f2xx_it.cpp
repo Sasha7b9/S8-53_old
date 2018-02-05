@@ -2,6 +2,7 @@
 #include "defines.h"
 #include "VCP/VCP.h"
 #include "Log.h"
+#include "stm32f2xx_it.h"
 #include <usbd_cdc_interface.h>
 
 
@@ -15,33 +16,33 @@ void NMI_Handler()
 }
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
-void HardFault_Handler()
+__attribute__((noreturn)) void HardFault_Handler()
 {
-    while (1)
+    while (true)
     {
     }
 }
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
-void MemManage_Handler()
+__attribute__((noreturn)) void MemManage_Handler()
 {
-    while (1)
+    while (true)
     {
     }
 }
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
-void BusFault_Handler()
+__attribute__((noreturn)) void BusFault_Handler()
 {
-    while (1)
+    while (true)
     {
     }
 }
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
-void UsageFault_Handler()
+__attribute__((noreturn)) void UsageFault_Handler()
 {
-    while (1)
+    while (true)
     {
     }
 }

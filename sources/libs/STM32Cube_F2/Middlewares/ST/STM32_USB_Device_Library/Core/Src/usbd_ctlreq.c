@@ -29,6 +29,9 @@
 #include "usbd_ctlreq.h"
 #include "usbd_ioreq.h"
 
+#pragma clang diagnostic ignored "-Wconversion"
+#pragma clang diagnostic ignored "-Wundef"
+#pragma clang diagnostic ignored "-Wunused-parameter"
 
 /** @addtogroup STM32_USBD_STATE_DEVICE_LIBRARY
   * @{
@@ -765,6 +768,11 @@ static uint8_t USBD_GetLen(uint8_t *buf)
 
     return len;
 }
+
+#pragma clang diagnostic warning "-Wconversion"
+#pragma clang diagnostic warning "-Wundef"
+#pragma clang diagnostic warning "-Wunused-parameter"
+
 /**
   * @}
   */ 

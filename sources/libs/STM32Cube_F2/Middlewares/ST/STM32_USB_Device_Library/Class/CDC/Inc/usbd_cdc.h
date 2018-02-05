@@ -36,6 +36,8 @@
 /* Includes ------------------------------------------------------------------*/
 #include  "usbd_ioreq.h"
 
+#pragma clang diagnostic ignored "-Wpadded"
+
 /** @addtogroup STM32_USB_DEVICE_LIBRARY
   * @{
   */
@@ -166,6 +168,8 @@ uint8_t  USBD_CDC_TransmitPacket     (USBD_HandleTypeDef *pdev);
 #ifdef __cplusplus
 }
 #endif
+
+#pragma clang diagnostic warning "-Wpadded"
 
 #endif  /* __USB_CDC_H */
 /**

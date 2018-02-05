@@ -65,6 +65,8 @@
 
 #include <string.h>
 
+#pragma clang diagnostic ignored "-Wsign-conversion"
+
 #ifndef UDP_LOCAL_PORT_RANGE_START
 /* From http://www.iana.org/assignments/port-numbers:
    "The Dynamic and/or Private Ports are those from 49152 through 65535" */
@@ -1206,6 +1208,9 @@ udp_debug_print(struct udp_hdr *udphdr)
                           lwip_ntohs(udphdr->len), lwip_ntohs(udphdr->chksum)));
   LWIP_DEBUGF(UDP_DEBUG, ("+-------------------------------+\n"));
 }
+
+#pragma clang diagnostic warning "-Wsign-conversion"
+
 #endif /* UDP_DEBUG */
 
 #endif /* LWIP_UDP */

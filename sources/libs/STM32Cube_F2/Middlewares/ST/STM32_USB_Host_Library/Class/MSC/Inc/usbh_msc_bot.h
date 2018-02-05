@@ -72,7 +72,7 @@ BOT_StatusTypeDef;
 typedef enum {
   BOT_CMD_IDLE  = 0,
   BOT_CMD_SEND,
-  BOT_CMD_WAIT,
+  BOT_CMD_WAIT
 } 
 BOT_CMDStateTypeDef;  
 
@@ -82,7 +82,7 @@ typedef enum
 
    BOT_CSW_CMD_PASSED   =        0x00,
    BOT_CSW_CMD_FAILED   =        0x01,
-   BOT_CSW_PHASE_ERROR  =        0x02,
+   BOT_CSW_PHASE_ERROR  =        0x02
 } 
 BOT_CSWStatusTypeDef;  
 

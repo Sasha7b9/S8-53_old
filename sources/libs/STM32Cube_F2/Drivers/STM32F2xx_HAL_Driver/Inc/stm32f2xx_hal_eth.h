@@ -45,6 +45,8 @@
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f2xx_hal_def.h"
 
+#pragma clang diagnostic ignored "-Wpadded"
+
 /** @addtogroup STM32F2xx_HAL_Driver
   * @{
   */
@@ -2176,6 +2178,8 @@ HAL_ETH_StateTypeDef HAL_ETH_GetState(ETH_HandleTypeDef *heth);
 #ifdef __cplusplus
 }
 #endif
+
+#pragma clang diagnostic warning "-Wpadded"
 
 #endif /* __STM32F2xx_HAL_ETH_H */
 

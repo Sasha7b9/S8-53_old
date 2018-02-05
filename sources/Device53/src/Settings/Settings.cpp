@@ -1,5 +1,5 @@
 #include "Settings.h"
-#include "Hardware/FLASH.H"
+#include "Hardware/FLASH.h"
 #include "Display/Display.h"
 #include "Panel/Panel.h"
 #include "FPGA/FPGA.h"
@@ -58,8 +58,11 @@ static const Settings defaultSettings =
         MenuAutoHide_None,          // menuAutoHide
         true,                       // showFullMemoryWindow
         false,                      // showStringNavigation
-        LinkingRShift_Voltage       // linkingRShift
+        LinkingRShift_Voltage,      // linkingRShift
+        0                           // notUsed
     },
+    0,  // notUsed2
+    0,  // notUsed1
     // channels
     {
         {

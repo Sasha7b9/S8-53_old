@@ -206,8 +206,8 @@ typedef struct
     uint16              colors[16];                 ///< Цвета.
     ModeDrawSignal      modeDrawSignal;             ///< Режим отрисовки сигнала.
     TypeGrid            typeGrid;                   ///< Тип сетки.
-    ENumAccum    enumAccumulation;           ///< Перечисление накоплений сигнала на экране.
-    ENumAverage       enumAve;                    ///< Перечисление усреднений сигнала.
+    ENumAccum           enumAccumulation;           ///< Перечисление накоплений сигнала на экране.
+    ENumAverage         enumAve;                    ///< Перечисление усреднений сигнала.
     ModeAveraging       modeAve;                    ///< Тип усреднений по измерениям.
     ENumMinMax          enumMinMax;                 ///< Число измерений для определения минимумов и максимумов.
     Smoothing           smoothing;                  ///< Число точек для скользящего фильтра.
@@ -219,6 +219,7 @@ typedef struct
     bool                showFullMemoryWindow;       ///< Показывать ли окно памяти вверху экрана. \todo Не используется.
     bool                showStringNavigation;       ///< Показывать ли строку текущего состояния меню..
     LinkingRShift       linkingRShift;              ///< Тип привязки смещения по вертикали.
+    uint8               notUsed;
 } SettingsDisplay;
 
 

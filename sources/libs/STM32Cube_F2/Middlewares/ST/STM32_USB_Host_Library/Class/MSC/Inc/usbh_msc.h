@@ -72,8 +72,8 @@ typedef enum
   MSC_REQUEST_SENSE,
   MSC_READ,
   MSC_WRITE,
-  MSC_UNRECOVERED_ERROR,  
-  MSC_PERIODIC_CHECK,    
+  MSC_UNRECOVERED_ERROR,
+  MSC_PERIODIC_CHECK
 }
 MSC_StateTypeDef;
 
@@ -81,8 +81,7 @@ typedef enum
 {
   MSC_OK,
   MSC_NOT_READY,
-  MSC_ERROR,  
-
+  MSC_ERROR
 }
 MSC_ErrorTypeDef;
 
@@ -91,7 +90,7 @@ typedef enum
   MSC_REQ_IDLE = 0,
   MSC_REQ_RESET,                
   MSC_REQ_GET_MAX_LUN,  
-  MSC_REQ_ERROR,  
+  MSC_REQ_ERROR
 }
 MSC_ReqStateTypeDef;
 

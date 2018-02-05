@@ -5,7 +5,7 @@
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-struct tcp_pcb *pcbClient = 0;      // 0, если клиент не приконнекчен
+static struct tcp_pcb *pcbClient = 0;      // 0, если клиент не приконнекчен
 
 enum States
 {
@@ -21,20 +21,20 @@ struct State
     int numPort;
 };
 
-void(*SocketFuncConnect)() = 0;                                 // this function will be called every time a new connection
-void(*SocketFuncReciever)(const char *buffer, uint length) = 0;     // this function will be called when a message is recieved from any client
+static void(*SocketFuncConnect)() = 0;                                 // this function will be called every time a new connection
+static void(*SocketFuncReciever)(const char *buffer, uint length) = 0;     // this function will be called when a message is recieved from any client
 
 bool gEthIsConnected = false;                                       // Если true, то подсоединён клиент
 
 
-void ETH_SendFormatString(char *format, ...)
+void ETH_SendFormatString(char *, ...)
 {
 
 }
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-void CloseConnection(struct tcp_pcb *tpcb, struct State *ss)
+static void CloseConnection(struct tcp_pcb *tpcb, struct State *ss)
 {
     gEthIsConnected = false;
     tcp_arg(tpcb, NULL);
@@ -54,7 +54,7 @@ void CloseConnection(struct tcp_pcb *tpcb, struct State *ss)
 
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------
-void SendPCB(struct tcp_pcb *_tpcb, struct State *_ss)
+static void SendPCB(struct tcp_pcb *_tpcb, struct State *_ss)
 {
     struct pbuf *ptr;
     err_t wr_err = ERR_OK;
@@ -100,7 +100,7 @@ void SendPCB(struct tcp_pcb *_tpcb, struct State *_ss)
 
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------
-err_t CallbackOnSent(void *_arg, struct tcp_pcb *_tpcb, u16_t _len)
+static err_t CallbackOnSent(void *_arg, struct tcp_pcb *_tpcb, u16_t _len)
 {
     struct State *ss;
     LWIP_UNUSED_ARG(_len);
@@ -123,7 +123,7 @@ err_t CallbackOnSent(void *_arg, struct tcp_pcb *_tpcb, u16_t _len)
 
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------
-void SendAnswer(void *_arg, struct tcp_pcb *_tpcb)
+static void SendAnswer(void *_arg, struct tcp_pcb *_tpcb)
 {
     static const char policy[] = "<?xml version=\"1.0\"?>"                                                  \
         "<!DOCTYPE cross-domain-policy SYSTEM \"http://www.adobe.com/xml/dtds/cross-domain-policy.dtd\">"   \
@@ -141,7 +141,7 @@ void SendAnswer(void *_arg, struct tcp_pcb *_tpcb)
 
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------
-err_t CallbackOnRecieve(void *_arg, struct tcp_pcb *_tpcb, struct pbuf *_p, err_t _err)
+static err_t CallbackOnRecieve(void *_arg, struct tcp_pcb *_tpcb, struct pbuf *_p, err_t _err)
 {
     err_t ret_err;
 

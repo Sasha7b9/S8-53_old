@@ -43,6 +43,8 @@
 #include "lwip/ip_addr.h"
 #include "lwip/netif.h"
 
+#pragma clang diagnostic ignored "-Wsign-conversion"
+
 /* used by IP4_ADDR_ANY and IP_ADDR_BROADCAST in ip_addr.h */
 const ip_addr_t ip_addr_any = IPADDR4_INIT(IPADDR_ANY);
 const ip_addr_t ip_addr_broadcast = IPADDR4_INIT(IPADDR_BROADCAST);
@@ -327,5 +329,7 @@ ip4addr_ntoa_r(const ip4_addr_t *addr, char *buf, int buflen)
   *--rp = 0;
   return buf;
 }
+
+#pragma clang diagnostic warning "-Wsign-conversion"
 
 #endif /* LWIP_IPV4 */

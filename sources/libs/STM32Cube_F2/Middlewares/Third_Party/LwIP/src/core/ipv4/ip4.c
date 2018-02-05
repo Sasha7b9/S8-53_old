@@ -59,6 +59,9 @@
 
 #include <string.h>
 
+#pragma clang diagnostic ignored "-Wcast-align"
+#pragma clang diagnostic ignored "-Wsign-conversion"
+
 /** Set this to 0 in the rare case of wanting to call an extra function to
  * generate the IP checksum (in contrast to calculating it on-the-fly). */
 #ifndef LWIP_INLINE_IP_CHKSUM
@@ -1067,6 +1070,10 @@ ip4_debug_print(struct pbuf *p)
                     ip4_addr4_16(&iphdr->dest)));
   LWIP_DEBUGF(IP_DEBUG, ("+-------------------------------+\n"));
 }
+
+#pragma clang diagnostic warning "-Wcast-align"
+#pragma clang diagnostic warning "-Wsign-conversion"
+
 #endif /* IP_DEBUG */
 
 #endif /* LWIP_IPV4 */

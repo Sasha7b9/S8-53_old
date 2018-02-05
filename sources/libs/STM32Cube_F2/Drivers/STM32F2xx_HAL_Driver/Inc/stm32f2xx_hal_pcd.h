@@ -43,6 +43,8 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f2xx_ll_usb.h"
+
+#pragma clang diagnostic ignored "-Wpadded"
    
 /** @addtogroup STM32F2xx_HAL_Driver
   * @{
@@ -315,6 +317,7 @@ PCD_StateTypeDef HAL_PCD_GetState(PCD_HandleTypeDef *hpcd);
 }
 #endif
 
+#pragma clang diagnostic warning "-Wpadded"
 
 #endif /* __STM32F2xx_HAL_PCD_H */
 
