@@ -599,7 +599,7 @@ HAL_StatusTypeDef HAL_ETH_DMARxDescListInit(ETH_HandleTypeDef *heth, ETH_DMADesc
   *         the configuration information for ETHERNET module
   * @retval None
   */
-__weak void HAL_ETH_MspInit(ETH_HandleTypeDef *heth)
+__attribute__((weak)) void HAL_ETH_MspInit(ETH_HandleTypeDef *heth)
 {
   /* Prevent unused argument(s) compilation warning */
   UNUSED(heth);
@@ -614,7 +614,7 @@ __weak void HAL_ETH_MspInit(ETH_HandleTypeDef *heth)
   *         the configuration information for ETHERNET module
   * @retval None
   */
-__weak void HAL_ETH_MspDeInit(ETH_HandleTypeDef *heth)
+__attribute__((weak)) void HAL_ETH_MspDeInit(ETH_HandleTypeDef *heth)
 {
   /* Prevent unused argument(s) compilation warning */
   UNUSED(heth);
@@ -995,7 +995,7 @@ void HAL_ETH_IRQHandler(ETH_HandleTypeDef *heth)
   *         the configuration information for ETHERNET module
   * @retval None
   */
-__weak void HAL_ETH_TxCpltCallback(ETH_HandleTypeDef *heth)
+__attribute__((weak)) void HAL_ETH_TxCpltCallback(ETH_HandleTypeDef *heth)
 {
   /* Prevent unused argument(s) compilation warning */
   UNUSED(heth);
@@ -1010,7 +1010,7 @@ __weak void HAL_ETH_TxCpltCallback(ETH_HandleTypeDef *heth)
   *         the configuration information for ETHERNET module
   * @retval None
   */
-__weak void HAL_ETH_RxCpltCallback(ETH_HandleTypeDef *heth)
+__attribute__((weak)) void HAL_ETH_RxCpltCallback(ETH_HandleTypeDef *heth)
 {
   /* Prevent unused argument(s) compilation warning */
   UNUSED(heth);
@@ -1025,7 +1025,7 @@ __weak void HAL_ETH_RxCpltCallback(ETH_HandleTypeDef *heth)
   *         the configuration information for ETHERNET module
   * @retval None
   */
-__weak void HAL_ETH_ErrorCallback(ETH_HandleTypeDef *heth)
+__attribute__((weak)) void HAL_ETH_ErrorCallback(ETH_HandleTypeDef *heth)
 {
   /* Prevent unused argument(s) compilation warning */
   UNUSED(heth);

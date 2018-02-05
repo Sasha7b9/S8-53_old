@@ -178,7 +178,7 @@ HAL_StatusTypeDef HAL_CRC_DeInit(CRC_HandleTypeDef *hcrc)
   *         the configuration information for CRC
   * @retval None
   */
-__weak void HAL_CRC_MspInit(CRC_HandleTypeDef *hcrc)
+__attribute__((weak)) void HAL_CRC_MspInit(CRC_HandleTypeDef *hcrc)
 {
   /* Prevent unused argument(s) compilation warning */
   UNUSED(hcrc);
@@ -193,7 +193,7 @@ __weak void HAL_CRC_MspInit(CRC_HandleTypeDef *hcrc)
   *         the configuration information for CRC
   * @retval None
   */
-__weak void HAL_CRC_MspDeInit(CRC_HandleTypeDef *hcrc)
+__attribute__((weak)) void HAL_CRC_MspDeInit(CRC_HandleTypeDef *hcrc)
 {
   /* Prevent unused argument(s) compilation warning */
   UNUSED(hcrc);

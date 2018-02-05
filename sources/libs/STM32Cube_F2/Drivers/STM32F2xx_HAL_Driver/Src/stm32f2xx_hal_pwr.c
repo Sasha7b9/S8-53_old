@@ -495,7 +495,7 @@ void HAL_PWR_PVD_IRQHandler(void)
   * @brief  PWR PVD interrupt callback
   * @retval None
   */
-__weak void HAL_PWR_PVDCallback(void)
+__attribute__((weak)) void HAL_PWR_PVDCallback(void)
 {
   /* NOTE : This function Should not be modified, when the callback is needed,
             the HAL_PWR_PVDCallback could be implemented in the user file

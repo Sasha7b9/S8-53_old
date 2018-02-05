@@ -225,7 +225,7 @@ HAL_StatusTypeDef HAL_PCD_DeInit(PCD_HandleTypeDef *hpcd)
   * @param  hpcd PCD handle
   * @retval None
   */
-__weak void HAL_PCD_MspInit(PCD_HandleTypeDef *hpcd)
+__attribute__((weak)) void HAL_PCD_MspInit(PCD_HandleTypeDef *hpcd)
 {
   /* Prevent unused argument(s) compilation warning */
   UNUSED(hpcd);
@@ -239,7 +239,7 @@ __weak void HAL_PCD_MspInit(PCD_HandleTypeDef *hpcd)
   * @param  hpcd PCD handle
   * @retval None
   */
-__weak void HAL_PCD_MspDeInit(PCD_HandleTypeDef *hpcd)
+__attribute__((weak)) void HAL_PCD_MspDeInit(PCD_HandleTypeDef *hpcd)
 {
   /* Prevent unused argument(s) compilation warning */
   UNUSED(hpcd);
@@ -659,7 +659,7 @@ void HAL_PCD_IRQHandler(PCD_HandleTypeDef *hpcd)
   * @param  epnum endpoint number  
   * @retval None
   */
-__weak void HAL_PCD_DataOutStageCallback(PCD_HandleTypeDef *hpcd, uint8_t epnum)
+__attribute__((weak)) void HAL_PCD_DataOutStageCallback(PCD_HandleTypeDef *hpcd, uint8_t epnum)
 {
   /* Prevent unused argument(s) compilation warning */
   UNUSED(hpcd);
@@ -675,7 +675,7 @@ __weak void HAL_PCD_DataOutStageCallback(PCD_HandleTypeDef *hpcd, uint8_t epnum)
   * @param  epnum endpoint number
   * @retval None
   */
- __weak void HAL_PCD_DataInStageCallback(PCD_HandleTypeDef *hpcd, uint8_t epnum)
+__attribute__((weak)) void HAL_PCD_DataInStageCallback(PCD_HandleTypeDef *hpcd, uint8_t epnum)
 {
   /* Prevent unused argument(s) compilation warning */
   UNUSED(hpcd);
@@ -689,7 +689,7 @@ __weak void HAL_PCD_DataOutStageCallback(PCD_HandleTypeDef *hpcd, uint8_t epnum)
   * @param  hpcd PCD handle
   * @retval None
   */
- __weak void HAL_PCD_SetupStageCallback(PCD_HandleTypeDef *hpcd)
+__attribute__((weak)) void HAL_PCD_SetupStageCallback(PCD_HandleTypeDef *hpcd)
 {
   /* Prevent unused argument(s) compilation warning */
   UNUSED(hpcd);
@@ -703,7 +703,7 @@ __weak void HAL_PCD_DataOutStageCallback(PCD_HandleTypeDef *hpcd, uint8_t epnum)
   * @param  hpcd PCD handle
   * @retval None
   */
- __weak void HAL_PCD_SOFCallback(PCD_HandleTypeDef *hpcd)
+__attribute__((weak)) void HAL_PCD_SOFCallback(PCD_HandleTypeDef *hpcd)
 {
   /* Prevent unused argument(s) compilation warning */
   UNUSED(hpcd);
@@ -717,7 +717,7 @@ __weak void HAL_PCD_DataOutStageCallback(PCD_HandleTypeDef *hpcd, uint8_t epnum)
   * @param  hpcd PCD handle
   * @retval None
   */
- __weak void HAL_PCD_ResetCallback(PCD_HandleTypeDef *hpcd)
+__attribute__((weak)) void HAL_PCD_ResetCallback(PCD_HandleTypeDef *hpcd)
 {
   /* Prevent unused argument(s) compilation warning */
   UNUSED(hpcd);
@@ -731,7 +731,7 @@ __weak void HAL_PCD_DataOutStageCallback(PCD_HandleTypeDef *hpcd, uint8_t epnum)
   * @param  hpcd PCD handle
   * @retval None
   */
- __weak void HAL_PCD_SuspendCallback(PCD_HandleTypeDef *hpcd)
+__attribute__((weak)) void HAL_PCD_SuspendCallback(PCD_HandleTypeDef *hpcd)
 {
   /* Prevent unused argument(s) compilation warning */
   UNUSED(hpcd);
@@ -745,7 +745,7 @@ __weak void HAL_PCD_DataOutStageCallback(PCD_HandleTypeDef *hpcd, uint8_t epnum)
   * @param  hpcd PCD handle
   * @retval None
   */
-__weak void HAL_PCD_ResumeCallback(PCD_HandleTypeDef *hpcd)
+__attribute__((weak)) void HAL_PCD_ResumeCallback(PCD_HandleTypeDef *hpcd)
 {
   /* Prevent unused argument(s) compilation warning */
   UNUSED(hpcd);
@@ -760,7 +760,7 @@ __weak void HAL_PCD_ResumeCallback(PCD_HandleTypeDef *hpcd)
   * @param  epnum endpoint number
   * @retval None
   */
-__weak void HAL_PCD_ISOOUTIncompleteCallback(PCD_HandleTypeDef *hpcd, uint8_t epnum)
+__attribute__((weak)) void HAL_PCD_ISOOUTIncompleteCallback(PCD_HandleTypeDef *hpcd, uint8_t epnum)
 {
   /* Prevent unused argument(s) compilation warning */
   UNUSED(hpcd);
@@ -776,7 +776,7 @@ __weak void HAL_PCD_ISOOUTIncompleteCallback(PCD_HandleTypeDef *hpcd, uint8_t ep
   * @param  epnum endpoint number  
   * @retval None
   */
-__weak void HAL_PCD_ISOINIncompleteCallback(PCD_HandleTypeDef *hpcd, uint8_t epnum)
+__attribute__((weak)) void HAL_PCD_ISOINIncompleteCallback(PCD_HandleTypeDef *hpcd, uint8_t epnum)
 {
   /* Prevent unused argument(s) compilation warning */
   UNUSED(hpcd);
@@ -791,7 +791,7 @@ __weak void HAL_PCD_ISOINIncompleteCallback(PCD_HandleTypeDef *hpcd, uint8_t epn
   * @param  hpcd PCD handle
   * @retval None
   */
-__weak void HAL_PCD_ConnectCallback(PCD_HandleTypeDef *hpcd)
+__attribute__((weak)) void HAL_PCD_ConnectCallback(PCD_HandleTypeDef *hpcd)
 {
   /* Prevent unused argument(s) compilation warning */
   UNUSED(hpcd);
@@ -805,7 +805,7 @@ __weak void HAL_PCD_ConnectCallback(PCD_HandleTypeDef *hpcd)
   * @param  hpcd PCD handle
   * @retval None
   */
-__weak void HAL_PCD_DisconnectCallback(PCD_HandleTypeDef *hpcd)
+__attribute__((weak)) void HAL_PCD_DisconnectCallback(PCD_HandleTypeDef *hpcd)
 {
   /* Prevent unused argument(s) compilation warning */
   UNUSED(hpcd);

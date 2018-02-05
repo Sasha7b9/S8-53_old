@@ -44,8 +44,7 @@ extern const PageBase mspFileManager;
 extern const PageBase mpSetName;
 extern const PageBase mspMemoryExt;
 
-extern void PressSB_SetName_Exit();
-
+static void PressSB_SetName_Exit();
 static void DrawSetMask();  // Эта функция рисует, когда выбран режим задания маски.
 static void DrawSetName();  // Эта функция рисует, когда нужно задать имя файла для сохранения
 

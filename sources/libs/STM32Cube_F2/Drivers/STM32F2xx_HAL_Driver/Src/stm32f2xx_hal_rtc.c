@@ -374,7 +374,7 @@ HAL_StatusTypeDef HAL_RTC_DeInit(RTC_HandleTypeDef *hrtc)
   *                the configuration information for RTC.  
   * @retval None
   */
-__weak void HAL_RTC_MspInit(RTC_HandleTypeDef* hrtc)
+__attribute__((weak)) void HAL_RTC_MspInit(RTC_HandleTypeDef* hrtc)
 {
   /* Prevent unused argument(s) compilation warning */
   UNUSED(hrtc);
@@ -389,7 +389,7 @@ __weak void HAL_RTC_MspInit(RTC_HandleTypeDef* hrtc)
   *                the configuration information for RTC. 
   * @retval None
   */
-__weak void HAL_RTC_MspDeInit(RTC_HandleTypeDef* hrtc)
+__attribute__((weak)) void HAL_RTC_MspDeInit(RTC_HandleTypeDef* hrtc)
 {
   /* Prevent unused argument(s) compilation warning */
   UNUSED(hrtc);
@@ -1292,7 +1292,7 @@ void HAL_RTC_AlarmIRQHandler(RTC_HandleTypeDef* hrtc)
   *                the configuration information for RTC.
   * @retval None
   */
-__weak void HAL_RTC_AlarmAEventCallback(RTC_HandleTypeDef *hrtc)
+__attribute__((weak)) void HAL_RTC_AlarmAEventCallback(RTC_HandleTypeDef *hrtc)
 {
   /* Prevent unused argument(s) compilation warning */
   UNUSED(hrtc);

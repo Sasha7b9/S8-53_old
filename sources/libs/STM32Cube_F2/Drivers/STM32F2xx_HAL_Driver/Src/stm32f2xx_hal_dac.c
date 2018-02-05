@@ -296,7 +296,7 @@ HAL_StatusTypeDef HAL_DAC_DeInit(DAC_HandleTypeDef* hdac)
   *         the configuration information for the specified DAC.
   * @retval None
   */
-__weak void HAL_DAC_MspInit(DAC_HandleTypeDef* hdac)
+__attribute__((weak)) void HAL_DAC_MspInit(DAC_HandleTypeDef* hdac)
 {
   /* Prevent unused argument(s) compilation warning */
   UNUSED(hdac);
@@ -311,7 +311,7 @@ __weak void HAL_DAC_MspInit(DAC_HandleTypeDef* hdac)
   *         the configuration information for the specified DAC.  
   * @retval None
   */
-__weak void HAL_DAC_MspDeInit(DAC_HandleTypeDef* hdac)
+__attribute__((weak)) void HAL_DAC_MspDeInit(DAC_HandleTypeDef* hdac)
 {
   /* Prevent unused argument(s) compilation warning */
   UNUSED(hdac);
@@ -680,7 +680,7 @@ void HAL_DAC_IRQHandler(DAC_HandleTypeDef* hdac)
   *         the configuration information for the specified DAC.
   * @retval None
   */
-__weak void HAL_DAC_ConvCpltCallbackCh1(DAC_HandleTypeDef* hdac)
+__attribute__((weak)) void HAL_DAC_ConvCpltCallbackCh1(DAC_HandleTypeDef* hdac)
 {
   /* Prevent unused argument(s) compilation warning */
   UNUSED(hdac);
@@ -695,7 +695,7 @@ __weak void HAL_DAC_ConvCpltCallbackCh1(DAC_HandleTypeDef* hdac)
   *         the configuration information for the specified DAC.
   * @retval None
   */
-__weak void HAL_DAC_ConvHalfCpltCallbackCh1(DAC_HandleTypeDef* hdac)
+__attribute__((weak)) void HAL_DAC_ConvHalfCpltCallbackCh1(DAC_HandleTypeDef* hdac)
 {
   /* Prevent unused argument(s) compilation warning */
   UNUSED(hdac);
@@ -710,7 +710,7 @@ __weak void HAL_DAC_ConvHalfCpltCallbackCh1(DAC_HandleTypeDef* hdac)
   *         the configuration information for the specified DAC.
   * @retval None
   */
-__weak void HAL_DAC_ErrorCallbackCh1(DAC_HandleTypeDef *hdac)
+__attribute__((weak)) void HAL_DAC_ErrorCallbackCh1(DAC_HandleTypeDef *hdac)
 {
   /* Prevent unused argument(s) compilation warning */
   UNUSED(hdac);
@@ -725,7 +725,7 @@ __weak void HAL_DAC_ErrorCallbackCh1(DAC_HandleTypeDef *hdac)
   *         the configuration information for the specified DAC.
   * @retval None
   */
-__weak void HAL_DAC_DMAUnderrunCallbackCh1(DAC_HandleTypeDef *hdac)
+__attribute__((weak)) void HAL_DAC_DMAUnderrunCallbackCh1(DAC_HandleTypeDef *hdac)
 {
   /* Prevent unused argument(s) compilation warning */
   UNUSED(hdac);

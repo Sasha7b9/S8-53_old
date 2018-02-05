@@ -70,6 +70,7 @@ typedef void    (*pFuncVpI8I8I8)(int8 *, int8, int8);
 #define __weak
 #else
 #pragma anon_unions
+#define __ALIGN_BEGIN
 #endif
 
 #define ENABLE_RU "¬кл"

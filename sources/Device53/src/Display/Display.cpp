@@ -101,7 +101,14 @@ void Display::RotateRShift(Channel chan)
     LAST_AFFECTED_CHANNEL = chan;
     if(TIME_SHOW_LEVELS)
     {
-        (chan == A) ? (gBF.showLevelRShift0 = 1) : (gBF.showLevelRShift1 = 1);
+        if(chan == A)
+        {
+            gBF.showLevelRShift0 = 1;
+        }
+        else
+        {
+            gBF.showLevelRShift1 = 1;
+        }
         Timer::SetAndStartOnce((chan == A) ? kShowLevelRShiftA : kShowLevelRShiftB, (chan == A) ? FuncOnTimerDisableShowLevelRShiftA :
                      FuncOnTimerDisableShowLevelRShiftB, TIME_SHOW_LEVELS * 1000);
     };

@@ -75,7 +75,7 @@ static const PageHelp helpSCPI =
     }
 };
 
-static const PageHelp helpMenu =
+const PageHelp helpMenu =
 {
     TypePage_Content, (void*)&helpMain, 0,
     {
@@ -89,7 +89,7 @@ static const PageHelp helpMenu =
     }
 };
 
-static const PageHelp helpMain =
+const PageHelp helpMain =
 {
     TypePage_Content,  0, 0,
     {
