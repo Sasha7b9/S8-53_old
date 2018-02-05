@@ -15,3 +15,5 @@ sources/Device53/_obj/*
 sources/Device53/_lst/*
 
 sources/.vs/*
+
+doc/doxygen/S8-53/*
