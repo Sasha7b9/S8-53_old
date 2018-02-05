@@ -40,9 +40,6 @@
     <Filter Include="_VS">
       <UniqueIdentifier>{b51bc987-5717-4ec9-bfc2-1baf971ac85c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="VCP">
-      <UniqueIdentifier>{32ce9683-4a59-477d-bbc7-3b26236012d0}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\libs\common\Utils\Math.cpp">
@@ -292,9 +289,6 @@
     </ClInclude>
     <ClInclude Include="..\..\libs\common\Display\Painter.h">
       <Filter>Display</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Loader53\src\VCP\VCP.h">
-      <Filter>VCP</Filter>
     </ClInclude>
     <ClInclude Include="..\..\libs\common\stub.h">
       <Filter>src</Filter>

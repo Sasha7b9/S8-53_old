@@ -224,7 +224,7 @@ HAL_StatusTypeDef HAL_DeInit(void)
   * @brief  Initializes the MSP.
   * @retval None
   */
-__weak void HAL_MspInit(void)
+__attribute__((weak)) void HAL_MspInit(void)
 {
   /* NOTE : This function Should not be modified, when the callback is needed,
             the HAL_MspInit could be implemented in the user file
@@ -235,7 +235,7 @@ __weak void HAL_MspInit(void)
   * @brief  DeInitializes the MSP.
   * @retval None
   */
-__weak void HAL_MspDeInit(void)
+__attribute__((weak)) void HAL_MspDeInit(void)
 {
   /* NOTE : This function Should not be modified, when the callback is needed,
             the HAL_MspDeInit could be implemented in the user file
@@ -258,7 +258,7 @@ __weak void HAL_MspDeInit(void)
   * @param  TickPriority Tick interrupt priority.
   * @retval HAL status
   */
-__weak HAL_StatusTypeDef HAL_InitTick(uint32_t TickPriority)
+__attribute__((weak)) HAL_StatusTypeDef HAL_InitTick(uint32_t TickPriority)
 {
   /*Configure the SysTick to have interrupt in 1ms time basis*/
   HAL_SYSTICK_Config(SystemCoreClock/1000U);
@@ -306,7 +306,7 @@ __weak HAL_StatusTypeDef HAL_InitTick(uint32_t TickPriority)
   *      implementations in user file.
   * @retval None
   */
-__weak void HAL_IncTick(void)
+__attribute__((weak)) void HAL_IncTick(void)
 {
   uwTick++;
 }
@@ -317,7 +317,7 @@ __weak void HAL_IncTick(void)
   *       implementations in user file.
   * @retval tick value
   */
-__weak uint32_t HAL_GetTick(void)
+__attribute__((weak)) uint32_t HAL_GetTick(void)
 {
   return uwTick;
 }
@@ -333,7 +333,7 @@ __weak uint32_t HAL_GetTick(void)
   * @param  Delay specifies the delay time length, in milliseconds.
   * @retval None
   */
-__weak void HAL_Delay(__IO uint32_t Delay)
+__attribute__((weak)) void HAL_Delay(__IO uint32_t Delay)
 {
   uint32_t tickstart = HAL_GetTick();
   uint32_t wait = Delay;
@@ -359,7 +359,7 @@ __weak void HAL_Delay(__IO uint32_t Delay)
   *       implementations in user file.
   * @retval None
   */
-__weak void HAL_SuspendTick(void)
+__attribute__((weak)) void HAL_SuspendTick(void)
 {
   /* Disable SysTick Interrupt */
   SysTick->CTRL &= ~SysTick_CTRL_TICKINT_Msk;
@@ -375,7 +375,7 @@ __weak void HAL_SuspendTick(void)
   *       implementations in user file.
   * @retval None
   */
-__weak void HAL_ResumeTick(void)
+__attribute__((weak)) void HAL_ResumeTick(void)
 {
   /* Enable SysTick Interrupt */
   SysTick->CTRL  |= SysTick_CTRL_TICKINT_Msk;

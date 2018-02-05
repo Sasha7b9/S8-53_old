@@ -820,8 +820,7 @@ uint8_t  USBD_CDC_SetTxBuffer  (USBD_HandleTypeDef   *pdev,
 }
 
 
-/**
-  * @brief  USBD_CDC_SetRxBuffer
+/** @brief  USBD_CDC_SetRxBuffer
   * @param  pdev: device instance
   * @param  pbuff: Rx Buffer
   * @retval status

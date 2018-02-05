@@ -221,7 +221,6 @@
     <ClInclude Include="..\..\Loader53\src\Settings\Settings.h" />
     <ClInclude Include="..\..\Loader53\src\Settings\SettingsDisplay.h" />
     <ClInclude Include="..\..\Loader53\src\Settings\SettingsTypes.h" />
-    <ClInclude Include="..\..\Loader53\src\VCP\VCP.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\Loader53\src\Display\font\font5.inc" />

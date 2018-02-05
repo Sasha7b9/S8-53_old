@@ -393,7 +393,7 @@ void HAL_FLASH_IRQHandler(void)
   *                  Program: Address which was selected for data program
   * @retval None
   */
-__weak void HAL_FLASH_EndOfOperationCallback(uint32_t ReturnValue)
+__attribute__((weak)) void HAL_FLASH_EndOfOperationCallback(uint32_t ReturnValue)
 {
   /* Prevent unused argument(s) compilation warning */
   UNUSED(ReturnValue);
@@ -410,7 +410,7 @@ __weak void HAL_FLASH_EndOfOperationCallback(uint32_t ReturnValue)
   *                 Program: Address which was selected for data program
   * @retval None
   */
-__weak void HAL_FLASH_OperationErrorCallback(uint32_t ReturnValue)
+__attribute__((weak)) void HAL_FLASH_OperationErrorCallback(uint32_t ReturnValue)
 {
   /* Prevent unused argument(s) compilation warning */
   UNUSED(ReturnValue);

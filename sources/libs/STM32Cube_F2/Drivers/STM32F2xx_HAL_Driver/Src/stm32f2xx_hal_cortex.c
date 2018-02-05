@@ -494,7 +494,7 @@ void HAL_SYSTICK_IRQHandler(void)
   * @brief  SYSTICK callback.
   * @retval None
   */
-__weak void HAL_SYSTICK_Callback(void)
+__attribute__((weak)) void HAL_SYSTICK_Callback(void)
 {
   /* NOTE : This function Should not be modified, when the callback is needed,
             the HAL_SYSTICK_Callback could be implemented in the user file

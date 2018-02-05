@@ -193,7 +193,7 @@ HAL_StatusTypeDef  HAL_SRAM_DeInit(SRAM_HandleTypeDef *hsram)
   *                the configuration information for SRAM module.
   * @retval None
   */
-__weak void HAL_SRAM_MspInit(SRAM_HandleTypeDef *hsram)
+__attribute__((weak)) void HAL_SRAM_MspInit(SRAM_HandleTypeDef *hsram)
 {
   /* Prevent unused argument(s) compilation warning */
   UNUSED(hsram);
@@ -208,7 +208,7 @@ __weak void HAL_SRAM_MspInit(SRAM_HandleTypeDef *hsram)
   *                the configuration information for SRAM module.
   * @retval None
   */
-__weak void HAL_SRAM_MspDeInit(SRAM_HandleTypeDef *hsram)
+__attribute__((weak)) void HAL_SRAM_MspDeInit(SRAM_HandleTypeDef *hsram)
 {
   /* Prevent unused argument(s) compilation warning */
   UNUSED(hsram);
@@ -223,7 +223,7 @@ __weak void HAL_SRAM_MspDeInit(SRAM_HandleTypeDef *hsram)
   *                the configuration information for SRAM module.
   * @retval None
   */
-__weak void HAL_SRAM_DMA_XferCpltCallback(DMA_HandleTypeDef *hdma)
+__attribute__((weak)) void HAL_SRAM_DMA_XferCpltCallback(DMA_HandleTypeDef *hdma)
 {
   /* Prevent unused argument(s) compilation warning */
   UNUSED(hdma);
@@ -238,7 +238,7 @@ __weak void HAL_SRAM_DMA_XferCpltCallback(DMA_HandleTypeDef *hdma)
   *                the configuration information for SRAM module.
   * @retval None
   */
-__weak void HAL_SRAM_DMA_XferErrorCallback(DMA_HandleTypeDef *hdma)
+__attribute__((weak)) void HAL_SRAM_DMA_XferErrorCallback(DMA_HandleTypeDef *hdma)
 {
   /* Prevent unused argument(s) compilation warning */
   UNUSED(hdma);

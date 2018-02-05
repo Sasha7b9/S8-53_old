@@ -256,7 +256,7 @@ HAL_StatusTypeDef HAL_TIMEx_HallSensor_DeInit(TIM_HandleTypeDef *htim)
   *                the configuration information for TIM module.
   * @retval None
   */
-__weak void HAL_TIMEx_HallSensor_MspInit(TIM_HandleTypeDef *htim)
+__attribute__((weak)) void HAL_TIMEx_HallSensor_MspInit(TIM_HandleTypeDef *htim)
 {
   /* Prevent unused argument(s) compilation warning */
   UNUSED(htim);
@@ -271,7 +271,7 @@ __weak void HAL_TIMEx_HallSensor_MspInit(TIM_HandleTypeDef *htim)
   *                the configuration information for TIM module.
   * @retval None
   */
-__weak void HAL_TIMEx_HallSensor_MspDeInit(TIM_HandleTypeDef *htim)
+__attribute__((weak)) void HAL_TIMEx_HallSensor_MspDeInit(TIM_HandleTypeDef *htim)
 {
   /* Prevent unused argument(s) compilation warning */
   UNUSED(htim);
@@ -1744,7 +1744,7 @@ HAL_StatusTypeDef HAL_TIMEx_RemapConfig(TIM_HandleTypeDef *htim, uint32_t Remap)
   *                the configuration information for TIM module.
   * @retval None
   */
-__weak void HAL_TIMEx_CommutationCallback(TIM_HandleTypeDef *htim)
+__attribute__((weak)) void HAL_TIMEx_CommutationCallback(TIM_HandleTypeDef *htim)
 {
   /* Prevent unused argument(s) compilation warning */
   UNUSED(htim);
@@ -1759,7 +1759,7 @@ __weak void HAL_TIMEx_CommutationCallback(TIM_HandleTypeDef *htim)
   *                the configuration information for TIM module.
   * @retval None
   */
-__weak void HAL_TIMEx_BreakCallback(TIM_HandleTypeDef *htim)
+__attribute__((weak)) void HAL_TIMEx_BreakCallback(TIM_HandleTypeDef *htim)
 {
   /* Prevent unused argument(s) compilation warning */
   UNUSED(htim);

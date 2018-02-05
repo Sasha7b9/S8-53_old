@@ -26,12 +26,14 @@ void VCP::Init()
     USBD_Start(&handleUSBD);
 } 
 
+//----------------------------------------------------------------------------------------------------------------------------------------------------
 static bool PrevSendingComplete()
 {
     USBD_CDC_HandleTypeDef *pCDC = (USBD_CDC_HandleTypeDef *)handleUSBD.pClassData;
     return pCDC->TxState == 0;
 }
 
+//----------------------------------------------------------------------------------------------------------------------------------------------------
 void VCP::SendDataAsinch(uint8 *buffer, int size)
 {
     const int SIZE_BUFFER = 64;
@@ -49,6 +51,7 @@ static const int SIZE_BUFFER_VCP = 256;     // WARN если поставить размер буфера
 static uint8 buffSend[SIZE_BUFFER_VCP];
 static int sizeBuffer = 0;
 
+//----------------------------------------------------------------------------------------------------------------------------------------------------
 void VCP::Flush()
 {
     if (sizeBuffer)

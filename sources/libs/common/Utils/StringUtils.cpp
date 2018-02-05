@@ -145,7 +145,7 @@ char *Time2String(float time, bool alwaysSign, char buffer[20])
 char *Freq2String(float freq, bool, char bufferOut[20])
 {
     bufferOut[0] = 0;
-    char *suffix = 0;
+    const char *suffix = 0;
     if (freq == ERROR_VALUE_FLOAT)
     {
         strcat(bufferOut, ERROR_STRING_VALUE);
