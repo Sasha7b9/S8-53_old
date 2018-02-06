@@ -70,7 +70,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>..\..\libs\common\_VS;..\..\Loader53\src\libs;..\..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Inc;..\..\libs\STM32Cube_F2\Drivers\CMSIS\Device\ST\STM32F2xx\Include;..\..\libs\STM32Cube_F2\Drivers\CMSIS\Include;..\..\libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\drivers;..\..\libs\common;..\..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Core\Inc;..\..\libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src;..\..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Class\MSC\Inc;..\..\Loader53\src</IncludePath>
+    <IncludePath>..\..\libs\common;..\..\libs\common\_VS;..\..\Loader53\src;..\..\Loader53\src\libs;..\..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Inc;..\..\libs\STM32Cube_F2\Drivers\CMSIS\Device\ST\STM32F2xx\Include;..\..\libs\STM32Cube_F2\Drivers\CMSIS\Include;..\..\libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\drivers;..\..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Core\Inc;..\..\libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src;..\..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Class\MSC\Inc</IncludePath>
     <OutDir>..\Debug\</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -296,6 +296,7 @@
     <ClInclude Include="..\..\Loader53\src\Hardware\FSMC.h" />
     <ClInclude Include="..\..\Loader53\src\Hardware\Hardware.h" />
     <ClInclude Include="..\..\Loader53\src\libs\ffconf.h" />
+    <ClInclude Include="..\..\Loader53\src\libs\interrupts.h" />
     <ClInclude Include="..\..\Loader53\src\libs\stm32f2xx_hal_conf.h" />
     <ClInclude Include="..\..\Loader53\src\libs\stm32f2xx_it.h" />
     <ClInclude Include="..\..\Loader53\src\libs\usbh_conf.h">

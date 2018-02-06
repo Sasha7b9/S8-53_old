@@ -841,6 +841,11 @@
               <FileType>8</FileType>
               <FilePath>.\src\libs\usbh_conf.cpp</FilePath>
             </File>
+            <File>
+              <FileName>interrupts.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\libs\interrupts.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

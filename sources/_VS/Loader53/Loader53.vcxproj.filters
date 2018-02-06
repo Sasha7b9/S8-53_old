@@ -332,6 +332,9 @@
     <ClInclude Include="..\..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Class\MSC\Inc\usbh_msc_scsi.h">
       <Filter>USBH</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Loader53\src\libs\interrupts.h">
+      <Filter>libs</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\Loader53\src\Display\font\font5.inc">
