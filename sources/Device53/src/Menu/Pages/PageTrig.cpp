@@ -1,4 +1,5 @@
 #include "defines.h"
+#include "PageTrig.h"
 #include "Menu/MenuItems.h"
 #include "Settings/Settings.h"
 #include "FPGA/FPGA.h"
@@ -16,7 +17,7 @@ extern const PageBase mainPage;
 extern const PageBase mpAutoFind;
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
-void OnChanged_TrigMode(bool active)
+void PageTrig::OnChanged_TrigMode(bool)
 {
     FPGA::Stop(false);
     if (!START_MODE_IS_SINGLE)
@@ -41,11 +42,11 @@ DEF_CHOICE_3(       mcMode,                                                     
     "Авто ",       "Auto",
     "Ждущий",      "Wait",
     "Однократный", "Single",
-    START_MODE, pTrig, FuncActive, OnChanged_TrigMode, FuncDraw
-);
+    START_MODE, pTrig, FuncActive, PageTrig::OnChanged_TrigMode, FuncDraw
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
-static void OnChanged_Source(bool active)
+static void OnChanged_Source(bool)
 {
     FPGA::SetTrigSource(TRIGSOURCE);
 }
@@ -58,10 +59,10 @@ DEF_CHOICE_3(       mcSource,                                                   
     "Канал 2", "Channel 2",
     "Внешний", "External",
     TRIGSOURCE, pTrig, FuncActive, OnChanged_Source, FuncDraw
-);
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
-static void OnChanged_Polarity(bool active)
+static void OnChanged_Polarity(bool)
 {
     FPGA::SetTrigPolarity(TRIG_POLARITY);
 }
@@ -78,10 +79,10 @@ DEF_CHOICE_2(       mcPolarity,                                                 
     "Фронт", "Front",
     "Срез",  "Back",
    TRIG_POLARITY, pTrig, FuncActive, OnChanged_Polarity, FuncDraw
-);
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
-static void OnChanged_Input(bool active)
+static void OnChanged_Input(bool)
 {
     FPGA::SetTrigInput(TRIG_INPUT);
 }
@@ -106,7 +107,7 @@ DEF_CHOICE_4(       mcInput,                                                    
     "ФНЧ", "LPF",
     "ФВЧ", "HPF",
     TRIG_INPUT, pTrig, FuncActive, OnChanged_Input, FuncDraw
-);
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 DEF_CHOICE_2(       mcAutoFind_Mode,                                                                                   //--- СИНХР - ПОИСК - Режим ---
@@ -125,7 +126,7 @@ DEF_CHOICE_2(       mcAutoFind_Mode,                                            
     "Ручной",         "Hand",
     "Автоматический", "Auto",
     TRIG_MODE_FIND, mpAutoFind, FuncActive, FuncChangedChoice, FuncDraw
-);
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 static bool IsActive_AutoFind_Search()
@@ -143,7 +144,7 @@ DEF_BUTTON(         mbAutoFind_Search,                                          
     "Производит поиск уровня синхронизации.",
     "Runs for search synchronization level.",
     mpAutoFind, IsActive_AutoFind_Search, OnPress_AutoFind_Search, FuncDraw
-);
+)
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -154,7 +155,7 @@ DEF_PAGE_2(         mpAutoFind,                                                 
     mcAutoFind_Mode,    // СИНХР - ПОИСК - Режим
     mbAutoFind_Search,  // СИНХР - ПОИСК - Найти
     Page_Trig_Search, &pTrig, FuncActive, EmptyPressPage
-);
+)
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -168,7 +169,7 @@ DEF_PAGE_5(         pTrig,                                                      
     mcInput,        // СИНХР - Вход
     mpAutoFind,     // СИНХР - ПОИСК
     Page_Trig, &mainPage, FuncActive, EmptyPressPage
-);
+)
 
 
 /** @}  @}

@@ -1,5 +1,6 @@
 #include "defines.h"
 #include "Log.h"
+#include "PageChannels.h"
 #include "Settings/SettingsTypes.h"
 #include "Menu/MenuItems.h"
 #include "Panel/Panel.h"
@@ -46,7 +47,7 @@ static const char chanMultiplierEn[] = "Attenuation: \n\"x1\" - the signal is no
 
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
-void OnChanged_InputA(bool active)
+void PageChannels::OnChanged_InputA(bool)
 {
     Panel::EnableLEDChannelA(sChannel_Enabled(A));
 }
@@ -57,11 +58,11 @@ DEF_CHOICE_2(       mcInputA,                                                   
     chanInputEn,
     DISABLE_RU, DISABLE_EN,
     ENABLE_RU,  ENABLE_EN,
-    SET_ENABLED_A, pChanA, FuncActive, OnChanged_InputA, FuncDraw
-);
+    SET_ENABLED_A, pChanA, FuncActive, PageChannels::OnChanged_InputA, FuncDraw
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
-void OnChanged_ChanA_Couple(bool active)
+void PageChannels::OnChanged_CoupleA(bool)
 {
     FPGA::SetModeCouple(A, SET_COUPLE_A);
 }
@@ -73,11 +74,11 @@ DEF_CHOICE_3(       mcCoupleA,                                                  
     "Пост",  "AC",
     "Перем", "DC",
     "Земля", "Ground",
-    SET_COUPLE_A, pChanA, FuncActive, OnChanged_ChanA_Couple, FuncDraw
-);
+    SET_COUPLE_A, pChanA, FuncActive, PageChannels::OnChanged_CoupleA, FuncDraw
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
-void OnChanged_FiltrA(bool active)
+void PageChannels::OnChanged_FiltrA(bool)
 {
     FPGA::EnableChannelFiltr(A, FILTR_A);
 }
@@ -88,11 +89,11 @@ DEF_CHOICE_2(       mcFiltrA,                                                   
     chanFiltrEn,
     DISABLE_RU, DISABLE_EN,
     ENABLE_RU,  ENABLE_EN,
-    FILTR_A, pChanA, FuncActive, OnChanged_FiltrA, FuncDraw
-);
+    FILTR_A, pChanA, FuncActive, PageChannels::OnChanged_FiltrA, FuncDraw
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
-static void OnChanged_InverseA(bool active)
+static void OnChanged_InverseA(bool)
 {
     FPGA::SetRShift(A, SET_RSHIFT_A);
 }
@@ -104,7 +105,7 @@ DEF_CHOICE_2(       mcInverseA,                                                 
     DISABLE_RU, DISABLE_EN,
     ENABLE_RU,  ENABLE_EN,
     SET_INVERSE_A, pChanA, FuncActive, OnChanged_InverseA, FuncDraw
-);
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 DEF_CHOICE_2(       mcMultiplierA,                                                                                       //--- КАНАЛ 1 - Множитель ---
@@ -114,7 +115,7 @@ DEF_CHOICE_2(       mcMultiplierA,                                              
     "х1",  "x1",
     "x10", "x10",
     SET_DIVIDER(A), pChanA, FuncActive, FuncChangedChoice, FuncDraw
-);
+)
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 DEF_PAGE_5(         pChanA,                                                                                                             // КАНАЛ 1 ///
@@ -127,10 +128,10 @@ DEF_PAGE_5(         pChanA,                                                     
     mcInverseA,     // КАНАЛ 1 - Инверсия
     mcMultiplierA,  // КАНАЛ 1 - Множитель
     Page_ChannelA, &mainPage, FuncActive, EmptyPressPage
-);
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
-void OnChanged_InputB(bool active)
+void PageChannels::OnChanged_InputB(bool)
 {
     Panel::EnableLEDChannelB(sChannel_Enabled(B));
 }
@@ -141,11 +142,11 @@ DEF_CHOICE_2(       mcInputB,                                                   
     chanInputEn,
     DISABLE_RU, DISABLE_EN,
     ENABLE_RU,  ENABLE_EN,
-    SET_ENABLED_B, pChanB, FuncActive, OnChanged_InputB, FuncDraw
-);
+    SET_ENABLED_B, pChanB, FuncActive, PageChannels::OnChanged_InputB, FuncDraw
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
-void OnChanged_ChanB_Couple(bool active)
+void PageChannels::OnChanged_CoupleB(bool)
 {
     FPGA::SetModeCouple(B, SET_COUPLE_B);
 }
@@ -157,11 +158,11 @@ DEF_CHOICE_3(       mcCoupleB,                                                  
     "Пост",  "AC",
     "Перем", "DC",
     "Земля", "Ground",
-    SET_COUPLE_B, pChanB, FuncActive, OnChanged_ChanB_Couple, FuncDraw
-);
+    SET_COUPLE_B, pChanB, FuncActive, PageChannels::OnChanged_CoupleB, FuncDraw
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
-void OnChanged_FiltrB(bool active)
+void PageChannels::OnChanged_FiltrB(bool)
 {
     FPGA::EnableChannelFiltr(B, FILTR_B);
 }
@@ -172,11 +173,11 @@ DEF_CHOICE_2(       mcFiltrB,                                                   
     chanFiltrEn,
     DISABLE_RU, DISABLE_EN,
     ENABLE_RU,  ENABLE_EN,
-    FILTR_B, pChanB, FuncActive, OnChanged_FiltrB, FuncDraw
-);
+    FILTR_B, pChanB, FuncActive, PageChannels::OnChanged_FiltrB, FuncDraw
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
-static void OnChanged_InverseB(bool active)
+static void OnChanged_InverseB(bool)
 {
     FPGA::SetRShift(B, SET_RSHIFT_B);
 }
@@ -188,7 +189,7 @@ DEF_CHOICE_2(       mcInverseB,                                                 
     DISABLE_RU, DISABLE_EN,
     ENABLE_RU,  ENABLE_EN,
     SET_INVERSE_B, pChanB, FuncActive, OnChanged_InverseB, FuncDraw
-);
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 DEF_CHOICE_2(       mcMultiplierB,                                                                                       //--- КАНАЛ 2 - Множитель ---
@@ -198,7 +199,7 @@ DEF_CHOICE_2(       mcMultiplierB,                                              
     "х1",  "x1",
     "x10", "x10",
     SET_DIVIDER(B), pChanB, FuncActive, FuncChangedChoice, FuncDraw
-);
+)
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -212,7 +213,7 @@ DEF_PAGE_5(         pChanB,                                                     
     mcInverseB,     // КАНАЛ 2 - Инверсия
     mcMultiplierB,  // КАНАЛ 2 - Множитель
     Page_ChannelB, &mainPage, FuncActive, EmptyPressPage
-);
+)
 
 
 /** @}  @}

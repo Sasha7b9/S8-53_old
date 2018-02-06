@@ -9,14 +9,13 @@
 #include "Menu/Pages/PageCursors.h"
 #include "Menu/Pages/PageDisplay.h"
 #include "Menu/Pages/PageMemory.h"
+#include "Menu/Pages/PageChannels.h"
 #include "Panel/Panel.h"
 #include "Utils/Math.h"
 #include "stub.h"
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-extern void OnChanged_InputA(bool active);
-extern void OnChanged_InputB(bool active);
 extern void Long_Help();
 extern const PageBase * const pointerPageHelp;
 
@@ -50,7 +49,7 @@ void Menu::UpdateInput()
         funcAterUpdate();
         funcAterUpdate = 0;
     }
-};
+}
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 void Menu::ShortPressureButton(PanelButton button)
@@ -64,7 +63,7 @@ void Menu::ShortPressureButton(PanelButton button)
 
         shortPressureButton = button;
     }
-};
+}
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 void Menu::LongPressureButton(PanelButton button)
@@ -74,7 +73,7 @@ void Menu::LongPressureButton(PanelButton button)
         longPressureButton = button;
         NEED_FINISH_DRAW = 1;
     }
-};
+}
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 void Menu::ProcessButtonForHint(PanelButton button)
@@ -94,13 +93,8 @@ void Menu::ProcessButtonForHint(PanelButton button)
         "ÌÅÍÞ button performs the following functions:\n"
             "1. At the closed menu pressing or pressing with deduction during 0.5s opens the Menu::\n"
             "2. At the open menu deduction of the button during 0.5s closes the Menu::\n"
-//#ifndef _WIN32
-//#pragma push
-//#pragma diag_suppress 192
-            "3. At control \"SERVICE\x99Mode btn MENU\x99\Close\" current becomes the page of the previous level of the Menu:: If the root page is "
+            "3. At control \"SERVICE\x99Mode btn MENU\x99\x43lose\" current becomes the page of the previous level of the Menu:: If the root page is "
             "current, the menu is closed.\n"
-//#pragma pop
-//#endif
             "4. At control \"SERVICE\x99Mode btn MENU\x99Toggle\" current becomes the page of the current level of the Menu:: If the current page the "
             "last in the current level, happens transition to the previous level of the Menu::\n"
             "5. If the menu is in the mode of small buttons, pressing closes the page.";
@@ -195,13 +189,8 @@ void Menu::ProcessButtonForHint(PanelButton button)
             "ñèíõðîíèçàöèè 0Â."
             :
             "1. ÑÈÍÕÐ button opens a menu settings synchronization.\n"
-//#ifndef _WIN32
-//#pragma push
-//#pragma diag_suppress 192
-            "2. Pressing and holding the button ÑÈÍÕÐ for 0.5s when setting \"SERVICE\x99Mode long TRIG\x99\Autolevel\" automatically adjust the "
+            "2. Pressing and holding the button ÑÈÍÕÐ for 0.5s when setting \"SERVICE\x99Mode long TRIG\x99\x41utolevel\" automatically adjust the "
             "trigger level.\n"
-//#pragma pop
-//#endif
             "3. Pressing and holding the button ÑÈÍÕÐ for 0.5s when setting \"SERVICE\x99Mode long TRIG\x99SReset trig level\" sets the trigger "
             "level 0V.";
     }
@@ -236,7 +225,7 @@ void Menu::PressButton(PanelButton button)
         }
     }
     pressButton = button;
-};
+}
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 void Menu::ReleaseButton(PanelButton button)
@@ -246,7 +235,7 @@ void Menu::ReleaseButton(PanelButton button)
     {
         releaseButton = button;
     }
-};
+}
 
 //---------------------------------------------------------------------------------------------------------------------------------------------------
 void Menu::PressReg(PanelRegulator reg)
@@ -265,7 +254,7 @@ void Menu::RotateRegSetRight()
         angleRegSet++;
         NEED_FINISH_DRAW = 1;
     }
-};
+}
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 void Menu::RotateRegSetLeft()
@@ -275,7 +264,7 @@ void Menu::RotateRegSetLeft()
         angleRegSet--;
         NEED_FINISH_DRAW = 1;
     }
-};
+}
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 void Menu::SetAutoHide(bool)
@@ -389,13 +378,13 @@ void Menu::ProcessingShortPressureButton()
                 if(button == B_ChannelA && name == Page_ChannelA && MENU_IS_SHOWN)
                 {
                     SET_ENABLED_A = !SET_ENABLED_A;
-                    OnChanged_InputA(true);
+                    PageChannels::OnChanged_InputA(true);
                     break;
                 }
                 if(button == B_ChannelB && name == Page_ChannelB && MENU_IS_SHOWN)
                 {
                     SET_ENABLED_B = !SET_ENABLED_B;
-                    OnChanged_InputB(true);
+                    PageChannels::OnChanged_InputB(true);
                     break;
                 }
 
@@ -563,7 +552,7 @@ void Menu::ProcessingPressButton()
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 void Menu::ProcessingReleaseButton()
 {
-    if(releaseButton >= B_F1 && releaseButton <= B_F5 || pressButton == B_Menu)
+    if((releaseButton >= B_F1 && releaseButton <= B_F5) || pressButton == B_Menu)
     {
         itemUnderKey = 0;
         releaseButton = B_Empty;

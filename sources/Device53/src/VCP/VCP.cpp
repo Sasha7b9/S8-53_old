@@ -5,6 +5,7 @@
 #include "usbd_desc.h"
 #include "usbd_cdc_interface.h"
 #include "Hardware/Timer.h"
+#include "libs/stm32f2xx_it.h"
 #include <usbd_cdc.h>
 #include <usbd_def.h>
 #include <stdarg.h>
@@ -13,8 +14,8 @@
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-USBD_HandleTypeDef handleUSBD;
-PCD_HandleTypeDef handlePCD;
+USBD_HandleTypeDef VCP::handleUSBD;
+PCD_HandleTypeDef  VCP::handlePCD;
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -27,7 +28,7 @@ void VCP::Init()
 } 
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
-static bool PrevSendingComplete()
+bool VCP::PrevSendingComplete()
 {
     USBD_CDC_HandleTypeDef *pCDC = (USBD_CDC_HandleTypeDef *)handleUSBD.pClassData;
     return pCDC->TxState == 0;
@@ -41,9 +42,9 @@ void VCP::SendDataAsinch(uint8 *buffer, int size)
 
     size = Math::MinFrom2Int(size, SIZE_BUFFER);
     while (!PrevSendingComplete())  {};
-    memcpy(trBuf, buffer, size);
+    memcpy(trBuf, buffer, (size_t)size);
 
-    USBD_CDC_SetTxBuffer(&handleUSBD, trBuf, size);
+    USBD_CDC_SetTxBuffer(&handleUSBD, trBuf, (uint16)size);
     USBD_CDC_TransmitPacket(&handleUSBD);
 }
 
@@ -58,7 +59,7 @@ void VCP::Flush()
     {
         USBD_CDC_HandleTypeDef *pCDC = (USBD_CDC_HandleTypeDef *)handleUSBD.pClassData;
         while (pCDC->TxState == 1) {};
-        USBD_CDC_SetTxBuffer(&handleUSBD, buffSend, sizeBuffer);
+        USBD_CDC_SetTxBuffer(&handleUSBD, buffSend, (uint16)sizeBuffer);
         USBD_CDC_TransmitPacket(&handleUSBD);
         while (pCDC->TxState == 1) {};
     }
@@ -81,7 +82,7 @@ void VCP::SendDataSynch(const uint8 *buffer, int size)
             int reqBytes = SIZE_BUFFER_VCP - sizeBuffer;
             Limitation<int>(&reqBytes, 0, size);
             while (pCDC->TxState == 1) {};
-            memcpy(buffSend + sizeBuffer, buffer, reqBytes);
+            memcpy(buffSend + sizeBuffer, buffer, (size_t)reqBytes);
             USBD_CDC_SetTxBuffer(&handleUSBD, buffSend, SIZE_BUFFER_VCP);
             USBD_CDC_TransmitPacket(&handleUSBD);
             size -= reqBytes;
@@ -90,26 +91,28 @@ void VCP::SendDataSynch(const uint8 *buffer, int size)
         }
         else
         {
-            memcpy(buffSend + sizeBuffer, buffer, size);
+            memcpy(buffSend + sizeBuffer, buffer, (size_t)size);
             sizeBuffer += size;
             size = 0;
         }
     } while (size);
 }
 
-void SendData(const uint8 *buffer, int size)
+/*
+void SendData(const uint8 *, int)
 {
 
 }
+*/
 
 void VCP::SendStringAsinch(char *data)
 {
-    SendDataAsinch((uint8*)data, strlen(data));
+    SendDataAsinch((uint8*)data, (int)strlen(data));
 }
 
 void VCP::SendStringSynch(char *data)
 {
-    SendDataSynch((uint8*)data, strlen(data));
+    SendDataSynch((uint8*)data, (int)strlen(data));
 }
 
 void VCP::SendFormatStringAsynch(char *format, ...)
@@ -121,7 +124,7 @@ void VCP::SendFormatStringAsynch(char *format, ...)
     vsprintf(buffer, format, args);
     va_end(args);
     strcat(buffer, "\n");
-    SendDataAsinch((uint8*)buffer, strlen(buffer));
+    SendDataAsinch((uint8*)buffer, (int)strlen(buffer));
 }
 
 void VCP::SendFormatStringSynch(char *format, ...) {
@@ -132,7 +135,7 @@ void VCP::SendFormatStringSynch(char *format, ...) {
     vsprintf(buffer, format, args);
     va_end(args);
     strcat(buffer, "\n");
-    SendDataSynch((uint8*)buffer, strlen(buffer));
+    SendDataSynch((uint8*)buffer, (int)strlen(buffer));
 }
 
 void VCP::SendByte(uint8 byte)
@@ -146,7 +149,7 @@ extern "C" {
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 void OTG_FS_IRQHandler() {
-    HAL_PCD_IRQHandler(&handlePCD);
+    HAL_PCD_IRQHandler(&VCP::handlePCD);
 }
 
 #ifdef __cplusplus

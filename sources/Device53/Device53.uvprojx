@@ -1351,6 +1351,21 @@
               <FileType>5</FileType>
               <FilePath>..\libs\common\Menu\Pages\Definition.h</FilePath>
             </File>
+            <File>
+              <FileName>PageChannels.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\Menu\Pages\PageChannels.h</FilePath>
+            </File>
+            <File>
+              <FileName>PageTrig.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\Menu\Pages\PageTrig.h</FilePath>
+            </File>
+            <File>
+              <FileName>PageDebug.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\Menu\Pages\PageDebug.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

@@ -17,4 +17,10 @@ public:
     static void SendByte(uint8 data);
     static void Flush();
     static void SendStringAsinch(char *data);
+
+    static USBD_HandleTypeDef handleUSBD;
+    static PCD_HandleTypeDef handlePCD;
+
+private:
+    static bool PrevSendingComplete();
 };

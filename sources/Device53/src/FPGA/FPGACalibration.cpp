@@ -5,6 +5,7 @@
 #include "Display/DisplayPrimitives.h"
 #include "Display/Colors.h"
 #include "Display/Painter.h"
+#include "Menu/Pages/PageDebug.h"
 #include "Panel/Panel.h"
 #include "Hardware/FSMC.h"
 #include "Settings/SettingsTypes.h"
@@ -47,8 +48,6 @@ static uint startTimeChan0 = 0;                     // Время начала калибровки п
 static uint startTimeChan1 = 0;                     // Время начала калибровки второго канала.
 
 static float koeffCalibrationOld[2];
-
-extern void LoadStretchADC(Channel chan);
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 static void OnTimerDraw()
@@ -116,7 +115,7 @@ void FPGA::ProcedureCalibration()
 				gStateFPGA.stateCalibration = StateCalibration_ErrorCalibration0;
 				Panel::WaitPressingButton();
                 DEBUG_STRETCH_ADC_TYPE = StretchADC_Hand;
-                LoadStretchADC(A);
+                PageDebug::LoadStretchADC(A);
             }
             else
             {
@@ -153,7 +152,7 @@ void FPGA::ProcedureCalibration()
 				gStateFPGA.stateCalibration = StateCalibration_ErrorCalibration1;
 				Panel::WaitPressingButton();
                 DEBUG_STRETCH_ADC_TYPE = StretchADC_Hand;
-                LoadStretchADC(B);
+                PageDebug::LoadStretchADC(B);
 			}
             else
             {
@@ -192,8 +191,8 @@ void FPGA::ProcedureCalibration()
 
     SET_BALANCE_ADC_A = shiftADC0;
     SET_BALANCE_ADC_B = shiftADC1;
-    FSMC::Write(WR_ADD_RSHIFT_DAC1, SET_BALANCE_ADC_A);
-    FSMC::Write(WR_ADD_RSHIFT_DAC2, SET_BALANCE_ADC_B);
+    FSMC::Write(WR_ADD_RSHIFT_DAC1, (uint8)SET_BALANCE_ADC_A);
+    FSMC::Write(WR_ADD_RSHIFT_DAC2, (uint8)SET_BALANCE_ADC_B);
 
     FPGA::SetRShift(A, SET_RSHIFT_A);
     FPGA::SetRShift(B, SET_RSHIFT_B);

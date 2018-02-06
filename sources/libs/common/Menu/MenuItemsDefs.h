@@ -14,7 +14,7 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #define DEF_BUTTON(name, titleRU, titleEN, hintRU, hintEN, keeper, funcActive, funcPress, funcDraw)                             \
 static const ButtonBase name = { Item_Button, 0, false, Page_NoPage, &keeper, funcActive, {titleRU, titleEN, hintRU, hintEN},   \
-    funcPress, funcDraw };\
+    funcPress, funcDraw };
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #define DEF_TIME(name, titleRU, titleEN, hintRU, hintEN, keeper, funcActive, cur, h, mi, s, mo, d, y)                           \
@@ -144,24 +144,24 @@ const PageBase name = {Item_Page, 15, false, namePage, keeper, funcActive, {titl
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #define DEF_SMALL_BUTTON(name, titleRU, titleEN, hintRU, hintEN, keeper, funcActive, funcPress, funcDraw)                                   \
 static const SButtonBase name = { Item_SmallButton, 0, false, Page_NoPage, &keeper, funcActive, {titleRU, titleEN, hintRU, hintEN},         \
-    funcPress, funcDraw, 0, 0}
+    funcPress, funcDraw, 0, 0};
 
 #define DEF_SMALL_BUTTON_EXIT(name, keeper, funcActive, funcPress, funcDraw)                                                                \
 static const SButtonBase name = { Item_SmallButton, 0, false, Page_NoPage, &keeper, funcActive, {"Выход", "Exit",                           \
-    "Кнопка для выхода в предыдущее меню", "Button to return to the previous menu"}, funcPress, funcDraw, 0, 0}
+    "Кнопка для выхода в предыдущее меню", "Button to return to the previous menu"}, funcPress, funcDraw, 0, 0};
 
 #define DEF_SMALL_BUTTON_HINTS_2(name, titleRU, titleEN, hintRU, hintEN, keeper, funcActive, funcPress, funcDraw,                           \
     FuncDrawHint1, hintRu1, hintEn1, FuncDrawHint2, hintRu2, hintEn2)                                                                       \
 static const StructHelpSmallButton hints##name[] = {{ FuncDrawHint1, hintRu1, hintEn1 }, { FuncDrawHint2, hintRu2, hintEn2 }};              \
 static const SButtonBase name = { Item_SmallButton, 0, false, Page_NoPage, &keeper, funcActive, {titleRU, titleEN, hintRU, hintEN},         \
-    funcPress, funcDraw, hints##name, 2}
+    funcPress, funcDraw, hints##name, 2};
 
 #define DEF_SMALL_BUTTON_HINTS_3(name, titleRU, titleEN, hintRU, hintEN, keeper, funcActive, funcPress, funcDraw,                           \
     FuncDrawHint1, hintRu1, hintEn1, FuncDrawHint2, hintRu2, hintEn2, FuncDrawHint3, hintRu3, hintEn3)                                      \
 static const StructHelpSmallButton hints##name[] = {{ FuncDrawHint1, hintRu1, hintEn1 }, { FuncDrawHint2, hintRu2, hintEn2 },               \
     { FuncDrawHint3, hintRu3, hintEn3 } };                                                                                                  \
 static const SButtonBase name = { Item_SmallButton, 0, false, Page_NoPage, &keeper, funcActive, {titleRU, titleEN, hintRU, hintEN},         \
-    funcPress, funcDraw, hints##name, 3}
+    funcPress, funcDraw, hints##name, 3};
 
 #define DEF_SMALL_BUTTON_HINTS_5(name, titleRU, titleEN, hintRU, hintEN, keeper, funcActive, funcPress, funcDraw,                           \
     FuncDrawHint1, hintRu1, hintEn1, FuncDrawHint2, hintRu2, hintEn2, FuncDrawHint3, hintRu3, hintEn3,                                      \
@@ -169,7 +169,7 @@ static const SButtonBase name = { Item_SmallButton, 0, false, Page_NoPage, &keep
 static const StructHelpSmallButton hints##name[] = {{ FuncDrawHint1, hintRu1, hintEn1 }, { FuncDrawHint2, hintRu2, hintEn2 },               \
     { FuncDrawHint3, hintRu3, hintEn3 }, { FuncDrawHint4, hintRu4, hintEn4 }, { FuncDrawHint5, hintRu5, hintEn5 } };                        \
 static const SButtonBase name = { Item_SmallButton, 0, false, Page_NoPage, &keeper, funcActive, {titleRU, titleEN, hintRU, hintEN},         \
-    funcPress, funcDraw, hints##name, 5}
+    funcPress, funcDraw, hints##name, 5};
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

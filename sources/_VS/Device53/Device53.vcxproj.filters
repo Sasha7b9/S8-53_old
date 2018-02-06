@@ -941,6 +941,15 @@
     <ClInclude Include="..\..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Class\MSC\Inc\usbh_msc_scsi.h">
       <Filter>USBH</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Device53\src\Menu\Pages\PageChannels.h">
+      <Filter>Menu\Pages</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Device53\src\Menu\Pages\PageTrig.h">
+      <Filter>Menu\Pages</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Device53\src\Menu\Pages\PageDebug.h">
+      <Filter>Menu\Pages</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\Device53\src\libs\startup_stm32f207xx.s">
