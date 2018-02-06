@@ -50,6 +50,7 @@
 
 #pragma clang diagnostic ignored "-Wmissing-variable-declarations"
 #pragma clang diagnostic ignored "-Wunused-parameter"
+#pragma clang diagnostic ignored "-Wcast-qual"
 
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
@@ -321,6 +322,7 @@ DRESULT USBH_ioctl(BYTE lun, BYTE cmd, void *buff)
 
 #pragma clang diagnostic warning "-Wmissing-variable-declarations"
 #pragma clang diagnostic warning "-Wunused-parameter"
+#pragma clang diagnostic warning "-Wcast-qual"
 
 #endif /* _USE_IOCTL == 1 */
 
