@@ -151,4 +151,8 @@ private:
     static bool AccurateFindParams(Channel chan);
 
     static bool FindWave(Channel chan);
+    
+    static TBase CalculateTBase(float freq);
+    
+    static void StopTemporaryPause();
 };

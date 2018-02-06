@@ -13,9 +13,10 @@
 #include <stdio.h>
 #include <string.h>
 #include "PanelFunctions.cpp"
+#include "libs/stm32f2xx_it.h"
 
 
-Panel panel;
+//Panel panel;
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -86,24 +87,24 @@ static void (*funcOnKeyUp[B_NumButtons])()    =
 static void (*funcOnLongPressure[B_NumButtons])()    =
 {
     0,
-    ChannelALong,   // B_ChannelA
-    EmptyFuncVV,    // B_Service
-    ChannelBLong,   // B_ChannelB
-    EmptyFuncVV,    // B_Display
-    TimeLong,       // B_Time
-    EmptyFuncVV,    // B_Memory
-    TrigLong,       // B_Sinchro
-    EmptyFuncVV,    // B_Start
-    EmptyFuncVV,    // B_Cursors
-    EmptyFuncVV,    // B_Measures
-    EmptyFuncVV,    // B_Power
-    Long_Help,       // B_Help
-    MenuLong,       // B_Menu
-    F1Long,         // B_F1
-    F2Long,         // B_F2
-    F3Long,         // B_F3
-    F4Long,         // B_F4
-    F5Long          // B_F5
+    ChannelALong,       // B_ChannelA
+    EmptyFuncVV,        // B_Service
+    ChannelBLong,       // B_ChannelB
+    EmptyFuncVV,        // B_Display
+    TimeLong,           // B_Time
+    EmptyFuncVV,        // B_Memory
+    TrigLong,           // B_Sinchro
+    EmptyFuncVV,        // B_Start
+    EmptyFuncVV,        // B_Cursors
+    EmptyFuncVV,        // B_Measures
+    EmptyFuncVV,        // B_Power
+    Panel::Long_Help,   // B_Help
+    MenuLong,           // B_Menu
+    F1Long,             // B_F1
+    F2Long,             // B_F2
+    F3Long,             // B_F3
+    F4Long,             // B_F4
+    F5Long              // B_F5
 };
 
 static void (*funculatorLeft[R_Set + 1])()    =
@@ -133,7 +134,7 @@ static void (*funculatorRight[R_Set + 1])() =
 
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
-PanelButton ButtonIsRelease(uint16 command)
+static PanelButton ButtonIsRelease(uint16 command)
 {
     PanelButton button = B_Empty;
     if(command < B_NumButtons && command > B_Empty)
@@ -147,7 +148,7 @@ PanelButton ButtonIsRelease(uint16 command)
     return button;
 }
 
-PanelButton ButtonIsPress(uint16 command)
+static PanelButton ButtonIsPress(uint16 command)
 {
     PanelButton button = B_Empty;
     if (((command & 0x7f) < B_NumButtons) && ((command & 0x7f) > B_Empty))
@@ -161,7 +162,7 @@ PanelButton ButtonIsPress(uint16 command)
     return button;
 }
 
-PanelRegulator RegulatorLeft(uint16 command)
+static PanelRegulator RegulatorLeft(uint16 command)
 {
     if(command >= 20 && command <= 27)
     {
@@ -170,7 +171,7 @@ PanelRegulator RegulatorLeft(uint16 command)
     return R_Empty;
 }
 
-PanelRegulator RegulatorRight(uint16 command)
+static PanelRegulator RegulatorRight(uint16 command)
 {
     if(((command & 0x7f) >= 20) && ((command & 0x7f) <= 27))
     {
@@ -179,7 +180,7 @@ PanelRegulator RegulatorRight(uint16 command)
     return R_Empty;
 }
 
-void OnTimerPressedKey()
+static void OnTimerPressedKey()
 {
     if(pressedKey != B_Empty)
     {
@@ -268,7 +269,7 @@ bool Panel::ProcessingCommandFromPIC(uint16 command)
             float percent = (float)errRecData / allRecData * 100.0f;
             char buffer[100];
             buffer[0] = 0;
-            sprintf(buffer, "%5.3f", percent);
+            sprintf(buffer, "%5.3f", (double)percent);
             strcat(buffer, "%");
             LOG_ERROR("Ошибок SPI - %s %d/%d, command = %d", buffer, errRecData, allRecData, (int)command);
         }
@@ -391,13 +392,18 @@ void Panel::Init()
     HAL_NVIC_EnableIRQ(SPI1_IRQn);
     
     // Теперь настроим программный NSS (PG0).
+    
+#pragma clang diagnostic ignored "-Wmissing-field-initializers"
 
     GPIO_InitTypeDef isGPIOG =
     {
         GPIO_PIN_0,                 // GPIO_Pin
         GPIO_MODE_IT_RISING,        // GPIO_Mode
         GPIO_NOPULL
-    };      
+    };
+    
+#pragma clang diagnostic warning "-Wmissing-field-initializers"
+    
     HAL_GPIO_Init(GPIOG, &isGPIOG);
 
     HAL_NVIC_SetPriority(EXTI0_IRQn, 3, 0);
@@ -436,12 +442,12 @@ void HAL_GPIO_EXTI_Callback(uint16_t pin)
 }
 
 
-void HAL_SPI_RxCpltCallback(SPI_HandleTypeDef* handleSPI)
+void HAL_SPI_RxCpltCallback(SPI_HandleTypeDef* handle)
 {
     if (!Panel::ProcessingCommandFromPIC(dataSPIfromPanel))
     {
-        HAL_SPI_DeInit(handleSPI);
-        HAL_SPI_Init(handleSPI);
+        HAL_SPI_DeInit(handle);
+        HAL_SPI_Init(handle);
     }
     uint16 data = Panel::NextData();
     SPI1->DR = data;

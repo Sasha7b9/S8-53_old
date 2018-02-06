@@ -39,7 +39,7 @@ static const MACaddressBase name = {Item_MAC, 0, false, Page_NoPage, &keeper, fu
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #define DEF_GOVERNOR_COLOR(name, titleRU, titleEN, hintRU, hintEN, colorType, keeper)                                           \
 static const GovernorColorBase name = {Item_GovernorColor, 0, false, Page_NoPage, &keeper, FuncActive,                          \
-    {titleRU, titleEN, hintRU, hintEN}, &colorType};
+    {titleRU, titleEN, hintRU, hintEN}, &colorType, 0};
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #define DEF_PAGE_SB(name, titleRU, titleEN, hintRU, hintEN, item0, item1, item2, item3, item4, item5,                                           \

@@ -15,6 +15,9 @@ typedef enum
 typedef struct  
 {
     TypePageHelp    type;
+    uint8           notUsed0;
+    uint8           notUsed1;
+    uint8           notUsed2;
     void*           parent;             ///< Адрес родительской страницы
     pFuncBV         funcNotUsed;        ///< Оставлено для совместимости с типом Page - нужно для отрисовки.
     char*           titleHint[4];       ///< Название страницы на русском и английском языках, а затем содержимое на русском и английском (для случая TypePage_Description)
@@ -28,7 +31,7 @@ extern const PageHelp helpMenu;
 
 static const PageHelp helpMenuCommon =
 {
-    TypePage_Description, (void*)&helpMenu, 0,
+    TypePage_Description, 0, 0, 0, (void*)&helpMenu, 0,
     {
         "Общее описание принципов меню", "General description of the principles of the menu"
         ,
@@ -49,17 +52,23 @@ static const PageHelp helpMenuCommon =
         "В каждом элементе главной страницы собраны настройки соответствующей категории"
         ,
         ""
+    },
+    {
+        0
     }
 };
 
 static const PageHelp helpMenuControls =
 {
-    TypePage_Description, (void*)&helpMenu, 0,
+    TypePage_Description, 0, 0, 0, (void*)&helpMenu, 0,
     {
         "Описание органов управлениея", "Description of the controls"
         ,
         "",
         ""
+    },
+    {
+        0
     }
 };
 
@@ -67,17 +76,20 @@ extern const PageHelp helpMain;
 
 static const PageHelp helpSCPI =
 {
-    TypePage_Description, (void*)&helpMain, 0,
+    TypePage_Description, 0, 0, 0, (void*)&helpMain, 0,
     {
         "Работа с SCPI", "Working with SCPI",
         "",
         ""
+    },
+    {
+        0
     }
 };
 
 const PageHelp helpMenu =
 {
-    TypePage_Content, (void*)&helpMain, 0,
+    TypePage_Content, 0, 0, 0, (void*)&helpMain, 0,
     {
         "Работа с меню", "Working with menus",
         "",
@@ -91,7 +103,7 @@ const PageHelp helpMenu =
 
 const PageHelp helpMain =
 {
-    TypePage_Content,  0, 0,
+    TypePage_Content, 0, 0, 0, 0, 0,
     {
         "ПОМОЩЬ", "HELP",
         "",

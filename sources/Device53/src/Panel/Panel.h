@@ -29,4 +29,6 @@ public:
     static uint16 NextData();
 
     static bool IsFunctionalButton(PanelButton button);
+
+    static void Long_Help();
 };

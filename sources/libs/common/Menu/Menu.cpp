@@ -17,10 +17,6 @@
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-extern void Long_Help();
-//extern const PageBase * const pointerPageHelp;
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
       PanelButton Menu::shortPressureButton = B_Empty;
       PanelButton Menu::longPressureButton = B_Empty;
       PanelButton Menu::pressButton = B_Empty;
@@ -341,7 +337,7 @@ void Menu::ProcessingShortPressureButton()
         {
             if (button == B_Help)
             {
-                Long_Help();
+                Panel::Long_Help();
             }
             else if(button == B_Menu)                                   // Если нажата кнопка МЕНЮ и мы не находимся в режме настройки измерений.
             {

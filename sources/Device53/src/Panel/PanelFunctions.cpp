@@ -17,29 +17,29 @@ static const uint MIN_TIME = 500;
 static void ChangeRShift(int *prevTime, void(*f)(Channel, int16), Channel chan, int16 relStep);
 
 
-void Long_Help()
+void Panel::Long_Help()
 {
     gBF.showHelpHints++;
     gStringForHint = 0;
     gItemHint = 0;
 }
 
-void ChannelALong()
+static void ChannelALong()
 {
     Menu::LongPressureButton(B_ChannelA);
 }
 
-void ChannelBLong()
+static void ChannelBLong()
 {
     Menu::LongPressureButton(B_ChannelB);
 }
 
-void TimeLong()
+static void TimeLong()
 {
     Menu::LongPressureButton(B_Time);
 }
 
-void TrigLong()
+static void TrigLong()
 {
     if (MODE_LONG_PRESS_TRIG_IS_LEVEL0)
     {
@@ -51,7 +51,7 @@ void TrigLong()
     }
 }
 
-void StartDown()                        // B_Start
+static void StartDown()                        // B_Start
 {
     if (MODE_WORK_IS_DIR)
     {
@@ -59,48 +59,48 @@ void StartDown()                        // B_Start
     }
 }
 
-void PowerDown()                        // B_Power
+static void PowerDown()                        // B_Power
 {
     Settings::Save();
     Panel::TransmitData(0x04);           // Посылаем команду выключения
 }
 
-void MenuLong() 
+static void MenuLong() 
 {
     Menu::LongPressureButton(B_Menu);
 }
 
-void F1Long()
+static void F1Long()
 {
     Menu::LongPressureButton(B_F1);
 }
 
-void F2Long()
+static void F2Long()
 {
     Menu::LongPressureButton(B_F2);
 }
 
-void F3Long()
+static void F3Long()
 {
     Menu::LongPressureButton(B_F3);
 }
 
-void F4Long()
+static void F4Long()
 {
     Menu::LongPressureButton(B_F4);
 }
 
-void F5Long()
+static void F5Long()
 {
     Menu::LongPressureButton(B_F5);
 }
 
 //****************************************************************************************************************
-int CalculateCount(int *prevTime)
+static int CalculateCount(int *prevTime)
 {
     uint time = gTimeMS;
-    uint delta = time - *prevTime;
-    *prevTime = time;
+    uint delta = time - (uint)(*prevTime);
+    *prevTime = (int)time;
 
     if (delta > 75)
     {
@@ -117,7 +117,7 @@ int CalculateCount(int *prevTime)
     return 4;
 }
 
-bool CanChangeTShift(int16 tShift)
+static bool CanChangeTShift(int16 tShift)
 {
     static uint time = 0;
     if (tShift == 0)
@@ -137,7 +137,7 @@ bool CanChangeTShift(int16 tShift)
     return false;
 }
 
-bool CanChangeRShiftOrTrigLev(TrigSource channel, int16 rShift)
+static bool CanChangeRShiftOrTrigLev(TrigSource channel, int16 rShift)
 {
     static uint time[3] = {0, 0, 0};
     if (rShift == RShiftZero)
@@ -170,14 +170,14 @@ void ChangeRShift(int *prevTime, void(*f)(Channel, int16), Channel chan, int16 r
     {
         rShift = RShiftZero;
     }
-    if (CanChangeRShiftOrTrigLev((TrigSource)chan, rShift))
+    if (CanChangeRShiftOrTrigLev((TrigSource)chan, (int16)rShift))
     {
         Sound::RegulatorShiftRotate();
-        f(chan, rShift);
+        f(chan, (int16)rShift);
     }
 }
 
-void ChangeTrigLev(int *prevTime, void(*f)(TrigSource, int16), TrigSource trigSource, int16 relStep)
+static void ChangeTrigLev(int *prevTime, void(*f)(TrigSource, int16), TrigSource trigSource, int16 relStep)
 {
     int count = CalculateCount(prevTime);
     int trigLevOld = SET_TRIGLEV(trigSource);
@@ -186,14 +186,14 @@ void ChangeTrigLev(int *prevTime, void(*f)(TrigSource, int16), TrigSource trigSo
     {
         trigLev = TrigLevZero;
     }
-    if (CanChangeRShiftOrTrigLev(trigSource, trigLev))
+    if (CanChangeRShiftOrTrigLev(trigSource, (int16)trigLev))
     {
         Sound::RegulatorShiftRotate();
-        f(trigSource, trigLev);
+        f(trigSource, (int16)trigLev);
     }
 }
 
-void ChangeTShift(int *prevTime, void(*f)(int), int16 relStep)
+static void ChangeTShift(int *prevTime, void(*f)(int), int16 relStep)
 {
     int count = CalculateCount(prevTime);
     int tShiftOld = SET_TSHIFT;
@@ -225,7 +225,7 @@ void ChangeTShift(int *prevTime, void(*f)(int), int16 relStep)
     }
 }
 
-void ChangeShiftScreen(int *prevTime, void(*f)(int), int16 relStep)
+static void ChangeShiftScreen(int *prevTime, void(*f)(int), int16 relStep)
 {
     int count = CalculateCount(prevTime);
     float step = (float)(relStep * count);
@@ -248,25 +248,25 @@ static void SetRShift(Channel ch, int16 rShift)
     FPGA::SetRShift(ch, rShift);
 }
 
-void RShiftALeft()
+static void RShiftALeft()
 {
     static int prevTime = 0;
     ChangeRShift(&prevTime, SetRShift, A, -STEP_RSHIFT);
 }
 
-void RShiftARight()
+static void RShiftARight()
 {
     static int prevTime = 0;
     ChangeRShift(&prevTime, SetRShift, A, +STEP_RSHIFT);
 }
 
-void RShiftBLeft()
+static void RShiftBLeft()
 {
     static int prevTime = 0;
     ChangeRShift(&prevTime, SetRShift, B, -STEP_RSHIFT);
 }
 
-void RShiftBRight()
+static void RShiftBRight()
 {
     static int prevTime = 0;
     ChangeRShift(&prevTime, SetRShift, B, +STEP_RSHIFT);
@@ -277,13 +277,13 @@ static void SetTrigLev(TrigSource ch, int16 trigLev)
     FPGA::SetTrigLev(ch, trigLev);
 }
 
-void TrigLevLeft()
+static void TrigLevLeft()
 {
     static int prevTime = 0;
     ChangeTrigLev(&prevTime, SetTrigLev, TRIGSOURCE, -STEP_RSHIFT);
 }
 
-void TrigLevRight()
+static void TrigLevRight()
 {
     static int prevTime = 0;
     ChangeTrigLev(&prevTime, SetTrigLev, TRIGSOURCE, +STEP_RSHIFT);
@@ -299,74 +299,74 @@ static void SetTShift(int tShift)
     FPGA::SetTShift(tShift);
 }
 
-void XShift(int delta)
+static void XShift(int delta)
 {
     static int prevTime = 0;
     if (!FPGA::IsRunning() || TIME_DIV_XPOS_IS_SHIFT_IN_MEMORY)
     {
         if (!ENUM_POINTS_IS_281)
         {
-            ChangeShiftScreen(&prevTime, ShiftScreen, 2 * delta);
+            ChangeShiftScreen(&prevTime, ShiftScreen, (int16)(2 * delta));
         }
     }
     else
     {
-        ChangeTShift(&prevTime, SetTShift, delta);
+        ChangeTShift(&prevTime, SetTShift, (int16)delta);
     }
 }
 
-void TShiftLeft()
+static void TShiftLeft()
 {
     XShift(-1);
 }
 
-void TShiftRight()
+static void TShiftRight()
 {
     XShift(1);
 }
 
-void RangeALeft()
+static void RangeALeft()
 {
     Sound::RegulatorSwitchRotate();
     FPGA::RangeIncrease(A);
 }
 
-void RangeARight()
+static void RangeARight()
 {
     Sound::RegulatorSwitchRotate();
     FPGA::RangeDecrease(A);
 }
 
-void RangeBLeft()
+static void RangeBLeft()
 {
     Sound::RegulatorSwitchRotate();
     FPGA::RangeIncrease(B);
 }
 
-void RangeBRight()
+static void RangeBRight()
 {
     Sound::RegulatorSwitchRotate();
     FPGA::RangeDecrease(B);
 }
 
-void TBaseLeft()
+static void TBaseLeft()
 {
     Sound::RegulatorSwitchRotate();
     FPGA::TBaseIncrease();
 }
 
-void TBaseRight()
+static void TBaseRight()
 {
     Sound::RegulatorSwitchRotate();
     FPGA::TBaseDecrease();
 }
 
-void SetLeft()
+static void SetLeft()
 {
     Menu::RotateRegSetLeft();
 }
 
-void SetRight()
+static void SetRight()
 {
     Menu::RotateRegSetRight();
 }

@@ -15,8 +15,8 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #define NULL_TSHIFT 1000000
 
-static float freq = 0.0f;           // Частота, намеренная альтерой.
-static float prevFreq = 0.0f;
+static float frequency = 0.0f;           // Частота, намеренная альтерой.
+static float prevFrequency = 0.0f;
 static StateWorkFPGA stateWork = StateWorkFPGA_Stop;
 
 
@@ -55,7 +55,7 @@ void FPGA::Init()
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 void FPGA::SetNumSignalsInSec(int numSigInSec) 
 {
-    Timer::SetAndEnable(kENumSignalsInSec, OnTimerCanReadData, (int)(1000.f / numSigInSec));
+    Timer::SetAndEnable(kENumSignalsInSec, OnTimerCanReadData, (uint)(1000.f / numSigInSec));
 }
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
@@ -708,15 +708,15 @@ static void ReadFreq()                         // Чтение счётчика частоты произв
     else 
     {
         float fr = FreqCounterToValue(&freqFPGA);
-        if (fr < prevFreq * 0.9f || fr > prevFreq * 1.1f)
+        if (fr < prevFrequency * 0.9f || fr > prevFrequency * 1.1f)
         {
-            freq = ERROR_VALUE_FLOAT;
+            frequency = ERROR_VALUE_FLOAT;
         }
         else
         {
-            freq = fr;
+            frequency = fr;
         }
-        prevFreq = fr;
+        prevFrequency = fr;
     }
 }
 
@@ -725,15 +725,15 @@ void ReadPeriod()
 {
     BitSet32 periodFPGA = ReadRegPeriod();
     float fr = PeriodCounterToValue(&periodFPGA);
-    if (fr < prevFreq * 0.9f || fr > prevFreq * 1.1f)
+    if (fr < prevFrequency * 0.9f || fr > prevFrequency * 1.1f)
     {
-        freq = ERROR_VALUE_FLOAT;
+        frequency = ERROR_VALUE_FLOAT;
     }
     else
     {
-        freq = fr;
+        frequency = fr;
     }
-    prevFreq = fr;
+    prevFrequency = fr;
     readPeriod = false;
 }
 
@@ -773,13 +773,13 @@ static float CalculateFreqFromCounterFreq()
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 static float CalculateFreqFromCounterPeriod()
 {
-    uint timeStart = gTimeMS;
-    while (gTimeMS - timeStart < 1000 && _GET_BIT(FSMC::Read(RD_FL), BIT_PERIOD_READY) == 0) {};
+    uint start = gTimeMS;
+    while (gTimeMS - start < 1000 && _GET_BIT(FSMC::Read(RD_FL), BIT_PERIOD_READY) == 0) {};
     ReadRegPeriod();
-    timeStart = gTimeMS;
-    while (gTimeMS - timeStart < 1000 && _GET_BIT(FSMC::Read(RD_FL), BIT_PERIOD_READY) == 0) {};
+    start = gTimeMS;
+    while (gTimeMS - start < 1000 && _GET_BIT(FSMC::Read(RD_FL), BIT_PERIOD_READY) == 0) {};
     BitSet32 period = ReadRegPeriod();
-    if (period.word > 0 && (gTimeMS - timeStart < 1000))
+    if (period.word > 0 && (gTimeMS - start < 1000))
     {
         return PeriodCounterToValue(&period);
     }
@@ -789,7 +789,7 @@ static float CalculateFreqFromCounterPeriod()
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 float FPGA::GetFreq() 
 {
-    return freq;
+    return frequency;
 }
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
@@ -868,24 +868,24 @@ uint8 FPGA::CalculateMax(uint8 buffer[100])
 }
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
-TBase CalculateTBase(float freq)
+TBase FPGA::CalculateTBase(float freq)
 {
-    if     (freq >= 100e6)  { return TBase_2ns;   }
-    else if(freq >= 40e6)   { return TBase_5ns;   }
-    else if(freq >= 20e6)   { return TBase_10ns;  }
-    else if(freq >= 10e6)   { return TBase_20ns;  }
-    else if(freq >= 3e6)    { return TBase_50ns;  }
-    else if(freq >= 2e6)    { return TBase_100ns; }
-    else if(freq >= 900e3)  { return TBase_200ns; }
-    else if(freq >= 400e3)  { return TBase_500ns; }
-    else if(freq >= 200e3)  { return TBase_1us;   }
-    else if(freq >= 90e3)   { return TBase_2us;   }
-    else if(freq >= 30e3)   { return TBase_5us;   }
-    else if(freq >= 20e3)   { return TBase_10us;  }
-    else if(freq >= 10e3)   { return TBase_20us;  }
-    else if(freq >= 4e3)    { return TBase_50us;  }
-    else if(freq >= 2e3)    { return TBase_100us; }
-    else if(freq >= 1e3)    { return TBase_200us; }
+    if     (freq >= 100e6f) { return TBase_2ns;   }
+    else if(freq >= 40e6f)  { return TBase_5ns;   }
+    else if(freq >= 20e6f)  { return TBase_10ns;  }
+    else if(freq >= 10e6f)  { return TBase_20ns;  }
+    else if(freq >= 3e6f)   { return TBase_50ns;  }
+    else if(freq >= 2e6f)   { return TBase_100ns; }
+    else if(freq >= 900e3f) { return TBase_200ns; }
+    else if(freq >= 400e3f) { return TBase_500ns; }
+    else if(freq >= 200e3f) { return TBase_1us;   }
+    else if(freq >= 90e3f)  { return TBase_2us;   }
+    else if(freq >= 30e3f)  { return TBase_5us;   }
+    else if(freq >= 20e3f)  { return TBase_10us;  }
+    else if(freq >= 10e3f)  { return TBase_20us;  }
+    else if(freq >= 4e3f)   { return TBase_50us;  }
+    else if(freq >= 2e3f)   { return TBase_100us; }
+    else if(freq >= 1e3f)   { return TBase_200us; }
     else if(freq >= 350.0f) { return TBase_500us; }
     else if(freq >= 200.0f) { return TBase_1ms;   }
     else if(freq >= 100.0f) { return TBase_2ms;   }
@@ -981,7 +981,7 @@ Range FPGA::AccurateFindRange(Channel chan)
 }
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
-bool FPGA::FindParams(Channel chan, TBase *tBase)
+bool FPGA::FindParams(Channel, TBase *tBase)
 {
     SetTrigInput(TrigInput_Full);
     Timer::PauseOnTime(TIME_DELAY);
@@ -997,7 +997,7 @@ bool FPGA::FindParams(Channel chan, TBase *tBase)
         *tBase = CalculateTBase(freq);
         FPGA::SetTBase(*tBase);
         FPGA::Start();
-        FPGA::SetTrigInput(freq < 500e3 ? TrigInput_LPF : TrigInput_HPF);
+        FPGA::SetTrigInput(freq < 500e3f ? TrigInput_LPF : TrigInput_HPF);
         return true;
     }
     else
@@ -1078,7 +1078,7 @@ void FPGA::AutoFind()
 }
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
-void StopTemporaryPause()
+void FPGA::StopTemporaryPause()
 {
     gBF.FPGAtemporaryPause = 0;
     Timer::Disable(kTemporaryPauseFPGA);
@@ -1100,15 +1100,15 @@ void FPGA::FillDataPointer(DataSettings *dp)
     dp->inverseCh1 = SET_INVERSE_B ? 1 : 0;
     dp->range[0] = SET_RANGE_A;
     dp->range[1] = SET_RANGE_B;
-    dp->rShiftCh0 = SET_RSHIFT_A;
-    dp->rShiftCh1 = SET_RSHIFT_B;
+    dp->rShiftCh0 = (uint)SET_RSHIFT_A;
+    dp->rShiftCh1 = (uint)SET_RSHIFT_B;
     dp->tBase = SET_TBASE;
     dp->tShift = SET_TSHIFT;
     dp->modeCouple0 = SET_COUPLE_A;
     dp->modeCouple1 = SET_COUPLE_B;
-    dp->length1channel = sMemory_GetNumPoints(false);
-    dp->trigLevCh0 = SET_TRIGLEV_A;
-    dp->trigLevCh1 = SET_TRIGLEV_B;
+    dp->length1channel = (uint)sMemory_GetNumPoints(false);
+    dp->trigLevCh0 = (uint)SET_TRIGLEV_A;
+    dp->trigLevCh1 = (uint)SET_TRIGLEV_B;
     dp->peakDet = (uint)SET_PEAKDET;
     dp->multiplier0 = SET_DIVIDER_A;
     dp->multiplier1 = SET_DIVIDER_B;
@@ -1126,24 +1126,24 @@ void FPGA::FindAndSetTrigLevel()
     Channel chanTrig = (Channel)trigSource;
     uint8 *data0 = 0;
     uint8 *data1 = 0;
-    DataSettings *ds = 0;
+    DataSettings *dataSet = 0;
 
-    Storage::GetDataFromEnd(0, &ds, &data0, &data1);
+    Storage::GetDataFromEnd(0, &dataSet, &data0, &data1);
 
     const uint8 *data = (chanTrig == A) ? data0 : data1;
 
-    int lastPoint = ds->length1channel - 1;
+    int lastPoint = dataSet->length1channel - 1;
 
     uint8 min = Math::MinFromArray(data, 0, lastPoint);
     uint8 max = Math::MaxFromArray(data, 0, lastPoint);
 
-    uint8 aveValue = ((int)min + (int)max) / 2;
+    uint8 aveValue = (uint8)(((int)min + (int)max) / 2);
 
     static const float scale = (float)(TrigLevMax - TrigLevZero) / (float)(MAX_VALUE - AVE_VALUE) / 2.4f;
 
     int trigLev = (int)(TrigLevZero + scale * ((int)aveValue - AVE_VALUE) - (SET_RSHIFT(chanTrig) - RShiftZero));
 
-    FPGA::SetTrigLev(trigSource, trigLev);
+    FPGA::SetTrigLev(trigSource, (int16)trigLev);
 }
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
@@ -1161,7 +1161,7 @@ void FPGA::WriteToAnalog(TypeWriteAnalog type, uint data)
 #define pinSelect   GPIO_PIN_5
 
     char buffer[19];
-    char *str = Bin2String16(data, buffer);
+    char *str = Bin2String16((uint16)data, buffer);
     if (type == TypeWriteAnalog_RangeA && IS_SHOW_REG_RANGE_A)
     {
         LOG_WRITE("range 0 = %s", str);

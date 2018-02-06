@@ -173,6 +173,7 @@ typedef struct
     uint notUsed1   : 27;
 } PackedTime;
 
+
 typedef struct
 {
     void*       addrNext;               // Адрес следующей записи.
@@ -182,23 +183,23 @@ typedef struct
     uint        trigLevCh0      : 10;   // Уровень синхронизации
     uint        notUsed0        : 2;
     int16       tShift;                 // Смещение по времени
-    ModeCouple  modeCouple1     : 2;
+    uint        modeCouple1     : 2;
     uint        notUsed1        : 6;
     Range       range[2];               // Масштаб по напряжению обоих каналов.
 
     uint        trigLevCh1      : 10;
     uint        length1channel  : 11;   // Сколько занимает в байтах длина измерения одного канала
     uint        notUsed2        : 3;
-    TBase       tBase           : 5;    // Масштаб по времени
-    ModeCouple  modeCouple0     : 2;    // Режим канала по входу
+    uint        tBase           : 5;    // Масштаб по времени
+    uint        modeCouple0     : 2;    // Режим канала по входу
     uint        peakDet         : 2;    // Включен ли пиковый детектор
     uint        enableCh0       : 1;    // Включён ли канал 0
     uint        enableCh1       : 1;    // Включен ли канал 1
 
     uint        inverseCh0      : 1;
     uint        inverseCh1      : 1;
-    Divider     multiplier0     : 1;
-    Divider     multiplier1     : 1;
+    uint        multiplier0     : 1;
+    uint        multiplier1     : 1;
     uint        notUsed3        : 17;
     PackedTime  time;
 } DataSettings;

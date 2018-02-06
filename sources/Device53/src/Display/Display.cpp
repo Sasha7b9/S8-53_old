@@ -1939,8 +1939,8 @@ void Display::WriteTextVoltage(Channel chan, int x, int y)
         if (ds != 0)
         {
             inverse = (chan == A) ? ds->inverseCh0 : ds->inverseCh1;
-            modeCouple = (chan == A) ? ds->modeCouple0 : ds->modeCouple1;
-            multiplier = (chan == A) ? ds->multiplier0 : ds->multiplier1;
+            modeCouple = (ModeCouple)((chan == A) ? ds->modeCouple0 : ds->modeCouple1);
+            multiplier = (Divider)((chan == A) ? ds->multiplier0 : ds->multiplier1);
             range = ds->range[chan];
             rShift = (chan == A) ? ds->rShiftCh0 : ds->rShiftCh1;
             enable = (chan == A) ? ds->enableCh0 : ds->enableCh1;
@@ -2016,7 +2016,7 @@ void Display::DrawLowPart()
         DataSettings *ds = MODE_WORK_IS_RAM ? gDSmemLast : gDSmemInt;
         if (ds != 0)
         {
-            tBase = ds->tBase;
+            tBase = (TBase)ds->tBase;
             tShift = ds->tShift;
         }
     }

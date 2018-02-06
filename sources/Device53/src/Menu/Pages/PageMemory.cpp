@@ -7,7 +7,7 @@
 #include "FPGA/DataStorage.h"
 #include "Display/Colors.h"
 #include "Display/Display.h"
-#include "Display/font/Font.h"
+#include "Display/Font/Font.h"
 #include "Display/Painter.h"
 #include "Display/Grid.h"
 #include "Display/Symbols.h"
@@ -49,7 +49,7 @@ static void DrawSetMask();  // Эта функция рисует, когда выбран режим задания ма
 static void DrawSetName();  // Эта функция рисует, когда нужно задать имя файла для сохранения
 
 
-void ChangeC_Memory_NumPoints(bool active)
+void ChangeC_Memory_NumPoints(bool)
 {
     if(sMemory_GetNumPoints(false) == 281)
     {
@@ -63,57 +63,60 @@ void ChangeC_Memory_NumPoints(bool active)
         }
         else if(TPOS_IS_CENTER)
         {
-            SHIFT_IN_MEMORY = sMemory_GetNumPoints(false) / 2 - Grid::Width() / 2;
+            SHIFT_IN_MEMORY = (int16)(sMemory_GetNumPoints(false) / 2 - Grid::Width() / 2);
         }
         else if(TPOS_IS_RIGHT)
         {
-            SHIFT_IN_MEMORY = sMemory_GetNumPoints(false) - Grid::Width() - 2;
+            SHIFT_IN_MEMORY = (int16)(sMemory_GetNumPoints(false) - Grid::Width() - 2);
         }
     }
     FPGA::SetTShift(SET_TSHIFT);
 }
 
 // Активна ли ПАМЯТЬ - ВНЕШН ЗУ - Маска
-bool IsActiveMemoryExtSetMask()
+static bool IsActiveMemoryExtSetMask()
 {                       
     return FILE_NAMING_MODE_IS_MASK;
 }
 
-
-void DrawSB_MemLastSelect(int x, int y)
+/*
+static void DrawSB_MemLastSelect(int x, int y)
 {
     Painter::SetFont(TypeFont_UGO2);
     Painter::Draw4SymbolsInRect(x + 3, y + 2, set.memory.strMemoryLast.isActiveModeSelect ? '\x2a' : '\x28');
     Painter::SetFont(TypeFont_8);
 }
+*/
 
-void DrawSB_MemLast_Prev(int x, int y)
+static void DrawSB_MemLast_Prev(int x, int y)
 {
     Painter::SetFont(TypeFont_UGO2);
     Painter::Draw4SymbolsInRect(x + 2, y + 2, '\x20');
     Painter::SetFont(TypeFont_8);
 }
 
-void DrawSB_MemLast_Next(int x, int y)
+static void DrawSB_MemLast_Next(int x, int y)
 {
     Painter::SetFont(TypeFont_UGO2);
     Painter::Draw4SymbolsInRect(x + 2, y + 2, '\x64');
     Painter::SetFont(TypeFont_8);
 }
 
-void PressSB_MemLastSelect()
+/*
+static void PressSB_MemLastSelect()
 {
     set.memory.strMemoryLast.isActiveModeSelect = !set.memory.strMemoryLast.isActiveModeSelect;
 }
+*/
 
-void PressSB_MemLast_Next()
+static void PressSB_MemLast_Next()
 {
-    CircleIncrease<int16>(&gMemory.currentNumLatestSignal, 0, Storage::AllDatas() - 1);
+    CircleIncrease<int16>(&gMemory.currentNumLatestSignal, 0, (int16)(Storage::AllDatas() - 1));
 }
 
-void PressSB_MemLast_Prev()
+static void PressSB_MemLast_Prev()
 {
-    CircleDecrease<int16>(&gMemory.currentNumLatestSignal, 0, Storage::AllDatas() - 1);
+    CircleDecrease<int16>(&gMemory.currentNumLatestSignal, 0, (int16)Storage::AllDatas() - 1);
 }
 
 static void RotateSB_MemLast(int angle)
@@ -158,7 +161,7 @@ DEF_SMALL_BUTTON(   sbMemLastPrev,                                              
     "Go to the previous signal",
     mspMemLast, FuncActive, PressSB_MemLast_Prev, DrawSB_MemLast_Prev
 
-);
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 DEF_SMALL_BUTTON(   sbMemLastNext,                                                                            //--- ПАМЯТЬ - ПОСЛЕДНИЕ - Следующий ---
@@ -166,17 +169,17 @@ DEF_SMALL_BUTTON(   sbMemLastNext,                                              
     "Перейти к следующему сигналу",
     "Go to the next signal",
     mspMemLast, FuncActive, PressSB_MemLast_Next, DrawSB_MemLast_Next
-);
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
-void PressSB_MemLast_IntEnter()
+static void PressSB_MemLast_IntEnter()
 {
     MODE_WORK = ModeWork_ROM;
     FLASHMem::GetData(gMemory.currentNumIntSignal, &gDSmemInt, &gData0memInt, &gData1memInt);
     gMemory.exitFromIntToLast = 1;
 }
 
-void DrawSB_MemLast_IntEnter(int x, int y)
+static void DrawSB_MemLast_IntEnter(int x, int y)
 {
     Painter::SetFont(TypeFont_UGO2);
     Painter::Draw4SymbolsInRect(x + 2, y + 1, '\x40');
@@ -188,7 +191,7 @@ DEF_SMALL_BUTTON(   sbMemLastIntEnter,                                          
     "Нажмите эту кнопку, чтобы сохранить сигнал во внутреннем запоминающем устройстве",
     "Press this button to keep a signal in an internal memory",
     mspMemLast, FuncActive, PressSB_MemLast_IntEnter, DrawSB_MemLast_IntEnter
-);
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 static void PressSB_MemLast_SaveToFlash()
@@ -197,7 +200,7 @@ static void PressSB_MemLast_SaveToFlash()
     Memory_SaveSignalToFlashDrive();
 }
 
-void DrawSB_MemLast_SaveToFlash(int x, int y)
+static void DrawSB_MemLast_SaveToFlash(int x, int y)
 {
     if (gBF.flashDriveIsConnected == 1)
     {
@@ -212,7 +215,7 @@ DEF_SMALL_BUTTON(   sbMemLastSaveToFlash,                                       
     "Кнопка становится доступна при присоединённом внешнем ЗУ. Позволяет сохранить сигнал на внешем ЗУ",
     "Click this button to save the signal on the external FLASH",
     mspMemLast, FuncActive, PressSB_MemLast_SaveToFlash, DrawSB_MemLast_SaveToFlash
-);
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 DEF_SMALL_BUTTON(   sbSetNameSave,                                                                                      //--- ИМЯ ФАЙЛА - Сохранить ---
@@ -220,9 +223,9 @@ DEF_SMALL_BUTTON(   sbSetNameSave,                                              
     "Сохранение на флеш под заданным именем",
     "Saving to flashdrive with the specified name",
     mpSetName, FuncActive, PressSB_MemExtSetNameSave, DrawSB_MemExtSetNameSave
-);
+)
 
-void OnMemExtSetMaskNameRegSet(int angle, int maxIndex)
+static void OnMemExtSetMaskNameRegSet(int angle, int maxIndex)
 {   
     static const pFuncVpI8I8I8 func[3] =
     {
@@ -234,9 +237,9 @@ void OnMemExtSetMaskNameRegSet(int angle, int maxIndex)
     Painter::ResetFlash();
     if (INDEX_SYMBOL > maxIndex)
     {
-        INDEX_SYMBOL = maxIndex - 1;
+        INDEX_SYMBOL = (int8)maxIndex - 1;
     }
-    func[Sign(angle) + 1]((int8 *)&INDEX_SYMBOL, 0, maxIndex - 1);
+    func[Sign(angle) + 1]((int8 *)&INDEX_SYMBOL, 0, (int8)(maxIndex - 1));
     Sound::RegulatorSwitchRotate();
 
 }
@@ -247,9 +250,9 @@ static void OnMemExtSetMaskRegSet(int angle)
 }
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
-void PressSB_SetMask_Backspace()
+static void PressSB_SetMask_Backspace()
 {
-    int size = strlen(FILE_NAME_MASK);
+    int size = (int)strlen(FILE_NAME_MASK);
     if (size > 0)
     {
         if (size > 1 && FILE_NAME_MASK[size - 2] == 0x07)
@@ -263,7 +266,7 @@ void PressSB_SetMask_Backspace()
     }
 }
 
-void DrawSB_SetMask_Backspace(int x, int y)
+static void DrawSB_SetMask_Backspace(int x, int y)
 {
     Painter::SetFont(TypeFont_UGO2);
     Painter::Draw4SymbolsInRect(x + 2, y + 1, SYMBOL_BACKSPACE);
@@ -275,7 +278,7 @@ DEF_SMALL_BUTTON(   sbSetMaskBackspace,                                         
     "Удаляет последний введённый символ",
     "Deletes the last entered symbol",
     mspSetMask, FuncActive, PressSB_SetMask_Backspace, DrawSB_SetMask_Backspace
-);
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 static void PressSB_SetMask_Delete()
@@ -295,13 +298,13 @@ DEF_SMALL_BUTTON(   sbSetMaskDelete,                                            
     "Удаляет все введённые символы",
     "Deletes all entered symbols",
     mspSetMask, FuncActive, PressSB_SetMask_Delete, DrawSB_SetMask_Delete
-);
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 static void PressSB_SetMask_Insert()
 {
     int index = INDEX_SYMBOL;
-    int size = strlen(FILE_NAME_MASK);
+    int size = (int)strlen(FILE_NAME_MASK);
     if (size == MAX_SYMBOLS_IN_FILE_NAME - 1)
     {
         return;
@@ -328,7 +331,7 @@ static void PressSB_SetMask_Insert()
         }
         else
         {
-            FILE_NAME_MASK[size] = index;
+            FILE_NAME_MASK[size] = (char)index;
             FILE_NAME_MASK[size + 1] = '\0';
         }
     }
@@ -346,12 +349,12 @@ DEF_SMALL_BUTTON(   sbSetMaskInsert,                                            
     "Вставляет выбранный символ",
     "Inserts the chosen symbol",
     mspSetMask, FuncActive, PressSB_SetMask_Insert, DrawSB_SetMask_Insert
-);
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 static void PressSB_SetName_Backspace()
 {
-    int size = strlen(FILE_NAME);
+    int size = (int)strlen(FILE_NAME);
     if (size > 0)
     {
         FILE_NAME[size - 1] = '\0';
@@ -370,7 +373,7 @@ DEF_SMALL_BUTTON(   sbSetNameBackspace,                                         
     "Удаляет последний символ",
     "Delete the last character",
     mpSetName, FuncActive, PressSB_SetName_Backspace, DrawSB_SetName_Backspace
-);
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 static void PressSB_SetName_Delete()
@@ -390,12 +393,12 @@ DEF_SMALL_BUTTON(   sbSetNameDelete,                                            
     "Удаляет все введённые символы",
     "Deletes all entered characters",
     mpSetName, FuncActive, PressSB_SetName_Delete, DrawSB_SetName_Delete
-);
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 static void PressSB_SetName_Insert()
 {
-    int size = strlen(FILE_NAME);
+    int size = (int)strlen(FILE_NAME);
     if (size < MAX_SYMBOLS_IN_FILE_NAME - 1)
     {
         FILE_NAME[size] = symbolsAlphaBet[INDEX_SYMBOL][0];
@@ -415,23 +418,25 @@ DEF_SMALL_BUTTON(   sbSetNameInsert,                                            
     "Вводит очередной символ",
     "Print the next character",
     mpSetName, FuncActive, PressSB_SetName_Insert, DrawSB_SetName_Insert
-);
+)
 
-void DrawSB_MemExtNewFolder(int x, int y)
+/*
+static void DrawSB_MemExtNewFolder(int x, int y)
 {
     Painter::SetFont(TypeFont_UGO2);
     Painter::Draw4SymbolsInRect(x + 1, y, '\x46');
     Painter::SetFont(TypeFont_8);
 }
+*/
 
-void DrawSB_FM_LevelDown(int x, int y)
+static void DrawSB_FM_LevelDown(int x, int y)
 {
     Painter::SetFont(TypeFont_UGO2);
     Painter::Draw4SymbolsInRect(x + 2, y + 2, '\x4a');
     Painter::SetFont(TypeFont_8);
 }
 
-void DrawSB_FM_LevelUp(int x, int y)
+static void DrawSB_FM_LevelUp(int x, int y)
 {
     Painter::SetFont(TypeFont_UGO2);
     Painter::Draw4SymbolsInRect(x + 2, y + 1, '\x48');
@@ -451,7 +456,7 @@ DEF_SMALL_BUTTON(   sbFileManagerTab,                                           
     "Переход между каталогами и файлами",
     "The transition between the directories and files",
     mspFileManager, FuncActive, FileManager::PressSB_Tab, DrawSB_FM_Tab
-);
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 DEF_SMALL_BUTTON(   sbFileManagerLevelDown,                                                                                  //--- КАТАЛОГ - Войти ---
@@ -459,7 +464,7 @@ DEF_SMALL_BUTTON(   sbFileManagerLevelDown,                                     
     "Переход в выбранный каталог",
     "Transition to the chosen catalog",
     mspFileManager, FuncActive, FileManager::PressSB_LevelDown, DrawSB_FM_LevelDown
-);
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 DEF_SMALL_BUTTON(   sbFileManagerLevelUp,                                                                                   //--- КАТАЛОГ - Выйыти ---
@@ -467,7 +472,7 @@ DEF_SMALL_BUTTON(   sbFileManagerLevelUp,                                       
     "Переход в родительский каталог",
     "Transition to the parental catalog",
     mspFileManager, FuncActive, FileManager::PressSB_LevelUp, DrawSB_FM_LevelUp
-);
+)
 
 static void SaveSignalToIntMemory()
 {
@@ -577,11 +582,11 @@ DEF_SMALL_BUTTON_HINTS_2(   sbMemIntShowSignalAlways,                           
     "Позволяет всегда показывать выбранный сохранённый сигнал поверх текущего",
     "Allows to show always the chosen kept signal over the current",
     mspMemInt, FuncActive, PressSB_MemInt_ShowSignalAlways, DrawSB_MemInt_ShowSignalAlways,
-    DrawSB_MemInt_ShowSignalAllways_Yes, "показывать выбранный сигнал из внутренней памяти поверх текущего",
-                                         "to show the chosen signal from internal memory over the current",
-    DrawSB_MemInt_ShowSignalAllways_No,  "сигнал из внутренней памяти виден только в режиме работы с внутренним запоминающим устройством",
-                                         "the signal from internal memory is visible only in an operating mode with an internal memory"
-);
+    DrawSB_MemInt_ShowSignalAllways_Yes, {"показывать выбранный сигнал из внутренней памяти поверх текущего",
+                                         "to show the chosen signal from internal memory over the current"},
+    DrawSB_MemInt_ShowSignalAllways_No,  {"сигнал из внутренней памяти виден только в режиме работы с внутренним запоминающим устройством",
+                                         "the signal from internal memory is visible only in an operating mode with an internal memory"}
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 static void DrawSB_MemInt_ModeShow_Direct(int x, int y)
@@ -633,18 +638,18 @@ DEF_SMALL_BUTTON_HINTS_3(   sbMemIntModeShow,                                   
     "Показывать записанный или текущий сигнал в режиме ВНУТР ЗУ",
     "Show recorded or current signal in mode Internal Memory",
     mspMemInt, FuncActive, PressSB_MemInt_ModeShow, DrawSB_MemInt_ModeShow,
-    DrawSB_MemInt_ModeShow_Direct, "на дисплее текущий сигнал",     "on the display current signal",
-    DrawSB_MemInt_ModeShow_Saved,  "на дисплее сохранённый сигнал", "on the display the kept signal",
-    DrawSB_MemInt_ModeShow_Both,   "на дисплее оба сигнала",        "on the display the both signals"
-);
+    DrawSB_MemInt_ModeShow_Direct, {"на дисплее текущий сигнал",     "on the display current signal"},
+    DrawSB_MemInt_ModeShow_Saved,  {"на дисплее сохранённый сигнал", "on the display the kept signal"},
+    DrawSB_MemInt_ModeShow_Both,   {"на дисплее оба сигнала",        "on the display the both signals"}
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
-void PressSB_MemInt_SaveToIntMemory()
+static void PressSB_MemInt_SaveToIntMemory()
 {
     SaveSignalToIntMemory();
 }
 
-void DrawSB_MemInt_SaveToIntMemory(int x, int y)
+static void DrawSB_MemInt_SaveToIntMemory(int x, int y)
 {
     Painter::SetFont(TypeFont_UGO2);
     Painter::Draw4SymbolsInRect(x + 2, y + 1, SYMBOL_SAVE_TO_MEM);
@@ -656,16 +661,16 @@ DEF_SMALL_BUTTON(   sbMemIntSave,                                               
     "Сохранить сигнал во внутреннем запоминующем устройстве",
     "To keep a signal in an internal memory",
     mspMemInt, FuncActive, PressSB_MemInt_SaveToIntMemory, DrawSB_MemInt_SaveToIntMemory
-);
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
-void PressSB_MemInt_SaveToFlashDrive()
+static void PressSB_MemInt_SaveToFlashDrive()
 {
     gMemory.exitFromModeSetNameTo = RETURN_TO_INT_MEM;
     Memory_SaveSignalToFlashDrive();
 }
 
-void DrawSB_MemInt_SaveToFlashDrive(int x, int y)
+static void DrawSB_MemInt_SaveToFlashDrive(int x, int y)
 {
     if (gBF.flashDriveIsConnected == 1)
     {
@@ -680,7 +685,7 @@ DEF_SMALL_BUTTON(   sbMemIntSaveToFlash,                                        
     "Сохраняет сигнал на флешку",
     "Save signal to flash drive",
     mspMemInt, FuncActive, PressSB_MemInt_SaveToFlashDrive, DrawSB_MemInt_SaveToFlashDrive
-);
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 static void PressSB_SetName_Exit()
@@ -703,10 +708,10 @@ DEF_SMALL_BUTTON(   sbExitSetName,                                              
     "Отказ от сохранения",
     "Failure to save",
     mpSetName, FuncActive, PressSB_SetName_Exit, DrawSB_Exit
-);
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
-void PressSB_MemInt_Exit()
+static void PressSB_MemInt_Exit()
 {
     FLASHMem::GetData(gMemory.currentNumIntSignal, &gDSmemInt, &gData0memInt, &gData1memInt);
     if (gMemory.exitFromIntToLast == 1)
@@ -721,10 +726,10 @@ void PressSB_MemInt_Exit()
 
 DEF_SMALL_BUTTON_EXIT(  sbExitMemInt,                                                                              //--- ПАМЯТЬ - ВНУТР ЗУ - Выход ---
     mspMemInt, FuncActive, PressSB_MemInt_Exit, DrawSB_Exit
-);
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
-void OnPressMemoryExtMask()
+static void OnPressMemoryExtMask()
 {
     Display::SetAddDrawFunction(DrawSetMask);
 }
@@ -747,7 +752,7 @@ DEF_CHOICE_3(       mcMemoryNumPoints,                                          
     "512",  "512",
     "1024", "1024",
     ENUM_POINTS, pMemory, FuncActiveMemoryNumPoinst, ChangeC_Memory_NumPoints, FuncDraw
-);
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 DEF_CHOICE_2(       mcMemoryExtName,                                                                           //--- ПАМЯТЬ - ВНЕШН ЗУ - Имя файла ---
@@ -764,7 +769,7 @@ DEF_CHOICE_2(       mcMemoryExtName,                                            
     "По маске", "Mask",
     "Вручную",  "Manually",
    FILE_NAMING_MODE, mspMemoryExt, FuncActive, FuncChangedChoice, FuncDraw
-);
+)
     
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 DEF_CHOICE_2(       mcMemoryExtAutoConnectFlash,                                                         //--- ПАМЯТЬ - ВНЕШН ЗУ - Автоподключение ---
@@ -774,7 +779,7 @@ DEF_CHOICE_2(       mcMemoryExtAutoConnectFlash,                                
     DISABLE_RU, DISABLE_EN,
     ENABLE_RU,  ENABLE_EN,
     FLASH_AUTOCONNECT, mspMemoryExt, FuncActive, FuncChangedChoice, FuncDraw
-);
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 DEF_CHOICE_2(       mcMemoryExtModeBtnMemory,                                                              //--- ПАМЯТЬ - ВНЕШН ЗУ - Реж кн ПАМЯТЬ ---
@@ -784,7 +789,7 @@ DEF_CHOICE_2(       mcMemoryExtModeBtnMemory,                                   
     "Меню",       "Menu",
     "Сохранение", "Save",
     MODE_BTN_MEMORY, mspMemoryExt, FuncActive, FuncChangedChoice, FuncDraw
-);
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 DEF_CHOICE_2(       mcMemoryExtModeSave,                                                                   //--- ПАМЯТЬ - ВНЕШН ЗУ - Сохранять как ---
@@ -799,7 +804,7 @@ DEF_CHOICE_2(       mcMemoryExtModeSave,                                        
     "Изображение", "Image",
     "Текст",       "Text",
     MODE_SAVE_SIGNAL, mspMemoryExt, FuncActive, FuncChangedChoice, FuncDraw
-);
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------   
 void DrawSetName()
@@ -922,7 +927,7 @@ void DrawSetMask()
 
     // Теперь рисуем спецсимволы
     position = 0;
-    while (index < (sizeof(symbolsAlphaBet) / 4))
+    while (index < (int)(sizeof(symbolsAlphaBet) / 4))
     {
         DrawStr(index, x0 + deltaX + 26 + position * 20, y0 + deltaY0 + deltaY * 3);
         index++;
@@ -941,7 +946,7 @@ void DrawSetMask()
 
     deltaY--;
     Painter::SetColor(Color::FILL);
-    for(int i = 0; i < sizeof(strings) / 4; i++)
+    for(int i = 0; i < (int)sizeof(strings) / 4; i++)
     {
         Painter::DrawText(x0 + deltaX, y0 + 100 + deltaY * i, strings[i]);
     }
@@ -980,7 +985,7 @@ static void PressSB_MemLast_Exit()
 
 DEF_SMALL_BUTTON_EXIT(  sbExitMemLast,                                                                            //--- ПАМЯТЬ - ПОСЛЕДНИЕ - Выход ---
     mspMemLast, FuncActive, PressSB_MemLast_Exit, DrawSB_Exit
-);
+)
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 static void OnPressMemoryLatest()
@@ -1015,7 +1020,7 @@ DEF_PAGE_SB(        mspMemLast,                                                 
     &sbMemLastIntEnter,
     &sbMemLastSaveToFlash,
     PageSB_Memory_Last, &pMemory, FuncActive, OnPressMemoryLatest, FuncDrawingAdditionSPageMemoryLast, RotateSB_MemLast
-);
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 static void PressSB_SetMask_Exit()
@@ -1025,7 +1030,7 @@ static void PressSB_SetMask_Exit()
 
 DEF_SMALL_BUTTON_EXIT(  sbExitSetMask,                                                                                         //--- МАСКА - Выход ---
     mspSetMask, FuncActive, PressSB_SetMask_Exit, DrawSB_Exit
-);
+)
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1040,7 +1045,7 @@ DEF_PAGE_SB(        mspSetMask,                                                 
     &sbSetMaskBackspace,
     &sbSetMaskInsert,
     PageSB_Memory_Drive_Mask, &mspMemoryExt, IsActiveMemoryExtSetMask, OnPressMemoryExtMask, FuncDrawPage, OnMemExtSetMaskRegSet
-);
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 static void PressSB_FM_Exit()
@@ -1054,7 +1059,7 @@ DEF_SMALL_BUTTON(   sbExitFileManager,                                          
     "Сохранить выбранный каталог в качестве текущего и выйти",
     "Save the selected directory as the current one and exit",
     mspFileManager, FuncActive, PressSB_FM_Exit, DrawSB_Exit
-);
+)
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void OnPress_Drive_Manager()
@@ -1079,7 +1084,7 @@ DEF_PAGE_SB(        mspFileManager,                                             
     &sbFileManagerLevelUp,
     &sbFileManagerLevelDown,
     PageSB_Memory_Drive_Manager, &mspMemoryExt, FuncOfActiveExtMemFolder, OnPress_Drive_Manager, FuncDrawPage, FileManager::RotateRegSet
-);
+)
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 DEF_PAGE_6(         mspMemoryExt,                                                                                             // ПАМЯТЬ - ВНЕШН ЗУ ///
@@ -1093,7 +1098,7 @@ DEF_PAGE_6(         mspMemoryExt,                                               
     mcMemoryExtModeBtnMemory,
     mcMemoryExtAutoConnectFlash,
     Page_Memory_Drive, &pMemory, FuncActive, FuncPress
-);
+)
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 static void OnPressMemoryInt()
@@ -1113,7 +1118,7 @@ DEF_PAGE_SB(        mspMemInt,                                                  
     &sbMemIntSave,
     &sbMemIntSaveToFlash,
     PageSB_Memory_Internal, &pMemory, FuncActive, OnPressMemoryInt, FuncAdditionDrawingSPageMemoryInt, FuncOnRegSetMemInt
-);
+)
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1132,7 +1137,7 @@ DEF_PAGE_SB(        mpSetName,                                                  
     &sbSetNameInsert,
     &sbSetNameSave,
     PageSB_Memory_SetName, 0, FuncActive, FuncPress, FuncDrawPage, OnMemExtSetNameRegSet
-);
+)
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 DEF_PAGE_4(         pMemory,                                                                                                             // ПАМЯТЬ ///
@@ -1144,7 +1149,7 @@ DEF_PAGE_4(         pMemory,                                                    
     mspMemInt,
     mspMemoryExt,
     Page_Memory, &mainPage, FuncActive, FuncPress
-);
+)
 
 
 /** @}  @}

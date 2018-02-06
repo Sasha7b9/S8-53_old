@@ -1,5 +1,6 @@
 #include "Menu/MenuItems.h"
 #include "defines.h"
+#include "PageDisplay.h"
 #include "Menu/Menu.h"
 #include "Tables.h"
 #include "Display/Painter.h"
@@ -32,7 +33,7 @@ DEF_CHOICE_2(       mcMapping,                                                  
     "Вектор", "Vector",
     "Точки",  "Points",
     MODE_DRAW_SIGNAL, pDisplay, FuncActive, FuncChangedChoice, FuncDraw
-);
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 DEF_CHOICE_REG_9(   mcAccumulation_Number,                                                                    // ДИСПЛЕЙ - НАКОПЛЕНИЕ - Количество ---
@@ -55,7 +56,7 @@ DEF_CHOICE_REG_9(   mcAccumulation_Number,                                      
     "128",           "128",
     "Бесконечность", "Infinity",
     ENUM_ACCUM, mspAccumulation, FuncActive, FuncChangedChoice, FuncDraw
-);
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 DEF_CHOICE_2(       mcAccumulation_Mode,                                                                           // ДИСПЛЕЙ - НАКОПЛЕНИЕ - Режим ---
@@ -73,7 +74,7 @@ DEF_CHOICE_2(       mcAccumulation_Mode,                                        
     "Не сбрасывать", "Not to dump",
     "Сбрасывать",    "Dump",
     MODE_ACCUM, mspAccumulation, FuncActive, FuncChangedChoice, FuncDraw
-);
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 static bool IsActive_Accumulation_Clear()
@@ -81,7 +82,7 @@ static bool IsActive_Accumulation_Clear()
     return ENUM_ACCUM_IS_INFINITY;
 }
 
-void OnPress_Accumulation_Clear()
+void PageDisplay::OnPress_Accumulation_Clear()
 {
     Display::Redraw();
 }
@@ -90,7 +91,7 @@ DEF_BUTTON(mcAccumulation_Clear,                                                
     "Очистить", "Clear",
     "Очищает экран от накопленных сигналов.",
     "Clears the screen of the saved-up signals.",
-    mspAccumulation, IsActive_Accumulation_Clear, OnPress_Accumulation_Clear, FuncDraw
+    mspAccumulation, IsActive_Accumulation_Clear, PageDisplay::OnPress_Accumulation_Clear, FuncDraw
 )
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -107,7 +108,7 @@ DEF_PAGE_3(         mspAccumulation,                                            
     mcAccumulation_Mode,   // ДИСПЛЕЙ - НАКОПЛЕНИЕ - Режим
     mcAccumulation_Clear,  // ДИСПЛЕЙ - НАКОПЛЕНИЕ - Очистить
     Page_Display_Accum, &pDisplay, IsActive_Accumulation, EmptyPressPage
-);
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 DEF_CHOICE_REG_10(  mcAveraging_Number,                                                                       // ДИСПЛЕЙ - УСРЕДНЕНИЕ - Количество ---
@@ -125,7 +126,7 @@ DEF_CHOICE_REG_10(  mcAveraging_Number,                                         
     "256", "256",
     "512", "512",
     ENUM_AVE, mspAveraging, FuncActive, FuncChangedChoice, FuncDraw
-);
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 DEF_CHOICE_2(       mcAveraging_Mode,                                                                              // ДИСПЛЕЙ - УСРЕДНЕНИЕ - Режим ---
@@ -141,7 +142,7 @@ DEF_CHOICE_2(       mcAveraging_Mode,                                           
     "Точно",          "Accurately",
     "Приблизительно", "Around",
     MODE_AVE, mspAveraging, FuncActive, FuncChangedChoice, FuncDraw
-);
+)
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -157,7 +158,7 @@ DEF_PAGE_2(         mspAveraging,                                               
     mcAveraging_Number,     // ДИСПЛЕЙ - УСРЕДНЕНИЕ - Количество
     mcAveraging_Mode,       // ДИСПЛЕЙ - УСРЕДНЕНИЕ - Режим
    Page_Display_Average, &pDisplay, IsActive_Averaging, EmptyPressPage
-);
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 static bool IsActive_MinMax()
@@ -165,7 +166,7 @@ static bool IsActive_MinMax()
     return SET_TBASE > TBase_50ns;
 }
 
-static void OnChanged_MinMax(bool active)
+static void OnChanged_MinMax(bool)
 {
 }
 
@@ -184,7 +185,7 @@ DEF_CHOICE_8(       mcMinMax,                                                   
     "64",       "64",
     "128",      "128",
     ENUM_MIN_MAX, pDisplay, IsActive_MinMax, OnChanged_MinMax, FuncDraw
-);
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 DEF_CHOICE_REG_10(  mcSmoothing,                                                                                          // ДИСПЛЕЙ - Сглаживание ---
@@ -202,10 +203,10 @@ DEF_CHOICE_REG_10(  mcSmoothing,                                                
     "9 точек",  "9 points",
     "10 точек", "10 points",
     SMOOTHING, pDisplay, FuncActive, FuncChangedChoice, FuncDraw
-);
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
-void OnChanged_RefreshFPS(bool active)
+void PageDisplay::OnChanged_RefreshFPS(bool)
 {
     FPGA::SetNumSignalsInSec(sDisplay_NumSignalsInS());
 }
@@ -219,8 +220,8 @@ DEF_CHOICE_5(       mcRefreshFPS,                                               
     "5",  "5",
     "2",  "2",
     "1",  "1",
-    ENUM_SIGNALS_IN_SEC, pDisplay, FuncActive, OnChanged_RefreshFPS, FuncDraw
-);
+ENUM_SIGNALS_IN_SEC, pDisplay, FuncActive, PageDisplay::OnChanged_RefreshFPS, FuncDraw
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 DEF_CHOICE_4(       mcGrid_Type,                                                                                          // ДИСПЛЕЙ - СЕТКА - Тип ---
@@ -232,28 +233,28 @@ DEF_CHOICE_4(       mcGrid_Type,                                                
     "Тип 3", "Type 3",
     "Тип 4", "Type 4",
     TYPE_GRID, mspGrid, FuncActive, FuncChangedChoice, FuncDraw
-);
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
-ColorType colorTypeGrid = {0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, Color::GRID};
+ColorType PageDisplay::colorTypeGrid = COLOR_TYPE(0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, Color::GRID)
 
-void OnChanged_Grid_Brightness()
+void PageDisplay::OnChanged_Grid_Brightness()
 {
     colorTypeGrid.SetBrightness(BRIGHTNESS_GRID / 1e2f);
 }
 
 static void BeforeDraw_Grid_Brightness()
 {
-    colorTypeGrid.Init(false);
-    BRIGHTNESS_GRID = (int16)(colorTypeGrid.brightness * 100.0f);
+    PageDisplay::colorTypeGrid.Init(false);
+    BRIGHTNESS_GRID = (int16)(PageDisplay::colorTypeGrid.brightness * 100.0f);
 }
 
 DEF_GOVERNOR(       mgGrid_Brightness,                                                                                // ДИСПЛЕЙ - СЕТКА - Яркость ---
     "Яркость", "Brightness",
     "Устанавливает яркость сетки.",
     "Adjust the brightness of the Grid::",
-    BRIGHTNESS_GRID, 0, 100, mspGrid, FuncActive, OnChanged_Grid_Brightness, BeforeDraw_Grid_Brightness
-);
+    BRIGHTNESS_GRID, 0, 100, mspGrid, FuncActive, PageDisplay::OnChanged_Grid_Brightness, BeforeDraw_Grid_Brightness
+)
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -264,7 +265,7 @@ DEF_PAGE_2(         mspGrid,                                                    
     mcGrid_Type,        // ДИСПЛЕЙ - СЕТКА - Тип
     mgGrid_Brightness,  // ДИСПЛЕЙ - СЕТКА - Яркость
     Page_Display_Grid, &pDisplay, FuncActive, EmptyPressPage
-);
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 DEF_CHOICE_2(       mcTypeShift,                                                                                             // ДИСПЛЕЙ - Смещение ---
@@ -278,7 +279,7 @@ DEF_CHOICE_2(       mcTypeShift,                                                
     "Напряжение", "Voltage",
     "Деления",    "Divisions",
     LINKING_RSHIFT, pDisplay, FuncActive, FuncChangedChoice, FuncDraw
-);
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 DEF_CHOICE_2(       mcSettings_Colors_Scheme,                                                   //--- ДИСПЛЕЙ - НАСТРОЙКИ - ЦВЕТА - Цветовая схема ---
@@ -288,32 +289,34 @@ DEF_CHOICE_2(       mcSettings_Colors_Scheme,                                   
     "Схема 1", "Scheme 1",
     "Схема 2", "Scheme 2",
     COLOR_SCHEME, mspSettings_Colors, FuncActive, FuncChangedChoice, FuncDraw
-);
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
-static ColorType colorT1 = {0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, Color::CHAN[A]};
+static DEF_COLOR_TYPE(colorT1, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, Color::CHAN[A])
+
 DEF_GOVERNOR_COLOR( mgcSettings_Colors_ChannelA,                                                       //--- ДИСПЛЕЙ - НАСТРОЙКИ - ЦВЕТА - Канал 1 ---
     "Канал 1", "Channel 1",
     "",  "",
     colorT1, mspSettings_Colors
-);
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
-static ColorType colorT2 = {0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, Color::CHAN[B]};
+static DEF_COLOR_TYPE(colorT2, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, Color::CHAN[B])
+
 DEF_GOVERNOR_COLOR( mgcSettings_Colors_ChannelB,                                                       //--- ДИСПЛЕЙ - НАСТРОЙКИ - ЦВЕТА - Канал 2 ---
     "Канал 2", "Channel 2",
     "",
     "",
     colorT2, mspSettings_Colors
-);
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 DEF_GOVERNOR_COLOR( mgcSettings_Colors_Grid,                                                             //--- ДИСПЛЕЙ - НАСТРОЙКИ - ЦВЕТА - Сетка ---
     "Сетка", "Grid",
     "Устанавливает цвет сетки",
     "Sets the grid color",
-    colorTypeGrid, mspSettings_Colors
-);
+    PageDisplay::colorTypeGrid, mspSettings_Colors
+)
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 DEF_PAGE_4(         mspSettings_Colors,                                                                             // ДИСПЛЕЙ - НАСТРОЙКИ - ЦВЕТА ///
@@ -325,7 +328,7 @@ DEF_PAGE_4(         mspSettings_Colors,                                         
     mgcSettings_Colors_ChannelB, // ДИСПЛЕЙ - НАСТРОЙКИ - ЦВЕТА - Канал 2
     mgcSettings_Colors_Grid,     // ДИСПЛЕЙ - НАСТРОЙКИ - ЦВЕТА - Сетка
     Page_Service_Display_Colors, &mspSettings, FuncActive, EmptyPressPage
-);
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 static void OnChanged_Settings_Brightness()
@@ -338,7 +341,7 @@ DEF_GOVERNOR(       mgSettings_Brightness,                                      
     "Установка яркости свечения дисплея",
     "Setting the brightness of the display",
     BRIGHTNESS, 0, 100, mspSettings, FuncActive, OnChanged_Settings_Brightness, FuncBeforeDraw
-);
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 DEF_GOVERNOR(       mgSettings_Levels,                                                                             // ДИСПЛЕЙ - НАСТРОЙКИ - Уровни ---
@@ -346,7 +349,7 @@ DEF_GOVERNOR(       mgSettings_Levels,                                          
     "Задаёт время, в течение которого после поворота ручки сещения напряжения на экране остаётся вспомогательная метка уровня смещения",
     "Defines the time during which, after turning the handle visits to the voltage on the screen remains auxiliary label offset level",
     TIME_SHOW_LEVELS, 0, 125, mspSettings, FuncActive, FuncChanged, FuncBeforeDraw
-);
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 DEF_GOVERNOR(       mgSettings_TimeMessages,                                                                        // ДИСПЛЕЙ - НАСТРОЙКИ - Время ---
@@ -364,7 +367,7 @@ DEF_CHOICE_2(       mcSettings_ShowStringNavigation,                            
     "Скрывать",   "Hide",
     "Показывать", "Show",
     SHOW_STRING_NAVIGATION, mspSettings, FuncActive, FuncChangedChoice, FuncDraw
-);
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 static void OnChanged_Settings_ShowAltMarkers(bool)
@@ -388,7 +391,7 @@ DEF_CHOICE_3(       mcSettings_ShowAltMarkers,                                  
     "Показывать", "Show",
     "Авто",       "Auto",
     ALT_MARKERS, mspSettings, FuncActive, OnChanged_Settings_ShowAltMarkers, FuncDraw
-);
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 static void OnChanged_Settings_AutoHide(bool autoHide)
@@ -407,7 +410,7 @@ DEF_CHOICE_6(       mcSettings_AutoHide,                                        
     "Через 30 сек", "Through 30 s",
     "Через 60 сек", "Through 60 s",
     MENU_AUTO_HIDE, mspSettings, FuncActive, OnChanged_Settings_AutoHide, FuncDraw
-);
+)
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -423,7 +426,7 @@ DEF_PAGE_7(         mspSettings,                                                
     mcSettings_ShowAltMarkers,       // ДИСПЛЕЙ - НАСТРОЙКИ - Доп. маркеры
     mcSettings_AutoHide,             // ДИСПЛЕЙ - НАСТРОЙКИ - Скрывать
     Page_Service_Display, &pDisplay, FuncActive, EmptyPressPage
-);
+)
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -441,7 +444,7 @@ DEF_PAGE_9(         pDisplay,                                                   
     mcTypeShift,     // ДИСПЛЕЙ - Смещение
     mspSettings,     // ДИСПЛЕЙ - НАСТРОЙКИ
     Page_Display, &mainPage, FuncActive, EmptyPressPage
-);
+)
 
 
 /** @}  @}
