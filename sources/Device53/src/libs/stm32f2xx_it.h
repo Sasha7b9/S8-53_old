@@ -20,6 +20,7 @@ void OTG_FS_IRQHandler();
 void OTG_HS_IRQHandler();
 void ADC_IRQHandler();
 void DMA1_Stream5_IRQHandler();
+void TIM3_IRQHandler();
 
 #ifdef __cplusplus
 }

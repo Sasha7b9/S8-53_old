@@ -6,7 +6,7 @@
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-void HAL_HCD_MspInit(HCD_HandleTypeDef *hhcd) {
+void HAL_HCD_MspInit(HCD_HandleTypeDef *) {
 
     __GPIOB_CLK_ENABLE();
     __USB_OTG_HS_CLK_ENABLE();
@@ -28,7 +28,7 @@ void HAL_HCD_MspInit(HCD_HandleTypeDef *hhcd) {
 }
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
-void HAL_HCD_MspDeInit(HCD_HandleTypeDef *hhcd)
+void HAL_HCD_MspDeInit(HCD_HandleTypeDef *)
 {
     __USB_OTG_HS_CLK_DISABLE();
 }

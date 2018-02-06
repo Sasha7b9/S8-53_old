@@ -35,6 +35,6 @@ const char* NameButton(PanelButton button)
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 PanelButton& operator++(PanelButton &button)
 {
-    button = (PanelButton)((int)button + 1);
+    button = static_cast<PanelButton>(static_cast<int>(button) + 1);
     return button;
 }

@@ -42,8 +42,8 @@
 #define SET_ENABLED_B           SET_ENABLED(B)                  ///< set.chan[B].enable
 
 #define SET_BALANCE_ADC(ch)     (set.chan[ch].balanceShiftADC)  ///< SettingsChannel.balanceShiftADC
-#define SET_BALANCE_ADC_A       (SET_BALANCE_ADC(A))          ///< set.chan[A].balanceShiftADC
-#define SET_BALANCE_ADC_B       (SET_BALANCE_ADC(B))          ///< set.chan[B].balanceShiftADC
+#define SET_BALANCE_ADC_A       (SET_BALANCE_ADC(A))            ///< set.chan[A].balanceShiftADC
+#define SET_BALANCE_ADC_B       (SET_BALANCE_ADC(B))            ///< set.chan[B].balanceShiftADC
 
 #define STRETCH_ADC(ch)         (set.chan[ch].stretchADC)       ///< SettingsChannel.stretchADC
 #define STRETCH_ADC_A           (STRETCH_ADC(A))                ///< set.chan[A].stretchADC

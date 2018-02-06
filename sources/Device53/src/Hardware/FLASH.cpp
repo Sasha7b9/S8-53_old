@@ -24,8 +24,8 @@ typedef struct
 #define SIZE_ARRAY_POINTERS_IN_ELEMENTS 1024
 #define ADDR_ARRAY_POINTERS (ADDR_SECTOR_SETTINGS + 4)
 #define SIZE_ARRAY_POINTERS_IN_BYTES (SIZE_ARRAY_POINTERS_IN_ELEMENTS * sizeof(RecordConfig))
-static const uint ADDR_FIRST_SET = ADDR_ARRAY_POINTERS + SIZE_ARRAY_POINTERS_IN_BYTES;      // По этому адресу записаны первые настройки
-static const uint SIZE_MEMORY = 1024 * 1024 + 0x08000000;
+//static const uint ADDR_FIRST_SET = ADDR_ARRAY_POINTERS + SIZE_ARRAY_POINTERS_IN_BYTES;      // По этому адресу записаны первые настройки
+//static const uint SIZE_MEMORY = 1024 * 1024 + 0x08000000;
 
 
 // Признак того, что запись в этоу область флэш уже производилась. Если нулевое слово области (данных, ресурсов или настроек) имеет это значение, 
@@ -51,7 +51,7 @@ static const uint startDataInfo = ADDR_SECTOR_DATA_MAIN;
 static void PrepareSectorForData()
 {
     EraseSector(ADDR_SECTOR_DATA_MAIN);
-    for (int i = 0; i < MAX_NUM_SAVED_WAVES; i++)
+    for (uint i = 0; i < MAX_NUM_SAVED_WAVES; i++)
     {
         WriteWord(startDataInfo + i * 4, 0);
     }
@@ -90,13 +90,13 @@ void FLASHMem::LoadSettings()
     else if (READ_WORD(ADDR_SECTOR_SETTINGS) == MARK_OF_FILLED)                             // Если старый алгоритм хранения настроек
     {
         RecordConfig *record = RecordConfigForRead();
-        if (record->sizeData + record->addrData >= (ADDR_SECTOR_SETTINGS + SIZE_SECTOR_SETTINGS))   // Если последние сохранённые настройки выходят
+        if ((uint)record->sizeData + record->addrData >= (ADDR_SECTOR_SETTINGS + SIZE_SECTOR_SETTINGS))   // Если последние сохранённые настройки выходят
         {                                                                                   // за пределы сектора (глюк предыдущей версии сохранения)
             --record;                                                                       // то воспользуемся предыдущими сохранёнными настройками
         }
-        memcpy(&set, (const void *)(record->addrData - 4), record->sizeData);               // Считываем их
+        memcpy(&set, (const void *)(record->addrData - 4), (uint)record->sizeData);         // Считываем их
         EraseSector(ADDR_SECTOR_SETTINGS);                                                  // Стираем сектор настроек
-        FLASHMem::SaveSettings(true);                                                           // И сохраняем настройки в новом формате
+        FLASHMem::SaveSettings(true);                                                       // И сохраняем настройки в новом формате
     }
     else
     {
@@ -118,12 +118,14 @@ void FLASHMem::LoadSettings()
 }
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
-void WriteAddressDataInRecord(RecordConfig *record)
+/*
+static void WriteAddressDataInRecord(RecordConfig *record)
 {
-    uint address = (record == FirstRecord()) ? ADDR_FIRST_SET : (record - 1)->addrData + (record - 1)->sizeData;
+    uint address = (record == FirstRecord()) ? ADDR_FIRST_SET : (record - 1)->addrData + (uint)(record - 1)->sizeData;
 
     WriteWord((uint)(&record->addrData), address);
 }
+*/
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 void FLASHMem::SaveSettings(bool verifyLoadede)
@@ -179,10 +181,12 @@ RecordConfig *FirstRecord()
 }
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
-bool RecordExist()
+/*
+static bool RecordExist()
 {
     return READ_WORD(ADDR_ARRAY_POINTERS) != MAX_UINT;
 }
+*/
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 RecordConfig *FirstEmptyRecord()
@@ -203,7 +207,8 @@ RecordConfig *FirstEmptyRecord()
 }
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
-uint CalculatFreeMemory()
+/*
+static uint CalculatFreeMemory()
 {
     if (!RecordExist())
     {
@@ -217,8 +222,9 @@ uint CalculatFreeMemory()
         return 0;
     }
 
-    return SIZE_MEMORY - (firstEmptyRecord - 1)->addrData - (firstEmptyRecord - 1)->sizeData - 4;
+    return SIZE_MEMORY - (firstEmptyRecord - 1)->addrData - (uint)(firstEmptyRecord - 1)->sizeData - 4;
 }
+*/
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 static uint FindAddressNextDataInfo()
@@ -244,7 +250,7 @@ void FLASHMem::GetDataInfo(bool existData[MAX_NUM_SAVED_WAVES])
 {
     uint address = FindActualDataInfo();
 
-    for (int i = 0; i < MAX_NUM_SAVED_WAVES; i++)
+    for (uint i = 0; i < MAX_NUM_SAVED_WAVES; i++)
     {
         existData[i] = READ_WORD(address + i * 4) != 0;
     }
@@ -254,18 +260,19 @@ void FLASHMem::GetDataInfo(bool existData[MAX_NUM_SAVED_WAVES])
 bool FLASHMem::ExistData(int num)
 {
     uint address = FindActualDataInfo();
-    return READ_WORD(address + num * 4) != 0;
+    return READ_WORD(address + (uint)num * 4) != 0;
 }
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 void FLASHMem::DeleteData(int num)
 {
     uint address = FindActualDataInfo();
-    WriteWord(address + num * 4, 0);
+    WriteWord(address + (uint)num * 4, 0);
 }
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
-int CalculateSizeRecordConfig()
+/*
+static int CalculateSizeRecordConfig()
 {
     int size = sizeof(RecordConfig);
     while (size % 4)
@@ -274,9 +281,11 @@ int CalculateSizeRecordConfig()
     }
     return size;
 }
+*/
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
-int CalculateSizeDataSettings()
+/*
+static int CalculateSizeDataSettings()
 {
     int size = sizeof(DataSettings);
     while (size % 4)
@@ -285,9 +294,10 @@ int CalculateSizeDataSettings()
     }
     return size;
 }
+*/
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
-int CalculateSizeData(DataSettings *ds)
+static int CalculateSizeData(DataSettings *ds)
 {
     int size = sizeof(DataSettings);
     if (ds->enableCh0 == 1)
@@ -321,7 +331,7 @@ static void CompactMemory()
 
     uint addressDataInfo = ADDR_SECTOR_DATA_HELP + dataInfoRel;
 
-    for (int i = 0; i < MAX_NUM_SAVED_WAVES; i++)
+    for (uint i = 0; i < MAX_NUM_SAVED_WAVES; i++)
     {
         uint addrDataOld = READ_WORD(addressDataInfo + i * 4);
         if (addrDataOld != 0)
@@ -340,7 +350,7 @@ static void CompactMemory()
             {
                 data1 = (uint8*)addrDataNew;
             }
-            FLASHMem::SaveData(i, ds, data0, data1);
+            FLASHMem::SaveData((int)i, ds, data0, data1);
         }
     }
     Display::ClearFromWarnings();
@@ -388,7 +398,7 @@ void FLASHMem::SaveData(int num, DataSettings *ds, uint8 *data0, uint8 *data1)
 
 // 4
     uint addrForWrite = addrDataInfo + MAX_NUM_SAVED_WAVES * 4;             // Это - адрес, по которому будет храниться адрес следующего информационного массива
-    uint valueForWrite = addrForWrite + 4 + size;                           // Это - адрес следующего информационного массива
+    uint valueForWrite = addrForWrite + 4U + (uint)size;                    // Это - адрес следующего информационного массива
     WriteWord(addrForWrite, valueForWrite);
 
 // 5
@@ -410,10 +420,10 @@ void FLASHMem::SaveData(int num, DataSettings *ds, uint8 *data0, uint8 *data1)
     }
 
 // 6
-    for (int i = 0; i < MAX_NUM_SAVED_WAVES; i++)
+    for (uint i = 0; i < MAX_NUM_SAVED_WAVES; i++)
     {
-        uint addressForWrite = address + i * 4;
-        if (i == num)
+        uint addressForWrite = address + i * 4U;
+        if (i == (uint)num)
         {
             WriteWord(addressForWrite, addressNewData);
         }
@@ -428,7 +438,7 @@ void FLASHMem::SaveData(int num, DataSettings *ds, uint8 *data0, uint8 *data1)
 bool FLASHMem::GetData(int num, DataSettings **ds, uint8 **data0, uint8 **data1)
 {
     uint addrDataInfo = FindActualDataInfo();
-    if (READ_WORD(addrDataInfo + 4 * num) == 0)
+    if (READ_WORD(addrDataInfo + 4U * (uint)num) == 0)
     {
         *ds = 0;
         *data0 = 0;
@@ -436,7 +446,7 @@ bool FLASHMem::GetData(int num, DataSettings **ds, uint8 **data0, uint8 **data1)
         return false;
     }
 
-    uint addrDS = READ_WORD(addrDataInfo + 4 * num);
+    uint addrDS = READ_WORD(addrDataInfo + 4U * (uint)num);
 
     uint addrData0 = 0;
     uint addrData1 = 0;
@@ -545,7 +555,7 @@ bool OTPMem::SaveSerialNumber(char *serialNumber)
 
     if (address < (uint8*)FLASH_OTP_END - 16)
     {
-        WriteBufferBytes((uint)address, (uint8*)serialNumber, strlen(serialNumber) + 1);
+        WriteBufferBytes((uint)address, (uint8*)serialNumber, (int)strlen(serialNumber) + 1);
         return true;
     }
 

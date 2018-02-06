@@ -30,6 +30,7 @@
 //bool        RTC_SetTimeAndData(int8 day, int8 month, int8 year, int8 hours, int8 minutes, int8 seconds);
 //PackedTime  RTC_GetPackedTime();
 
+#pragma clang diagnostic ignored "-Wmissing-field-initializers"
 
 static const RTC_HandleTypeDef rtcHandle =
 {
@@ -43,6 +44,8 @@ static const RTC_HandleTypeDef rtcHandle =
         RTC_OUTPUT_TYPE_OPENDRAIN   // OutPutType
     }
 };
+
+#pragma clang diagnostic warning "-Wmissing-field-initializers"
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void RTClock::Init()
