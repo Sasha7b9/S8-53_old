@@ -144,6 +144,7 @@ typedef struct
 
 #define BALANCE_ADC_TYPE                    (set.debug.balanceADCtype)
 #define BALANCE_ADC_TYPE_IS_HAND            (BALANCE_ADC_TYPE == BalanceADC_Hand)
+#define BALANCE_ADC_TYPE_IS_SETTINGS        (BALANCE_ADC_TYPE == BalanceADC_Settings)
 
 #define BALANCE_ADC(ch)                     (set.debug.balanceADC[ch])
 #define BALANCE_ADC_A                       (BALANCE_ADC(A))

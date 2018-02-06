@@ -91,8 +91,10 @@ static void CalculateAroundAverage(uint8 *data0, uint8 *data1, DataSettings *dss
 
         do 
         {
-            *aData0++ = ((*aData0) * numAveDataFless + (float)(*d0++)) * numAveDataInv;
-            *aData1++ = ((*aData1) * numAveDataFless + (float)(*d1++)) * numAveDataInv;
+            *aData0 = ((*aData0) * numAveDataFless + (float)(*d0++)) * numAveDataInv;
+            ++aData0;
+            *aData1 = ((*aData1) * numAveDataFless + (float)(*d1++)) * numAveDataInv;
+            ++aData1;
         } while (aData0 != endData);
     }
 }
@@ -330,7 +332,7 @@ bool Storage::CopyData(DataSettings *ds, Channel chan, uint8 *data)
         address += length;
     }
 
-    memcpy(pointer, address, length);
+    memcpy(pointer, address, (size_t)length);
 
     return true;
 }
@@ -375,7 +377,7 @@ uint8* Storage::GetAverageData(Channel chan)
 
     for(int i = 0; i < numPoints; i++)
     {
-        data[chan][i] = sum[chan][i] / numAveraging;
+        data[chan][i] = (uint8)(sum[chan][i] / (uint)numAveraging);
     }
 
     return &data[chan][0];
@@ -409,13 +411,15 @@ int Storage::NumberAvailableEntries()
 }
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
-void VerifyAddress(uint8 *dst, uint size)
+/*
+static void VerifyAddress(uint8 *dst, uint size)
 {
     if(dst < beginPool || dst > endPool || (dst + size) < beginPool || (dst + size) > endPool)
     {
         LOG_ERROR("!!!Ошибка записи в память");
     }
 }
+*/
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 #define COPY_AND_INCREASE(address, data, length)    \

@@ -254,8 +254,8 @@ void FuncAttScreen()
                     Painter::DrawFormatText(95 + i * 16 + dX, 90 + dY, "%d", set.chan[B].rShiftAdd[i][1]);
                 }
                 
-                Painter::DrawFormatText(10 + dX, 110 + dY, "Коэффициент калибровки 1к : %f, %d", STRETCH_ADC_A, (int)(STRETCH_ADC_A * 0x80));
-                Painter::DrawFormatText(10 + dX, 130 + dY, "Коэфффициент калибровки 2к : %f, %d", STRETCH_ADC_B, (int)(STRETCH_ADC_B * 0x80));
+                Painter::DrawFormatText(10 + dX, 110 + dY, "Коэффициент калибровки 1к : %f, %d", (double)STRETCH_ADC_A, (int)(STRETCH_ADC_A * 0x80));
+                Painter::DrawFormatText(10 + dX, 130 + dY, "Коэфффициент калибровки 2к : %f, %d", (double)STRETCH_ADC_B, (int)(STRETCH_ADC_B * 0x80));
 
                 DrawParametersChannel(A, 10 + dX, 150 + dY, false);
                 DrawParametersChannel(B, 10 + dX, 200 + dY, false);
@@ -306,7 +306,7 @@ void FuncAttScreen()
     }
     */
     char buffer[100];
-    sprintf(buffer, "%.1f", (gTimeMS - startTime) / 1000.0f);
+    sprintf(buffer, "%.1f", (gTimeMS - startTime) / 1000.0);
     Painter::DrawText(0, 0, buffer, Color::BLACK);
 
     Painter::EndScene();
@@ -333,13 +333,13 @@ void DrawParametersChannel(Channel chan, int eX, int eY, bool inProgress)
         int y = eY + (inProgress ? 110 : 0);
         Painter::DrawText(x, y, "Отклонение от нуля:");
         char buffer[100] = {0};
-        sprintf(buffer, "АЦП1 = %.2f/%.2f, АЦП2 = %.2f/%.2f, d = %.2f/%.2f", avrADC1old[chan] - AVE_VALUE, avrADC1[chan] - AVE_VALUE, 
-                                                                             avrADC2old[chan] - AVE_VALUE, avrADC2[chan] - AVE_VALUE,
-                                                                             deltaADCold[chan], deltaADC[chan]);
+        sprintf(buffer, "АЦП1 = %.2f/%.2f, АЦП2 = %.2f/%.2f, d = %.2f/%.2f", (double)avrADC1old[chan] - AVE_VALUE, (double)avrADC1[chan] - AVE_VALUE, 
+                                                                             (double)avrADC2old[chan] - AVE_VALUE, (double)avrADC2[chan] - AVE_VALUE,
+                                                                             (double)deltaADCold[chan], (double)deltaADC[chan]);
         y += 10;
         Painter::DrawText(x, y, buffer);
-        buffer[0] = 0;
-        sprintf(buffer, "Расхождение AЦП = %.2f/%.2f %%", deltaADCPercentsOld[chan], deltaADCPercents[chan]);
+        buffer[0] = 0;  
+        sprintf(buffer, "Расхождение AЦП = %.2f/%.2f %%", (double)deltaADCPercentsOld[chan], (double)deltaADCPercents[chan]);
         Painter::DrawText(x, y + 11, buffer);
         buffer[0] = 0;
         sprintf(buffer, "Записано %d", SET_BALANCE_ADC(chan));
@@ -409,8 +409,8 @@ void AlignmentADC()
     SET_BALANCE_ADC_A = shiftADC0;
     shiftADC1 = (int8)((deltaADCold[1] > 0) ? (deltaADCold[1] + 0.5f) : (deltaADCold[1] - 0.5f));
     SET_BALANCE_ADC_B = shiftADC1;
-    FSMC::Write(WR_ADD_RSHIFT_DAC1, SET_BALANCE_ADC_A);
-    FSMC::Write(WR_ADD_RSHIFT_DAC2, SET_BALANCE_ADC_B);
+    FSMC::Write(WR_ADD_RSHIFT_DAC1, (uint8)SET_BALANCE_ADC_A);
+    FSMC::Write(WR_ADD_RSHIFT_DAC2, (uint8)SET_BALANCE_ADC_B);
 }
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
@@ -429,9 +429,9 @@ int16 CalculateAdditionRShift(Channel chan, Range range)
     int sum = 0;
     int numPoints = 0;
 
-    int time = gTimeMS;
+    int time = (int)gTimeMS;
 
-    while(gTimeMS - time < 50) {};
+    while((int)gTimeMS - time < 50) {};
 
     for(int i = 0; i < numMeasures; i++)
     {
@@ -460,7 +460,7 @@ int16 CalculateAdditionRShift(Channel chan, Range range)
         uint8 *addressRead1 = chan == A ? RD_ADC_A1 : RD_ADC_B1;
         uint8 *addressRead2 = chan == A ? RD_ADC_A2 : RD_ADC_B2;
 
-        for(int i = 0; i < FPGA_MAX_POINTS; i += 2)
+        for(int j = 0; j < FPGA_MAX_POINTS; j += 2)
         {
             sum += FSMC::Read(addressRead1);
             sum += FSMC::Read(addressRead2);
@@ -523,7 +523,7 @@ float CalculateKoeffCalibration(Channel chan)
         uint8 *addressRead1 = chan == A ? RD_ADC_A1 : RD_ADC_B1;
         uint8 *addressRead2 = chan == A ? RD_ADC_A2 : RD_ADC_B2;
 
-        for(int i = 0; i < FPGA_MAX_POINTS; i += 2)
+        for(int j = 0; j < FPGA_MAX_POINTS; j += 2)
         {
             uint8 val0 = FSMC::Read(addressRead1);
             if(val0 > AVE_VALUE + 60)

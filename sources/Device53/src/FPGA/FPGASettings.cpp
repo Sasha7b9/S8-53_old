@@ -91,26 +91,25 @@ void FPGA::LoadSettings()
     LoadTrigPolarity();
     LoadRegUPR();
 
-    switch(BALANCE_ADC_TYPE) 
+    if (BALANCE_ADC_TYPE_IS_SETTINGS)
     {
-        case BalanceADC_Settings:
-            WriteToHardware(WR_ADD_RSHIFT_DAC1, SET_BALANCE_ADC_A, false);
-            WriteToHardware(WR_ADD_RSHIFT_DAC2, SET_BALANCE_ADC_B, false);
-            break;
-        case BalanceADC_Hand:
-            SetPeackDetMode(SET_PEAKDET);
-            SetTBase(SET_TBASE);
-            if (SET_PEAKDET)
-            {
-                WriteToHardware(WR_ADD_RSHIFT_DAC1, 3, false);     // Почему-то при пиковом детекторе смещение появляется. Вот его и компенсируем.
-                WriteToHardware(WR_ADD_RSHIFT_DAC2, 3, false);
-            }
-            else
-            {
-                WriteToHardware(WR_ADD_RSHIFT_DAC1, (uint8)BALANCE_ADC_A, false);
-                WriteToHardware(WR_ADD_RSHIFT_DAC2, (uint8)BALANCE_ADC_B, false);
-            }
-            break;
+        WriteToHardware(WR_ADD_RSHIFT_DAC1, (uint8)SET_BALANCE_ADC_A, false);
+        WriteToHardware(WR_ADD_RSHIFT_DAC2, (uint8)SET_BALANCE_ADC_B, false);
+    }
+    else if (BALANCE_ADC_TYPE_IS_HAND)
+    {
+        SetPeackDetMode(SET_PEAKDET);
+        SetTBase(SET_TBASE);
+        if (SET_PEAKDET)
+        {
+            WriteToHardware(WR_ADD_RSHIFT_DAC1, 3, false);     // Почему-то при пиковом детекторе смещение появляется. Вот его и компенсируем.
+            WriteToHardware(WR_ADD_RSHIFT_DAC2, 3, false);
+        }
+        else
+        {
+            WriteToHardware(WR_ADD_RSHIFT_DAC1, (uint8)BALANCE_ADC_A, false);
+            WriteToHardware(WR_ADD_RSHIFT_DAC2, (uint8)BALANCE_ADC_B, false);
+        }
     }
 }
 
@@ -128,7 +127,7 @@ void FPGA::SetAttribChannelsAndTrig(TypeWriteAnalog type)
 
     // RangeA, RangeB
     data |= masksRange[SET_RANGE_A];
-    data |= (masksRange[SET_RANGE_B] << 8);
+    data |= (uint)(masksRange[SET_RANGE_B] << 8);
 
     // Параметры каналов
     static const uint maskCouple[2][3] = 
@@ -174,8 +173,8 @@ void FPGA::SetRange(Channel chan, Range range)
         sChannel_SetRange(chan, range);
         if (LINKING_RSHIFT_IS_VOLTAGE)
         {
-            SET_RSHIFT(chan) = RSHIFT_2_REL(rShiftAbs, range);
-            SET_TRIGLEV(chan) = RSHIFT_2_REL(trigLevAbs, range);
+            SET_RSHIFT(chan) = (int16)RSHIFT_2_REL(rShiftAbs, range);
+            SET_TRIGLEV(chan) = (int16)RSHIFT_2_REL(trigLevAbs, range);
         }
         LoadRange(chan);
     }
@@ -183,7 +182,7 @@ void FPGA::SetRange(Channel chan, Range range)
     {
         Display::ShowWarningBad(chan == A ? LimitChan1_Volts : LimitChan2_Volts);
     }
-};
+}
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 void FPGA::LoadRange(Channel chan)
@@ -215,7 +214,7 @@ void FPGA::SetTBase(TBase tBase)
     {
         Display::ShowWarningBad(LimitSweep_Time);
     }
-};
+}
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 void FPGA::LoadTBase()
@@ -290,12 +289,12 @@ void FPGA::SetRShift(Channel chan, int16 rShift)
     }
     else if (rShift < RShiftZero)
     {
-        rShift = (rShift + 1) & 0xfffe;
+        rShift = (int16)((rShift + 1) & 0xfffe);
     }
     SET_RSHIFT(chan) = rShift;
     LoadRShift(chan);
     Display::RotateRShift(chan);
-};
+}
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 void FPGA::LoadRShift(Channel chan)
@@ -307,17 +306,17 @@ void FPGA::LoadRShift(Channel chan)
     static const int index[3] = {0, 1, 1};
     int16 rShiftAdd = set.chan[chan].rShiftAdd[range][index[mode]];
 
-    uint16 rShift = SET_RSHIFT(chan) + (SET_INVERSE(chan) ? -1 : 1) * rShiftAdd;
+    uint16 rShift = (uint16)(SET_RSHIFT(chan) + ((int16)(SET_INVERSE(chan) ? -1 : 1)) * rShiftAdd);
 
-    int16 delta = -(rShift - RShiftZero);
+    int16 delta = -((int16)rShift - RShiftZero);
     if (SET_INVERSE(chan))
     {
         delta = -delta;
     }
-    rShift = delta + RShiftZero;
+    rShift = (uint16)(delta + RShiftZero);
 
     rShift = RShiftMax + RShiftMin - rShift;
-    WriteToDAC(chan == A ? TypeWriteDAC_RShiftA : TypeWriteDAC_RShiftB, mask[chan] | (rShift << 2));
+    WriteToDAC(chan == A ? TypeWriteDAC_RShiftA : TypeWriteDAC_RShiftB, mask[chan] | (uint16)(rShift << 2));
 }
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
@@ -337,7 +336,7 @@ void FPGA::SetTrigLev(TrigSource chan, int16 trigLev)
     }
     else if (trigLev < TrigLevZero)
     {
-        trigLev = (trigLev + 1) & 0xfffe;
+        trigLev = (int16)((trigLev + 1) & 0xfffe);
     }
 
     if (SET_TRIGLEV(chan) != trigLev)
@@ -346,13 +345,13 @@ void FPGA::SetTrigLev(TrigSource chan, int16 trigLev)
         LoadTrigLev();
         Display::RotateTrigLev();
     }
-};
+}
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 void FPGA::LoadTrigLev()
 {
     uint16 data = 0xa000;
-    uint16 trigLev = SET_TRIGLEV_SOURCE;
+    uint16 trigLev = (uint16)SET_TRIGLEV_SOURCE;
     trigLev = TrigLevMax + TrigLevMin - trigLev;
     data |= trigLev << 2;
     // FPGA_WriteToHardware(WR_DAC_LOW, data.byte[0], true);
@@ -374,10 +373,10 @@ void FPGA::SetTShift(int tShift)
         Display::ShowWarningBad(LimitSweep_TShift);
     }
 
-    sTime_SetTShift(tShift);
+    sTime_SetTShift((int16)tShift);
     LoadTShift();
     Display::Redraw();
-};
+}
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 void FPGA::SetDeltaTShift(int16 shift)
@@ -443,7 +442,7 @@ void FPGA::LoadTShift()
     }
     int additionShift = (tShiftOld % k[tBase]) * 2;
     FPGA::SetAdditionShift(additionShift);
-    uint16 post = tShift;
+    uint16 post = (uint16)tShift;
     post = (~post);
     WriteToHardware(WR_POST_LOW, (uint8)post, true);
     WriteToHardware(WR_POST_HI, (uint8)(post >> 8), true);
@@ -475,7 +474,7 @@ bool FPGA::RangeIncrease(Channel chan)
     }
     Display::Redraw();
     return retValue;
-};
+}
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 bool FPGA::RangeDecrease(Channel chan)
@@ -492,7 +491,7 @@ bool FPGA::RangeDecrease(Channel chan)
     }
     Display::Redraw();
     return retValue;
-};
+}
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 void FPGA::SetTrigSource(TrigSource trigSource)
