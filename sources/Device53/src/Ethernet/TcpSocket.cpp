@@ -14,11 +14,12 @@ enum States
     S_CLOSING
 };
 
-struct State
+struct StateTCP
 {
-    struct pbuf *p;     // pbuf (chain) to recycle
-    uchar state;
-    int numPort;
+    struct  pbuf *p;    // pbuf (chain) to recycle
+    uchar   state;
+    uint8   notUsed[3];
+    int     numPort;
 };
 
 static void(*SocketFuncConnect)() = 0;                                 // this function will be called every time a new connection
@@ -34,7 +35,7 @@ void ETH_SendFormatString(char *, ...)
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-static void CloseConnection(struct tcp_pcb *tpcb, struct State *ss)
+static void CloseConnection(struct tcp_pcb *tpcb, struct StateTCP *ss)
 {
     gEthIsConnected = false;
     tcp_arg(tpcb, NULL);
@@ -54,7 +55,7 @@ static void CloseConnection(struct tcp_pcb *tpcb, struct State *ss)
 
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------
-static void SendPCB(struct tcp_pcb *_tpcb, struct State *_ss)
+static void SendPCB(struct tcp_pcb *_tpcb, struct StateTCP *_ss)
 {
     struct pbuf *ptr;
     err_t wr_err = ERR_OK;
@@ -102,9 +103,9 @@ static void SendPCB(struct tcp_pcb *_tpcb, struct State *_ss)
 //------------------------------------------------------------------------------------------------------------------------------------------------------
 static err_t CallbackOnSent(void *_arg, struct tcp_pcb *_tpcb, u16_t _len)
 {
-    struct State *ss;
+    struct StateTCP *ss;
     LWIP_UNUSED_ARG(_len);
-    ss = (struct State*)_arg;
+    ss = (struct StateTCP*)_arg;
 
     if (ss->p != NULL)
     {
@@ -134,7 +135,7 @@ static void SendAnswer(void *_arg, struct tcp_pcb *_tpcb)
     struct pbuf *tcpBuffer = pbuf_alloc(PBUF_RAW, (uint16)strlen(policy), PBUF_POOL);
     tcpBuffer->flags = 1;
     pbuf_take(tcpBuffer, policy, (uint16)strlen(policy));
-    struct State *s = (struct State *)_arg;
+    struct StateTCP *s = (struct StateTCP *)_arg;
     s->p = tcpBuffer;
     SendPCB(_tpcb, s);
 }
@@ -146,7 +147,7 @@ static err_t CallbackOnRecieve(void *_arg, struct tcp_pcb *_tpcb, struct pbuf *_
     err_t ret_err;
 
     LWIP_ASSERT("arg != NULL", _arg != NULL);
-    struct State *ss = (struct State*)_arg;
+    struct StateTCP *ss = (struct StateTCP*)_arg;
 
     if (_p == NULL)
     {
@@ -242,7 +243,7 @@ static err_t CallbackOnRecieve(void *_arg, struct tcp_pcb *_tpcb, struct pbuf *_
 
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------
-void CallbackOnError(void *_arg, err_t _err)
+static void CallbackOnError(void *_arg, err_t _err)
 {
     struct State *ss;
     LWIP_UNUSED_ARG(_err);
@@ -256,10 +257,10 @@ void CallbackOnError(void *_arg, err_t _err)
 
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------
-err_t CallbackOnPoll(void *_arg, struct tcp_pcb *_tpcb)
+static err_t CallbackOnPoll(void *_arg, struct tcp_pcb *_tpcb)
 {
     err_t ret_err;
-    struct State *ss = (struct State *)_arg;
+    struct StateTCP *ss = (struct StateTCP *)_arg;
     if (ss != NULL)
     {
         if (ss->p != NULL)
@@ -289,11 +290,11 @@ err_t CallbackOnPoll(void *_arg, struct tcp_pcb *_tpcb)
 
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------
-err_t CallbackOnAccept(void *_arg, struct tcp_pcb *_newPCB, err_t _err)
+static err_t CallbackOnAccept(void *_arg, struct tcp_pcb *_newPCB, err_t _err)
 {
     err_t ret_err;
 
-    struct State *s;
+    struct StateTCP *s;
     LWIP_UNUSED_ARG(_arg);
     LWIP_UNUSED_ARG(_err);
     
@@ -303,7 +304,7 @@ err_t CallbackOnAccept(void *_arg, struct tcp_pcb *_newPCB, err_t _err)
         new pcbs of higher priority. */
     tcp_setprio(_newPCB, TCP_PRIO_MIN);
 
-    s = (struct State*)mem_malloc(sizeof(struct State));
+    s = (struct StateTCP*)mem_malloc(sizeof(struct StateTCP));
 
     if (s)
     {
@@ -339,7 +340,7 @@ err_t CallbackOnAccept(void *_arg, struct tcp_pcb *_newPCB, err_t _err)
 
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------
-err_t CallbackOnAcceptPolicyPort(void *_arg, struct tcp_pcb *_newPCB, err_t _err)
+static err_t CallbackOnAcceptPolicyPort(void *_arg, struct tcp_pcb *_newPCB, err_t _err)
 {
     return CallbackOnAccept(_arg, _newPCB, _err);
 }
@@ -401,10 +402,10 @@ bool SocketTCP::Send(const char *buffer, uint length)
 {
     if (pcbClient)
     {
-        struct pbuf *tcpBuffer = pbuf_alloc(PBUF_RAW, length, PBUF_POOL);
+        struct pbuf *tcpBuffer = pbuf_alloc(PBUF_RAW, (uint16)length, PBUF_POOL);
         tcpBuffer->flags = 1;
-        pbuf_take(tcpBuffer, buffer, length);
-        struct State *ss = (struct State*)mem_malloc(sizeof(struct State));
+        pbuf_take(tcpBuffer, buffer, (uint16)length);
+        struct StateTCP *ss = (struct StateTCP*)mem_malloc(sizeof(struct StateTCP));
         ss->p = tcpBuffer;
         SendPCB(pcbClient, ss);
         mem_free(ss);

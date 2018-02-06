@@ -446,6 +446,7 @@
   <ItemGroup>
     <ClInclude Include="..\..\Device53\src\Menu\Pages\PageChannels.h" />
     <ClInclude Include="..\..\Device53\src\Menu\Pages\PageDebug.h" />
+    <ClInclude Include="..\..\Device53\src\Menu\Pages\PageTime.h" />
     <ClInclude Include="..\..\Device53\src\Menu\Pages\PageTrig.h" />
     <ClInclude Include="..\..\libs\common\commonDefines.h" />
     <ClInclude Include="..\..\libs\common\Display\Colors.h" />

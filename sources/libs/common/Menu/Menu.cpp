@@ -1,4 +1,4 @@
-#include "Menu.h" 
+#include "Menu.h"
 #include "Display/Grid.h"
 #include "Display/DisplayTypes.h"
 #include "FlashDrive/FlashDrive.h"
@@ -8,6 +8,7 @@
 #include "Pages/Definition.h"
 #include "Menu/Pages/PageCursors.h"
 #include "Menu/Pages/PageDisplay.h"
+#include "Menu/Pages/PageHelp.h"
 #include "Menu/Pages/PageMemory.h"
 #include "Menu/Pages/PageChannels.h"
 #include "Panel/Panel.h"
@@ -17,7 +18,7 @@
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 extern void Long_Help();
-extern const PageBase * const pointerPageHelp;
+//extern const PageBase * const pointerPageHelp;
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
       PanelButton Menu::shortPressureButton = B_Empty;
@@ -389,7 +390,7 @@ void Menu::ProcessingShortPressureButton()
                 }
 
                 Page *page = (Page *)PageForButton(button);
-                if(page && page != (Page *)pointerPageHelp)
+                if(page && page != (Page *)PageHelp::pointer)
                 {
                     page->SetCurrent(true);
                     page->Open(true);

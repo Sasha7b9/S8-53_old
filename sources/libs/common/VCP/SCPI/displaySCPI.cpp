@@ -72,7 +72,7 @@ void Process_AUTOSEND(uint8 *buffer)
     {
         {"1", 1},
         {"2", 2},
-        {0}
+        {0, 0}
     };
     ENTER_ANALYSIS
         if (1 == value)         { Painter::SendFrame(true); }
@@ -89,7 +89,7 @@ static void Process_MAPPING(uint8 *buffer)
         {"POINTS",  1},
         {"LINES",   2},
         {"?",       3},
-        {0}
+        {0, 0}
     };
     ENTER_ANALYSIS
         if (1 == value)         { MODE_DRAW_SIGNAL = ModeDrawSignal_Points; }
@@ -117,7 +117,7 @@ static void Process_ACCUM_NUMBER(uint8 *buffer)
         {"128",         7},
         {"INFINITY",    8},
         {"?",           9},
-        {0}
+        {0, 0}
     };
     ENTER_ANALYSIS
         if (value <= 7)         { ENUM_ACCUM = (ENumAccum)value; }
@@ -137,7 +137,7 @@ static void Process_ACCUM_MODE(uint8 *buffer)
         {"NORESET", 0},
         {"RESET",   1},
         {"?",       2},
-        {0}
+        {0, 0}
     };
     ENTER_ANALYSIS
         if (value <= 1) { MODE_ACCUM = (ModeAccumulation)value; }
@@ -170,7 +170,7 @@ static void Process_AVERAGE_NUMBER(uint8 *buffer)
         {"256", 8},
         {"512", 9},
         {"?", 10},
-        {0}
+        {0, 0}
     };
 
     ENTER_ANALYSIS
@@ -191,7 +191,7 @@ static void Process_AVERAGE_MODE(uint8 *buffer)
         {"ACCURACY",    0},
         {"APPROXIMATE", 1},
         {"?",           2},
-        {0}
+        {0, 0}
     };
     ENTER_ANALYSIS
         if (value <= 1) { MODE_AVE = (ModeAveraging)value; }
@@ -218,7 +218,7 @@ static void Process_MINMAX(uint8 *buffer)
         {"128", 7},
         {"DIS", 8},
         {"?", 9},
-        {0}
+        {0, 0}
     };
     ENTER_ANALYSIS
         if (value <= 7)         { ENUM_MIN_MAX = (ENumMinMax)value; }
@@ -249,7 +249,7 @@ static void Process_FILTR(uint8 *buffer)
         {"10", 9},
         {"DIS", 10},
         {"?", 11},
-        {0}
+        {0, 0}
     };
     ENTER_ANALYSIS
         if (value <= 9)         { SMOOTHING = (Smoothing)value; }
@@ -280,7 +280,7 @@ static void Process_FPS(uint8 *buffer)
         {"2",   3},
         {"1",   4},
         {"?",   5},
-        {0}
+        {0, 0}
     };
     ENTER_ANALYSIS
         if (value < 5) { ENUM_SIGNALS_IN_SEC = (ENumSignalsInSec)value; OnChanged_RefreshFPS(true); }
@@ -310,7 +310,7 @@ static void Process_GRID_BRIGHTNESS(uint8 *buffer)
         static const MapElement map[] =
         {
             {"?", 0},
-            {0}
+            {0, 0}
         };
 
         ENTER_ANALYSIS
@@ -335,7 +335,7 @@ static void Process_GRID_TYPE(uint8 *buffer)
         {"3", 2},
         {"4", 3},
         {"?", 4},
-        {0}
+        {0, 0}
     };
 
     ENTER_ANALYSIS

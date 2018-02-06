@@ -118,4 +118,45 @@ private:
                                 );
     /// ¬ывести значение уровн€ синхронизации. 
     static void WriteValueTrigLevel();
+
+    static void DeleteFirstString();
+
+    static void DrawStringInRectangle(int x, int y, char const *text);
+
+    static void AddString(const char *string);
+    /// ≈сли data == 0, то данные брать из Processing_GetData
+    static void DrawDataChannel(uint8 *data, Channel chan, DataSettings *ds, int minY, int maxY);
+
+    static void DrawBothChannels(uint8 *data0, uint8 *data1);
+
+    static void DrawDataMemInt();
+
+    static void DrawDataInModeWorkLatest();
+
+    static void DrawDataInModePoint2Point();
+
+    static bool DrawDataInModeNormal();
+
+    static void DrawDataMinMax();
+
+    static bool DrawDataNormal();
+    
+    static bool DrawData();
+    /// shiftForPeakDet - если рисуем информацию с пикового детектора - то через shiftForPeakDet точек расположена иниформаци€ о максимумах.
+    static void DrawDataInRect(int x, int width, const uint8 *data, int numElems, Channel chan, int shiftForPeakDet);
+    /// shiftForPeakDet - если рисуем информацию с пикового детектора - то через shiftForPeakDet точек расположена иниформаци€ о максимумах.
+    static void DrawChannelInWindowMemory(int timeWindowRectWidth, int xVert0, int xVert1, int startI, int endI, const uint8 *data, int rightX, 
+        Channel chan, int shiftForPeakDet);
+    /// Ќарисовать окно пам€ти
+    static void DrawMemoryWindow();
+    
+    static void DrawScaleLine(int x, bool forTrigLev);
+    
+    static void WriteTextVoltage(Channel chan, int x, int y);
+    
+    static void WriteStringAndNumber(char *text, int16 x, int16 y, int number);
+    
+    static int FirstEmptyString();
+    
+    static int CalculateFreeSize();
 };

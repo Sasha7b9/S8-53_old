@@ -23,33 +23,34 @@ extern const PageBase pMeasures;
 extern const PageBase mainPage;
 extern const PageBase mspMeasTune;
 
-static CursCntrl    GetMeasuresCursCntrlActive();           // Каким курсором из активной пары сейчас происходит управление.
+//static CursCntrl    GetMeasuresCursCntrlActive();           // Каким курсором из активной пары сейчас происходит управление.
 
 
-void DrawSB_MeasTune_Settings(int x, int y)
+static void DrawSB_MeasTune_Settings(int x, int y)
 {
     Painter::SetFont(TypeFont_UGO2);
     Painter::Draw4SymbolsInRect(x + 2, y + 1, '\x62');
     Painter::SetFont(TypeFont_8);
 }
 
-void PressSB_MeasTune_Settings()
+static void PressSB_MeasTune_Settings()
 {
 }
 
-void DrawSB_MeasTune_Markers(int x, int y)
+static void DrawSB_MeasTune_Markers(int x, int y)
 {
     Painter::SetFont(TypeFont_UGO2);
     Painter::Draw4SymbolsInRect(x + 2, y + 2, '\x60');
     Painter::SetFont(TypeFont_8);
 }
 
-void PressSB_MeasTune_Markers()
+static void PressSB_MeasTune_Markers()
 {
     //Measure_ShortPressOnSmallButonMarker();
 }
 
-void RotateRegMeasureSetField(int angle)
+/*
+static void RotateRegMeasureSetField(int angle)
 {
     CursCntrl cursCntrl = GetMeasuresCursCntrlActive();
     CursActive cursActive = MEAS_CURS_ACTIVE;
@@ -61,7 +62,7 @@ void RotateRegMeasureSetField(int angle)
         if (cursActive == CursActive_T)
         {
             MEAS_POS_CUR_T0 -= sign;
-            Limitation<int16>(&MEAS_POS_CUR_T0, 0, sMemory_GetNumPoints(false) - 1);
+            Limitation<int16>(&MEAS_POS_CUR_T0, 0, (int16)(sMemory_GetNumPoints(false) - 1));
         }
         else
         {
@@ -74,7 +75,7 @@ void RotateRegMeasureSetField(int angle)
         if (cursActive == CursActive_T)
         {
             MEAS_POS_CUR_T1 -= sign;
-            Limitation<int16>(&MEAS_POS_CUR_T1, 0, sMemory_GetNumPoints(false) - 1);
+            Limitation<int16>(&MEAS_POS_CUR_T1, 0, (int16)(sMemory_GetNumPoints(false) - 1));
         }
         else
         {
@@ -83,7 +84,7 @@ void RotateRegMeasureSetField(int angle)
         }
     }
 }
-
+*/
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 DEF_SMALL_BUTTON(   sbMeasTuneSettings,                                                                    //--- ИЗМЕРЕНИЯ - НАСТРОИТЬ - Настройка ---
@@ -91,14 +92,14 @@ DEF_SMALL_BUTTON(   sbMeasTuneSettings,                                         
     "Позволяет выбрать необходимые измерения",
     "Allows to choose necessary measurements",
     mspMeasTune, FuncActive, PressSB_MeasTune_Settings, DrawSB_MeasTune_Settings
-);
+)
 
 DEF_SMALL_BUTTON(   sbMeasTuneMarkers,                                                                        //--- ИЗМЕРЕНИЯ - НАСТРОИТЬ - Маркер ---
     "Маркер", "Marker",
     "Позволяет установить маркеры для визуального контроля измерений",
     "Allows to establish markers for visual control of measurements",
     mspMeasTune, FuncActive, PressSB_MeasTune_Markers, DrawSB_MeasTune_Markers
-);
+)
 
 /*
 static bool IsActiveChoiceMeasuresChannels()
@@ -177,7 +178,7 @@ DEF_CHOICE_3(   mcMeasuresChannels,                                             
     "2",     "2",
     "1 и 2", "1 and 2",
     SOURCE_MEASURE, pMeasures, IsActiveChoiceMeasuresNumber, FuncChangedChoice, FuncDraw
-);
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 DEF_CHOICE_2(       mcMeasuresIsShow,                                                                                 //--- ИЗМЕРЕНИЯ - Показывать ---
@@ -187,7 +188,7 @@ DEF_CHOICE_2(       mcMeasuresIsShow,                                           
     "Нет", "No",
     "Да",  "Yes",
     SHOW_MEASURES, pMeasures, FuncActive, FuncChangedChoice, FuncDraw
-);
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 DEF_CHOICE_2(       mcMeasuresSignal,                                                                                        //--- ИЗМЕРЕНИЯ - Вид ---
@@ -197,7 +198,7 @@ DEF_CHOICE_2(       mcMeasuresSignal,                                           
     "Как есть",  "As is",
     "Уменьшать", "Reduce",
     MODE_VIEW_SIGNALS, pMeasures, IsActiveChoiceMeasuresSignal, FuncChangedChoice, FuncDraw
-);
+)
 
 /*
 // ИЗМЕРЕНИЯ -> ЗОНА -> Область
@@ -218,6 +219,7 @@ const Choice mcMeasuresFieldType =
 };
 */
 
+/*
 CursCntrl GetMeasuresCursCntrlActive()
 {
     if(MEAS_CURS_ACTIVE_IS_T)
@@ -226,6 +228,7 @@ CursCntrl GetMeasuresCursCntrlActive()
     }
     return MEAS_CURS_CNTRL_U;
 }
+*/
 
 static void PressSB_MeasTune_Exit()
 {
@@ -235,7 +238,7 @@ static void PressSB_MeasTune_Exit()
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 DEF_SMALL_BUTTON_EXIT(  sbExitMeasTune,                                                                        //--- ИЗМЕРЕНИЯ - НАСТРОИТЬ - Выход ---
     mspMeasTune, FuncActive, PressSB_MeasTune_Exit, DrawSB_Exit
-);
+)
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -250,7 +253,7 @@ DEF_PAGE_SB(        mspMeasTune,                                                
     &sbMeasTuneMarkers,
     &sbMeasTuneSettings,
     PageSB_Measures_Tune, &pMeasures, IsActiveButtonMeasuresTune, EmptyPressPage, FuncDrawPage, FuncRegSetPage
-);
+)
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -264,7 +267,7 @@ DEF_PAGE_5(         pMeasures,                                                  
     mcMeasuresSignal,
     mspMeasTune,
     Page_Measures, &mainPage, FuncActive, EmptyPressPage
-);
+)
 
 /** @}  @}
  */

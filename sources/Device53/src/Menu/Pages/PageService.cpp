@@ -65,23 +65,23 @@ DEF_BUTTON(         bResetSettings,                                             
     "Сброс настроек на настройки по умолчанию",
     "Reset to default settings",
     pService, FuncActive, OnPress_ResetSettings, FuncDraw
-);
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 static void OnPress_AutoSearch()
 {
     FPGA::StartAutoFind();
-};
+}
 
 DEF_BUTTON(         bAutoSearch,                                                                                      //--- СЕРВИС - Поиск сигнала ---
     "Поиск сигнала", "Find signal",
     "Устанавливает оптимальные установки осциллографа для сигнала в канале 1",
     "Sets optimal settings for the oscilloscope signal on channel 1",
     pService, FuncActive, OnPress_AutoSearch, FuncDraw
-);
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
-static void OnChanged_Calibrator_Mode(bool active)
+static void OnChanged_Calibrator_Mode(bool)
 {
     FPGA::SetCalibratorMode(CALIBRATOR);
 }
@@ -94,7 +94,7 @@ DEF_CHOICE_3(       cCalibrator_Mode,                                           
     "Пост",  "AC",
     "0В",    "OV",
     CALIBRATOR, ppCalibrator, FuncActive, OnChanged_Calibrator_Mode, FuncDraw
-);
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 static void OnPress_Calibrator_Calibrate()
@@ -107,7 +107,7 @@ DEF_BUTTON(         cCalibrator_Calibrate,                                      
     "Запуск процедуры калибровки",
     "Running the calibration procedure",
     ppCalibrator, FuncActive, OnPress_Calibrator_Calibrate, FuncDraw
-);
+)
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 DEF_PAGE_2(         ppCalibrator,                                                                                           // СЕРВИС - КАЛИБРАТОР ///
@@ -117,12 +117,12 @@ DEF_PAGE_2(         ppCalibrator,                                               
     cCalibrator_Mode,       // СЕРВИС - КАЛИБРАТОР - Калибратор
     cCalibrator_Calibrate,  // СЕРВИС - КАЛИБРАТОР - Калибровать
     Page_Service_Calibrator, &pService, FuncActive, EmptyPressPage
-);
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 DEF_SMALL_BUTTON_EXIT(  sbMath_Function_Exit,                                                          //--- СЕРВИС - МАТЕМАТИКА - ФУНКЦИЯ - Выход ---
     pppMath_Function, FuncActive, FuncPress, DrawSB_Exit
-);
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 static void Draw_Math_Function_ModeDraw_Disable(int x, int y)
@@ -170,13 +170,13 @@ DEF_SMALL_BUTTON_HINTS_3(   sbMath_Function_ModeDraw,                           
     "Выбирает режим отображения математического сигнала",
     "Chooses the mode of display of a mathematical signal",
     pppMath_Function, FuncActive, OnPress_Math_Function_ModeDraw, Draw_Math_Function_ModeDraw,
-    Draw_Math_Function_ModeDraw_Disable,   "Вывод математической функции отключён",
-                                           "The conclusion of mathematical function is disconnected",
-    Draw_Math_Function_ModeDraw_Separate,  "Сигналы и математическая функция выводятся в разных окнах",
-                                           "Signals and mathematical function are removed in different windows",
-    Draw_Math_Function_ModeDraw_Together,  "Сигналы и математическая функция выводятся в одном окне",
-                                           "Signals and mathematical function are removed in one window"
-);
+    Draw_Math_Function_ModeDraw_Disable,   {"Вывод математической функции отключён",
+                                           "The conclusion of mathematical function is disconnected"},
+    Draw_Math_Function_ModeDraw_Separate,  {"Сигналы и математическая функция выводятся в разных окнах",
+                                           "Signals and mathematical function are removed in different windows"},
+    Draw_Math_Function_ModeDraw_Together,  {"Сигналы и математическая функция выводятся в одном окне",
+                                           "Signals and mathematical function are removed in one window"}
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 static void Draw_Math_Function_Type_Sum(int x, int y)
@@ -208,9 +208,9 @@ DEF_SMALL_BUTTON_HINTS_2(   sbMath_Function_Type,                               
     "Выбор математической функции",
     "Choice of mathematical function",
     pppMath_Function, FuncActive, OnPress_Math_Function_Type, Draw_Math_Function_Type,
-    Draw_Math_Function_Type_Sum, "Сложение",  "Addition",
-    Draw_Math_Function_Type_Mul, "Умножение", "Multiplication"
-);
+    Draw_Math_Function_Type_Sum, {"Сложение",  "Addition"},
+    Draw_Math_Function_Type_Mul, {"Умножение", "Multiplication"}
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 static void Draw_Math_Function_ModeRegSet_Range(int x, int y)
@@ -239,9 +239,9 @@ DEF_SMALL_BUTTON_HINTS_2(   sbMath_Function_ModeRegSet,                         
     "Выбор режима ручки УСТАНОВКА - управление масштабом или смещением",
     "Choice mode regulcator УСТАНОВКА - management of scale or shift",
     pppMath_Function, FuncActive, OnPress_Math_Function_ModeRegSet, Draw_Math_Function_ModeRegSet,
-    Draw_Math_Function_ModeRegSet_Range,  "Управление масштабом", "Management of scale",
-    Draw_Math_Function_ModeRegSet_RShift, "Управление смещением", "Management of shift"
-);
+    Draw_Math_Function_ModeRegSet_Range,  {"Управление масштабом", "Management of scale"},
+    Draw_Math_Function_ModeRegSet_RShift, {"Управление смещением", "Management of shift"}
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 static void OnPress_Math_Function_RangeA()
@@ -260,7 +260,7 @@ DEF_SMALL_BUTTON(   sbMath_Function_RangeA,                                     
     "Берёт масштаб для математического сигнала из первого канала",
     "Takes scale for a mathematical signal from the first channel",
     pppMath_Function, FuncActive, OnPress_Math_Function_RangeA, Draw_Math_Function_RangeA
-);
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 static void OnPress_Math_Function_RangeB()
@@ -279,7 +279,7 @@ DEF_SMALL_BUTTON(   sbMath_Function_RangeB,                                     
     "Берёт масштаб для математического сигнала из второго канала",
     "Takes scale for a mathematical signal from the second channel",
     pppMath_Function, FuncActive, OnPress_Math_Function_RangeB, Draw_Math_Function_RangeB
-);
+)
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 static bool IsActive_Math_Function()
@@ -347,7 +347,7 @@ static void OnRegSet_Math_Function(int delta)
             if (SET_RANGE_MATH < RangeSize - 1)
             {
                 ++SET_RANGE_MATH;
-                SET_RSHIFT_MATH = RSHIFT_2_REL(rShiftAbs, SET_RANGE_MATH);
+                SET_RSHIFT_MATH = (int16)RSHIFT_2_REL(rShiftAbs, SET_RANGE_MATH);
                 Sound::RegulatorSwitchRotate();
             }
             sum = 0;
@@ -357,7 +357,7 @@ static void OnRegSet_Math_Function(int delta)
             if (SET_RANGE_MATH > 0)
             {
                 --SET_RANGE_MATH;
-                SET_RSHIFT_MATH = RSHIFT_2_REL(rShiftAbs, SET_RANGE_MATH);
+                SET_RSHIFT_MATH = (int16)RSHIFT_2_REL(rShiftAbs, SET_RANGE_MATH);
                 Sound::RegulatorSwitchRotate();
             }
             sum = 0;
@@ -376,7 +376,7 @@ DEF_PAGE_SB(        pppMath_Function,                                           
     &sbMath_Function_RangeA,     // СЕРВИС - МАТЕМАТИКА - ФУНКЦИЯ - Масштаб 1-го канала
     &sbMath_Function_RangeB,     // СЕРВИС - МАТЕМАТИКА - ФУНКЦИЯ - Масштаб 2-го канала
     PageSB_Service_Function, &ppMath, IsActive_Math_Function, OnPress_Math_Function, EmptyFuncVV, OnRegSet_Math_Function
-);
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 DEF_CHOICE_2(       cMath_FFT_Enable,                                                             //--- СЕРВИС - МАТЕМАТИКА - СПЕКТР - Отображение ---
@@ -386,7 +386,7 @@ DEF_CHOICE_2(       cMath_FFT_Enable,                                           
     DISABLE_RU, DISABLE_EN,
     ENABLE_RU,  ENABLE_EN,
     FFT_ENABLED, pppMath_FFT, FuncActive, FuncChangedChoice, FuncDraw
-);
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 DEF_CHOICE_2(       cMath_FFT_Scale,                                                                    //--- СЕРВИС - МАТЕМАТИКА - СПЕКТР - Шкала ---
@@ -396,7 +396,7 @@ DEF_CHOICE_2(       cMath_FFT_Scale,                                            
     "Логарифм", "Log",
     "Линейная", "Linear",
     SCALE_FFT, pppMath_FFT, FuncActive, FuncChangedChoice, FuncDraw
-);
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 DEF_CHOICE_3(       cMath_FFT_Source,                                                                //--- СЕРВИС - МАТЕМАТИКА - СПЕКТР - Источник ---
@@ -407,7 +407,7 @@ DEF_CHOICE_3(       cMath_FFT_Source,                                           
     "Канал 2",     "Channel 2",
     "Канал 1 + 2", "Channel 1 + 2",
     SOURCE_FFT, pppMath_FFT, FuncActive, FuncChangedChoice, FuncDraw
-);
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 DEF_CHOICE_4(       cMath_FFT_Window,                                                                    //--- СЕРВИС - МАТЕМАТИКА - СПЕКТР - Окно ---
@@ -419,7 +419,7 @@ DEF_CHOICE_4(       cMath_FFT_Window,                                           
     "Блэкмена",    "Blackman",
     "Ханна",       "Hann",
     WINDOW_FFT, pppMath_FFT, FuncActive, FuncChangedChoice, FuncDraw
-);
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 static void OnPress_Math_FFT_Cursors_Exit()
@@ -430,7 +430,7 @@ static void OnPress_Math_FFT_Cursors_Exit()
 DEF_SMALL_BUTTON_EXIT(  cMath_FFT_Cursors_Exit,                                               //--- СЕРВИС - МАТЕМАТИКА - СПЕКТР - КУРСОРЫ - Выход ---
     ppppMath_FFT_Cursors, 
     FuncActive, OnPress_Math_FFT_Cursors_Exit, DrawSB_Exit
-);
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 static void OnPress_Math_FFT_Cursors_Source()
@@ -448,7 +448,7 @@ DEF_SMALL_BUTTON(   cMath_FFT_Cursors_Source,                                   
     "Выбор источника для расчёта спектра",
     "Source choice for calculation of a range",
     ppppMath_FFT_Cursors, FuncActive, OnPress_Math_FFT_Cursors_Source, Draw_Math_FFT_Cursors_Source
-);
+)
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 static bool IsActive_Math_FFT_Cursors()
@@ -473,7 +473,7 @@ DEF_PAGE_SB(        ppppMath_FFT_Cursors,                                       
     0,
     0,
     PageSB_Service_FFT_Cursors, &pppMath_FFT, IsActive_Math_FFT_Cursors, EmptyPressPage, FuncDrawPage, OnRegSet_Math_FFT_Cursors
-);
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 static bool IsActive_Math_FFT_Limit()
@@ -489,7 +489,7 @@ DEF_CHOICE_3(       cMath_FFT_Limit,                                            
     "-60дБ", "-60dB",
     "-80дБ", "-80dB",
     MAX_DB_FFT, pppMath_FFT, IsActive_Math_FFT_Limit, FuncChangedChoice, FuncDraw
-);
+)
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 static bool IsActive_Math_FFT()
@@ -516,7 +516,7 @@ DEF_PAGE_6(         pppMath_FFT,                                                
     ppppMath_FFT_Cursors,   // СЕРВИС - МАТЕМАТИКА - СПЕКТР - КУРСОРЫ
     cMath_FFT_Limit,        // СЕРВИС - МАТЕМАТИКА - СПЕКТР - Диапазон
     Page_MathFFT, &ppMath, IsActive_Math_FFT, OnPress_Math_FFT
-);
+)
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 DEF_PAGE_2(         ppMath,                                                                                                 // СЕРВИС - МАТЕМАТИКА ///
@@ -526,14 +526,14 @@ DEF_PAGE_2(         ppMath,                                                     
     pppMath_Function,   // СЕРВИС - МАТЕМАТИКА - ФУНКЦИЯ
     pppMath_FFT,        // СЕРВИС - МАТЕМАТИКА - СПЕКТР
     Page_Math, &pService, FuncActive, FuncPress
-);
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
-static void OnChanged_Ethernet_Enable(bool active)
+static void OnChanged_Ethernet_Enable(bool)
 {
     Display::ShowWarningGood(NeedRebootDevice2);
     Display::ShowWarningGood(NeedRebootDevice1);
-};
+}
 
 DEF_CHOICE_2(       cEthernet_Enable,                                                                           //--- СЕРВИС - ETHERNET - Ethernet ---
     "Ethernet", "Ethernet"
@@ -546,7 +546,7 @@ DEF_CHOICE_2(       cEthernet_Enable,                                           
     "Включено",  "Included",
     "Отключено", "Disconnected",
     ETH_ENABLE, ppEthernet, FuncActive, OnChanged_Ethernet_Enable, FuncDraw
-);
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 DEF_IP_ADDRESS(     ipEthernet_IP,                                                                              //--- СЕРВИС - ETHERNET - IP адрес ---
@@ -555,7 +555,7 @@ DEF_IP_ADDRESS(     ipEthernet_IP,                                              
     "Set of IP-address",
     IP_ADDR0, IP_ADDR1, IP_ADDR2, IP_ADDR3, &PORT,
     ppEthernet, FuncActive, OnChanged_Ethernet_Enable
-);
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 DEF_IP_ADDRESS(     ipEthernet_Mask,                                                                       //--- СЕРВИС - ETHERNET - Маска подсети ---
@@ -564,7 +564,7 @@ DEF_IP_ADDRESS(     ipEthernet_Mask,                                            
     "Set of network mask",
     NETMASK_ADDR0, NETMASK_ADDR1, NETMASK_ADDR2, NETMASK_ADDR3, 0,
     ppEthernet, FuncActive, OnChanged_Ethernet_Enable
-);
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 DEF_IP_ADDRESS(     ipEthernet_Gateway,                                                                             //--- СЕРВИС - ETHERNET - Шлюз ---
@@ -573,7 +573,7 @@ DEF_IP_ADDRESS(     ipEthernet_Gateway,                                         
     "Set of gateway address",
     GW_ADDR0, GW_ADDR1, GW_ADDR2, GW_ADDR3, 0,
     ppEthernet, FuncActive, OnChanged_Ethernet_Enable
-);
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 DEF_MAC_ADDRESS(    macEthernet_MAC,                                                                           //--- СЕРВИС - ETHERNET - Физ адрес ---
@@ -582,7 +582,7 @@ DEF_MAC_ADDRESS(    macEthernet_MAC,                                            
     "Set of MAC-address",
     MAC_ADDR0, MAC_ADDR1, MAC_ADDR2, MAC_ADDR3, MAC_ADDR4, MAC_ADDR5,
     ppEthernet, FuncActive, OnChanged_Ethernet_Enable
-);
+)
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 DEF_PAGE_5(         ppEthernet,                                                                                               // СЕРВИС - ETHERNET ///
@@ -595,7 +595,7 @@ DEF_PAGE_5(         ppEthernet,                                                 
     ipEthernet_Gateway,     // СЕРВИС - ETHERNET - Шлюз
     macEthernet_MAC,        // СЕРВИС - ETHERNET - Физ адрес
     Page_Service_Ethernet, &pService, FuncActive, FuncPress
-);
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 DEF_CHOICE_2(       cSound,                                                                                                    //--- СЕРВИС - Звук ---
@@ -605,7 +605,7 @@ DEF_CHOICE_2(       cSound,                                                     
     DISABLE_RU, DISABLE_EN,
     ENABLE_RU,  ENABLE_EN,
     SOUND_ENABLED, pService, FuncActive, FuncChangedChoice, FuncDraw
-);
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 DEF_CHOICE_2(       cLang,                                                                                                     //--- СЕРВИС - Язык ---
@@ -615,7 +615,7 @@ DEF_CHOICE_2(       cLang,                                                      
     "Русский",    "Russian",
     "Английский", "English",
     LANG, pService, FuncActive, FuncChangedChoice, FuncDraw
-);
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 static int8 dServicetime = 0;
@@ -638,7 +638,7 @@ DEF_TIME(           tTime,                                                      
     "of any other element will lead to the closure of the current time setting menu without saving the new current time"
     ,
     pService, FuncActive, dServicetime, hours, minutes, secondes, month, day, year
-);
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 DEF_CHOICE_2(       cModeLongPressButtonTrig,                                                                        //--- СЕРВИС - Реж длит СИНХР ---
@@ -652,7 +652,7 @@ DEF_CHOICE_2(       cModeLongPressButtonTrig,                                   
     "Сброс уровня", "Reset trig level",
     "Автоуровень",  "Autolevel",
     MODE_LONG_PRESS_TRIG, pService, FuncActive, FuncChangedChoice, FuncDraw
-);
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 static void OnPress_Information_Exit()
@@ -663,7 +663,7 @@ static void OnPress_Information_Exit()
 
 DEF_SMALL_BUTTON_EXIT(  sbInformation_Exit,                                                                      //--- СЕРВИС - ИНФОРМАЦИЯ - Выход ---
     ppInformation, FuncActive, OnPress_Information_Exit, DrawSB_Exit
-);
+)
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 static void Information_Draw()
@@ -716,7 +716,7 @@ DEF_PAGE_SB(        ppInformation,                                              
     0,
     0,
     PageSB_Service_Information, &pService, FuncActive, OnPress_Information, FuncDrawPage, FuncRegSetPage
-);
+)
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 DEF_PAGE_10(        pService,                                                                                                            // СЕРВИС ///
@@ -734,7 +734,7 @@ DEF_PAGE_10(        pService,                                                   
     cModeLongPressButtonTrig, // СЕРВИС - Реж длит СИНХР
     ppInformation,            // СЕРВИС - ИНФОРМАЦИЯ
     Page_Service, &mainPage, FuncActive, FuncPress
-);
+)
 
 
 /** @}  @}

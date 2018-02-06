@@ -3,7 +3,7 @@
 #include "Display/Grid.h"
 #include "FPGA/FPGA.h"
 #include "FPGA/FPGAMath.h"
-#include "font/Font.h"
+#include "Font/Font.h"
 #include "Hardware/RTC.h"
 #include "Hardware/Sound.h"
 #include "Hardware/Timer.h"
@@ -80,7 +80,7 @@ void Display::Init()
 
 
 //---------------------------------------------------------------------------------------------------------------------------------------------------
-void DrawStringNavigation() 
+static void DrawStringNavigation() 
 {
     char buffer[100];
     char *string = Menu::StringNavigation(buffer);
@@ -110,10 +110,10 @@ void Display::RotateRShift(Channel chan)
             gBF.showLevelRShift1 = 1;
         }
         Timer::SetAndStartOnce((chan == A) ? kShowLevelRShiftA : kShowLevelRShiftB, (chan == A) ? FuncOnTimerDisableShowLevelRShiftA :
-                     FuncOnTimerDisableShowLevelRShiftB, TIME_SHOW_LEVELS * 1000);
+                     FuncOnTimerDisableShowLevelRShiftB, (uint)(TIME_SHOW_LEVELS * 1000));
     };
     Display::Redraw();
-};
+}
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 static void FuncOnTimerDisableShowLevelRShiftA()
@@ -133,7 +133,7 @@ void Display::RotateTrigLev()
     if (TIME_SHOW_LEVELS)
     {
         gBF.showLevelTrigLev = 1;
-        Timer::SetAndStartOnce(kShowLevelTrigLev, FuncOnTimerDisableShowLevelTrigLev, TIME_SHOW_LEVELS * 1000);
+        Timer::SetAndStartOnce(kShowLevelTrigLev, FuncOnTimerDisableShowLevelTrigLev, (uint)(TIME_SHOW_LEVELS * 1000));
     }
     Display::Redraw();
 }
@@ -209,12 +209,13 @@ static void DrawMarkersForMeasure(float scale, Channel chan)
 //---------------------------------------------------------------------------------------------------------------------------------------------------
 #define CONVERT_DATA_TO_DISPLAY(out, in)                \
     out = (uint8)(maxY - ((in) - MIN_VALUE) * scaleY);  \
-    if(out < minY)          { out = minY; }             \
-    else if (out > maxY)    { out = maxY; };
+    if(out < (uint8)minY)          { out = (uint8)minY; }             \
+    else if (out > (uint8)maxY)    { out = (uint8)maxY; };
 
 
 //---------------------------------------------------------------------------------------------------------------------------------------------------
-static void DrawSignalLined(const uint8 *data, const DataSettings *ds, int startPoint, int endPoint, int minY, int maxY, float scaleY, float scaleX, bool calculateFiltr)
+static void DrawSignalLined(const uint8 *data, const DataSettings *ds, int startPoint, int endPoint, int minY, int maxY, float scaleY, float scaleX, 
+    bool calculateFiltr)
 {
     if (endPoint < startPoint)
     {
@@ -283,8 +284,8 @@ static void DrawSignalLined(const uint8 *data, const DataSettings *ds, int start
 
     if(endPoint - startPoint < 281)
     {
-        int numPoints = 281 - (endPoint - startPoint);
-        for(int i = 0; i < numPoints; i++)
+        int points = 281 - (endPoint - startPoint);
+        for(int i = 0; i < points; i++)
         {
             int index = endPoint - startPoint + i;
             CONVERT_DATA_TO_DISPLAY(dataCD[index], MIN_VALUE);
@@ -344,8 +345,7 @@ static void DrawSignalPointed(const uint8 *data, const DataSettings *ds, int sta
 
 
 //---------------------------------------------------------------------------------------------------------------------------------------------------
-// Если data == 0, то данные брать из Processing_GetData
-void DrawDataChannel(uint8 *data, Channel chan, DataSettings *ds, int minY, int maxY)
+void Display::DrawDataChannel(uint8 *data, Channel chan, DataSettings *ds, int minY, int maxY)
 {
     bool calculateFiltr = true;
     if (data == 0)
@@ -570,7 +570,7 @@ void Display::DrawSpectrum()
 
 
 //---------------------------------------------------------------------------------------------------------------------------------------------------
-void DrawBothChannels(uint8 *data0, uint8 *data1)
+void Display::DrawBothChannels(uint8 *data0, uint8 *data1)
 {
 	if (LAST_AFFECTED_CHANNEL_IS_B)
     {
@@ -586,7 +586,7 @@ void DrawBothChannels(uint8 *data0, uint8 *data1)
 
 
 //---------------------------------------------------------------------------------------------------------------------------------------------------
-void DrawDataMemInt()
+void Display::DrawDataMemInt()
 {
     if(gDSmemInt != 0)
      {
@@ -597,7 +597,7 @@ void DrawDataMemInt()
 
 
 //---------------------------------------------------------------------------------------------------------------------------------------------------
-void DrawDataInModeWorkLatest()
+void Display::DrawDataInModeWorkLatest()
 {
     if (gDSmemLast != 0)
     {
@@ -608,7 +608,7 @@ void DrawDataInModeWorkLatest()
 
 
 //---------------------------------------------------------------------------------------------------------------------------------------------------
-static void DrawDataInModePoint2Point()
+void Display::DrawDataInModePoint2Point()
 {
     uint8 *data0 = 0;
     uint8 *data1 = 0;
@@ -652,7 +652,7 @@ static void DrawDataInModeSelfRecorder()
 
 
 //---------------------------------------------------------------------------------------------------------------------------------------------------
-bool DrawDataInModeNormal()
+bool Display::DrawDataInModeNormal()
 {
     static void* prevAddr = 0;
     bool retValue = true;
@@ -662,8 +662,8 @@ bool DrawDataInModeNormal()
     DataSettings *ds = 0;
     Processing::GetData(&data0, &data1, &ds);
 
-    int16 numSignals = Storage::NumElementsWithSameSettings();
-    Limitation<int16>(&numSignals, 1, NUM_ACCUM);
+    int16 numSignals = (int16)Storage::NumElementsWithSameSettings();
+    Limitation<int16>(&numSignals, 1, (int16)NUM_ACCUM);
     if (numSignals == 1 || ENUM_ACCUM_IS_INFINITY || MODE_ACCUM_IS_RESET || sTime_RandomizeModeEnabled())
     {
         DrawBothChannels(0, 0);
@@ -686,7 +686,7 @@ bool DrawDataInModeNormal()
 
 
 //---------------------------------------------------------------------------------------------------------------------------------------------------
-void DrawDataMinMax()
+void Display::DrawDataMinMax()
 {
     ModeDrawSignal modeDrawSignalOld = MODE_DRAW_SIGNAL;
     MODE_DRAW_SIGNAL = ModeDrawSignal_Lines;
@@ -709,7 +709,7 @@ void DrawDataMinMax()
 
 
 //---------------------------------------------------------------------------------------------------------------------------------------------------
-static bool DrawDataNormal()
+bool Display::DrawDataNormal()
 {
     bool retValue = true;
     if (!dataP2PIsEmpty)
@@ -726,7 +726,7 @@ static bool DrawDataNormal()
 
 
 //---------------------------------------------------------------------------------------------------------------------------------------------------
-bool DrawData()
+bool Display::DrawData()
 {
     bool retValue = true;
 
@@ -822,8 +822,7 @@ void Display::DrawHiPart()
 }
 
 //---------------------------------------------------------------------------------------------------------------------------------------------------
-// shiftForPeakDet - если рисуем информацию с пикового детектора - то через shiftForPeakDet точек расположена иниформация о максимумах.
-void DrawDataInRect(int x, int width, const uint8 *data, int numElems, Channel chan, int shiftForPeakDet)
+void Display::DrawDataInRect(int x, int width, const uint8 *data, int numElems, Channel chan, int shiftForPeakDet)
 {
     if(numElems == 0)
     {
@@ -889,7 +888,7 @@ void DrawDataInRect(int x, int width, const uint8 *data, int numElems, Channel c
     int height = 14;
     float scale = (float)height / (float)(MAX_VALUE - MIN_VALUE);
 
-#define ORDINATE(x) ((uint8)(bottom - scale * LimitationRet<uint8>(x - MIN_VALUE, 0, 200)))
+#define ORDINATE(x) ((uint8)(bottom - scale * LimitationRet<uint8>((uint8)(x - MIN_VALUE), 0, 200)))
 
 #define NUM_POINTS (300 * 2)
     uint8 points[NUM_POINTS];
@@ -917,8 +916,8 @@ void DrawDataInRect(int x, int width, const uint8 *data, int numElems, Channel c
 
 
 //---------------------------------------------------------------------------------------------------------------------------------------------------
-// shiftForPeakDet - если рисуем информацию с пикового детектора - то через shiftForPeakDet точек расположена иниформация о максимумах.
-void DrawChannelInWindowMemory(int timeWindowRectWidth, int xVert0, int xVert1, int startI, int endI, const uint8 *data, int rightX, Channel chan, int shiftForPeakDet)
+void Display::DrawChannelInWindowMemory(int timeWindowRectWidth, int xVert0, int xVert1, int startI, int endI, const uint8 *data, int rightX, 
+    Channel chan, int shiftForPeakDet)
 {
     if(data == dataP2P_0 && data == dataP2P_1)
     {
@@ -934,8 +933,7 @@ void DrawChannelInWindowMemory(int timeWindowRectWidth, int xVert0, int xVert1, 
 
 
 //---------------------------------------------------------------------------------------------------------------------------------------------------
-// Нарисовать окно памяти
-void DrawMemoryWindow()
+void Display::DrawMemoryWindow()
 {
     uint8 *dat0 = gData0memInt;
     uint8 *dat1 = gData1memInt;
@@ -1069,8 +1067,8 @@ void Display::WriteCursors()
             Painter::DrawText(x, y1, sCursors_GetCursVoltage(source, 0, buffer));
             Painter::DrawText(x, y2, sCursors_GetCursVoltage(source, 1, buffer));
             x = startX + 49;
-            float pos0 = MathFPGA::VoltageCursor(sCursors_GetCursPosU(source, 0), SET_RANGE(source), SET_RSHIFT(source));
-            float pos1 = MathFPGA::VoltageCursor(sCursors_GetCursPosU(source, 1), SET_RANGE(source), SET_RSHIFT(source));
+            float pos0 = MathFPGA::VoltageCursor(sCursors_GetCursPosU(source, 0), SET_RANGE(source), (uint16)SET_RSHIFT(source));
+            float pos1 = MathFPGA::VoltageCursor(sCursors_GetCursPosU(source, 1), SET_RANGE(source), (uint16)SET_RSHIFT(source));
             float delta = fabsf(pos1 - pos0);
             Painter::DrawText(x, y1, ":dU=");
             Painter::DrawText(x + 17, y1, Voltage2String(delta, false, buffer));
@@ -1094,7 +1092,6 @@ void Display::WriteCursors()
             float pos1 = MathFPGA::TimeCursor(CURS_POS_T1(source) , SET_TBASE);
             float delta = fabsf(pos1 - pos0);
             Painter::DrawText(x, y1, ":dT=");
-            char buffer[20];
             Painter::DrawText(x + 17, y1, Time2String(delta, false, buffer));
             Painter::DrawText(x, y2, ":");
             Painter::DrawText(x + 8, y2, sCursors_GetCursorPercentsT(source, buffer ));
@@ -1102,11 +1099,10 @@ void Display::WriteCursors()
             if(CURSORS_SHOW_FREQ)
             {
                 int width = 65;
-                int x = Grid::Right() - width;
+                x = Grid::Right() - width;
                 Painter::DrawRectangle(x, GRID_TOP, width, 12, Color::FILL);
                 Painter::FillRegion(x + 1, GRID_TOP + 1, width - 2, 10, Color::BACK);
                 Painter::DrawText(x + 1, GRID_TOP + 2, "1/dT=", colorText);
-                char buffer[20];
                 Painter::DrawText(x + 25, GRID_TOP + 2, Freq2String(1.0f / delta, false, buffer));
             }
         }
@@ -1335,7 +1331,7 @@ void Display::WriteValueTrigLevel()
 }
 
 //---------------------------------------------------------------------------------------------------------------------------------------------------
-void DrawGridSpectrum()
+static void DrawGridSpectrum()
 {
     if (SCALE_FFT_IS_LOG)
     {
@@ -1445,7 +1441,7 @@ static int CalculateCountH()
 static void DrawGridType1(int left, int top, int right, int bottom, float centerX, float centerY, float deltaX, float deltaY, float stepX, float stepY)
 {
     uint16 masX[17];
-    masX[0] = left + 1;
+    masX[0] = (uint16)(left + 1);
     for (int i = 1; i < 7; i++)
     {
         masX[i] = (uint16)(left + deltaX * i);
@@ -1458,12 +1454,12 @@ static void DrawGridType1(int left, int top, int right, int bottom, float center
     {
         masX[i] = (uint16)(centerX + deltaX * (i - 9));
     }
-    masX[16] = right - 1;
+    masX[16] = (uint16)(right - 1);
 
     Painter::DrawMultiVPointLine(17, (int)(top + stepY), masX, (int)stepY, CalculateCountV(), Color::GRID);
 
     uint8 mas[13];
-    mas[0] = top + 1;
+    mas[0] = (uint8)(top + 1);
     for (int i = 1; i < 5; i++)
     {
         mas[i] = (uint8)(top + deltaY * i);
@@ -1476,7 +1472,7 @@ static void DrawGridType1(int left, int top, int right, int bottom, float center
     {
         mas[i] = (uint8)(centerY + deltaY * (i - 7));
     }
-    mas[12] = bottom - 1;
+    mas[12] = (uint8)(bottom - 1);
 
     Painter::DrawMultiHPointLine(13, (int)(left + stepX), mas, (int)stepX, CalculateCountH(), Color::GRID);
 }
@@ -1486,21 +1482,21 @@ static void DrawGridType1(int left, int top, int right, int bottom, float center
 static void DrawGridType2(int left, int top, int right, int bottom, int deltaX, int deltaY, int stepX, int stepY)
 { 
     uint16 masX[15];
-    masX[0] = left + 1;
+    masX[0] = (uint16)(left + 1);
     for (int i = 1; i < 14; i++)
     {
-        masX[i] = left + deltaX * i;
+        masX[i] = (uint16)(left + deltaX * i);
     }
-    masX[14] = right - 1;
+    masX[14] = (uint16)(right - 1);
     Painter::DrawMultiVPointLine(15, top + stepY, masX, stepY, CalculateCountV(), Color::GRID);
 
     uint8 mas[11];
-    mas[0] = top + 1;
+    mas[0] = (uint8)(top + 1);
     for (int i = 1; i < 10; i++)
     {
-        mas[i] = top + deltaY * i;
+        mas[i] = (uint8)(top + deltaY * i);
     }
-    mas[10] = bottom - 1;
+    mas[10] = (uint8)(bottom - 1);
     Painter::DrawMultiHPointLine(11, left + stepX, mas, stepX, CalculateCountH(), Color::GRID);
 }
 
@@ -1568,7 +1564,7 @@ void Display::DrawGrid(int left, int top, int width, int height)
 #define  DELTA 5
 
 //---------------------------------------------------------------------------------------------------------------------------------------------------
-void DrawScaleLine(int x, bool forTrigLev)
+void Display::DrawScaleLine(int x, bool forTrigLev)
 {
     if(ALT_MARKERS_HIDE)
     {
@@ -1748,7 +1744,7 @@ void Display::DrawCursorTShift()
     int shiftTShift = sTime_TPosInPoints((PeakDetMode)gDSet->peakDet, gDSet->length1channel, TPOS) - sTime_TShiftInPoints((PeakDetMode)gDSet->peakDet);
     if(IntInRange(shiftTShift, firstPoint, lastPoint))
     {
-        int x = gridLeft + shiftTShift - firstPoint - 3;
+        x = gridLeft + shiftTShift - firstPoint - 3;
         Painter::Draw2SymbolsC(x, GRID_TOP - 1, SYMBOL_TSHIFT_NORM_1, SYMBOL_TSHIFT_NORM_2, Color::BACK, Color::FILL);
     }
     else if(shiftTShift < firstPoint)
@@ -1920,7 +1916,7 @@ void Display::DrawMeasures()
 
 
 //---------------------------------------------------------------------------------------------------------------------------------------------------
-void WriteTextVoltage(Channel chan, int x, int y)
+void Display::WriteTextVoltage(Channel chan, int x, int y)
 {
     static const char *couple[] =
     {
@@ -1934,7 +1930,7 @@ void WriteTextVoltage(Channel chan, int x, int y)
     ModeCouple modeCouple = SET_COUPLE(chan);
     Divider multiplier = SET_DIVIDER(chan);
     Range range = SET_RANGE(chan);
-    uint rShift = SET_RSHIFT(chan);
+    uint rShift = (uint)SET_RSHIFT(chan);
     bool enable = SET_ENABLED(chan);
 
     if (!MODE_WORK_IS_DIR)
@@ -1970,14 +1966,14 @@ void WriteTextVoltage(Channel chan, int x, int y)
         Painter::DrawText(x + 1, y, buffer, colorDraw);
 
         char bufferTemp[20];
-        sprintf(buffer, "\xa5%s", sChannel_RShift2String(rShift, range, multiplier, bufferTemp));
+        sprintf(buffer, "\xa5%s", sChannel_RShift2String((int16)rShift, range, multiplier, bufferTemp));
         Painter::DrawText(x + 46, y, buffer);
     }
 }
 
 
 //---------------------------------------------------------------------------------------------------------------------------------------------------
-void WriteStringAndNumber(char *text, int16 x, int16 y, int number)
+void Display::WriteStringAndNumber(char *text, int16 x, int16 y, int number)
 {
     char buffer[100];
     Painter::DrawText(x, y, text, Color::FILL);
@@ -2096,9 +2092,9 @@ void Display::DrawLowPart()
     
     if (MODE_WORK_IS_DIR)
     {
-        WriteStringAndNumber("накопл", x, y0, NUM_ACCUM);
-        WriteStringAndNumber("усредн", x, y1, NUM_AVE);
-        WriteStringAndNumber("мн\x93мкс", x, y2, NUM_MIN_MAX);
+        WriteStringAndNumber("накопл", (int16)x, (int16)y0, NUM_ACCUM);
+        WriteStringAndNumber("усредн", (int16)x, (int16)y1, NUM_AVE);
+        WriteStringAndNumber("мн\x93мкс", (int16)x, (int16)y2, NUM_MIN_MAX);
     }
 
     x += 42;
@@ -2109,7 +2105,6 @@ void Display::DrawLowPart()
     if (MODE_WORK_IS_DIR)
     {
         char mesFreq[20] = "\x7c=";
-        char buffer[20];
         float freq = FPGA::GetFreq();
         if (freq == -1.0f) //-V550
         {
@@ -2156,7 +2151,7 @@ void Display::DrawLowPart()
     if (MODE_WORK_IS_DIR)
     {
         Painter::SetFont(TypeFont_5);
-        WriteStringAndNumber("СГЛАЖ.:", x + 57, GRID_BOTTOM + 10, sDisplay_NumPointSmoothing());
+        WriteStringAndNumber("СГЛАЖ.:", (int16)(x + 57), GRID_BOTTOM + 10, sDisplay_NumPointSmoothing());
         Painter::SetFont(TypeFont_8);
     }
 }
@@ -2183,7 +2178,7 @@ void Display::DrawTimeForFrame(uint timeTicks)
     
     if((gTimeMS - timeMSstartCalculation) >= 500)
     {
-        sprintf(buffer, "%.1fms/%d", numMS / numFrames, numFrames * 2);
+        sprintf(buffer, "%.1fms/%d", (double)(numMS / numFrames), numFrames * 2);
         timeMSstartCalculation = gTimeMS;
         numMS = 0.0f;
         numFrames = 0;
@@ -2292,7 +2287,7 @@ void Display::Clear()
 void Display::ShiftScreen(int delta)
 {
     SHIFT_IN_MEMORY += delta;
-    Limitation<int16>(&SHIFT_IN_MEMORY, 0, sMemory_GetNumPoints(false) - 282);
+    Limitation<int16>(&SHIFT_IN_MEMORY, 0, (int16)(sMemory_GetNumPoints(false) - 282));
 }
 
 //---------------------------------------------------------------------------------------------------------------------------------------------------
@@ -2315,7 +2310,7 @@ void Display::OnRShiftMarkersAutoHide()
 }
 
 //---------------------------------------------------------------------------------------------------------------------------------------------------
-int FirstEmptyString()
+int Display::FirstEmptyString()
 {
     for(int i = 0; i < MAX_NUM_STRINGS; i++)
     {
@@ -2328,24 +2323,24 @@ int FirstEmptyString()
 }
 
 //---------------------------------------------------------------------------------------------------------------------------------------------------
-int CalculateFreeSize()
+int Display::CalculateFreeSize()
 {
     int firstEmptyString = FirstEmptyString();
     if(firstEmptyString == 0)
     {
         return SIZE_BUFFER_FOR_STRINGS;
     }
-    return SIZE_BUFFER_FOR_STRINGS - (strings[firstEmptyString - 1] - bufferForStrings) - strlen(strings[firstEmptyString - 1]) - 1;
+    return SIZE_BUFFER_FOR_STRINGS - (strings[firstEmptyString - 1] - bufferForStrings) - (int)strlen(strings[firstEmptyString - 1]) - 1;
 }
 
 //---------------------------------------------------------------------------------------------------------------------------------------------------
-void DeleteFirstString()
+void Display::DeleteFirstString()
 {
     if(FirstEmptyString() < 2)
     {
         return;
     }
-    int delta = strlen(strings[0]) + 1;
+    int delta = (int)strlen(strings[0]) + 1;
     int numStrings = FirstEmptyString();
     for(int i = 1; i < numStrings; i++)
     {
@@ -2363,7 +2358,7 @@ void DeleteFirstString()
 
 
 //---------------------------------------------------------------------------------------------------------------------------------------------------
-void AddString(const char *string)
+void Display::AddString(const char *string)
 {
     if(CONSOLE_IN_PAUSE)
     {
@@ -2373,7 +2368,7 @@ void AddString(const char *string)
     char buffer[100];
     sprintf(buffer, "%d\x11", num++);
     strcat(buffer, string);
-    int size = strlen(buffer) + 1;
+    int size = (int)(strlen(buffer) + 1);
     while(CalculateFreeSize() < size)
     {
         DeleteFirstString();
@@ -2472,7 +2467,7 @@ void Display::DrawConsole()
 
     int dY = 0;
     
-    for(int numString = firstString; numString <= lastString; numString++)
+    for(numString = firstString; numString <= lastString; numString++)
     {
         int width = Font_GetLengthText(strings[numString]);
         Painter::FillRegion(Grid::Left() + 1, GRID_TOP + 1 + count * (height + 1) + delta, width, height + 1, Color::BACK);
@@ -2577,7 +2572,7 @@ void Display::ShowWarningGood(Warning warning)
 }
 
 //---------------------------------------------------------------------------------------------------------------------------------------------------
-void DrawStringInRectangle(int x, int y, char const *text)
+void Display::DrawStringInRectangle(int, int y, char const *text)
 {
     int width = Font_GetLengthText(text);
     int height = 8;
@@ -2609,7 +2604,7 @@ void Display::RunAfterDraw(pFuncVV func)
 }
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
-void Display::ShowWarning(Warning warn)
+void Display::ShowWarning(Warning)
 {
     LOG_ERROR("Заглушка");
 }

@@ -2,6 +2,7 @@
 #include "Settings/Settings.h"
 #include "Settings/SettingsTypes.h"
 #include "PageMemory.h"
+#include "PageTime.h"
 #include "FPGA/FPGA.h"
 #include "Log.h"
 #include "Display/Display.h"
@@ -36,7 +37,7 @@ DEF_CHOICE_2(       mcSample,                                                   
     "Реальное время", "Real",
     "Эквивалентная",  "Equals",
    SAMPLE_TYPE, pTime, IsActive_Sample, FuncChangedChoice, FuncDraw
-);
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 static bool IsActive_PeakDet()
@@ -44,7 +45,7 @@ static bool IsActive_PeakDet()
     return (SET_TBASE >= MIN_TBASE_PEC_DEAT);
 }
 
-void OnChanged_PeakDet(bool active)
+void PageTime::OnChanged_PeakDet(bool active)
 {
     if (active)
     {
@@ -58,8 +59,8 @@ void OnChanged_PeakDet(bool active)
                 {0, (int8)SET_BALANCE_ADC_B, (int8)BALANCE_ADC_B}
             };
 
-            FPGA::WriteToHardware(WR_ADD_RSHIFT_DAC1, shift[0][BALANCE_ADC_TYPE], false);
-            FPGA::WriteToHardware(WR_ADD_RSHIFT_DAC2, shift[1][BALANCE_ADC_TYPE], false);
+            FPGA::WriteToHardware(WR_ADD_RSHIFT_DAC1, (uint8)shift[0][BALANCE_ADC_TYPE], false);
+            FPGA::WriteToHardware(WR_ADD_RSHIFT_DAC2, (uint8)shift[1][BALANCE_ADC_TYPE], false);
         }
         else
         {
@@ -69,15 +70,15 @@ void OnChanged_PeakDet(bool active)
         if (SET_PEAKDET_IS_DISABLED)
         {
             int centerX = SHIFT_IN_MEMORY + Grid::Width() / 2;
-            SHIFT_IN_MEMORY = centerX * 2 - Grid::Width() / 2;
+            SHIFT_IN_MEMORY = (int16)(centerX * 2 - (Grid::Width() / 2));
             ENUM_POINTS = set.time.oldNumPoints;
             ChangeC_Memory_NumPoints(true);
         }
         else if (SET_PEAKDET_IS_ENABLED)
         {
             int centerX = SHIFT_IN_MEMORY + Grid::Width() / 2;
-            SHIFT_IN_MEMORY = centerX / 2 - Grid::Width() / 2;
-            Limitation<int16>(&SHIFT_IN_MEMORY, 0, sMemory_GetNumPoints(false) - Grid::Width());
+            SHIFT_IN_MEMORY = (int16)(centerX / 2 - Grid::Width() / 2);
+            Limitation<int16>(&SHIFT_IN_MEMORY, 0, (int16)(sMemory_GetNumPoints(false) - Grid::Width()));
             ChangeC_Memory_NumPoints(true);
         }
     }
@@ -93,11 +94,11 @@ DEF_CHOICE_2(       mcPeakDet,                                                  
     "Turns on/off peak detector.",
     DISABLE_RU, DISABLE_EN,
     ENABLE_RU,  ENABLE_EN,
-   SET_PEAKDET, pTime, IsActive_PeakDet, OnChanged_PeakDet, FuncDraw
-);
+    SET_PEAKDET, pTime, IsActive_PeakDet, PageTime::OnChanged_PeakDet, FuncDraw
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
-void OnChanged_TPos(bool active)
+void PageTime::OnChanged_TPos(bool active)
 {
     ChangeC_Memory_NumPoints(active);
     FPGA::SetTShift(SET_TSHIFT);
@@ -110,8 +111,8 @@ DEF_CHOICE_3(       mcTPos,                                                     
     "Лево",  "Left",
     "Центр", "Center",
     "Право", "Right",
-    TPOS, pTime, FuncActive, OnChanged_TPos, FuncDraw
-);
+    TPOS, pTime, FuncActive, PageTime::OnChanged_TPos, FuncDraw
+)
 
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
@@ -127,7 +128,7 @@ DEF_CHOICE_2(       mcSelfRecorder,                                             
     ENABLE_RU,  ENABLE_EN,
     DISABLE_RU, DISABLE_EN,
     SELFRECORDER, pTime, IsActive_SelfRecorder, FuncChangedChoice, FuncDraw
-);
+)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 DEF_CHOICE_2(       mcDivRole,                                                                                      //--- РАЗВЕРТКА - Ф-ция ВР/ДЕЛ ---
@@ -143,7 +144,7 @@ DEF_CHOICE_2(       mcDivRole,                                                  
     "Время",  "Time",
     "Память", "Memory",
     TIME_DIV_XPOS, pTime, FuncActive, FuncChangedChoice, FuncDraw
-);
+)
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 DEF_PAGE_5(         pTime,                                                                                                            // РАЗВЕРТКА ///
@@ -156,7 +157,7 @@ DEF_PAGE_5(         pTime,                                                      
     mcSelfRecorder, // РАЗВЕРТКА - Самописец
     mcDivRole,      // РАЗВЕРТКА - Ф-ция ВР/ДЕЛ
     Page_Time, &mainPage, FuncActive, EmptyPressPage
-);
+)
 
 
 /** @}  @}

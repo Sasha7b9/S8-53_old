@@ -1,5 +1,6 @@
 #include "defines.h"
 #include "SCPI.h"
+#include "Menu/Pages/PageTime.h"
 #include "Settings/Settings.h"
 #include "Utils/Map.h"
 #include "VCP/VCP.h"
@@ -128,8 +129,6 @@ void Process_SAMPLING(uint8 *buffer)
 //---------------------------------------------------------------------------------------------------------------------------------------------------
 void Process_PEACKDET(uint8 *buffer)
 {
-    extern void OnChanged_PeakDet(bool active);  ///< \todo Вообще-то это нехорошо, как нехорошо и дублировать. Надо бы подумать.
-
     static const MapElement map[] =
     {
         {"ON",  0},
@@ -138,7 +137,8 @@ void Process_PEACKDET(uint8 *buffer)
         {0, 0}
     };
     ENTER_ANALYSIS
-        if (value < 2) { SET_PEAKDET = (value == 0) ? PeakDet_Disabled : PeakDet_Enabled; OnChanged_PeakDet(true); } // WARN SCPI для пикового детектора переделать
+        /// \todo SCPI для пикового детектора переделать
+        if (value < 2) { SET_PEAKDET = (value == 0) ? PeakDet_Disabled : PeakDet_Enabled; PageTime::OnChanged_PeakDet(true); }
         else if (2 == value)
         {
             SCPI_SEND(":TBASE:PEACKDET %s", SET_PEAKDET ? "ON" : "OFF");
@@ -150,8 +150,6 @@ void Process_PEACKDET(uint8 *buffer)
 //---------------------------------------------------------------------------------------------------------------------------------------------------
 void Process_TPOS(uint8 *buffer)
 {
-    extern void OnChanged_TPos(bool active);
-
     static const MapElement map[] =
     {
         {"LEFT",   0},
@@ -161,7 +159,7 @@ void Process_TPOS(uint8 *buffer)
         {0, 0}
     };
     ENTER_ANALYSIS
-        if (value < 3)      { TPOS = (TPos)value; OnChanged_TPos(true); }
+        if (value < 3)      { TPOS = (TPos)value; PageTime::OnChanged_TPos(true); }
         else if (4 == value)
         {
             SCPI_SEND(":TBASE:TPOS %s", map[TPOS].key);
