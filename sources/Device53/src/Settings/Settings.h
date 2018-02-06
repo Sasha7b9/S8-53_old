@@ -29,6 +29,9 @@ typedef struct
     bool        inverse;                    ///< Инвертирован ли канал.
     bool        filtr;                      ///< Фильтр
     int8        balanceShiftADC;            ///< Добавочное смещение для балансировки АЦП.
+    uint8       notUsed0;
+    uint8       notUsed1;
+    uint8       notUsed2;
 } SettingsChannel;
 
 

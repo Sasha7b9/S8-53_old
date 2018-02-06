@@ -78,6 +78,9 @@
 
 #include <string.h>
 
+#pragma clang diagnostic ignored "-Wconversion"
+#pragma clang diagnostic ignored "-Wmissing-variable-declarations"
+
 /** DHCP_CREATE_RAND_XID: if this is set to 1, the xid is created using
  * LWIP_RAND() (this overrides DHCP_GLOBAL_XID)
  */
@@ -1928,5 +1931,8 @@ dhcp_supplied_address(const struct netif *netif)
   }
   return 0;
 }
+
+#pragma clang diagnostic warning "-Wconversion"
+#pragma clang diagnostic warning "-Wmissing-variable-declarations"
 
 #endif /* LWIP_IPV4 && LWIP_DHCP */

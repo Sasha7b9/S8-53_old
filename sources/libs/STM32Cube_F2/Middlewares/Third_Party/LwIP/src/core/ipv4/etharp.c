@@ -56,6 +56,9 @@
 
 #include <string.h>
 
+#pragma clang diagnostic ignored "-Wpadded"
+#pragma clang diagnostic ignored "-Wsign-conversion"
+
 #if LWIP_IPV4 && LWIP_ARP /* don't build if not configured for use in lwipopts.h */
 
 /** Re-request a used ARP entry 1 minute before it would expire to prevent
@@ -1219,6 +1222,10 @@ etharp_request(struct netif *netif, const ip4_addr_t *ipaddr)
   LWIP_DEBUGF(ETHARP_DEBUG | LWIP_DBG_TRACE, ("etharp_request: sending ARP request.\n"));
   return etharp_request_dst(netif, ipaddr, &ethbroadcast);
 }
+
+#pragma clang diagnostic warning "-Wpadded"
+#pragma clang diagnostic warning "-Wsign-conversion"
+
 #endif /* LWIP_IPV4 && LWIP_ARP */
 
 #endif /* LWIP_ARP || LWIP_ETHERNET */

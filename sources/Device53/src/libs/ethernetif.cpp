@@ -5,7 +5,7 @@
 #include <string.h>
 #include "Settings/Settings.h"
 #include "Hardware/Timer.h"
-
+#include <lwip/sys.h>
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #define IFNAME0 's'
@@ -18,24 +18,24 @@ uint gEthTimeLastEthifInput = 0;
 #if defined ( __ICCARM__ ) /*!< IAR Compiler */
   #pragma data_alignment=4   
 #endif
-__ALIGN_BEGIN ETH_DMADescTypeDef  DMARxDscrTab[ETH_RXBUFNB] __ALIGN_END;/* Ethernet Rx MA Descriptor */
+static __ALIGN_BEGIN ETH_DMADescTypeDef  DMARxDscrTab[ETH_RXBUFNB] __ALIGN_END;/* Ethernet Rx MA Descriptor */
 
 #if defined ( __ICCARM__ ) /*!< IAR Compiler */
   #pragma data_alignment=4   
 #endif
-__ALIGN_BEGIN ETH_DMADescTypeDef  DMATxDscrTab[ETH_TXBUFNB] __ALIGN_END;/* Ethernet Tx DMA Descriptor */
+static __ALIGN_BEGIN ETH_DMADescTypeDef  DMATxDscrTab[ETH_TXBUFNB] __ALIGN_END;/* Ethernet Tx DMA Descriptor */
 
 #if defined ( __ICCARM__ ) /*!< IAR Compiler */
   #pragma data_alignment=4   
 #endif
-__ALIGN_BEGIN uint8_t Rx_Buff[ETH_RXBUFNB][ETH_RX_BUF_SIZE] __ALIGN_END; /* Ethernet Receive Buffer */
+static __ALIGN_BEGIN uint8_t Rx_Buff[ETH_RXBUFNB][ETH_RX_BUF_SIZE] __ALIGN_END; /* Ethernet Receive Buffer */
 
 #if defined ( __ICCARM__ ) /*!< IAR Compiler */
   #pragma data_alignment=4   
 #endif
-__ALIGN_BEGIN uint8_t Tx_Buff[ETH_TXBUFNB][ETH_TX_BUF_SIZE] __ALIGN_END; /* Ethernet Transmit Buffer */
+static __ALIGN_BEGIN uint8_t Tx_Buff[ETH_TXBUFNB][ETH_TX_BUF_SIZE] __ALIGN_END; /* Ethernet Transmit Buffer */
 
-ETH_HandleTypeDef EthHandle;
+static ETH_HandleTypeDef EthHandle;
 
 
 /*******************************************************************************
@@ -133,7 +133,7 @@ static void low_level_init(struct netif *netif)
   *       to become availale since the stack doesn't retry to send a packet
   *       dropped because of memory failure (except for the TCP timers).
   */
-static err_t low_level_output(struct netif *netif, struct pbuf *p)
+static err_t low_level_output(struct netif *, struct pbuf *p)
 {
   err_t errval;
   struct pbuf *q;
@@ -218,7 +218,7 @@ error:
   * @return a pbuf filled with the received packet (including MAC header)
   *         NULL on memory error
   */
-static struct pbuf * low_level_input(struct netif *netif)
+static struct pbuf * low_level_input(struct netif *)
 {
   struct pbuf *p = NULL;
   struct pbuf *q;
@@ -234,7 +234,7 @@ static struct pbuf * low_level_input(struct netif *netif)
     return NULL;
   
   /* Obtain the size of the packet and put it into the "len" variable. */
-  len = EthHandle.RxFrameInfos.length;
+  len = (uint16)EthHandle.RxFrameInfos.length;
   buffer = (uint8_t *)EthHandle.RxFrameInfos.buffer;
   
   if (len > 0)
@@ -511,7 +511,7 @@ void ethernetif_update_config(struct netif *netif)
   * @param  netif: the network interface
   * @retval None
   */
-__attribute__((weak)) void ethernetif_notify_conn_changed(struct netif *netif)
+__attribute__((weak)) void ethernetif_notify_conn_changed(struct netif *)
 {
   /* NOTE : This is function could be implemented in user file 
             when the callback is needed,

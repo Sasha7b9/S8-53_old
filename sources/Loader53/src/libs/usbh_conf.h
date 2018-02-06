@@ -26,7 +26,9 @@
 #define USBH_USE_OS                           0
 
 #include "defines.h"
-    
+
+#pragma clang diagnostic ignored "-Wc++98-compat-pedantic"
+
 /* Exported constants --------------------------------------------------------*/
 /* Exported macro ------------------------------------------------------------*/
 /* CMSIS OS macros */ 
@@ -67,9 +69,10 @@
 #define USBH_DbgLog(...)                         
 #endif
 
+#pragma clang diagnostic warning "-Wc++98-compat-pedantic"
+
 /* Exported functions ------------------------------------------------------- */
 
 #endif /* __USB_CONF_H */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
-

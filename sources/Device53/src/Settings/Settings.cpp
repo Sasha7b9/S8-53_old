@@ -70,24 +70,30 @@ static const Settings defaultSettings =
             RShiftZero,
             {{0}, {0}},             // rShiftAdd
             ModeCouple_AC,          // ModCouple
-            Divider_1,           // Divider
+            Divider_1,              // Divider
             Range_500mV,            // range
             true,                   // enable
             false,                  // inverse
             false,                  // filtr
-			0                       // addShiftADC
+			0,                      // addShiftADC
+            0,                      // notUsed0
+            0,                      // notUsed1
+            0                       // notUsed2
         },
         {
             1.0f,                   // коэффициент калибровки
             RShiftZero,
             {{0}, {0}},             // rShiftAdd
             ModeCouple_AC,          // ModCouple
-            Divider_1,           // Divider
+            Divider_1,              // Divider
             Range_500mV,            // range
             true,                   // enable
             false,                  // inverse
             false,                  // filtr
-			5                       // addShiftADC
+			5,                      // addShiftADC
+            0,                      // notUsed0;
+            0,                      // notUsed1;
+            0                       // notUsed2;
         }
         
     },
@@ -103,29 +109,37 @@ static const Settings defaultSettings =
     },
     // time
     {
-        TBase_200us,
+        TBase_200us,                // tBase
+        0,                          // notUsed
         0,                          // set.time.tShiftRel
-        FunctionTime_Time,
-        TPos_Center,
-        SampleType_Equal,
-        PeakDet_Disabled,
-        false,
-        FNP_1024
+        FunctionTime_Time,          // timeDivXPos
+        TPos_Center,                // tPos
+        SampleType_Equal,           // sampleType
+        PeakDet_Disabled,           // peakDet
+        false,                      // selfRecorder
+        FNP_1024                    // oldNumPoints
     },
+    0,  // notUsed2
+    0,  // notUsed3
     // cursors
     {
         { CursCntrl_Disable, CursCntrl_Disable },   // CursCntrl U
         { CursCntrl_Disable, CursCntrl_Disable },   // CursCntrl T
-        A,                                      // source
-        { 60.0f,  140.0f, 60.0f, 140.0f },          // posCur U
-        { 80.0f,  200.0f, 80.0f, 200.0f },          // posCur T
+        A,                                          // source
+        0,                                          // notUsed0
+        0,                                          // notUsed1
+        0,                                          // notUsed2
+        { {60.0f,  140.0f}, {60.0f, 140.0f} },      // posCur U
+        { {80.0f,  200.0f}, {80.0f, 200.0f} },      // posCur T
         { 80.0f,  80.0f },                          // расстояние между курсорами напряжения для 100%
         { 120.0f, 120.0f },                         // расстояние между курсорами времени для 100%
         CursMovement_Points,                        // CursMovement
         CursActive_None,                            // CursActive
         { CursLookMode_None, CursLookMode_None },   // Режим слежения курсоров.
         false,                                      // showFreq
-        false                                       // showCursors
+        false,                                      // showCursors
+        0,                                          // notUsed3
+        0                                           // notUsed4
     },
     // memory
     {
@@ -143,6 +157,7 @@ static const Settings defaultSettings =
         ModeBtnMemory_Menu,
         ModeSaveSignal_BMP
     },
+    0,  // notUsed4
     // measures
     {
         MN_1,                       // measures number
@@ -166,11 +181,11 @@ static const Settings defaultSettings =
     },
     // math
     {
-        ScaleFFT_Log,
-        SourceFFT_A,
-        WindowFFT_Rectangle,
-        FFTmaxDB_60,
-        Function_Sum,
+        ScaleFFT_Log,               // scaleFFT
+        SourceFFT_A,                // sourceFFT
+        WindowFFT_Rectangle,        // windowFFT
+        FFTmaxDB_60,                // fftMaxDB
+        Function_Sum,               // func
         0,
         {100, 256 - 100},
         1,
@@ -181,7 +196,8 @@ static const Settings defaultSettings =
         FuncModeDraw_Disable,       // modeDrawMath
         ModeRegSet_Range,           // modeRegSet
         Range_50mV,
-        Divider_1,
+        Divider_1,                  // multiplier
+        0,                          // notUsed0
         RShiftZero                  // rShift
     },
     // service
@@ -192,48 +208,71 @@ static const Settings defaultSettings =
         0,                          // IP-адрес (временно)  WARN
         ColorScheme_WhiteLetters    // colorScheme
     },
+    0,  // notUsed5
+    // eth
     {
         0x8b, 0x2e, 0xaf, 0x8f, 0x13, 0x00, // mac
         192, 168, 1, 200,                   // ip
         7,
         255, 255, 255, 0,                   // netmask
-        192, 168, 1, 1                      // gateway
+        192, 168, 1, 1,                     // gateway
+        false,                              // enable
+        0                                   // notUsed
     },
     // common
     {
-        0
+        0,          // countEnables
+        0,          // countErasedFlashData
+        0,          // countErasedFlashSettings
+        0,          // workingTimeInSecs
+        Russian,    // lang
+        0,          // notUsed0
+        0,          // notUsed1
+        0           // notUsed2
     },
     // menu
     {
         {0x7f, 0x7f, 0x7f, 0x7f, 0x7f, 0x7f, 0x7f, 0x7f, 0x7f, 0x7f, 0x7f, 0x7f, 0x7f, 0x7f, 0x7f, 0x7f, 0x7f, 0x7f},
         {   0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0},
-        true,
-        0
+        true,       // notUsing
+        0,          // isShown
+        0           // notUsed
     },
     // debug
     {
         0,                      // numStrings
         0,                      // размер шрифта - 5
         0,                      // consoleInPause
-        BalanceADC_Settings,    // balanceADC
-        {0, 5},                 // shiftADC
-        StretchADC_Settings,    // stretch
-        {128, 128},             // stretchADC
-//      RShiftADC_Settings,
+        
+        BalanceADC_Settings,    // balanceADCtype
+        0,                      // notUsed0
+        {0, 5},                 // balanceADC[2]
+        StretchADC_Settings,    // stretchADCtype
+        0,                      // notUsed1
+        {128, 128},             // stretchADC[2]
         1000,                   // numMeasuresForGates
         0,                      // shiftT0
         false,                  // showStats
+        0,                      // notUsed2
         6,                      // numAveForRand
-        false,                  // view altera writting data
-        false,                  // view all altera writting data
-        0,                      // alt shift
+        false,                  // viewAlteraWrittingData
+        false,                  // viewAllAlteraWrittingData
+            
+        0,                      // altShift
         {
-            false,              // показывать ли флаг готовности
+            false,              // all
+            false,              // flag
             false,              // rShift0
             false,              // rShift1
-            false               // trigLev
+            false,              // trigLev
+            {false, false},     // range[2]
+            {false, false},     // chanParam[2]
+            false,              // trigParam
+            false,              // tShift
+            false               // tBase
         }
-    }
+    },
+    0                           // crc32
 };
 
 Settings set;
@@ -248,7 +287,7 @@ void Settings::Load(bool _default)
 
     if (_default)                                                               // Если нужно сбросить настройки
     {
-        uint16 rShiftAdd[2][RangeSize][2];                                      // Сначала сохраняем несбрасываемые настройки
+        int16 rShiftAdd[2][RangeSize][2];                                      // Сначала сохраняем несбрасываемые настройки
         for (int chan = 0; chan < 2; chan++)
         {
             for (int i = 0; i < RangeSize; i++)

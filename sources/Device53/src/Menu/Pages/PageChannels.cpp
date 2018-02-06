@@ -21,28 +21,28 @@ extern const PageBase pChanB;
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-extern const char chanInputRu[] =   "1. \"Вкл\" - выводить сигнал на экран.\n"
+static const char chanInputRu[] =   "1. \"Вкл\" - выводить сигнал на экран.\n"
                                     "2. \"Откл\" - не выводить сигнал на экран.";
-extern const char chanInputEn[] =   "1. \"Enable\" - signal output to the screen.\n"
+static const char chanInputEn[] =   "1. \"Enable\" - signal output to the screen.\n"
                                     "2. \"Disable\" - no output to the screen.";
 
-extern const char chanCoupleRu[] =  "Задаёт вид связи с источником сигнала.\n"
+static const char chanCoupleRu[] =  "Задаёт вид связи с источником сигнала.\n"
                                     "1. \"Пост\" - открытый вход.\n"
                                     "2. \"Перем\" - закрытый вход.\n"
                                     "3. \"Земля\" - вход соединён с землёй.";
-extern const char chanCoupleEn[] =  "Sets a type of communication with a signal source.\n"
+static const char chanCoupleEn[] =  "Sets a type of communication with a signal source.\n"
                                     "1. \"AC\" - open input.\n"
                                     "2. \"DC\" - closed input.\n"
                                     "3. \"Ground\" - input is connected to the ground.";
 
-extern const char chanFiltrRu[] = "Включает/отключает фильтр для ограничения полосы пропускания.";
-extern const char chanFiltrEn[] = "Includes/switches-off the filter for restriction of a pass-band.";
+static const char chanFiltrRu[] = "Включает/отключает фильтр для ограничения полосы пропускания.";
+static const char chanFiltrEn[] = "Includes/switches-off the filter for restriction of a pass-band.";
 
-extern const char chanInverseRu[] = "При \"Вкл\" сигнал на экране будет симметрично отражён относительно U = 0В.";
-extern const char chanInverseEn[] = "When \"Enable\" signal on the screen will be reflected symmetrically with respect to U = 0V.";
+static const char chanInverseRu[] = "При \"Вкл\" сигнал на экране будет симметрично отражён относительно U = 0В.";
+static const char chanInverseEn[] = "When \"Enable\" signal on the screen will be reflected symmetrically with respect to U = 0V.";
 
-extern const char chanMultiplierRu[] = "Ослабление сигнала:\n\"x1\" - сигнал не ослабляется.\n\"x10\" - сигнал ослабляется в 10 раз";
-extern const char chanMultiplierEn[] = "Attenuation: \n\"x1\" - the signal is not attenuated.\n\"x10\" - the signal is attenuated by 10 times";
+static const char chanMultiplierRu[] = "Ослабление сигнала:\n\"x1\" - сигнал не ослабляется.\n\"x10\" - сигнал ослабляется в 10 раз";
+static const char chanMultiplierEn[] = "Attenuation: \n\"x1\" - the signal is not attenuated.\n\"x10\" - the signal is attenuated by 10 times";
 
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------

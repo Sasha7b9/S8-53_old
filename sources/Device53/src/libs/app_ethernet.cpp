@@ -5,12 +5,13 @@
 #include "lcd_log.h"
 #endif
 
+#pragma clang diagnostic ignored "-Wunused-function"
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #ifdef USE_DHCP
 #define MAX_DHCP_TRIES  4
-uint32_t DHCPfineTimer = 0;
-__IO uint8_t DHCP_state = DHCP_OFF;
+static uint32_t DHCPfineTimer = 0;
+static __IO uint8_t DHCP_state = DHCP_OFF;
 #endif
 
 
@@ -40,7 +41,7 @@ void User_notification(struct netif *netif)
   * @brief  This function notify user about link status changement.
   * @param  netif: the network interface
   */
-void ethernetif_notify_conn_changed(struct netif *netif)
+static void ethernetif_notify_conn_changed(struct netif *netif)
 {
 #ifndef USE_DHCP
     ip_addr_t ipaddr;
@@ -160,3 +161,5 @@ void DHCP_Periodic_Handle(struct netif *netif)
     }
 }
 #endif
+
+#pragma clang diagnostic warning "-Wunused-function"
