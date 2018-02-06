@@ -10,7 +10,7 @@
 #define SIZE_POOL   (30 * 1024)                     // Количество отведённой для измерений памяти.
 
 
-uint8 pool[SIZE_POOL] = {0};                        // Здесь хранятся данные.
+static uint8 pool[SIZE_POOL] = {0};                        // Здесь хранятся данные.
 static uint8* beginPool = &(pool[0]);               // Адрес начала памяти для хранения
 static uint8* endPool = &(pool[SIZE_POOL - 1]);     // Адрес последнего байта памяти для хранения
 

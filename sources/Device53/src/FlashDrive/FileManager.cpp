@@ -5,7 +5,7 @@
 #include "Settings/SettingsMemory.h"
 #include "Display/Colors.h"
 #include "Display/Display.h"
-#include "Display/font/Font.h"
+#include "Display/Font/Font.h"
 #include "Display/Grid.h"
 #include "Utils/Math.h"
 #include "Utils/StringUtils.h"
@@ -344,7 +344,7 @@ bool FileManager::GetNameForNewFile(char name[255])
     strcpy(name, currentDir);
     strcat(name, "\\");
 
-    int size = strlen(FILE_NAME);
+    int size = (int)strlen(FILE_NAME);
     if (size == 0)
     {
         return false;
@@ -392,7 +392,7 @@ bool FileManager::GetNameForNewFile(char name[255])
                 {
                     if (*ch >= 0x01 && *ch <= 0x06)
                     {
-                        strcpy(wr, Int2String(values[*ch], false, 2, buffer));
+                        strcpy(wr, Int2String((int)values[*ch], false, 2, buffer));
                         wr += strlen(buffer);
                     }
                 }

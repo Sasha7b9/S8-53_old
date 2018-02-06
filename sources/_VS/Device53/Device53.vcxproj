@@ -75,12 +75,12 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
+      <WarningLevel>Level4</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>USE_HAL_DRIVER;STM32F207xx;WIN32;S8_53;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>USE_HAL_DRIVER;STM32F207xx;WIN32;S8_53;USBD_LPM_ENABLED=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
-      <DisableSpecificWarnings>4068;4514;4820</DisableSpecificWarnings>
+      <DisableSpecificWarnings>4068;4514;4365;4820</DisableSpecificWarnings>
       <AdditionalOptions>-MP %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>

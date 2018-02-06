@@ -37,7 +37,7 @@ void FDrive::Update()
 }
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
-void USBH_UserProcess(USBH_HandleTypeDef *phost, uint8 id)
+void USBH_UserProcess(USBH_HandleTypeDef *, uint8 id)
 {
     switch (id)
     {
@@ -67,13 +67,14 @@ void USBH_UserProcess(USBH_HandleTypeDef *phost, uint8 id)
 }
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
-bool FDrive::AppendStringToFile(const char* string)
+bool FDrive::AppendStringToFile(const char *)
 {
     return false;
 }
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
-void WriteToFile(FIL *file, char *string)
+/*
+static void WriteToFile(FIL *file, char *string)
 {
     //    uint bytesWritten;
     f_open(file, "list.txt", FA_OPEN_EXISTING);
@@ -81,6 +82,7 @@ void WriteToFile(FIL *file, char *string)
     f_puts(string, file);
     f_close(file);
 }
+*/
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 void FDrive::GetNumDirsAndFiles(const char* fullPath, int *numDirs, int *numFiles)
@@ -332,13 +334,14 @@ bool FDrive::WriteToFile(uint8* data, int sizeData, StructForWrite *structForWri
             dataToCopy = SIZE_FLASH_TEMP_BUFFER - structForWrite->sizeData;
         }
         sizeData -= dataToCopy;
-        memcpy(structForWrite->tempBuffer + structForWrite->sizeData, data, dataToCopy);
+        memcpy(structForWrite->tempBuffer + structForWrite->sizeData, data, (size_t)dataToCopy);
         data += dataToCopy;
         structForWrite->sizeData += dataToCopy;
         if (structForWrite->sizeData == SIZE_FLASH_TEMP_BUFFER)
         {
             uint wr = 0;
-            if (f_write(&structForWrite->fileObj, structForWrite->tempBuffer, structForWrite->sizeData, &wr) != FR_OK || structForWrite->sizeData != wr)
+            if (f_write(&structForWrite->fileObj, structForWrite->tempBuffer, (uint)structForWrite->sizeData, &wr) != FR_OK || 
+                (uint)structForWrite->sizeData != wr)
             {
                 return false;
             }
@@ -355,7 +358,8 @@ bool FDrive::CloseFile(StructForWrite *structForWrite)
     if (structForWrite->sizeData != 0)
     {
         uint wr = 0;
-        if (f_write(&structForWrite->fileObj, structForWrite->tempBuffer, structForWrite->sizeData, &wr) != FR_OK || structForWrite->sizeData != wr)
+        if (f_write(&structForWrite->fileObj, structForWrite->tempBuffer, (uint)structForWrite->sizeData, &wr) != FR_OK || 
+            (uint)structForWrite->sizeData != wr)
         {
             f_close(&structForWrite->fileObj);
             return false;

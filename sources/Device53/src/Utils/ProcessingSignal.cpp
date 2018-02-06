@@ -22,7 +22,12 @@ typedef struct
     pFuncFCh    FuncCalculate;
     pFuncPCFBPC FuncConvertate;
     bool        showSign;           // Если true, нужно показывать знак.
+    uint8       __0__;
+    uint8       __1__;
+    uint8       __2__;
 } MeasureCalculate;
+
+#define DEF_MEASURE_CALC(name, funcCalc, funcConv, showSign)    { name, funcCalc, funcConv, showSign, 0, 0, 0 }
 
 typedef struct
 {
@@ -76,32 +81,37 @@ static int numPoints = 0;
 
 static const MeasureCalculate sMeas[NumMeasures] =
 {
-    {"", 0, 0, false},
-    {"CalculateVoltageMax",         CalculateVoltageMax,           Voltage2String, true},
-    {"CalculateVoltageMin",         CalculateVoltageMin,           Voltage2String, true},
-    {"CalculateVoltagePic",         CalculateVoltagePic,           Voltage2String, false},
-    {"CalculateVoltageMaxSteady",   CalculateVoltageMaxSteady,     Voltage2String, true},
-    {"CalculateVoltageMinSteady",   CalculateVoltageMinSteady,     Voltage2String, true},
-    {"CalculateVoltageAmpl",        CalculateVoltageAmpl,          Voltage2String, false},
-    {"CalculateVoltageAverage",     CalculateVoltageAverage,       Voltage2String, true},
-    {"CalculateVoltageRMS",         CalculateVoltageRMS,           Voltage2String, false},
-    {"CalculateVoltageVybrosPlus",  CalculateVoltageVybrosPlus,    Voltage2String, false},
-    {"CalculateVoltageVybrosMinus", CalculateVoltageVybrosMinus,   Voltage2String, false},
-    {"CalculatePeriod",             CalculatePeriod,               Time2String, false},
-    {"CalculateFreq",               CalculateFreq,                 Freq2String, false},
-    {"CalculateTimeNarastaniya",    CalculateTimeNarastaniya,      Time2String, false},
-    {"CalculateTimeSpada",          CalculateTimeSpada,            Time2String, false},
-    {"CalculateDurationPlus",       CalculateDurationPlus,         Time2String, false},
-    {"CalculateDurationPlus",       CalculateDurationMinus,        Time2String, false},
-    {"CalculateSkvaznostPlus",      CalculateSkvaznostPlus,        FloatFract2String, false},
-    {"CalculateSkvaznostMinus",     CalculateSkvaznostMinus,       FloatFract2String, false},
-    {"CalculateDelayPlus",          CalculateDelayPlus,            Time2String, false},
-    {"CalculateDelayMinus",         CalculateDelayMinus,           Time2String, false},
-    {"CalculatePhazaPlus",          CalculatePhazaPlus,            Phase2String, false},
-    {"CalculatePhazaMinus",         CalculatePhazaMinus,           Phase2String, false}
+    DEF_MEASURE_CALC("", 0, 0, false),
+    DEF_MEASURE_CALC("CalculateVoltageMax",         CalculateVoltageMax,           Voltage2String, true),
+    DEF_MEASURE_CALC("CalculateVoltageMin",         CalculateVoltageMin,           Voltage2String, true),
+    DEF_MEASURE_CALC("CalculateVoltagePic",         CalculateVoltagePic,           Voltage2String, false),
+    DEF_MEASURE_CALC("CalculateVoltageMaxSteady",   CalculateVoltageMaxSteady,     Voltage2String, true),
+    DEF_MEASURE_CALC("CalculateVoltageMinSteady",   CalculateVoltageMinSteady,     Voltage2String, true),
+    DEF_MEASURE_CALC("CalculateVoltageAmpl",        CalculateVoltageAmpl,          Voltage2String, false),
+    DEF_MEASURE_CALC("CalculateVoltageAverage",     CalculateVoltageAverage,       Voltage2String, true),
+    DEF_MEASURE_CALC("CalculateVoltageRMS",         CalculateVoltageRMS,           Voltage2String, false),
+    DEF_MEASURE_CALC("CalculateVoltageVybrosPlus",  CalculateVoltageVybrosPlus,    Voltage2String, false),
+    DEF_MEASURE_CALC("CalculateVoltageVybrosMinus", CalculateVoltageVybrosMinus,   Voltage2String, false),
+    DEF_MEASURE_CALC("CalculatePeriod",             CalculatePeriod,               Time2String, false),
+    DEF_MEASURE_CALC("CalculateFreq",               CalculateFreq,                 Freq2String, false),
+    DEF_MEASURE_CALC("CalculateTimeNarastaniya",    CalculateTimeNarastaniya,      Time2String, false),
+    DEF_MEASURE_CALC("CalculateTimeSpada",          CalculateTimeSpada,            Time2String, false),
+    DEF_MEASURE_CALC("CalculateDurationPlus",       CalculateDurationPlus,         Time2String, false),
+    DEF_MEASURE_CALC("CalculateDurationPlus",       CalculateDurationMinus,        Time2String, false),
+    DEF_MEASURE_CALC("CalculateSkvaznostPlus",      CalculateSkvaznostPlus,        FloatFract2String, false),
+    DEF_MEASURE_CALC("CalculateSkvaznostMinus",     CalculateSkvaznostMinus,       FloatFract2String, false),
+    DEF_MEASURE_CALC("CalculateDelayPlus",          CalculateDelayPlus,            Time2String, false),
+    DEF_MEASURE_CALC("CalculateDelayMinus",         CalculateDelayMinus,           Time2String, false),
+    DEF_MEASURE_CALC("CalculatePhazaPlus",          CalculatePhazaPlus,            Phase2String, false),
+    DEF_MEASURE_CALC("CalculatePhazaMinus",         CalculatePhazaMinus,           Phase2String, false)
 };
 
-static MeasureValue values[NumMeasures] = {{0.0f, 0.0f}};
+static MeasureValue values[NumMeasures] = 
+{
+    {{0.0f, 0.0f}}, {{0.0f, 0.0f}}, {{0.0f, 0.0f}}, {{0.0f, 0.0f}}, {{0.0f, 0.0f}}, {{0.0f, 0.0f}}, {{0.0f, 0.0f}}, {{0.0f, 0.0f}},
+    {{0.0f, 0.0f}}, {{0.0f, 0.0f}}, {{0.0f, 0.0f}}, {{0.0f, 0.0f}}, {{0.0f, 0.0f}}, {{0.0f, 0.0f}}, {{0.0f, 0.0f}}, {{0.0f, 0.0f}},
+    {{0.0f, 0.0f}}, {{0.0f, 0.0f}}, {{0.0f, 0.0f}}, {{0.0f, 0.0f}}, {{0.0f, 0.0f}}, {{0.0f, 0.0f}}, {{0.0f, 0.0f}}
+};
 
 static int markerHor[NumChannels][2] = {{ERROR_VALUE_INT}, {ERROR_VALUE_INT}};
 static int markerVert[NumChannels][2] = {{ERROR_VALUE_INT}, {ERROR_VALUE_INT}};
@@ -140,10 +150,6 @@ void Processing::CalculateMeasures()
         for(int elem = 0; elem < Measures::NumCols(); elem++)
         {
             Meas meas = Measures::Type(str, elem);
-            if (meas == TimeNarastaniya)
-            {
-                meas = meas;
-            }
             pFuncFCh func = sMeas[meas].FuncCalculate;
             if(func)
             {
@@ -232,7 +238,7 @@ float CalculateVoltageMaxSteady(Channel chan)
     Range range = dataSet->range[chan];
     uint rShift = chan == A ? dataSet->rShiftCh0 : dataSet->rShiftCh1;
 
-    return (MathFPGA::Point2Voltage((uint8)ROUND(max), range, rShift) * VALUE_MULTIPLIER(chan));
+    return (MathFPGA::Point2Voltage((uint8)ROUND(max), range, (uint16)rShift) * VALUE_MULTIPLIER(chan));
 }
 
 float CalculateVoltageVybrosPlus(Channel chan)
@@ -249,8 +255,8 @@ float CalculateVoltageVybrosPlus(Channel chan)
     }
 
     int16 rShift = chan == A ? dataSet->rShiftCh0 : dataSet->rShiftCh1;
-    return fabsf(MathFPGA::Point2Voltage((uint8)ROUND(maxSteady), dataSet->range[chan], rShift) - 
-        MathFPGA::Point2Voltage((uint8)ROUND(max), dataSet->range[chan], rShift)) * VALUE_MULTIPLIER(chan);
+    return fabsf(MathFPGA::Point2Voltage((uint8)ROUND(maxSteady), dataSet->range[chan], (uint16)rShift) - 
+        MathFPGA::Point2Voltage((uint8)ROUND(max), dataSet->range[chan], (uint16)rShift)) * VALUE_MULTIPLIER(chan);
 }
 
 float CalculateVoltageVybrosMinus(Channel chan)
@@ -266,8 +272,8 @@ float CalculateVoltageVybrosMinus(Channel chan)
     }
 
     int16 rShift = chan == A ? dataSet->rShiftCh0 : dataSet->rShiftCh1;
-    return fabsf(MathFPGA::Point2Voltage((uint8)ROUND(minSteady), dataSet->range[chan], rShift) - 
-        MathFPGA::Point2Voltage((uint8)ROUND(min), dataSet->range[chan], rShift)) * VALUE_MULTIPLIER(chan);
+    return fabsf(MathFPGA::Point2Voltage((uint8)ROUND(minSteady), dataSet->range[chan], (uint16)rShift) - 
+        MathFPGA::Point2Voltage((uint8)ROUND(min), dataSet->range[chan], (uint16)rShift)) * VALUE_MULTIPLIER(chan);
 }
 
 float CalculateVoltageAmpl(Channel chan)
@@ -318,13 +324,13 @@ float CalculateVoltageRMS(Channel chan)
     int16 rShift = chan == A ? dataSet->rShiftCh0 : dataSet->rShiftCh1;
     for(int i = firstPoint; i < firstPoint + period; i++)
     {
-        float volts = MathFPGA::Point2Voltage(dataIn[chan][i], dataSet->range[chan], rShift);
+        float volts = MathFPGA::Point2Voltage(dataIn[chan][i], dataSet->range[chan], (uint16)rShift);
         rms +=  volts * volts;
     }
 
     if(MEAS_MARKED == VoltageRMS)
     {
-        markerHor[chan][0] = MathFPGA::Voltage2Point(sqrtf(rms / period), dataSet->range[chan], rShift);
+        markerHor[chan][0] = MathFPGA::Voltage2Point(sqrtf(rms / period), dataSet->range[chan], (uint16)rShift);
     }
 
     return sqrtf(rms / period) * VALUE_MULTIPLIER(chan);
@@ -383,7 +389,7 @@ int CalculatePeriodAccurately(Channel chan)
         {
             EXIT_FROM_PERIOD_ACCURACY
         }
-        int delta = (int)(pic * 5.0);
+        int delta = (int)(pic * 5.0f);
         sums[firstPoint] = dataIn[chan][firstPoint];
 
         int i = firstPoint + 1;
@@ -407,7 +413,7 @@ int CalculatePeriodAccurately(Channel chan)
 
         for(int nextPeriod = 10; nextPeriod < maxPeriod; nextPeriod++)
         {
-            int sum = sums[addShift + nextPeriod];
+            int s = sums[addShift + nextPeriod];
 
             int maxDelta = 0;
             int maxStart = numPoints - nextPeriod;
@@ -418,8 +424,8 @@ int CalculatePeriodAccurately(Channel chan)
                 int nextSum = *(pSums + nextPeriod) - (*pSums);
                 pSums++;
 
-                int nextDelta = nextSum - sum;
-                if (nextSum < sum)
+                int nextDelta = nextSum - s;
+                if (nextSum < s)
                 {
                     nextDelta = -nextDelta;
                 }
@@ -970,11 +976,11 @@ float Processing::GetCursU(Channel chan, float posCurT)
         return 0;
     }
     
-    int firstPoint = 0;
-    int lastPoint = 0;
-    sDisplay_PointsOnDisplay(&firstPoint, &lastPoint);
+    int fPoint = 0;
+    int lPoint = 0;
+    sDisplay_PointsOnDisplay(&fPoint, &lPoint);
 
-    float retValue = 200.0f - (dataIn[chan])[firstPoint + (int)posCurT] + MIN_VALUE;
+    float retValue = 200.0f - (dataIn[chan])[fPoint + (int)posCurT] + MIN_VALUE;
     Limitation<float>(&retValue, 0.0f, 200.0f);
     return retValue;
 }
@@ -986,15 +992,15 @@ float Processing::GetCursT(Channel chan, float posCurU, int numCur)
         return 0;
     }
 
-    int firstPoint = 0;
-    int lastPoint = 0;
-    sDisplay_PointsOnDisplay(&firstPoint, &lastPoint);
+    int fPoint = 0;
+    int lPoint = 0;
+    sDisplay_PointsOnDisplay(&fPoint, &lPoint);
 
-    int prevData = 200 - (dataIn[chan])[firstPoint] + MIN_VALUE;
+    int prevData = 200 - (dataIn[chan])[fPoint] + MIN_VALUE;
 
     int numIntersections = 0;
 
-    for(int i = firstPoint + 1; i < lastPoint; i++)
+    for(int i = fPoint + 1; i < lPoint; i++)
     {
         int curData = 200 - (dataIn[chan])[i] + MIN_VALUE;
 
@@ -1002,7 +1008,7 @@ float Processing::GetCursT(Channel chan, float posCurU, int numCur)
         {
             if(numCur == 0)
             {
-                return (float)(i - firstPoint);
+                return (float)(i - fPoint);
             }
             else
             {
@@ -1012,7 +1018,7 @@ float Processing::GetCursT(Channel chan, float posCurU, int numCur)
                 }
                 else
                 {
-                    return (float)(i - firstPoint);
+                    return (float)(i - fPoint);
                 }
             }
         }
@@ -1021,7 +1027,7 @@ float Processing::GetCursT(Channel chan, float posCurU, int numCur)
         {
             if(numCur == 0)
             {
-                return (float)(i - firstPoint);
+                return (float)(i - fPoint);
             }
             else
             {
@@ -1031,7 +1037,7 @@ float Processing::GetCursT(Channel chan, float posCurU, int numCur)
                 }
                 else
                 {
-                    return (float)(i - firstPoint);
+                    return (float)(i - fPoint);
                 }
             }
         }
@@ -1183,16 +1189,16 @@ void CountedToCurrentSettings()
     memset(dataOut0, 0, FPGA_MAX_POINTS);
     memset(dataOut1, 0, FPGA_MAX_POINTS);
     
-    int numPoints = dataSet->length1channel * (dataSet->peakDet == PeakDet_Disabled ? 1 : 2);
+    int nPoints = dataSet->length1channel * (dataSet->peakDet == PeakDet_Disabled ? 1 : 2);
 
     int16 dataTShift = dataSet->tShift;
     int16 curTShift = SET_TSHIFT;
 
     int16 dTShift = curTShift - dataTShift;
-    for (int i = 0; i < numPoints; i++)
+    for (int i = 0; i < nPoints; i++)
     {
         int index = i - dTShift;
-        if (index >= 0 && index < numPoints)
+        if (index >= 0 && index < nPoints)
         {
             dataOut0[index] = dataIn[0][i];
             dataOut1[index] = dataIn[1][i];
@@ -1204,14 +1210,14 @@ void CountedToCurrentSettings()
         Range range = SET_RANGE_A;
         int16 rShift = SET_RSHIFT_A;
 
-        for (int i = 0; i < numPoints; i++)
+        for (int i = 0; i < nPoints; i++)
         {
             float absValue = MathFPGA::Point2Voltage(dataOut0[i], dataSet->range[0], dataSet->rShiftCh0);
             int relValue = (int)((absValue + MAX_VOLTAGE_ON_SCREEN(range) + RSHIFT_2_ABS(rShift, range)) / voltsInPoint[range] + MIN_VALUE);
 
             if (relValue < MIN_VALUE)       { dataOut0[i] = MIN_VALUE; }
             else if (relValue > MAX_VALUE)  { dataOut0[i] = MAX_VALUE; }
-            else                            { dataOut0[i] = relValue; }
+            else                            { dataOut0[i] = (uint8)relValue; }
         }
     }
     if (dataSet->enableCh1 == 1 && (dataSet->range[1] != SET_RANGE_B || dataSet->rShiftCh1 != SET_RSHIFT_B))
@@ -1219,14 +1225,14 @@ void CountedToCurrentSettings()
         Range range = SET_RANGE_B;
         int16 rShift = SET_RSHIFT_B;
 
-        for (int i = 0; i < numPoints; i++)
+        for (int i = 0; i < nPoints; i++)
         {
             float absValue = MathFPGA::Point2Voltage(dataOut1[i], dataSet->range[1], dataSet->rShiftCh1);
             int relValue = (int)((absValue + MAX_VOLTAGE_ON_SCREEN(range) + RSHIFT_2_ABS(rShift, range)) / voltsInPoint[range] + MIN_VALUE);
 
             if (relValue < MIN_VALUE)       { dataOut1[i] = MIN_VALUE; }
             else if (relValue > MAX_VALUE)  { dataOut1[i] = MAX_VALUE; }
-            else                            { dataOut1[i] = relValue;  }
+            else                            { dataOut1[i] = (uint8)relValue;  }
         }
     }
 }
