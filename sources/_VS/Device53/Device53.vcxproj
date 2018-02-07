@@ -444,6 +444,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Device53\src\libs\interrupts.h" />
     <ClInclude Include="..\..\Device53\src\Menu\Pages\PageChannels.h" />
     <ClInclude Include="..\..\Device53\src\Menu\Pages\PageDebug.h" />
     <ClInclude Include="..\..\Device53\src\Menu\Pages\PageTime.h" />

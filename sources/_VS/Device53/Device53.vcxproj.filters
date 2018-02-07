@@ -953,6 +953,9 @@
     <ClInclude Include="..\..\Device53\src\Menu\Pages\PageTime.h">
       <Filter>Menu\Pages</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Device53\src\libs\interrupts.h">
+      <Filter>libs</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\Device53\src\libs\startup_stm32f207xx.s">
