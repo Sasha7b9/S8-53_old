@@ -33,6 +33,9 @@
 // warning: anonymous structs are a GNU extension
 #pragma clang diagnostic ignored "-Wgnu-anonymous-struct"
 
+// warning: implicit conversion increases floating-point precision: 'float' to 'double'
+#pragma clang diagnostic ignored "-Wdouble-promotion"
+
 #if (!(defined S8_53) && !(defined S8_54) && !(defined S8_55) && !(defined KORNET))
 #error ("You must selelect device")
 #endif
@@ -89,6 +92,7 @@ typedef void    (*pFuncVpI8I8I8)(int8 *, int8, int8);
 #define CHAR_BUF(name, size)            char name[size]
 #define CHAR_BUF2(name, size1, size2)   char name[size1][size2]
 
+#define NOT_USED 0
 
 #define ERROR_VALUE_FLOAT   1.111e29f
 #define ERROR_VALUE_INT16   SHRT_MAX
