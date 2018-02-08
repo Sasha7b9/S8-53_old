@@ -2,34 +2,15 @@
 #include "Timer.h"
 #include "Log.h"
 #include "Hardware/it.h"
+#include "stm32/437/Timer437.h"
 #include <limits.h>
 
-#pragma clang diagnostic ignored "-Wmissing-field-initializers"
-#pragma clang diagnostic ignored "-Wunused-parameter"
-
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-static TIM_HandleTypeDef handleTIM2 =
-{
-    TIM2,
-    {
-        0,
-        TIM_COUNTERMODE_UP,
-        (uint)-1,
-        TIM_CLOCKDIVISION_DIV1
-    }
-};
-
 #ifdef S8_54
-static TIM_HandleTypeDef handleTIM3 =
-{
-    TIM3,
-    {
-        54000 - 1,
-        TIM_COUNTERMODE_UP,
-        1,
-        TIM_CLOCKDIVISION_DIV1
-    }
-};
+
+static Timer437 tim2;   // Для тиков
+static Timer437 tim3;   // Для таймеров
+
 #endif
 
 #ifdef S8_53
@@ -90,26 +71,23 @@ void Timer::Init()
     {
         timers[i].timeNextMS = UINT_MAX;
     }
+   
+    tim3.Init(TIM3, 54000 - 1, TIM_COUNTERMODE_UP, 1, TIM_CLOCKDIVISION_DIV1);
+    tim3.EnabledIRQ(1, 1);
 
-    __HAL_RCC_TIM2_CLK_ENABLE();    // Для тиков
-    __HAL_RCC_TIM3_CLK_ENABLE();    // Для таймеров
-
-    HAL_NVIC_EnableIRQ(TIM3_IRQn);
-    HAL_NVIC_SetPriority(TIM3_IRQn, 1, 1);
-
-    HAL_TIM_Base_Init(&handleTIM2);
-    HAL_TIM_Base_Start(&handleTIM2);
+    tim2.Init(TIM2, 0, TIM_COUNTERMODE_UP, (uint)-1, TIM_CLOCKDIVISION_DIV1);
+    tim2.Start();
 }
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 void Timer::DeInit()
 {
-    HAL_NVIC_DisableIRQ(TIM3_IRQn);
-    HAL_TIM_Base_Stop(&handleTIM2);
-    HAL_TIM_Base_DeInit(&handleTIM2);
-
-    __HAL_RCC_TIM2_CLK_DISABLE();
-    __HAL_RCC_TIM3_CLK_DISABLE();
+    tim2.Stop();
+    tim2.DeInit();
+    
+    tim3.DisableIRQ();
+    tim3.StopIT();
+    tim3.DeInit();
 }
 
 #ifdef __cplusplus
@@ -121,7 +99,7 @@ extern "C" {
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 void TIM3_IRQHandler()
 {
-    HAL_TIM_IRQHandler(&handleTIM3);
+    HAL_TIM_IRQHandler(&tim3.handler);
 }
 
 #ifdef __cplusplus
@@ -251,16 +229,13 @@ static void StartTIM(uint timeStopMS)
 
     uint dT = timeStopMS - gTimeMS;
 
-    handleTIM3.Init.Period = (dT * 2) - 1;      // 10 соответствует 0.1мс. Т.е. если нам нужна 1мс, нужно засылать (100 - 1)
-
-    HAL_TIM_Base_Init(&handleTIM3);
-    HAL_TIM_Base_Start_IT(&handleTIM3);
+    tim3.StartIT((dT * 2) - 1);             // 10 соответствует 0.1мс. Т.е. если нам нужна 1мс, нужно засылать (100 - 1)
 }
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 static void StopTIM()
 {
-    HAL_TIM_Base_Stop_IT(&handleTIM3);
+    tim3.StopIT();
 }
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
