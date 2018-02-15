@@ -5,7 +5,7 @@
 #include "usbd_desc.h"
 #include "usbd_cdc_interface.h"
 #include "Hardware/Timer.h"
-#include "libs/stm32f2xx_it.h"
+#include "Hardware/it.h"
 #include <usbd_cdc.h>
 #include <usbd_def.h>
 #include <stdarg.h>

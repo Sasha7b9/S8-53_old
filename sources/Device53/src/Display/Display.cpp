@@ -1,3 +1,4 @@
+#include "defines.h"
 #include "Log.h"
 #include "Symbols.h"
 #include "Display/Grid.h"

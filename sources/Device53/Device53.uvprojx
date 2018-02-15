@@ -321,7 +321,7 @@
             <PlainCh>0</PlainCh>
             <Ropi>0</Ropi>
             <Rwpi>0</Rwpi>
-            <wLevel>2</wLevel>
+            <wLevel>1</wLevel>
             <uThumb>0</uThumb>
             <uSurpInc>1</uSurpInc>
             <uC99>1</uC99>
@@ -772,11 +772,6 @@
               <FilePath>.\src\libs\stm32f2xx_hal_conf.h</FilePath>
             </File>
             <File>
-              <FileName>stm32f2xx_it.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\libs\stm32f2xx_it.h</FilePath>
-            </File>
-            <File>
               <FileName>system_stm32f2xx.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\src\libs\system_stm32f2xx.c</FilePath>
@@ -822,11 +817,6 @@
               <FilePath>.\src\libs\stm32f2xx_hal_msp.cpp</FilePath>
             </File>
             <File>
-              <FileName>stm32f2xx_it.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\libs\stm32f2xx_it.cpp</FilePath>
-            </File>
-            <File>
               <FileName>usbd_cdc_interface.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\libs\usbd_cdc_interface.cpp</FilePath>
@@ -840,11 +830,6 @@
               <FileName>usbh_conf.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\libs\usbh_conf.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>interrupts.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\libs\interrupts.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -1220,6 +1205,21 @@
               <FileName>Sound.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\libs\common\Hardware\Sound.h</FilePath>
+            </File>
+            <File>
+              <FileName>it.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\Hardware\it.h</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f2xx_it.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\Hardware\stm32f2xx_it.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f2xx_it.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\Hardware\stm32f2xx_it.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -1790,6 +1790,21 @@
               <FileName>usbd_cdc.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Device_Library\Class\CDC\Src\usbd_cdc.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>stm32f207</GroupName>
+          <Files>
+            <File>
+              <FileName>Timer207.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\libs\common\stm32\207\Timer207.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Timer207.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\libs\common\stm32\207\Timer207.h</FilePath>
             </File>
           </Files>
         </Group>
