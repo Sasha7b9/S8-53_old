@@ -29,8 +29,6 @@ extern "C" {
 #error Wrong configuration file (ffconf.h).
 #endif
 
-#pragma clang diagnostic ignored "-Wpadded"
-
 
 /* Definitions of volume management */
 
@@ -361,7 +359,5 @@ int ff_del_syncobj (_SYNC_t sobj);				/* Delete a sync object */
 #ifdef __cplusplus
 }
 #endif
-
-#pragma clang diagnostic warning "-Wpadded"
 
 #endif /* _FATFS */

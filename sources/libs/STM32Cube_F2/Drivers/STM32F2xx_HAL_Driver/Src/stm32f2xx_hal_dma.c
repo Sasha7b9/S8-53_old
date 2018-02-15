@@ -114,7 +114,6 @@
 #include "stm32f2xx_hal.h"
 
 #pragma clang diagnostic ignored "-Wbad-function-cast"
-#pragma clang diagnostic ignored "-Wpadded"
 #pragma clang diagnostic ignored "-Wswitch-enum"
 #pragma clang diagnostic ignored "-Wcovered-switch-default"
 
@@ -1304,7 +1303,6 @@ static HAL_StatusTypeDef DMA_CheckFifoParam(DMA_HandleTypeDef *hdma)
 }
 
 #pragma clang diagnostic warning "-Wbad-function-cast"
-#pragma clang diagnostic warning "-Wpadded"
 #pragma clang diagnostic warning "-Wswitch-enum"
 #pragma clang diagnostic warning "-Wcovered-switch-default"
 

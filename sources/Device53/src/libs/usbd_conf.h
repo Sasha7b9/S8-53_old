@@ -4,8 +4,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-#pragma clang diagnostic ignored "-Wc++98-compat-pedantic"
-
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #define USBD_MAX_NUM_INTERFACES               1
 #define USBD_MAX_NUM_CONFIGURATION            1
@@ -42,5 +40,3 @@
 #else
 #define USBD_DbgLog(...)
 #endif
-
-#pragma clang diagnostic warning "-Wc++98-compat-pedantic"

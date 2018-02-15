@@ -48,8 +48,6 @@
 #include "lwip/ip6.h"
 #include "lwip/prot/ip.h"
 
-#pragma clang diagnostic ignored "-Wpadded"
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -315,8 +313,6 @@ err_t ip_input(struct pbuf *p, struct netif *inp);
 #ifdef __cplusplus
 }
 #endif
-
-#pragma clang diagnostic warning "-Wpadded"
 
 #endif /* LWIP_HDR_IP_H */
 

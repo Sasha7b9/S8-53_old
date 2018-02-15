@@ -63,7 +63,6 @@
 #include <string.h>
 #include <stdlib.h>
 
-#pragma clang diagnostic ignored "-Wpadded"
 #pragma clang diagnostic ignored "-Wmissing-variable-declarations"
 
 #if MEM_LIBC_MALLOC || MEM_USE_POOLS
@@ -774,7 +773,6 @@ mem_calloc(mem_size_t count, mem_size_t size)
   return p;
 }
 
-#pragma clang diagnostic warning "-Wpadded"
 #pragma clang diagnostic warning "-Wmissing-variable-declarations"
 
 #endif /* MEM_LIBC_MALLOC && (!LWIP_STATS || !MEM_STATS) */

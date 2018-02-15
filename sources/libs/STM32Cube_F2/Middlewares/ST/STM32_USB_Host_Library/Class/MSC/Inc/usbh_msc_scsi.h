@@ -36,8 +36,6 @@
 /* Includes ------------------------------------------------------------------*/
 #include "usbh_core.h"
 
-#pragma clang diagnostic ignored "-Wpadded"
-
 /** @addtogroup USBH_LIB
   * @{
   */
@@ -203,8 +201,6 @@ USBH_StatusTypeDef USBH_MSC_SCSI_Read(USBH_HandleTypeDef *phost,
 #ifdef __cplusplus
 }
 #endif
-
-#pragma clang diagnostic warning "-Wpadded"
 
 #endif  /* __USBH_MSC_SCSI_H */
 

@@ -50,8 +50,6 @@
 #include "lwip/ip6.h"
 #include "lwip/ip6_addr.h"
 
-#pragma clang diagnostic ignored "-Wpadded"
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -421,8 +419,6 @@ const char* tcp_debug_state_str(enum tcp_state s);
 #ifdef __cplusplus
 }
 #endif
-
-#pragma clang diagnostic warning "-Wpadded"
 
 #endif /* LWIP_TCP */
 

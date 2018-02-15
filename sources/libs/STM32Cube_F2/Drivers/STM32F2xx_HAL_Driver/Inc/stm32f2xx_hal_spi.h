@@ -44,8 +44,6 @@
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f2xx_hal_def.h"
 
-#pragma clang diagnostic ignored "-Wpadded"
-
 /** @addtogroup STM32F2xx_HAL_Driver
   * @{
   */
@@ -578,8 +576,6 @@ uint32_t             HAL_SPI_GetError(SPI_HandleTypeDef *hspi);
 #ifdef __cplusplus
 }
 #endif
-
-#pragma clang diagnostic warning "-Wpadded"
 
 #endif /* __STM32F2xx_HAL_SPI_H */
 

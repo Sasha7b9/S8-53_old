@@ -49,8 +49,6 @@
   * @{
   */ 
      
-#pragma clang diagnostic ignored "-Wpadded"
-
 #ifndef NULL
 #define NULL  0
 #endif
@@ -308,7 +306,7 @@ typedef enum
   USBH_FAIL,
   USBH_NOT_SUPPORTED,
   USBH_UNRECOVERED_ERROR,
-  USBH_ERROR_SPEED_UNKNOWN,
+  USBH_ERROR_SPEED_UNKNOWN
 }USBH_StatusTypeDef;
 
 
@@ -320,7 +318,7 @@ typedef enum
 {
   USBH_SPEED_HIGH  = 0,
   USBH_SPEED_FULL  = 1,
-  USBH_SPEED_LOW   = 2,  
+  USBH_SPEED_LOW   = 2
     
 }USBH_SpeedTypeDef;
 
@@ -339,7 +337,7 @@ typedef enum
   HOST_CHECK_CLASS,
   HOST_CLASS,
   HOST_SUSPENDED,
-  HOST_ABORT_STATE,  
+  HOST_ABORT_STATE
 }HOST_StateTypeDef;  
 
 /* Following states are used for EnumerationState */
@@ -352,7 +350,7 @@ typedef enum
   ENUM_GET_FULL_CFG_DESC,
   ENUM_GET_MFC_STRING_DESC,
   ENUM_GET_PRODUCT_STRING_DESC,
-  ENUM_GET_SERIALNUM_STRING_DESC,
+  ENUM_GET_SERIALNUM_STRING_DESC
 } ENUM_StateTypeDef;  
 
 /* Following states are used for CtrlXferStateMachine */
@@ -398,7 +396,7 @@ typedef enum
   USBH_URB_EVENT,
   USBH_CONTROL_EVENT,    
   USBH_CLASS_EVENT,     
-  USBH_STATE_CHANGED_EVENT,   
+  USBH_STATE_CHANGED_EVENT
 }
 USBH_OSEventTypeDef;
 
@@ -485,8 +483,6 @@ typedef struct _USBH_HandleTypeDef
 #ifdef __cplusplus
 }
 #endif
-
-#pragma clang diagnostic warning "-Wpadded"
 
 #endif /* USBH_DEF_H */
 

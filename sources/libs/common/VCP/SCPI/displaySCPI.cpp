@@ -1,6 +1,6 @@
 #include "defines.h"
 #include "SCPI.h"
-#include "globals.h"
+#include "Globals.h"
 #include "Log.h"
 #include "Menu/Pages/PageDisplay.h"
 #include "VCP/VCP.h"

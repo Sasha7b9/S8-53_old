@@ -44,8 +44,6 @@
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f2xx_hal_def.h"
 
-#pragma clang diagnostic ignored "-Wpadded"
-
 /** @addtogroup STM32F2xx_HAL_Driver
   * @{
   */
@@ -787,8 +785,6 @@ uint32_t             HAL_DMA_GetError(DMA_HandleTypeDef *hdma);
 #ifdef __cplusplus
 }
 #endif
-
-#pragma clang diagnostic warning "-Wpadded"
 
 #endif /* __STM32F2xx_HAL_DMA_H */
 
