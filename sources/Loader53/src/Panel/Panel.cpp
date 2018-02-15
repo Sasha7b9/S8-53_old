@@ -5,7 +5,7 @@
 #include "Settings/Settings.h"
 #include "Display/Display.h"
 #include "Hardware/Timer.h"
-#include "interrupts.h"
+#include "Hardware/it.h"
 #include <stdio.h>
 #include <string.h>
 

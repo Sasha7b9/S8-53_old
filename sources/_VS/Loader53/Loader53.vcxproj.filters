@@ -40,6 +40,9 @@
     <Filter Include="_VS">
       <UniqueIdentifier>{b51bc987-5717-4ec9-bfc2-1baf971ac85c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="stm32f207">
+      <UniqueIdentifier>{9ce0ad45-7637-4938-bf02-147f7368db30}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\libs\common\Utils\Math.cpp">
@@ -79,9 +82,6 @@
       <Filter>Settings</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Loader53\src\libs\stm32f2xx_hal_msp.cpp">
-      <Filter>libs</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Loader53\src\libs\stm32f2xx_it.cpp">
       <Filter>libs</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Loader53\src\libs\system_stm32f2xx.c">
@@ -189,6 +189,12 @@
     <ClCompile Include="..\..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Class\MSC\Src\usbh_msc_scsi.c">
       <Filter>USBH</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Loader53\src\Hardware\stm32f2xx_it.cpp">
+      <Filter>Hardware</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\common\stm32\207\Timer207.cpp">
+      <Filter>stm32f207</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\libs\common\Utils\Math.h">
@@ -237,9 +243,6 @@
       <Filter>Settings</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Loader53\src\libs\stm32f2xx_hal_conf.h">
-      <Filter>libs</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Loader53\src\libs\stm32f2xx_it.h">
       <Filter>libs</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Loader53\src\libs\usbh_conf.h">
@@ -334,6 +337,15 @@
     </ClInclude>
     <ClInclude Include="..\..\Loader53\src\libs\interrupts.h">
       <Filter>libs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Loader53\src\Hardware\it.h">
+      <Filter>Hardware</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Loader53\src\Hardware\stm32f2xx_it.h">
+      <Filter>Hardware</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\common\stm32\207\Timer207.h">
+      <Filter>stm32f207</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

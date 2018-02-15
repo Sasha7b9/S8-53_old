@@ -125,6 +125,7 @@
     <ClCompile Include="..\..\libs\common\Display\Painter.cpp" />
     <ClCompile Include="..\..\libs\common\Display\PainterText.cpp" />
     <ClCompile Include="..\..\libs\common\Hardware\Timer.cpp" />
+    <ClCompile Include="..\..\libs\common\stm32\207\Timer207.cpp" />
     <ClCompile Include="..\..\libs\common\Utils\Math.cpp" />
     <ClCompile Include="..\..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal.c">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
@@ -220,8 +221,8 @@
     <ClCompile Include="..\..\Loader53\src\Hardware\FLASH.cpp" />
     <ClCompile Include="..\..\Loader53\src\Hardware\FSMC.cpp" />
     <ClCompile Include="..\..\Loader53\src\Hardware\Hardware.cpp" />
+    <ClCompile Include="..\..\Loader53\src\Hardware\stm32f2xx_it.cpp" />
     <ClCompile Include="..\..\Loader53\src\libs\stm32f2xx_hal_msp.cpp" />
-    <ClCompile Include="..\..\Loader53\src\libs\stm32f2xx_it.cpp" />
     <ClCompile Include="..\..\Loader53\src\libs\system_stm32f2xx.c">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
@@ -237,6 +238,7 @@
     <ClInclude Include="..\..\libs\common\Display\Colors.h" />
     <ClInclude Include="..\..\libs\common\Display\Painter.h" />
     <ClInclude Include="..\..\libs\common\Hardware\Timer.h" />
+    <ClInclude Include="..\..\libs\common\stm32\207\Timer207.h" />
     <ClInclude Include="..\..\libs\common\stub.h" />
     <ClInclude Include="..\..\libs\common\Utils\Math.h" />
     <ClInclude Include="..\..\libs\common\_VS\ctype.h" />
@@ -295,10 +297,11 @@
     <ClInclude Include="..\..\Loader53\src\Hardware\FLASH.h" />
     <ClInclude Include="..\..\Loader53\src\Hardware\FSMC.h" />
     <ClInclude Include="..\..\Loader53\src\Hardware\Hardware.h" />
+    <ClInclude Include="..\..\Loader53\src\Hardware\it.h" />
+    <ClInclude Include="..\..\Loader53\src\Hardware\stm32f2xx_it.h" />
     <ClInclude Include="..\..\Loader53\src\libs\ffconf.h" />
     <ClInclude Include="..\..\Loader53\src\libs\interrupts.h" />
     <ClInclude Include="..\..\Loader53\src\libs\stm32f2xx_hal_conf.h" />
-    <ClInclude Include="..\..\Loader53\src\libs\stm32f2xx_it.h" />
     <ClInclude Include="..\..\Loader53\src\libs\usbh_conf.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClInclude>
