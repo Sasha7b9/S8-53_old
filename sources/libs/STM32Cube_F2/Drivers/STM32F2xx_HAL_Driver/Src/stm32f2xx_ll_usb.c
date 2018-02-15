@@ -56,11 +56,6 @@
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f2xx_hal.h"
 
-#pragma clang diagnostic ignored "-Wsign-conversion"
-#pragma clang diagnostic ignored "-Wconversion"
-#pragma clang diagnostic ignored "-Wignored-attributes"
-#pragma clang diagnostic ignored "-Wcast-align"
-
 /** @addtogroup STM32F2xx_LL_USB_DRIVER
   * @{
   */
@@ -1680,11 +1675,6 @@ HAL_StatusTypeDef USB_StopHost(USB_OTG_GlobalTypeDef *USBx)
   USB_EnableGlobalInt(USBx);
   return HAL_OK;  
 }
-
-#pragma clang diagnostic warning "-Wsign-conversion"
-#pragma clang diagnostic warning "-Wconversion"
-#pragma clang diagnostic warning "-Wignored-attributes"
-#pragma clang diagnostic warning "-Wcast-align"
 
 /**
   * @}

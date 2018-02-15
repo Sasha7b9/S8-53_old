@@ -28,9 +28,6 @@
 /* Includes ------------------------------------------------------------------*/
 #include "usbd_core.h"
 
-#pragma clang diagnostic ignored "-Wunused-parameter"
-#pragma clang diagnostic ignored "-Wconversion"
-
 /** @addtogroup STM32_USBD_DEVICE_LIBRARY
 * @{
 */
@@ -550,9 +547,6 @@ USBD_StatusTypeDef USBD_LL_DevDisconnected(USBD_HandleTypeDef  *pdev)
    
   return USBD_OK;
 }
-
-#pragma clang diagnostic warning "-Wunused-parameter"
-#pragma clang diagnostic warning "-Wconversion"
 
 /**
 * @}

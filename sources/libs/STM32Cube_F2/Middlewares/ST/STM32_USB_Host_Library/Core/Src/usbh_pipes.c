@@ -28,8 +28,6 @@
 /* Includes ------------------------------------------------------------------*/
 #include "usbh_pipes.h"
 
-#pragma clang diagnostic ignored "-Wconversion"
-
 /** @addtogroup USBH_LIB
   * @{
   */
@@ -185,8 +183,6 @@ static uint16_t USBH_GetFreePipe (USBH_HandleTypeDef *phost)
   }
   return 0xFFFF;
 }
-
-#pragma clang diagnostic warning "-Wconversion"
 
 /**
 * @}

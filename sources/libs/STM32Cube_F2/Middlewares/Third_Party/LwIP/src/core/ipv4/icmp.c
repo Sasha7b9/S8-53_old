@@ -51,8 +51,6 @@
 
 #include <string.h>
 
-#pragma clang diagnostic ignored "-Wsign-conversion"
-
 /** Small optimization: set to 0 if incoming PBUF_POOL pbuf always can be
  * used to modify and send a response packet (and to 1 if this is not the case,
  * e.g. when link header is stripped of when receiving) */
@@ -391,7 +389,5 @@ icmp_send_response(struct pbuf *p, u8_t type, u8_t code)
   }
   pbuf_free(q);
 }
-
-#pragma clang diagnostic warning "-Wsign-conversion"
 
 #endif /* LWIP_IPV4 && LWIP_ICMP */

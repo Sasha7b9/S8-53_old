@@ -29,9 +29,6 @@
 #include "usbh_msc_bot.h"
 #include "usbh_msc.h"
 
-#pragma clang diagnostic ignored "-Wcovered-switch-default"
-#pragma clang diagnostic ignored "-Wunused-parameter"
-
 /** @addtogroup USBH_LIB
 * @{
 */
@@ -608,9 +605,6 @@ static BOT_CSWStatusTypeDef USBH_MSC_DecodeCSW(USBH_HandleTypeDef *phost)
     
   return status;
 }
-
-#pragma clang diagnostic warning "-Wcovered-switch-default"
-#pragma clang diagnostic warning "-Wunused-parameter"
 
 /**
 * @}

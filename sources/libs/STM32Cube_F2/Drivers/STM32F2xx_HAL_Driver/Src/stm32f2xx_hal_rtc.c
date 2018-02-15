@@ -136,8 +136,6 @@
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f2xx_hal.h"
 
-#pragma clang diagnostic ignored "-Wconversion"
-
 /** @addtogroup STM32F2xx_HAL_Driver
   * @{
   */
@@ -1491,8 +1489,6 @@ uint8_t RTC_Bcd2ToByte(uint8_t Value)
   tmp = ((uint8_t)(Value & (uint8_t)0xF0) >> (uint8_t)0x4) * 10;
   return (tmp + (Value & (uint8_t)0x0F));
 }
-
-#pragma clang diagnostic warning "-Wconversion"
 
 /**
   * @}

@@ -31,8 +31,6 @@
 #define LWIP_PBUF_MEMPOOL(name, num, payload, desc) LWIP_MEMPOOL(name, num, (MEMP_ALIGN_SIZE(sizeof(struct pbuf)) + MEMP_ALIGN_SIZE(payload)), desc)
 #endif /* LWIP_PBUF_MEMPOOL */
 
-#pragma clang diagnostic ignored "-Wmissing-variable-declarations"
-
 /*
  * A list of internal pools used by LWIP.
  *
@@ -145,5 +143,3 @@ LWIP_PBUF_MEMPOOL(PBUF_POOL, PBUF_POOL_SIZE,           PBUF_POOL_BUFSIZE,       
 #undef LWIP_MALLOC_MEMPOOL_START
 #undef LWIP_MALLOC_MEMPOOL_END
 #undef LWIP_PBUF_MEMPOOL
-
-#pragma clang diagnostic warning "-Wmissing-variable-declarations"

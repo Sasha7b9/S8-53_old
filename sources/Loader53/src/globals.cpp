@@ -3,8 +3,6 @@
 HCD_HandleTypeDef handleHCD;
 USBH_HandleTypeDef handleUSBH;
 
-#pragma clang diagnostic ignored "-Wmissing-field-initializers"
-
 SPI_HandleTypeDef handleSPI =
 {
     SPI1,
@@ -20,7 +18,6 @@ SPI_HandleTypeDef handleSPI =
         SPI_TIMODE_DISABLED,            // Init.TIMode
         SPI_CRCCALCULATION_DISABLED,    // Init.CRCCalculation
         7                               // InitCRCPolynomial
-    }
+    },
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, HAL_UNLOCKED, HAL_SPI_STATE_RESET, 0
 };
-
-#pragma clang diagnostic warning "-Wmissing-field-initializers"

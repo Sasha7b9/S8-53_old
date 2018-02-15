@@ -93,8 +93,6 @@
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f2xx_hal.h"
 
-#pragma clang diagnostic ignored "-Wmissing-variable-declarations"
-
 /** @addtogroup STM32F2xx_HAL_Driver
   * @{
   */
@@ -751,8 +749,6 @@ static void FLASH_SetErrorCode(void)
     __HAL_FLASH_CLEAR_FLAG(FLASH_FLAG_OPERR);
   }
 }
-
-#pragma clang diagnostic warning "-Wmissing-variable-declarations"
 
 /**
   * @}

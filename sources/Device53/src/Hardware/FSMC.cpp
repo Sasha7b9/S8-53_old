@@ -86,8 +86,6 @@ void FSMC::Init()
         FSMC_ACCESS_MODE_B  // FSMC_AccessMode
     };
     
-#pragma clang diagnostic ignored "-Wmissing-field-initializers"
-
     static const SRAM_HandleTypeDef sramHandle =
     {
         FSMC_NORSRAM_DEVICE,
@@ -106,11 +104,10 @@ void FSMC::Init()
             FSMC_EXTENDED_MODE_DISABLE,         // Init.ExtendedMode
             FSMC_ASYNCHRONOUS_WAIT_DISABLE,     // Init.AsynchronousWait
             FSMC_WRITE_BURST_DISABLE            // Init.WriteBurst
-        }
+        },
+        HAL_UNLOCKED, HAL_SRAM_STATE_RESET, 0
     };
     
-#pragma clang diagnostic warning "-Wmissing-field-initializers"
-
     if (HAL_SRAM_Init((SRAM_HandleTypeDef*)(&sramHandle), (FSMC_NORSRAM_TimingTypeDef*)(&sramTiming), (FSMC_NORSRAM_TimingTypeDef*)(&sramTiming)) != HAL_OK)
     {
         ERROR_HANDLER();

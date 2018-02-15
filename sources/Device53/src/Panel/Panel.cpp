@@ -393,17 +393,15 @@ void Panel::Init()
     
     // Теперь настроим программный NSS (PG0).
     
-#pragma clang diagnostic ignored "-Wmissing-field-initializers"
-
     GPIO_InitTypeDef isGPIOG =
     {
-        GPIO_PIN_0,                 // GPIO_Pin
-        GPIO_MODE_IT_RISING,        // GPIO_Mode
-        GPIO_NOPULL
+        GPIO_PIN_0,             // Pin
+        GPIO_MODE_IT_RISING,    // Mode
+        GPIO_NOPULL,            // Pull
+        GPIO_SPEED_FREQ_LOW,    // Speed
+        0                       // Alternate
     };
-    
-#pragma clang diagnostic warning "-Wmissing-field-initializers"
-    
+   
     HAL_GPIO_Init(GPIOG, &isGPIOG);
 
     HAL_NVIC_SetPriority(EXTI0_IRQn, 3, 0);

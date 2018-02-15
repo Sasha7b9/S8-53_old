@@ -28,9 +28,6 @@
 
 #include "usbh_ctlreq.h"
 
-#pragma clang diagnostic ignored "-Wswitch-enum"
-#pragma clang diagnostic ignored "-Wconversion"
-
 /** @addtogroup USBH_LIB
 * @{
 */
@@ -860,9 +857,6 @@ static USBH_StatusTypeDef USBH_HandleControl (USBH_HandleTypeDef *phost)
   }
   return status;
 }
-
-#pragma clang diagnostic warning "-Wswitch-enum"
-#pragma clang diagnostic warning "-Wconversion"
 
 /**
 * @}

@@ -87,14 +87,8 @@
     <ClCompile Include="..\..\Device53\src\libs\usbd_cdc_interface.cpp">
       <Filter>libs</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Device53\src\libs\stm32f2xx_it.cpp">
-      <Filter>libs</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Device53\src\libs\stm32f2xx_hal_msp.cpp">
       <Filter>libs</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Device53\src\Globals.cpp">
-      <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Device53\src\main.cpp">
       <Filter>src</Filter>
@@ -537,6 +531,12 @@
     <ClCompile Include="..\..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Class\MSC\Src\usbh_msc_scsi.c">
       <Filter>USBH</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Device53\src\Hardware\stm32f2xx_it.cpp">
+      <Filter>Hardware</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Device53\src\globals.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Device53\src\libs\app_ethernet.h">
@@ -554,9 +554,6 @@
     <ClInclude Include="..\..\Device53\src\libs\stm32f2xx_hal_conf.h">
       <Filter>libs</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Device53\src\libs\stm32f2xx_it.h">
-      <Filter>libs</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Device53\src\libs\usbd_cdc_interface.h">
       <Filter>libs</Filter>
     </ClInclude>
@@ -570,9 +567,6 @@
       <Filter>libs</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Device53\src\defines.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Device53\src\Globals.h">
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Device53\src\main.h">
@@ -955,6 +949,18 @@
     </ClInclude>
     <ClInclude Include="..\..\Device53\src\libs\interrupts.h">
       <Filter>libs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Device53\src\Hardware\it.h">
+      <Filter>Hardware</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Device53\src\Hardware\stm32f2xx_it.h">
+      <Filter>Hardware</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Inc\stm32f2xx_hal_gpio_ex.h">
+      <Filter>HAL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Device53\src\globals.h">
+      <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

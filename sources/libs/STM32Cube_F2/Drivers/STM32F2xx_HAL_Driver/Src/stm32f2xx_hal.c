@@ -51,9 +51,6 @@
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f2xx_hal.h"
 
-#pragma clang diagnostic ignored "-Wsign-conversion"
-#pragma clang diagnostic ignored "-Wmissing-variable-declarations"
-
 /** @addtogroup STM32F2xx_HAL_Driver
   * @{
   */
@@ -498,9 +495,6 @@ void HAL_GetUID(uint32_t *UID)
   UID[1] = (uint32_t)(READ_REG(*((uint32_t *)(UID_BASE + 4U))));
   UID[2] = (uint32_t)(READ_REG(*((uint32_t *)(UID_BASE + 8U))));
 }
-
-#pragma clang diagnostic warning "-Wsign-conversion"
-#pragma clang diagnostic warning "-Wmissing-variable-declarations"
 
 /**
   * @}

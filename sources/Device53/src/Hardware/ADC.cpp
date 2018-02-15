@@ -17,12 +17,12 @@ void ADConverter::Init()
 
     __ADC3_CLK_ENABLE();
 
-#pragma clang diagnostic ignored "-Wmissing-field-initializers"
     static GPIO_InitTypeDef isGPIO =
     {
         GPIO_PIN_6,
         GPIO_MODE_ANALOG,
-        GPIO_NOPULL
+        GPIO_NOPULL,
+        0, 0
     };
 
     HAL_GPIO_Init(GPIOF, &isGPIO);
@@ -31,9 +31,9 @@ void ADConverter::Init()
     {
         GPIO_PIN_11,
         GPIO_MODE_IT_RISING,
-        GPIO_NOPULL
+        GPIO_NOPULL,
+        0, 0
     };
-#pragma clang diagnostic warning "-Wmissing-field-initializers"
 
     HAL_GPIO_Init(GPIOC, &isGPIOC);
 

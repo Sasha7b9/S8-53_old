@@ -11,7 +11,9 @@
 #define USBD_SUPPORT_USER_STRING              0
 #define USBD_SELF_POWERED                     1
 #define USBD_DEBUG_LEVEL                      0
- 
+
+#define USBD_LPM_ENABLED                      0
+
 #define USBD_malloc               malloc
 #define USBD_free                 free
 #define USBD_memset               memset

@@ -63,10 +63,6 @@
 #include "usbd_desc.h"
 #include "usbd_ctlreq.h"
 
-#pragma clang diagnostic ignored "-Wmissing-variable-declarations"
-#pragma clang diagnostic ignored "-Wunused-parameter"
-#pragma clang diagnostic ignored "-Wconversion"
-
 /** @addtogroup STM32_USB_DEVICE_LIBRARY
   * @{
   */
@@ -913,10 +909,6 @@ uint8_t  USBD_CDC_ReceivePacket(USBD_HandleTypeDef *pdev)
     return USBD_FAIL;
   }
 }
-
-#pragma clang diagnostic warning "-Wmissing-variable-declarations"
-#pragma clang diagnostic warning "-Wunused-parameter"
-#pragma clang diagnostic warning "-Wconversion"
 
 /**
   * @}

@@ -40,7 +40,7 @@ static void FuncReceiver(const char *buffer, uint length)
         sizeData++;
         if (sizeData > 2 && data[sizeData - 1] == '\x0a' && data[sizeData - 2] == '\x0d')
         {
-            SCPI::ParseNewCommand((uint8*)&data[1]);
+            SCPI::ParseNewCommand(reinterpret_cast<uint8 *>(&data[1]));
             sizeData = 0;
         }
         if (sizeData == SIZE_BUFFER_TCP)

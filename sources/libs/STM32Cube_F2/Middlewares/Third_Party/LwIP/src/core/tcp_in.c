@@ -59,9 +59,6 @@
 #include "lwip/nd6.h"
 #endif /* LWIP_ND6_TCP_REACHABILITY_HINTS */
 
-#pragma clang diagnostic ignored "-Wconversion"
-#pragma clang diagnostic ignored "-Wswitch-enum"
-
 /** Initial CWND calculation as defined RFC 2581 */
 #define LWIP_TCP_CALC_INITIAL_CWND(mss) LWIP_MIN((4U * (mss)), LWIP_MAX((2U * (mss)), 4380U));
 /** Initial slow start threshold value: we use the full window */
@@ -1812,8 +1809,5 @@ tcp_trigger_input_pcb_close(void)
 {
   recv_flags |= TF_CLOSED;
 }
-
-#pragma clang diagnostic warning "-Wconversion"
-#pragma clang diagnostic warning "-Wswitch-enum"
 
 #endif /* LWIP_TCP */

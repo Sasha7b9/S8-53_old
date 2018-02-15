@@ -36,8 +36,6 @@
 /* Includes ------------------------------------------------------------------*/
 #include "usbd_conf.h"
 
-#pragma clang diagnostic ignored "-Wundef"
-
 /** @addtogroup STM32_USBD_DEVICE_LIBRARY
   * @{
   */

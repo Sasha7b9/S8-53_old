@@ -73,9 +73,6 @@
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f2xx_hal.h"
 
-#pragma clang diagnostic ignored "-Wconversion"
-#pragma clang diagnostic ignored "-Wsign-compare"
-
 /** @addtogroup STM32F2xx_HAL_Driver
   * @{
   */
@@ -1247,9 +1244,6 @@ static HAL_StatusTypeDef PCD_WriteEmptyTxFifo(PCD_HandleTypeDef *hpcd, uint32_t 
   
   return HAL_OK;  
 }
-
-#pragma clang diagnostic warning "-Wconversion"
-#pragma clang diagnostic warning "-Wsign-compare"
 
 /**
   * @}

@@ -5,8 +5,6 @@
 #include "lcd_log.h"
 #endif
 
-#pragma clang diagnostic ignored "-Wunused-function"
-
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #ifdef USE_DHCP
 #define MAX_DHCP_TRIES  4
@@ -41,6 +39,7 @@ void User_notification(struct netif *netif)
   * @brief  This function notify user about link status changement.
   * @param  netif: the network interface
   */
+/*
 static void ethernetif_notify_conn_changed(struct netif *netif)
 {
 #ifndef USE_DHCP
@@ -52,7 +51,6 @@ static void ethernetif_notify_conn_changed(struct netif *netif)
     if(netif_is_link_up(netif))
     {
 #ifdef USE_DHCP
-        /* Update DHCP state machine */
         DHCP_state = DHCP_START;
 #else
         IP_ADDR4(&ipaddr, IP_ADDR0, IP_ADDR1, IP_ADDR2, IP_ADDR3);
@@ -66,22 +64,18 @@ static void ethernetif_notify_conn_changed(struct netif *netif)
         sprintf((char *)iptxt, "%s", ip4addr_ntoa((const ip4_addr_t *)&netif->ip_addr));
         LCD_UsrLog ("Static IP address: %s\n", iptxt);
 #endif
-#endif /* USE_DHCP */   
-    
-        /* When the netif is fully configured this function must be called.*/
+#endif
         netif_set_up(netif);     
     }
     else
     {
 #ifdef USE_DHCP
-        /* Update DHCP state machine */
         DHCP_state = DHCP_LINK_DOWN;
-#endif /* USE_DHCP */
-    
-        /*  When the netif link is down this function must be called.*/
+#endif
         netif_set_down(netif);
   }
 }
+*/
 
 #ifdef USE_DHCP
 //----------------------------------------------------------------------------------------------------------------------------------------------------
@@ -161,5 +155,3 @@ void DHCP_Periodic_Handle(struct netif *netif)
     }
 }
 #endif
-
-#pragma clang diagnostic warning "-Wunused-function"

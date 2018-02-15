@@ -1,57 +1,7 @@
-/**
-  ******************************************************************************
-  * @file    USB_Device/CDC_Standalone/Src/usbd_desc.c
-  * @author  MCD Application Team
-  * @version V1.1.3
-  * @date    17-March-2017
-  * @brief   This file provides the USBD descriptors and string formating method.
-  ******************************************************************************
-  * @attention
-  *
-  * <h2><center>&copy; Copyright © 2017 STMicroelectronics International N.V. 
-  * All rights reserved.</center></h2>
-  *
-  * Redistribution and use in source and binary forms, with or without 
-  * modification, are permitted, provided that the following conditions are met:
-  *
-  * 1. Redistribution of source code must retain the above copyright notice, 
-  *    this list of conditions and the following disclaimer.
-  * 2. Redistributions in binary form must reproduce the above copyright notice,
-  *    this list of conditions and the following disclaimer in the documentation
-  *    and/or other materials provided with the distribution.
-  * 3. Neither the name of STMicroelectronics nor the names of other 
-  *    contributors to this software may be used to endorse or promote products 
-  *    derived from this software without specific written permission.
-  * 4. This software, including modifications and/or derivative works of this 
-  *    software, must execute solely and exclusively on microcontroller or
-  *    microprocessor devices manufactured by or for STMicroelectronics.
-  * 5. Redistribution and use of this software other than as permitted under 
-  *    this license is void and will automatically terminate your rights under 
-  *    this license. 
-  *
-  * THIS SOFTWARE IS PROVIDED BY STMICROELECTRONICS AND CONTRIBUTORS "AS IS" 
-  * AND ANY EXPRESS, IMPLIED OR STATUTORY WARRANTIES, INCLUDING, BUT NOT 
-  * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A 
-  * PARTICULAR PURPOSE AND NON-INFRINGEMENT OF THIRD PARTY INTELLECTUAL PROPERTY
-  * RIGHTS ARE DISCLAIMED TO THE FULLEST EXTENT PERMITTED BY LAW. IN NO EVENT 
-  * SHALL STMICROELECTRONICS OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
-  * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-  * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, 
-  * OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF 
-  * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING 
-  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
-  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-  *
-  ******************************************************************************
-  */
-
-/* Includes ------------------------------------------------------------------*/
+#include "usbd_conf.h"
 #include "usbd_core.h"
 #include "usbd_desc.h"
-#include "usbd_conf.h"
 
-#pragma clang diagnostic ignored "-Wmissing-variable-declarations"
-#pragma clang diagnostic ignored "-Wstrict-prototypes"
 #pragma clang diagnostic ignored "-Wunused-parameter"
 
 /* Private typedef -----------------------------------------------------------*/
@@ -100,7 +50,7 @@ USBD_DescriptorsTypeDef VCP_Desc = {
   #pragma data_alignment=4   
 #endif
 #define __ALIGN_BEGIN
-__ALIGN_BEGIN uint8_t USBD_DeviceDesc[USB_LEN_DEV_DESC] __ALIGN_END = {
+static __ALIGN_BEGIN uint8_t USBD_DeviceDesc[USB_LEN_DEV_DESC] __ALIGN_END = {
   0x12,                       /* bLength */
   USB_DESC_TYPE_DEVICE,       /* bDescriptorType */
   0x00,                       /* bcdUSB */
@@ -125,14 +75,14 @@ __ALIGN_BEGIN uint8_t USBD_DeviceDesc[USB_LEN_DEV_DESC] __ALIGN_END = {
 #if defined ( __ICCARM__ ) /*!< IAR Compiler */
   #pragma data_alignment=4   
 #endif
-__ALIGN_BEGIN uint8_t USBD_LangIDDesc[USB_LEN_LANGID_STR_DESC] __ALIGN_END = {
+static __ALIGN_BEGIN uint8_t USBD_LangIDDesc[USB_LEN_LANGID_STR_DESC] __ALIGN_END = {
   USB_LEN_LANGID_STR_DESC,         
   USB_DESC_TYPE_STRING,       
   LOBYTE(USBD_LANGID_STRING),
   HIBYTE(USBD_LANGID_STRING), 
 };
 
-uint8_t USBD_StringSerial[USB_SIZ_STRING_SERIAL] =
+static uint8_t USBD_StringSerial[USB_SIZ_STRING_SERIAL] =
 {
   USB_SIZ_STRING_SERIAL,      
   USB_DESC_TYPE_STRING,    
@@ -141,11 +91,11 @@ uint8_t USBD_StringSerial[USB_SIZ_STRING_SERIAL] =
 #if defined ( __ICCARM__ ) /*!< IAR Compiler */
   #pragma data_alignment=4   
 #endif
-__ALIGN_BEGIN uint8_t USBD_StrDesc[USBD_MAX_STR_DESC_SIZ] __ALIGN_END;
+static __ALIGN_BEGIN uint8_t USBD_StrDesc[USBD_MAX_STR_DESC_SIZ] __ALIGN_END;
 
 /* Private functions ---------------------------------------------------------*/
 static void IntToUnicode (uint32_t value , uint8_t *pbuf , uint8_t len);
-static void Get_SerialNum();
+static void Get_SerialNum(void);
 
 /**
   * @brief  Returns the device descriptor. 
@@ -153,7 +103,7 @@ static void Get_SerialNum();
   * @param  length: Pointer to data length variable
   * @retval Pointer to descriptor buffer
   */
-uint8_t *USBD_VCP_DeviceDescriptor(USBD_SpeedTypeDef speed, uint16_t *length)
+uint8_t *USBD_VCP_DeviceDescriptor(USBD_SpeedTypeDef size, uint16_t *length)
 {
   *length = sizeof(USBD_DeviceDesc);
   return (uint8_t*)USBD_DeviceDesc;
@@ -259,7 +209,7 @@ uint8_t *USBD_VCP_InterfaceStrDescriptor(USBD_SpeedTypeDef speed, uint16_t *leng
 /**
   * @brief  Create the serial number string descriptor 
   */
-static void Get_SerialNum()
+static void Get_SerialNum(void)
 {
   uint32_t deviceserial0, deviceserial1, deviceserial2;
   

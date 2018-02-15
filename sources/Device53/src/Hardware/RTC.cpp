@@ -26,12 +26,6 @@
 #endif
 
 
-//void        RTC_Init();
-//bool        RTC_SetTimeAndData(int8 day, int8 month, int8 year, int8 hours, int8 minutes, int8 seconds);
-//PackedTime  RTC_GetPackedTime();
-
-#pragma clang diagnostic ignored "-Wmissing-field-initializers"
-
 static const RTC_HandleTypeDef rtcHandle =
 {
     RTC,
@@ -42,10 +36,9 @@ static const RTC_HandleTypeDef rtcHandle =
         RTC_OUTPUT_DISABLE,         // OutPut
         RTC_OUTPUT_POLARITY_HIGH,   // OutPutPolarity
         RTC_OUTPUT_TYPE_OPENDRAIN   // OutPutType
-    }
+    },
+    HAL_UNLOCKED, HAL_RTC_STATE_RESET
 };
-
-#pragma clang diagnostic warning "-Wmissing-field-initializers"
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void RTClock::Init()

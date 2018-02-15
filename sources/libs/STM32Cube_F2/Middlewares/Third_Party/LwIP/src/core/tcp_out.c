@@ -58,8 +58,6 @@
 
 #include <string.h>
 
-#pragma clang diagnostic ignored "-Wconversion"
-
 /* Define some copy-macros for checksum-on-copy so that the code looks
    nicer by preventing too many ifdef's. */
 #if TCP_CHECKSUM_ON_COPY
@@ -1615,7 +1613,5 @@ tcp_zero_window_probe(struct tcp_pcb *pcb)
                           pcb->snd_nxt - 1, pcb->rcv_nxt, (int)err));
   return err;
 }
-
-#pragma clang diagnostic warning "-Wconversion"
 
 #endif /* LWIP_TCP */

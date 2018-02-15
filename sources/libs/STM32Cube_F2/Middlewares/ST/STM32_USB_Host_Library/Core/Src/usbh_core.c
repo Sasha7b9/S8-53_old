@@ -29,10 +29,6 @@
 
 #include "usbh_core.h"
 
-#pragma clang diagnostic ignored "-Wsign-conversion"
-#pragma clang diagnostic ignored "-Wswitch-enum"
-#pragma clang diagnostic ignored "-Wcovered-switch-default"
-
 /** @addtogroup USBH_LIB
   * @{
   */
@@ -924,10 +920,6 @@ USBH_StatusTypeDef  USBH_LL_NotifyURBChange (USBH_HandleTypeDef *phost)
   osMessagePut ( phost->os_event, USBH_URB_EVENT, 0);
   return USBH_OK;
 }
-
-#pragma clang diagnostic warning "-Wsign-conversion"
-#pragma clang diagnostic warning "-Wswitch-enum"
-#pragma clang diagnostic warning "-Wcovered-switch-default"
 
 #endif  
 /**

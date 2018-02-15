@@ -28,8 +28,6 @@
 
 #include "usbh_ioreq.h"
 
-#pragma clang diagnostic ignored "-Wconversion"
-
 /** @addtogroup USBH_LIB
   * @{
   */
@@ -338,8 +336,6 @@ USBH_StatusTypeDef USBH_IsocSendData(USBH_HandleTypeDef *phost,
   
   return USBH_OK;
 }
-
-#pragma clang diagnostic warning "-Wconversion"
 
 /**
 * @}

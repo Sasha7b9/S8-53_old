@@ -74,8 +74,6 @@
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f2xx_hal.h"
 
-#pragma clang diagnostic ignored "-Wconversion"
-
 /** @addtogroup STM32F2xx_HAL_Driver
   * @{
   */
@@ -1209,8 +1207,6 @@ static void HCD_Port_IRQHandler  (HCD_HandleTypeDef *hhcd)
   /* Clear Port Interrupts */
   USBx_HPRT0 = hprt0_dup;
 }
-
-#pragma clang diagnostic warning "-Wconversion"
 
 /**
   * @}

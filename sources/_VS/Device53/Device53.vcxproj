@@ -75,7 +75,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
+      <WarningLevel>Level4</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>USE_HAL_DRIVER;STM32F207xx;WIN32;S8_53;USBD_LPM_ENABLED=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -121,6 +121,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Device53\src\globals.cpp" />
+    <ClCompile Include="..\..\Device53\src\Hardware\stm32f2xx_it.cpp" />
     <ClCompile Include="..\..\libs\common\commonDefines.cpp" />
     <ClCompile Include="..\..\libs\common\Display\Colors.cpp" />
     <ClCompile Include="..\..\libs\common\Display\DisplayPrimitives.cpp" />
@@ -152,7 +154,6 @@
     <ClCompile Include="..\..\Device53\src\FPGA\FPGA.cpp" />
     <ClCompile Include="..\..\Device53\src\FPGA\FPGACalibration.cpp" />
     <ClCompile Include="..\..\Device53\src\FPGA\FPGASettings.cpp" />
-    <ClCompile Include="..\..\Device53\src\Globals.cpp" />
     <ClCompile Include="..\..\Device53\src\Hardware\ADC.cpp" />
     <ClCompile Include="..\..\Device53\src\Hardware\FLASH.cpp" />
     <ClCompile Include="..\..\Device53\src\Hardware\FSMC.cpp" />
@@ -164,7 +165,6 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\..\Device53\src\libs\stm32f2xx_hal_msp.cpp" />
-    <ClCompile Include="..\..\Device53\src\libs\stm32f2xx_it.cpp" />
     <ClCompile Include="..\..\Device53\src\libs\system_stm32f2xx.c">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
@@ -444,6 +444,9 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Device53\src\globals.h" />
+    <ClInclude Include="..\..\Device53\src\Hardware\it.h" />
+    <ClInclude Include="..\..\Device53\src\Hardware\stm32f2xx_it.h" />
     <ClInclude Include="..\..\Device53\src\libs\interrupts.h" />
     <ClInclude Include="..\..\Device53\src\Menu\Pages\PageChannels.h" />
     <ClInclude Include="..\..\Device53\src\Menu\Pages\PageDebug.h" />
@@ -481,7 +484,6 @@
     <ClInclude Include="..\..\Device53\src\FPGA\DataStorage.h" />
     <ClInclude Include="..\..\Device53\src\FPGA\FPGA.h" />
     <ClInclude Include="..\..\Device53\src\FPGA\FPGATypes.h" />
-    <ClInclude Include="..\..\Device53\src\Globals.h" />
     <ClInclude Include="..\..\Device53\src\Hardware\ADC.h" />
     <ClInclude Include="..\..\Device53\src\Hardware\FLASH.h" />
     <ClInclude Include="..\..\Device53\src\Hardware\FSMC.h" />
@@ -492,7 +494,6 @@
     <ClInclude Include="..\..\Device53\src\libs\ffconf.h" />
     <ClInclude Include="..\..\Device53\src\libs\lwipopts.h" />
     <ClInclude Include="..\..\Device53\src\libs\stm32f2xx_hal_conf.h" />
-    <ClInclude Include="..\..\Device53\src\libs\stm32f2xx_it.h" />
     <ClInclude Include="..\..\Device53\src\libs\usbd_cdc_interface.h" />
     <ClInclude Include="..\..\Device53\src\libs\usbd_conf.h" />
     <ClInclude Include="..\..\Device53\src\libs\usbd_desc.h" />
@@ -576,6 +577,7 @@
     <ClInclude Include="..\..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Inc\stm32f2xx_hal_gpio.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClInclude>
+    <ClInclude Include="..\..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Inc\stm32f2xx_hal_gpio_ex.h" />
     <ClInclude Include="..\..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Inc\stm32f2xx_hal_hcd.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClInclude>

@@ -28,8 +28,6 @@
 /* Includes ------------------------------------------------------------------*/
 #include "usbd_ioreq.h"
 
-#pragma clang diagnostic ignored "-Wconversion"
-
 /** @addtogroup STM32_USB_DEVICE_LIBRARY
   * @{
   */
@@ -220,8 +218,6 @@ uint16_t  USBD_GetRxCount (USBD_HandleTypeDef  *pdev , uint8_t ep_addr)
 {
   return USBD_LL_GetRxDataSize(pdev, ep_addr);
 }
-
-#pragma clang diagnostic warning "-Wconversion"
 
 /**
   * @}

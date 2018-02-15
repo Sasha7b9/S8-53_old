@@ -126,10 +126,6 @@
 #include "ff.h"			/* Declarations of FatFs API */
 #include "diskio.h"		/* Declarations of disk I/O functions */
 
-#pragma clang diagnostic ignored "-Wsign-conversion"
-#pragma clang diagnostic ignored "-Wconversion"
-#pragma clang diagnostic ignored "-Wconditional-uninitialized"
-
 /*--------------------------------------------------------------------------
 
    Module Private Definitions
@@ -4750,10 +4746,6 @@ int f_printf (
 		&& (UINT)pb.idx == nw) return pb.nchr;
 	return EOF;
 }
-
-#pragma clang diagnostic warning "-Wsign-conversion"
-#pragma clang diagnostic warning "-Wconversion"
-#pragma clang diagnostic warning "-Wconditional-uninitialized"
 
 #endif /* !_FS_READONLY */
 #endif /* _USE_STRFUNC */
