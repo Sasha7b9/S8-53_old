@@ -27,8 +27,6 @@
 
 #include "defines.h"
 
-#pragma clang diagnostic ignored "-Wc++98-compat-pedantic"
-
 /* Exported constants --------------------------------------------------------*/
 /* Exported macro ------------------------------------------------------------*/
 /* CMSIS OS macros */ 
@@ -68,8 +66,6 @@
 #else
 #define USBH_DbgLog(...)                         
 #endif
-
-#pragma clang diagnostic warning "-Wc++98-compat-pedantic"
 
 /* Exported functions ------------------------------------------------------- */
 
