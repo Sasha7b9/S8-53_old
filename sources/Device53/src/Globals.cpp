@@ -1,5 +1,5 @@
 #include "defines.h"
-#include "Globals.h"
+#include "globals.h"
 #include "Display/DisplayTypes.h"
 
 void *extraMEM = 0;
