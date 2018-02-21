@@ -2,8 +2,6 @@
 #include "usbd_core.h"
 #include "usbd_desc.h"
 
-#pragma clang diagnostic ignored "-Wunused-parameter"
-
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
 #define USBD_VID                      0x0483
@@ -49,7 +47,6 @@ USBD_DescriptorsTypeDef VCP_Desc = {
 #if defined ( __ICCARM__ ) /*!< IAR Compiler */
   #pragma data_alignment=4   
 #endif
-#define __ALIGN_BEGIN
 static __ALIGN_BEGIN uint8_t USBD_DeviceDesc[USB_LEN_DEV_DESC] __ALIGN_END = {
   0x12,                       /* bLength */
   USB_DESC_TYPE_DEVICE,       /* bDescriptorType */
