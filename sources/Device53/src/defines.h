@@ -1,46 +1,7 @@
 #pragma once
 
 #include <stm32f2xx_hal.h>
-//#include "globals.h"
-
-#pragma once
-
-#include <ctype.h>
-
-/*
-// warning: '#pragma anon_unions' is an ARM Compiler 5 extension, and is not supported by ARM Compiler 6
-#pragma clang diagnostic ignored "-Warmcc-pragma-anon-unions"
-
-// warning: use of old-style cast
-#pragma clang diagnostic ignored "-Wold-style-cast"
-
-// warning: comparing floating point with == or != is unsafe
-#pragma clang diagnostic ignored "-Wfloat-equal"
-
-// warning: array subscript is of type 'char'
-#pragma clang diagnostic ignored "-Wchar-subscripts"
-
-// warning: declaration requires a global constructor
-#pragma clang diagnostic ignored "-Wglobal-constructors"
-
-// warning: cast from 'uint8 *' (aka 'unsigned char *') to 'uint16 *' (aka 'unsigned short *') increases required alignment from 1 to 2
-#pragma clang diagnostic ignored "-Wcast-align"
-
-// warning: format string is not a string literal
-#pragma clang diagnostic ignored "-Wformat-nonliteral"
-
-// warning: illegal character encoding in string literal
-#pragma clang diagnostic ignored "-Winvalid-source-encoding"
-
-// warning: ISO C++11 does not allow conversion from string literal to 'char *'
-#pragma clang diagnostic ignored "-Wwritable-strings"
-
-// warning: anonymous structs are a GNU extension
-#pragma clang diagnostic ignored "-Wgnu-anonymous-struct"
-
-// warning: implicit conversion increases floating-point precision: 'float' to 'double'
-#pragma clang diagnostic ignored "-Wdouble-promotion"
-*/
+//#include <ctype.h>
 
 #if (!(defined S8_53) && !(defined S8_54) && !(defined S8_55) && !(defined KORNET))
 #error ("You must selelect device")
@@ -90,7 +51,7 @@ typedef void  (*pFuncVpI8I8I8)(int8 *, int8, int8);
 #define _CLEAR_BIT(value, bit)                  ((value) &= (~(1 << bit)))
 #define _SET_BIT_VALUE(value, numBit, bitValue) (value |= (bitValue << numBit))
 
-// ??? ??????????? ??????? ??????? ????? ???????????? ????? ?????????, ????? ????? ????? ???? ?????????, ??? ????? ?????? ??????????
+// Для определения задания буферов лучше пользоваться этими макросами, чтобы потом легче было отследить, где можно памяти освободить
 #define CHAR_BUF(name, size)            char name[size]
 #define CHAR_BUF2(name, size1, size2)   char name[size1][size2]
 

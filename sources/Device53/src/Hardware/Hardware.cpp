@@ -126,3 +126,12 @@ uint Hardware_CalculateCRC32(uint address, uint numBytes)
 {
     return HAL_CRC_Calculate(&crcHandle, (uint *)address, numBytes);
 }
+
+//----------------------------------------------------------------------------------------------------------------------------------------------------
+void _Error_Handler(char *, int)
+{
+    __IO bool run = true;
+    while (run)
+    {
+    }
+}

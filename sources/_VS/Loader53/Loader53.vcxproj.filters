@@ -43,6 +43,9 @@
     <Filter Include="stm32f207">
       <UniqueIdentifier>{9ce0ad45-7637-4938-bf02-147f7368db30}</UniqueIdentifier>
     </Filter>
+    <Filter Include="VCP">
+      <UniqueIdentifier>{87ffbdf8-bae9-4f19-b8d8-41e6cc0e8f0b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\libs\common\Utils\Math.cpp">
@@ -195,6 +198,9 @@
     <ClCompile Include="..\..\libs\common\stm32\207\Timer207.cpp">
       <Filter>stm32f207</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\libs\common\VCP\VCP.cpp">
+      <Filter>VCP</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\libs\common\Utils\Math.h">
@@ -346,6 +352,9 @@
     </ClInclude>
     <ClInclude Include="..\..\libs\common\stm32\207\Timer207.h">
       <Filter>stm32f207</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\common\VCP\VCP.h">
+      <Filter>VCP</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

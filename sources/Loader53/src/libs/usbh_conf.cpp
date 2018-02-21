@@ -1,4 +1,5 @@
 #include "defines.h"
+#include "globals.h"
 
 #ifdef STM32F207xx
 #include "stm32f2xx_hal.h"

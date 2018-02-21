@@ -1,5 +1,8 @@
 #include "defines.h"
 #include "it.h"
+#include <stm32f2xx.h>
+#include "globals.h"
+
 
 #ifdef __cplusplus
 extern "C" {

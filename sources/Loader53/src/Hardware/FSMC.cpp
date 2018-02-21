@@ -3,6 +3,8 @@
 #include "Hardware.h"
 #include "Settings/Settings.h"
 #include "Hardware/Timer.h"
+#include <stm32f2xx.h>
+
 
 /*
 static const char *addrNamesForWrite[32] =

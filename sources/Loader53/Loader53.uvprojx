@@ -312,7 +312,7 @@
           </ArmAdsMisc>
           <Cads>
             <interw>1</interw>
-            <Optim>2</Optim>
+            <Optim>7</Optim>
             <oTime>0</oTime>
             <SplitLS>0</SplitLS>
             <OneElfS>1</OneElfS>
@@ -334,7 +334,7 @@
             <v6WtE>0</v6WtE>
             <v6Rtti>0</v6Rtti>
             <VariousControls>
-              <MiscControls>-Wno-c++98-compat-pedantic -Wno-padded</MiscControls>
+              <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER, STM32F207xx, S8_53</Define>
               <Undefine></Undefine>
               <IncludePath>..\libs\STM32Cube_F2\Drivers\CMSIS\Include;..\libs\STM32Cube_F2\Drivers\CMSIS\Device\ST\STM32F2xx\Include;..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Inc;..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Core\Inc;..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Class\MSC\Inc;..\libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src;..\libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\drivers;.\src;.\src\libs;..\libs\common</IncludePath>
@@ -1784,6 +1784,21 @@
           </Files>
         </Group>
         <Group>
+          <GroupName>Hardware/stm32</GroupName>
+          <Files>
+            <File>
+              <FileName>Timer207.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\libs\common\Hardware\stm32\207\Timer207.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Timer207.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\libs\common\Hardware\stm32\207\Timer207.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
           <GroupName>libs</GroupName>
           <Files>
             <File>
@@ -1897,19 +1912,19 @@
               <FilePath>.\src\main.h</FilePath>
             </File>
             <File>
-              <FileName>commonDefines.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>..\libs\common\commonDefines.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>commonDefines.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\libs\common\commonDefines.h</FilePath>
-            </File>
-            <File>
               <FileName>structs.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\libs\common\structs.h</FilePath>
+            </File>
+            <File>
+              <FileName>Log.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\libs\common\Log.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Log.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\libs\common\Log.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -2444,17 +2459,17 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>stm32f207</GroupName>
+          <GroupName>VCP</GroupName>
           <Files>
             <File>
-              <FileName>Timer207.cpp</FileName>
+              <FileName>VCP.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>..\libs\common\stm32\207\Timer207.cpp</FilePath>
+              <FilePath>..\libs\common\VCP\VCP.cpp</FilePath>
             </File>
             <File>
-              <FileName>Timer207.h</FileName>
+              <FileName>VCP.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\libs\common\stm32\207\Timer207.h</FilePath>
+              <FilePath>..\libs\common\VCP\VCP.h</FilePath>
             </File>
           </Files>
         </Group>

@@ -127,6 +127,7 @@
     <ClCompile Include="..\..\libs\common\Hardware\Timer.cpp" />
     <ClCompile Include="..\..\libs\common\stm32\207\Timer207.cpp" />
     <ClCompile Include="..\..\libs\common\Utils\Math.cpp" />
+    <ClCompile Include="..\..\libs\common\VCP\VCP.cpp" />
     <ClCompile Include="..\..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal.c">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
@@ -241,6 +242,7 @@
     <ClInclude Include="..\..\libs\common\stm32\207\Timer207.h" />
     <ClInclude Include="..\..\libs\common\stub.h" />
     <ClInclude Include="..\..\libs\common\Utils\Math.h" />
+    <ClInclude Include="..\..\libs\common\VCP\VCP.h" />
     <ClInclude Include="..\..\libs\common\_VS\ctype.h" />
     <ClInclude Include="..\..\libs\common\_VS\integer.h" />
     <ClInclude Include="..\..\libs\common\_VS\inttypes.h" />
