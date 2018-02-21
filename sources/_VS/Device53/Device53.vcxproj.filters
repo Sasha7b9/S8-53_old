@@ -537,6 +537,9 @@
     <ClCompile Include="..\..\Device53\src\globals.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Device53\src\Utils\Dictionary.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Device53\src\libs\app_ethernet.h">
@@ -961,6 +964,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Device53\src\globals.h">
       <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Device53\src\Utils\Dictionary.h">
+      <Filter>Utils</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

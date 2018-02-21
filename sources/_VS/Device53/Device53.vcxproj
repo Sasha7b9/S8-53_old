@@ -123,6 +123,7 @@
   <ItemGroup>
     <ClCompile Include="..\..\Device53\src\globals.cpp" />
     <ClCompile Include="..\..\Device53\src\Hardware\stm32f2xx_it.cpp" />
+    <ClCompile Include="..\..\Device53\src\Utils\Dictionary.cpp" />
     <ClCompile Include="..\..\libs\common\commonDefines.cpp" />
     <ClCompile Include="..\..\libs\common\Display\Colors.cpp" />
     <ClCompile Include="..\..\libs\common\Display\DisplayPrimitives.cpp" />
@@ -452,6 +453,7 @@
     <ClInclude Include="..\..\Device53\src\Menu\Pages\PageDebug.h" />
     <ClInclude Include="..\..\Device53\src\Menu\Pages\PageTime.h" />
     <ClInclude Include="..\..\Device53\src\Menu\Pages\PageTrig.h" />
+    <ClInclude Include="..\..\Device53\src\Utils\Dictionary.h" />
     <ClInclude Include="..\..\libs\common\commonDefines.h" />
     <ClInclude Include="..\..\libs\common\Display\Colors.h" />
     <ClInclude Include="..\..\libs\common\Display\DisplayPrimitives.h" />

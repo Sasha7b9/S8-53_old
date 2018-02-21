@@ -2362,16 +2362,6 @@
           <GroupName>Utils</GroupName>
           <Files>
             <File>
-              <FileName>Dictionary.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>..\libs\common\Utils\Dictionary.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Dictionary.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\libs\common\Utils\Dictionary.h</FilePath>
-            </File>
-            <File>
               <FileName>Math.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>..\libs\common\Utils\Math.cpp</FilePath>
@@ -2390,6 +2380,16 @@
               <FileName>StringUtils.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\libs\common\Utils\StringUtils.h</FilePath>
+            </File>
+            <File>
+              <FileName>Dictionary.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\Utils\Dictionary.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Dictionary.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\Utils\Dictionary.h</FilePath>
             </File>
           </Files>
         </Group>

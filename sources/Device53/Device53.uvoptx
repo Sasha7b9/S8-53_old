@@ -73,7 +73,7 @@
         <LExpSel>0</LExpSel>
       </OPTXL>
       <OPTFL>
-        <tvExp>1</tvExp>
+        <tvExp>0</tvExp>
         <tvExpOptDlg>0</tvExpOptDlg>
         <IsCurrentTarget>1</IsCurrentTarget>
       </OPTFL>
@@ -159,7 +159,7 @@
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>..\libs\common\Display\Painter.cpp</Filename>
+          <Filename>&lt;1&gt;..\libs\common\Display\Painter.cpp</Filename>
           <ExecCommand></ExecCommand>
           <Expression>\\Device53\../libs/common/Display/Painter.cpp\61</Expression>
         </Bp>
@@ -175,7 +175,7 @@
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>..\libs\common\Display\Painter.cpp</Filename>
+          <Filename>&lt;1&gt;..\libs\common\Display\Painter.cpp</Filename>
           <ExecCommand></ExecCommand>
           <Expression>\\Device53\../libs/common/Display/Painter.cpp\81</Expression>
         </Bp>
@@ -1959,7 +1959,7 @@
 
   <Group>
     <GroupName>Hardware</GroupName>
-    <tvExp>1</tvExp>
+    <tvExp>0</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -2978,30 +2978,6 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\libs\common\Utils\Dictionary.cpp</PathWithFileName>
-      <FilenameWithoutPath>Dictionary.cpp</FilenameWithoutPath>
-      <RteFlg>0</RteFlg>
-      <bShared>0</bShared>
-    </File>
-    <File>
-      <GroupNumber>17</GroupNumber>
-      <FileNumber>219</FileNumber>
-      <FileType>5</FileType>
-      <tvExp>0</tvExp>
-      <tvExpOptDlg>0</tvExpOptDlg>
-      <bDave2>0</bDave2>
-      <PathWithFileName>..\libs\common\Utils\Dictionary.h</PathWithFileName>
-      <FilenameWithoutPath>Dictionary.h</FilenameWithoutPath>
-      <RteFlg>0</RteFlg>
-      <bShared>0</bShared>
-    </File>
-    <File>
-      <GroupNumber>17</GroupNumber>
-      <FileNumber>220</FileNumber>
-      <FileType>8</FileType>
-      <tvExp>0</tvExp>
-      <tvExpOptDlg>0</tvExpOptDlg>
-      <bDave2>0</bDave2>
       <PathWithFileName>..\libs\common\Utils\CommonFunctions.cpp</PathWithFileName>
       <FilenameWithoutPath>CommonFunctions.cpp</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
@@ -3009,7 +2985,7 @@
     </File>
     <File>
       <GroupNumber>17</GroupNumber>
-      <FileNumber>221</FileNumber>
+      <FileNumber>219</FileNumber>
       <FileType>5</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
@@ -3021,7 +2997,7 @@
     </File>
     <File>
       <GroupNumber>17</GroupNumber>
-      <FileNumber>222</FileNumber>
+      <FileNumber>220</FileNumber>
       <FileType>8</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
@@ -3033,7 +3009,7 @@
     </File>
     <File>
       <GroupNumber>17</GroupNumber>
-      <FileNumber>223</FileNumber>
+      <FileNumber>221</FileNumber>
       <FileType>5</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
@@ -3045,7 +3021,7 @@
     </File>
     <File>
       <GroupNumber>17</GroupNumber>
-      <FileNumber>224</FileNumber>
+      <FileNumber>222</FileNumber>
       <FileType>8</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
@@ -3057,13 +3033,37 @@
     </File>
     <File>
       <GroupNumber>17</GroupNumber>
-      <FileNumber>225</FileNumber>
+      <FileNumber>223</FileNumber>
       <FileType>5</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
       <PathWithFileName>..\libs\common\Utils\Measures.h</PathWithFileName>
       <FilenameWithoutPath>Measures.h</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>17</GroupNumber>
+      <FileNumber>224</FileNumber>
+      <FileType>8</FileType>
+      <tvExp>0</tvExp>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>.\src\Utils\Dictionary.cpp</PathWithFileName>
+      <FilenameWithoutPath>Dictionary.cpp</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>17</GroupNumber>
+      <FileNumber>225</FileNumber>
+      <FileType>5</FileType>
+      <tvExp>0</tvExp>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>.\src\Utils\Dictionary.h</PathWithFileName>
+      <FilenameWithoutPath>Dictionary.h</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
