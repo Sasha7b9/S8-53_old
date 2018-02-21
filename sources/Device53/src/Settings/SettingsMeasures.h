@@ -1,5 +1,6 @@
 #pragma once
 #include "Utils/Measures.h"
+#include "SettingsTypes.h"
 
 
 /** @addtogroup Settings

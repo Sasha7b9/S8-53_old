@@ -1,3 +1,4 @@
+#include "defines.h"
 #include "main.h"
 #include "lwip/dhcp.h"
 #include "app_ethernet.h"

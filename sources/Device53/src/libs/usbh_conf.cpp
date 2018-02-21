@@ -1,4 +1,5 @@
 #include "defines.h"
+#include "globals.h"
 #include "usbh_core.h"
 #include "Hardware/Timer.h"
 

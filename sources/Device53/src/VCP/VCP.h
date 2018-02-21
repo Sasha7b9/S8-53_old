@@ -1,4 +1,5 @@
 #pragma once
+#include <usbd_def.h>
 
 
 #define VCP_FLUSH()                         VCP::Flush()

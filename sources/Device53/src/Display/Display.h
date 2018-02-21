@@ -1,4 +1,5 @@
 #pragma once
+#include "globals.h"
 #include "Display/Painter.h"
 #include "Tables.h"
 

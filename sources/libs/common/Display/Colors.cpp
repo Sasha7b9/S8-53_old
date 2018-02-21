@@ -1,3 +1,4 @@
+#include "defines.h"
 #include "Log.h"
 #include "Display/Colors.h"
 #include "Display/Painter.h"
@@ -70,9 +71,7 @@ void Color::InitGlobalColors()
 }
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
-#pragma clang diagnostic ignored "-Wunused-parameter"
 void Color::Log(Color color)
-#pragma clang diagnostic warning "-Wunused-parameter"
 {
 #define colorVal (COLOR(color.value))
 

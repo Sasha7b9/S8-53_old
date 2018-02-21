@@ -1,4 +1,5 @@
 #pragma once
+#include "globals.h"
 
 
 /// Программа и константные данные
