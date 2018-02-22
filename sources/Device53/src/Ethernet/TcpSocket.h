@@ -3,6 +3,7 @@
 static const int    DEFAULT_PORT = 7,
                     POLICY_PORT = 843;
 
+#define SOCKET_SEND(buffer, size) SocketTCP::Send(buffer, size)
 
 class SocketTCP
 {
