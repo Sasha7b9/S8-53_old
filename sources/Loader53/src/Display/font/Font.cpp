@@ -19,34 +19,31 @@ const Font *font = &font8;
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-int Font_GetSize()
+int Font::GetSize()
 {
     return font->height;
 }
 
-
 //---------------------------------------------------------------------------------------------------------------------------------------------------
-int Font_GetLengthText(const char *text)
+int Font::GetLengthText(const char *text)
 {
     int retValue = 0;
     while (*text)
     {
-        retValue += Font_GetLengthSymbol(*text);
+        retValue += GetLengthSymbol(*text);
         text++;
     }
     return retValue;
 }
 
-
 //---------------------------------------------------------------------------------------------------------------------------------------------------
-int Font_GetHeightSymbol(char)
+int Font::GetHeightSymbol(char)
 {
     return 9;
 }
 
-
 //---------------------------------------------------------------------------------------------------------------------------------------------------
-int Font_GetLengthSymbol(char symbol)
+int Font::GetLengthSymbol(char symbol)
 {
     return font->symbol[symbol].width + 1;
 }
