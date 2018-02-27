@@ -5,7 +5,7 @@
 #include "FPGA/FPGA.h"
 #include "FPGA/FPGAMath.h"
 #include "Font/Font.h"
-#include "Hardware/RTC.h"
+#include "Hardware/CPU.h"
 #include "Hardware/Sound.h"
 #include "Hardware/Timer.h"
 #include "Menu/Menu.h"
@@ -775,7 +775,7 @@ void Display::DrawTime(int x, int y)
     int dField = 10;
     int dSeparator = 2;
 
-    PackedTime time = RTClock::GetPackedTime();
+    PackedTime time = CPU::RTC_::GetPackedTime();
     
     char buffer[20];
     

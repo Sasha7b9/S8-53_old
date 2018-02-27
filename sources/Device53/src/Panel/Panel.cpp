@@ -1,5 +1,6 @@
 #include "defines.h"
 #include "Panel.h"
+#include "Hardware/CPU.h"
 #include "Hardware/Controls.h"
 #include "FPGA/FPGA.h"
 #include "Utils/Math.h"

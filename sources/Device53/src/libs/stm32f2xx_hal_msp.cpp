@@ -1,4 +1,5 @@
 #include "defines.h"
+#include "Hardware/CPU.h"
 #include "Hardware/Hardware.h"
 
 

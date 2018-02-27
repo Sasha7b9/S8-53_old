@@ -11,7 +11,7 @@
 #include "Utils/StringUtils.h"
 #include "Hardware/Hardware.h"
 #include "Hardware/Sound.h"
-#include "Hardware/RTC.h"
+#include "Hardware/CPU.h"
 #include "FlashDrive/FlashDrive.h"
 #include "Panel/Panel.h"
 #include "Log.h"
@@ -360,7 +360,7 @@ bool FileManager::GetNameForNewFile(char name[255])
     }
     else
     {
-        PackedTime time = RTClock::GetPackedTime();
+        PackedTime time = CPU::RTC_::GetPackedTime();
                            //  1          2           3         4           5             6
         uint values[] = {0, time.year, time.month, time.day, time.hours, time.minutes, time.seconds};
 

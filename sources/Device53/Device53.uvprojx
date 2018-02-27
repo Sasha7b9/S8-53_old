@@ -333,7 +333,7 @@
             <v6WtE>0</v6WtE>
             <v6Rtti>0</v6Rtti>
             <VariousControls>
-              <MiscControls></MiscControls>
+              <MiscControls>--diag_suppress=161</MiscControls>
               <Define>USE_HAL_DRIVER, STM32F207xx, S8_53, OSCI</Define>
               <Undefine></Undefine>
               <IncludePath>..\libs\STM32Cube_F2\Drivers\CMSIS\Include;..\libs\STM32Cube_F2\Drivers\CMSIS\Device\ST\STM32F2xx\Include;..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Inc;..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Core\Inc;..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Class\MSC\Inc;..\libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src;..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Device_Library\Core\Inc;..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Device_Library\Class\CDC\Inc;..\libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\include;..\libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\system;..\libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\drivers;.\src;.\src\libs;..\libs\common;..\libs\common\S8-53</IncludePath>
@@ -4706,16 +4706,6 @@
               <FilePath>.\src\Hardware\Hardware.h</FilePath>
             </File>
             <File>
-              <FileName>RTC.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\Hardware\RTC.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>RTC.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\Hardware\RTC.h</FilePath>
-            </File>
-            <File>
               <FileName>FLASH.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\Hardware\FLASH.cpp</FilePath>
@@ -4780,6 +4770,21 @@
               <FileType>5</FileType>
               <FilePath>..\libs\common\S8-53\Hardware\Controls.h</FilePath>
             </File>
+            <File>
+              <FileName>CPU.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\Hardware\CPU.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>CPU.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\Hardware\CPU.h</FilePath>
+            </File>
+            <File>
+              <FileName>CPU_Rtc.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\Hardware\CPU_Rtc.cpp</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -4794,6 +4799,26 @@
               <FileName>Timer207.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\libs\common\Hardware\stm32\207\Timer207.h</FilePath>
+            </File>
+            <File>
+              <FileName>stm32.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\libs\common\Hardware\stm32\stm32.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>stm32.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\libs\common\Hardware\stm32\stm32.h</FilePath>
+            </File>
+            <File>
+              <FileName>stm207.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\libs\common\Hardware\stm32\207\stm207.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>stm207.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\libs\common\Hardware\stm32\207\stm207.h</FilePath>
             </File>
           </Files>
         </Group>

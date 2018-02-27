@@ -2,8 +2,8 @@
 #include "Hardware.h"
 #include "ADC.h"
 #include "FLASH.h"
+#include "Hardware/CPU.h"
 #include "Hardware/Sound.h"
-#include "Hardware/RTC.h"
 #include "FSMC.h"
 #include "Hardware/Timer.h"
 #include "Log.h"
@@ -75,7 +75,7 @@ void Hardware_Init()
     
     HAL_GPIO_WritePin(GPIOG, GPIO_PIN_1, GPIO_PIN_RESET);                   // PG1 - когда равен 1, чтение дисплея, в остальных случаях 0
 
-    RTClock::Init();
+    CPU::RTC_::Init();
 
     crcHandle.Instance = CRC;
     if (HAL_CRC_Init(&crcHandle) != HAL_OK)
@@ -125,13 +125,4 @@ static void SystemClock_Config()
 uint Hardware_CalculateCRC32(uint address, uint numBytes)
 {
     return HAL_CRC_Calculate(&crcHandle, (uint *)address, numBytes);
-}
-
-//----------------------------------------------------------------------------------------------------------------------------------------------------
-void _Error_Handler(char *, int)
-{
-    __IO bool run = true;
-    while (run)
-    {
-    }
 }

@@ -64,6 +64,9 @@
     <Filter Include="_VS">
       <UniqueIdentifier>{dc8167d9-f775-4239-8bf3-a1fb77c726e9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Hardware\stm32">
+      <UniqueIdentifier>{c566f241-ee67-497d-96fb-0617aa38b15f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Device53\src\libs\system_stm32f2xx.c">
@@ -543,6 +546,18 @@
     <ClCompile Include="..\..\libs\common\Display\PainterPIC24.cpp">
       <Filter>Display</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\libs\common\Hardware\stm32\207\Timer207.cpp">
+      <Filter>Hardware\stm32</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\common\Hardware\stm32\stm32.cpp">
+      <Filter>Hardware\stm32</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\common\Hardware\stm32\207\stm207.cpp">
+      <Filter>Hardware\stm32</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Device53\src\Hardware\CPU.cpp">
+      <Filter>Hardware</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Device53\src\libs\app_ethernet.h">
@@ -970,6 +985,18 @@
     </ClInclude>
     <ClInclude Include="..\..\Device53\src\Utils\Dictionary.h">
       <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\common\Hardware\stm32\207\Timer207.h">
+      <Filter>Hardware\stm32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\common\Hardware\stm32\stm32.h">
+      <Filter>Hardware\stm32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\common\Hardware\stm32\207\stm207.h">
+      <Filter>Hardware\stm32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Device53\src\Hardware\CPU.h">
+      <Filter>Hardware</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

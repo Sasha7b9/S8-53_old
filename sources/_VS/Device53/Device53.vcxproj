@@ -122,6 +122,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Device53\src\globals.cpp" />
+    <ClCompile Include="..\..\Device53\src\Hardware\CPU.cpp" />
     <ClCompile Include="..\..\Device53\src\Hardware\stm32f2xx_it.cpp" />
     <ClCompile Include="..\..\Device53\src\Utils\Dictionary.cpp" />
     <ClCompile Include="..\..\libs\common\commonDefines.cpp" />
@@ -133,6 +134,9 @@
     <ClCompile Include="..\..\libs\common\Display\PainterText.cpp" />
     <ClCompile Include="..\..\libs\common\FPGA\FPGAMath.cpp" />
     <ClCompile Include="..\..\libs\common\Hardware\Sound.cpp" />
+    <ClCompile Include="..\..\libs\common\Hardware\stm32\207\stm207.cpp" />
+    <ClCompile Include="..\..\libs\common\Hardware\stm32\207\Timer207.cpp" />
+    <ClCompile Include="..\..\libs\common\Hardware\stm32\stm32.cpp" />
     <ClCompile Include="..\..\libs\common\Hardware\Timer.cpp" />
     <ClCompile Include="..\..\libs\common\Log.cpp" />
     <ClCompile Include="..\..\libs\common\Menu\Menu.cpp" />
@@ -447,6 +451,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Device53\src\globals.h" />
+    <ClInclude Include="..\..\Device53\src\Hardware\CPU.h" />
     <ClInclude Include="..\..\Device53\src\Hardware\it.h" />
     <ClInclude Include="..\..\Device53\src\Hardware\stm32f2xx_it.h" />
     <ClInclude Include="..\..\Device53\src\libs\interrupts.h" />
@@ -463,6 +468,9 @@
     <ClInclude Include="..\..\libs\common\Display\Painter.h" />
     <ClInclude Include="..\..\libs\common\FPGA\FPGAMath.h" />
     <ClInclude Include="..\..\libs\common\Hardware\Sound.h" />
+    <ClInclude Include="..\..\libs\common\Hardware\stm32\207\stm207.h" />
+    <ClInclude Include="..\..\libs\common\Hardware\stm32\207\Timer207.h" />
+    <ClInclude Include="..\..\libs\common\Hardware\stm32\stm32.h" />
     <ClInclude Include="..\..\libs\common\Hardware\Timer.h" />
     <ClInclude Include="..\..\libs\common\Log.h" />
     <ClInclude Include="..\..\libs\common\Menu\Menu.h" />

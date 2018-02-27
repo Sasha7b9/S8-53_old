@@ -1,7 +1,7 @@
 #include "defines.h"
 #include "FPGA.h"
 #include "Log.h"
-#include "Hardware/RTC.h"
+#include "Hardware/CPU.h"
 #include "Settings/Settings.h"
 #include "Utils/Math.h"
 
@@ -102,7 +102,7 @@ static void CalculateAroundAverage(uint8 *data0, uint8 *data1, DataSettings *dss
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 void Storage::AddData(uint8 *data0, uint8 *data1, DataSettings dss)
 {
-    dss.time = RTClock::GetPackedTime();
+    dss.time = CPU::RTC_::GetPackedTime();
 
     if(dss.enableCh0 == 0 && dss.enableCh1 == 0)
     {
