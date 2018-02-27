@@ -3,7 +3,7 @@
 #include "ethernetif.h"
 #include "Ethernet.h"
 #include "Hardware/Timer.h"
-#include "VCP/SCPI/SCPI.h"
+#include "SCPI/SCPI.h"
 #include "Log.h"
 #include <lwip/init.h>
 #include <lwip/timeouts.h>
