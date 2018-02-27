@@ -2,7 +2,6 @@
 #include "defines.h"
 #include "VCP/VCP.h"
 #include "Log.h"
-#include "stm32f2xx_it.h"
 #include "globals.h"
 #include <usbd_cdc_interface.h>
 

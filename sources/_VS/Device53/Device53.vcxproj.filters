@@ -120,9 +120,6 @@
     <ClCompile Include="..\..\Device53\src\Hardware\ADC.cpp">
       <Filter>Hardware</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Device53\src\Hardware\RTC.cpp">
-      <Filter>Hardware</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Device53\src\Hardware\FLASH.cpp">
       <Filter>Hardware</Filter>
     </ClCompile>
@@ -534,9 +531,6 @@
     <ClCompile Include="..\..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Class\MSC\Src\usbh_msc_scsi.c">
       <Filter>USBH</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Device53\src\Hardware\stm32f2xx_it.cpp">
-      <Filter>Hardware</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Device53\src\globals.cpp">
       <Filter>src</Filter>
     </ClCompile>
@@ -556,6 +550,12 @@
       <Filter>Hardware\stm32</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Device53\src\Hardware\CPU.cpp">
+      <Filter>Hardware</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Device53\src\Hardware\CPU_Rtc.cpp">
+      <Filter>Hardware</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Device53\src\Hardware\CPU_It.cpp">
       <Filter>Hardware</Filter>
     </ClCompile>
   </ItemGroup>
@@ -624,9 +624,6 @@
       <Filter>Hardware</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Device53\src\Hardware\Hardware.h">
-      <Filter>Hardware</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Device53\src\Hardware\RTC.h">
       <Filter>Hardware</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Device53\src\Menu\Pages\HelpContent.h">
@@ -970,12 +967,6 @@
     </ClInclude>
     <ClInclude Include="..\..\Device53\src\libs\interrupts.h">
       <Filter>libs</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Device53\src\Hardware\it.h">
-      <Filter>Hardware</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Device53\src\Hardware\stm32f2xx_it.h">
-      <Filter>Hardware</Filter>
     </ClInclude>
     <ClInclude Include="..\..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Inc\stm32f2xx_hal_gpio_ex.h">
       <Filter>HAL</Filter>

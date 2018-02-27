@@ -123,7 +123,8 @@
   <ItemGroup>
     <ClCompile Include="..\..\Device53\src\globals.cpp" />
     <ClCompile Include="..\..\Device53\src\Hardware\CPU.cpp" />
-    <ClCompile Include="..\..\Device53\src\Hardware\stm32f2xx_it.cpp" />
+    <ClCompile Include="..\..\Device53\src\Hardware\CPU_It.cpp" />
+    <ClCompile Include="..\..\Device53\src\Hardware\CPU_Rtc.cpp" />
     <ClCompile Include="..\..\Device53\src\Utils\Dictionary.cpp" />
     <ClCompile Include="..\..\libs\common\commonDefines.cpp" />
     <ClCompile Include="..\..\libs\common\Display\Colors.cpp" />
@@ -165,7 +166,6 @@
     <ClCompile Include="..\..\Device53\src\Hardware\FSMC.cpp" />
     <ClCompile Include="..\..\Device53\src\Hardware\Hardware.cpp" />
     <ClCompile Include="..\..\Device53\src\Hardware\MSP_USBH.cpp" />
-    <ClCompile Include="..\..\Device53\src\Hardware\RTC.cpp" />
     <ClCompile Include="..\..\Device53\src\libs\app_ethernet.cpp" />
     <ClCompile Include="..\..\Device53\src\libs\ethernetif.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
@@ -452,8 +452,6 @@
   <ItemGroup>
     <ClInclude Include="..\..\Device53\src\globals.h" />
     <ClInclude Include="..\..\Device53\src\Hardware\CPU.h" />
-    <ClInclude Include="..\..\Device53\src\Hardware\it.h" />
-    <ClInclude Include="..\..\Device53\src\Hardware\stm32f2xx_it.h" />
     <ClInclude Include="..\..\Device53\src\libs\interrupts.h" />
     <ClInclude Include="..\..\Device53\src\Menu\Pages\PageChannels.h" />
     <ClInclude Include="..\..\Device53\src\Menu\Pages\PageDebug.h" />
@@ -499,7 +497,6 @@
     <ClInclude Include="..\..\Device53\src\Hardware\FLASH.h" />
     <ClInclude Include="..\..\Device53\src\Hardware\FSMC.h" />
     <ClInclude Include="..\..\Device53\src\Hardware\Hardware.h" />
-    <ClInclude Include="..\..\Device53\src\Hardware\RTC.h" />
     <ClInclude Include="..\..\Device53\src\libs\app_ethernet.h" />
     <ClInclude Include="..\..\Device53\src\libs\ethernetif.h" />
     <ClInclude Include="..\..\Device53\src\libs\ffconf.h" />
