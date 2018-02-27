@@ -1,5 +1,5 @@
 #pragma once
-#include "Panel/Controls.h"
+#include "Hardware/Controls.h"
 #include "Settings/SettingsTypes.h"
 #include "Settings/SettingsTime.h"
 #include <stm32f2xx_hal_def.h>

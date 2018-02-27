@@ -1,6 +1,6 @@
 #include "defines.h"
 #include "Panel.h"
-#include "Controls.h"
+#include "Hardware/Controls.h"
 #include "Utils/Math.h"
 #include "Settings/Settings.h"
 #include "Display/Display.h"

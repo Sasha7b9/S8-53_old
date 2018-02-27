@@ -3,7 +3,7 @@
 #include "Menu/Pages/Definition.h"
 #include "Settings/SettingsTypes.h"
 #include "Settings/Settings.h"
-#include "Panel/Controls.h"
+#include "Hardware/Controls.h"
 #include "Display/Colors.h"
 #include "Display/Grid.h"
 #include "Utils/Math.h"

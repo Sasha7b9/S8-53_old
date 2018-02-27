@@ -337,7 +337,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER, STM32F207xx, S8_53</Define>
               <Undefine></Undefine>
-              <IncludePath>..\libs\STM32Cube_F2\Drivers\CMSIS\Include;..\libs\STM32Cube_F2\Drivers\CMSIS\Device\ST\STM32F2xx\Include;..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Inc;..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Core\Inc;..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Class\MSC\Inc;..\libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src;..\libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\drivers;.\src;.\src\libs;..\libs\common</IncludePath>
+              <IncludePath>..\libs\STM32Cube_F2\Drivers\CMSIS\Include;..\libs\STM32Cube_F2\Drivers\CMSIS\Device\ST\STM32F2xx\Include;..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Inc;..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Core\Inc;..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Class\MSC\Inc;..\libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src;..\libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\drivers;.\src;.\src\libs;..\libs\common;..\libs\common\S8-53</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -1796,6 +1796,16 @@
               <FileType>5</FileType>
               <FilePath>.\src\Hardware\stm32f2xx_it.h</FilePath>
             </File>
+            <File>
+              <FileName>Controls.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\libs\common\S8-53\Hardware\Controls.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Controls.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\libs\common\S8-53\Hardware\Controls.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -1856,16 +1866,6 @@
         <Group>
           <GroupName>Panel</GroupName>
           <Files>
-            <File>
-              <FileName>Controls.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\Panel\Controls.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Controls.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\Panel\Controls.h</FilePath>
-            </File>
             <File>
               <FileName>Panel.cpp</FileName>
               <FileType>8</FileType>
