@@ -1,6 +1,6 @@
 #include "defines.h"
 #include "usbd_core.h"
-#include "VCP/VCP.h"
+#include "Hardware/VCP.h"
 #include "Hardware/Timer.h"
 #include "Display/Display.h"
 #include "Log.h"

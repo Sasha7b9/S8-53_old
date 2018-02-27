@@ -1,5 +1,5 @@
 #include "defines.h"
-#include "VCP.h"
+#include "Hardware/VCP.h"
 #include "Utils/Math.h"
 #include "VCP/SCPI/SCPI.h"
 #include "usbd_desc.h"

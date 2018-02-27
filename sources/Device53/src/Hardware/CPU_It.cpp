@@ -1,6 +1,6 @@
 #include "usbd_desc.h"
 #include "defines.h"
-#include "VCP/VCP.h"
+#include "Hardware/VCP.h"
 #include "Log.h"
 #include "globals.h"
 #include <usbd_cdc_interface.h>
