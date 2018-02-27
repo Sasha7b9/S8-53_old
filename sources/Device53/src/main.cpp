@@ -13,7 +13,7 @@
 #include "Hardware/FLASH.h"
 #include "Menu/Pages/PageCursors.h"
 #include "Menu/Menu.h"
-#include "Panel/Panel.h"
+#include "Hardware/Panel.h"
 #include "VCP/VCP.h"
 #include "Settings/Settings.h"
 #include "Utils/ProcessingSignal.h"

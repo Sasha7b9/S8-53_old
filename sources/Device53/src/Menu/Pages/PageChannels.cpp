@@ -3,7 +3,7 @@
 #include "PageChannels.h"
 #include "Settings/SettingsTypes.h"
 #include "Menu/MenuItems.h"
-#include "Panel/Panel.h"
+#include "Hardware/Panel.h"
 #include "FPGA/FPGA.h"
 #include "Display/Display.h"
 #include "Settings/Settings.h"

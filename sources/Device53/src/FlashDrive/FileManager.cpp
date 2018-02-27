@@ -13,7 +13,7 @@
 #include "Hardware/Sound.h"
 #include "Hardware/CPU.h"
 #include "FlashDrive/FlashDrive.h"
-#include "Panel/Panel.h"
+#include "Hardware/Panel.h"
 #include "Log.h"
 #include "Hardware/Timer.h"
 #include <string.h>

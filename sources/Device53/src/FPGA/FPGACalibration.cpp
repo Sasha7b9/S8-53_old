@@ -6,7 +6,7 @@
 #include "Display/Colors.h"
 #include "Display/Painter.h"
 #include "Menu/Pages/PageDebug.h"
-#include "Panel/Panel.h"
+#include "Hardware/Panel.h"
 #include "Hardware/FSMC.h"
 #include "Settings/SettingsTypes.h"
 #include "Settings/Settings.h"

@@ -5,7 +5,7 @@
 #include "Hardware/ADC.h"
 #include "Hardware/FSMC.h"
 #include "Hardware/Timer.h"
-#include "Panel/Panel.h"
+#include "Hardware/Panel.h"
 #include "Settings/Settings.h"
 #include "Utils/Math.h"
 #include "Utils/ProcessingSignal.h"
