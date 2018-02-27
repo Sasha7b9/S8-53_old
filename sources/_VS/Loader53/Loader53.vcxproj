@@ -219,6 +219,7 @@
     <ClCompile Include="..\..\Loader53\src\Display\font\Font.cpp" />
     <ClCompile Include="..\..\Loader53\src\FlashDrive\FlashDrive.cpp" />
     <ClCompile Include="..\..\Loader53\src\globals.cpp" />
+    <ClCompile Include="..\..\Loader53\src\Hardware\CPU.cpp" />
     <ClCompile Include="..\..\Loader53\src\Hardware\FLASH.cpp" />
     <ClCompile Include="..\..\Loader53\src\Hardware\FSMC.cpp" />
     <ClCompile Include="..\..\Loader53\src\Hardware\Hardware.cpp" />
@@ -296,6 +297,7 @@
     <ClInclude Include="..\..\Loader53\src\Display\font\Font.h" />
     <ClInclude Include="..\..\Loader53\src\FlashDrive\FlashDrive.h" />
     <ClInclude Include="..\..\Loader53\src\globals.h" />
+    <ClInclude Include="..\..\Loader53\src\Hardware\CPU.h" />
     <ClInclude Include="..\..\Loader53\src\Hardware\FLASH.h" />
     <ClInclude Include="..\..\Loader53\src\Hardware\FSMC.h" />
     <ClInclude Include="..\..\Loader53\src\Hardware\Hardware.h" />

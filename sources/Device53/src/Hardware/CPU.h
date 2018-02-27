@@ -6,12 +6,19 @@
 class CPU : public STM207
 {
 public:
+    
+    static void Init();
 
     //----------------------------------------------------------------------------------------------------------------------------------------------------
     class RTC_
     {
-    public:
+    friend class CPU;
+        
+    private:
+        
         static void Init();
+
+    public:
 
         static bool SetTimeAndData(int8 day, int8 month, int8 year, int8 hours, int8 minutes, int8 seconds);
 

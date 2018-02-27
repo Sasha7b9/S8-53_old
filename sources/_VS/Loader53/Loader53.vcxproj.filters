@@ -201,6 +201,9 @@
     <ClCompile Include="..\..\libs\common\VCP\VCP.cpp">
       <Filter>VCP</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Loader53\src\Hardware\CPU.cpp">
+      <Filter>Hardware</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\libs\common\Utils\Math.h">
@@ -355,6 +358,9 @@
     </ClInclude>
     <ClInclude Include="..\..\libs\common\VCP\VCP.h">
       <Filter>VCP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Loader53\src\Hardware\CPU.h">
+      <Filter>Hardware</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

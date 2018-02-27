@@ -53,7 +53,7 @@ void Hardware_Init()
 
     FDrive::Init();
 
-    Timer::Init();
+    CPU::Init();
     
 // Analog and DAC programmable SPI ////////////////////////////////////////
 
@@ -74,8 +74,6 @@ void Hardware_Init()
     HAL_GPIO_Init(GPIOG, &isGPIOG);
     
     HAL_GPIO_WritePin(GPIOG, GPIO_PIN_1, GPIO_PIN_RESET);                   // PG1 - когда равен 1, чтение дисплея, в остальных случаях 0
-
-    CPU::RTC_::Init();
 
     crcHandle.Instance = CRC;
     if (HAL_CRC_Init(&crcHandle) != HAL_OK)

@@ -2,6 +2,7 @@
 #include "Hardware.h"
 #include "FLASH.h"
 #include "FSMC.h"
+#include "Hardware/CPU.h"
 #include "Hardware/Timer.h"
 #include "Display/Display.h"
 #include "FlashDrive/FlashDrive.h"
@@ -37,7 +38,7 @@ void Hardware::Init()
 
     Panel::Init();
 
-    Timer::Init();
+    CPU::Init();
 
     FSMC::Init();
     
@@ -81,7 +82,7 @@ void Hardware::DeInit()
 
     __SYSCFG_CLK_DISABLE();
 
-    Timer::DeInit();
+    CPU::DeInit();
 }
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
