@@ -145,6 +145,7 @@
     <ClCompile Include="..\..\libs\common\Menu\MenuItemsGraphics.cpp" />
     <ClCompile Include="..\..\libs\common\Menu\MenuItemsLogic.cpp" />
     <ClCompile Include="..\..\libs\common\Menu\Pages\Definition.cpp" />
+    <ClCompile Include="..\..\libs\common\S8-53\Hardware\Controls.cpp" />
     <ClCompile Include="..\..\libs\common\Utils\CommonFunctions.cpp" />
     <ClCompile Include="..\..\libs\common\Utils\Map.cpp" />
     <ClCompile Include="..\..\libs\common\Utils\Math.cpp" />
@@ -194,7 +195,6 @@
     <ClCompile Include="..\..\Device53\src\Menu\Pages\PageService.cpp" />
     <ClCompile Include="..\..\Device53\src\Menu\Pages\PageTime.cpp" />
     <ClCompile Include="..\..\Device53\src\Menu\Pages\PageTrig.cpp" />
-    <ClCompile Include="..\..\Device53\src\Panel\Controls.cpp" />
     <ClCompile Include="..\..\Device53\src\Panel\Panel.cpp" />
     <ClCompile Include="..\..\Device53\src\Panel\PanelFunctions.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
@@ -475,6 +475,7 @@
     <ClInclude Include="..\..\libs\common\Menu\MenuItems.h" />
     <ClInclude Include="..\..\libs\common\Menu\MenuItemsDefs.h" />
     <ClInclude Include="..\..\libs\common\Menu\Pages\Definition.h" />
+    <ClInclude Include="..\..\libs\common\S8-53\Hardware\Controls.h" />
     <ClInclude Include="..\..\libs\common\stub.h" />
     <ClInclude Include="..\..\libs\common\Utils\CommonFunctions.h" />
     <ClInclude Include="..\..\libs\common\Utils\Map.h" />
@@ -514,7 +515,6 @@
     <ClInclude Include="..\..\Device53\src\Menu\Pages\PageDisplay.h" />
     <ClInclude Include="..\..\Device53\src\Menu\Pages\PageHelp.h" />
     <ClInclude Include="..\..\Device53\src\Menu\Pages\PageMemory.h" />
-    <ClInclude Include="..\..\Device53\src\Panel\Controls.h" />
     <ClInclude Include="..\..\Device53\src\Panel\Panel.h" />
     <ClInclude Include="..\..\Device53\src\Settings\Settings.h" />
     <ClInclude Include="..\..\Device53\src\Settings\SettingsChannel.h" />

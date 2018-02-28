@@ -336,7 +336,7 @@
               <MiscControls>--diag_suppress=161</MiscControls>
               <Define>USE_HAL_DRIVER, STM32F207xx, S8_53, OSCI</Define>
               <Undefine></Undefine>
-              <IncludePath>..\libs\STM32Cube_F2\Drivers\CMSIS\Include;..\libs\STM32Cube_F2\Drivers\CMSIS\Device\ST\STM32F2xx\Include;..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Inc;..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Core\Inc;..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Class\MSC\Inc;..\libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src;..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Device_Library\Core\Inc;..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Device_Library\Class\CDC\Inc;..\libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\include;..\libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\system;..\libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\drivers;.\src;.\src\libs;..\libs\common;..\libs\common\S8-53</IncludePath>
+              <IncludePath>..\libs\STM32Cube_F2\Drivers\CMSIS\Include;..\libs\STM32Cube_F2\Drivers\CMSIS\Device\ST\STM32F2xx\Include;..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Inc;..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Core\Inc;..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Class\MSC\Inc;..\libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src;..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Device_Library\Core\Inc;..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Device_Library\Class\CDC\Inc;..\libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\include;..\libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\system;..\libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\drivers;.\src;.\src\libs\FatFS;.\src\libs\HAL;.\src\libs\LwIP;.\src\libs\USBD;.\src\libs\USBH;..\libs\common;..\libs\common\S8-53</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -378,197 +378,17 @@
       </TargetOption>
       <Groups>
         <Group>
-          <GroupName>libs</GroupName>
+          <GroupName>libs/CMSIS</GroupName>
           <Files>
-            <File>
-              <FileName>app_ethernet.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\libs\app_ethernet.h</FilePath>
-            </File>
-            <File>
-              <FileName>ethernetif.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\libs\ethernetif.h</FilePath>
-            </File>
-            <File>
-              <FileName>ffconf.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\libs\ffconf.h</FilePath>
-            </File>
-            <File>
-              <FileName>lwipopts.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\libs\lwipopts.h</FilePath>
-            </File>
             <File>
               <FileName>startup_stm32f207xx.s</FileName>
               <FileType>2</FileType>
-              <FilePath>.\src\libs\startup_stm32f207xx.s</FilePath>
-            </File>
-            <File>
-              <FileName>stm32f2xx_hal_conf.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\libs\stm32f2xx_hal_conf.h</FilePath>
+              <FilePath>.\src\libs\CMSIS\startup_stm32f207xx.s</FilePath>
             </File>
             <File>
               <FileName>system_stm32f2xx.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\src\libs\system_stm32f2xx.c</FilePath>
-            </File>
-            <File>
-              <FileName>usbd_cdc_interface.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\libs\usbd_cdc_interface.h</FilePath>
-            </File>
-            <File>
-              <FileName>usbd_conf.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\libs\usbd_conf.h</FilePath>
-            </File>
-            <File>
-              <FileName>usbd_desc.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\src\libs\usbd_desc.c</FilePath>
-            </File>
-            <File>
-              <FileName>usbd_desc.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\libs\usbd_desc.h</FilePath>
-            </File>
-            <File>
-              <FileName>usbh_conf.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\libs\usbh_conf.h</FilePath>
-            </File>
-            <File>
-              <FileName>app_ethernet.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\libs\app_ethernet.cpp</FilePath>
-              <FileOption>
-                <CommonProperty>
-                  <UseCPPCompiler>2</UseCPPCompiler>
-                  <RVCTCodeConst>0</RVCTCodeConst>
-                  <RVCTZI>0</RVCTZI>
-                  <RVCTOtherData>0</RVCTOtherData>
-                  <ModuleSelection>0</ModuleSelection>
-                  <IncludeInBuild>2</IncludeInBuild>
-                  <AlwaysBuild>2</AlwaysBuild>
-                  <GenerateAssemblyFile>2</GenerateAssemblyFile>
-                  <AssembleAssemblyFile>2</AssembleAssemblyFile>
-                  <PublicsOnly>2</PublicsOnly>
-                  <StopOnExitCode>11</StopOnExitCode>
-                  <CustomArgument></CustomArgument>
-                  <IncludeLibraryModules></IncludeLibraryModules>
-                  <ComprImg>1</ComprImg>
-                </CommonProperty>
-                <FileArmAds>
-                  <Cads>
-                    <interw>2</interw>
-                    <Optim>0</Optim>
-                    <oTime>2</oTime>
-                    <SplitLS>2</SplitLS>
-                    <OneElfS>2</OneElfS>
-                    <Strict>2</Strict>
-                    <EnumInt>2</EnumInt>
-                    <PlainCh>2</PlainCh>
-                    <Ropi>2</Ropi>
-                    <Rwpi>2</Rwpi>
-                    <wLevel>2</wLevel>
-                    <uThumb>2</uThumb>
-                    <uSurpInc>2</uSurpInc>
-                    <uC99>2</uC99>
-                    <useXO>2</useXO>
-                    <v6Lang>0</v6Lang>
-                    <v6LangP>0</v6LangP>
-                    <vShortEn>2</vShortEn>
-                    <vShortWch>2</vShortWch>
-                    <v6Lto>2</v6Lto>
-                    <v6WtE>2</v6WtE>
-                    <v6Rtti>2</v6Rtti>
-                    <VariousControls>
-                      <MiscControls></MiscControls>
-                      <Define></Define>
-                      <Undefine></Undefine>
-                      <IncludePath></IncludePath>
-                    </VariousControls>
-                  </Cads>
-                </FileArmAds>
-              </FileOption>
-            </File>
-            <File>
-              <FileName>ethernetif.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\libs\ethernetif.cpp</FilePath>
-              <FileOption>
-                <CommonProperty>
-                  <UseCPPCompiler>2</UseCPPCompiler>
-                  <RVCTCodeConst>0</RVCTCodeConst>
-                  <RVCTZI>0</RVCTZI>
-                  <RVCTOtherData>0</RVCTOtherData>
-                  <ModuleSelection>0</ModuleSelection>
-                  <IncludeInBuild>2</IncludeInBuild>
-                  <AlwaysBuild>2</AlwaysBuild>
-                  <GenerateAssemblyFile>2</GenerateAssemblyFile>
-                  <AssembleAssemblyFile>2</AssembleAssemblyFile>
-                  <PublicsOnly>2</PublicsOnly>
-                  <StopOnExitCode>11</StopOnExitCode>
-                  <CustomArgument></CustomArgument>
-                  <IncludeLibraryModules></IncludeLibraryModules>
-                  <ComprImg>1</ComprImg>
-                </CommonProperty>
-                <FileArmAds>
-                  <Cads>
-                    <interw>2</interw>
-                    <Optim>0</Optim>
-                    <oTime>2</oTime>
-                    <SplitLS>2</SplitLS>
-                    <OneElfS>2</OneElfS>
-                    <Strict>2</Strict>
-                    <EnumInt>2</EnumInt>
-                    <PlainCh>2</PlainCh>
-                    <Ropi>2</Ropi>
-                    <Rwpi>2</Rwpi>
-                    <wLevel>2</wLevel>
-                    <uThumb>2</uThumb>
-                    <uSurpInc>2</uSurpInc>
-                    <uC99>2</uC99>
-                    <useXO>2</useXO>
-                    <v6Lang>0</v6Lang>
-                    <v6LangP>0</v6LangP>
-                    <vShortEn>2</vShortEn>
-                    <vShortWch>2</vShortWch>
-                    <v6Lto>2</v6Lto>
-                    <v6WtE>2</v6WtE>
-                    <v6Rtti>2</v6Rtti>
-                    <VariousControls>
-                      <MiscControls></MiscControls>
-                      <Define></Define>
-                      <Undefine></Undefine>
-                      <IncludePath></IncludePath>
-                    </VariousControls>
-                  </Cads>
-                </FileArmAds>
-              </FileOption>
-            </File>
-            <File>
-              <FileName>stm32f2xx_hal_msp.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\libs\stm32f2xx_hal_msp.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>usbd_cdc_interface.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\libs\usbd_cdc_interface.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>usbd_conf.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\libs\usbd_conf.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>usbh_conf.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\libs\usbh_conf.cpp</FilePath>
+              <FilePath>.\src\libs\CMSIS\system_stm32f2xx.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -924,6 +744,11 @@
                   </Cads>
                 </FileArmAds>
               </FileOption>
+            </File>
+            <File>
+              <FileName>ffconf.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\libs\FatFS\ffconf.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -2524,6 +2349,16 @@
                   </Cads>
                 </FileArmAds>
               </FileOption>
+            </File>
+            <File>
+              <FileName>stm32f2xx_hal_conf.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\libs\HAL\stm32f2xx_hal_conf.h</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f2xx_hal_msp.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\libs\HAL\stm32f2xx_hal_msp.cpp</FilePath>
             </File>
           </Files>
         </Group>
@@ -4345,6 +4180,31 @@
                 </FileArmAds>
               </FileOption>
             </File>
+            <File>
+              <FileName>app_ethernet.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\libs\LwIP\app_ethernet.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>app_ethernet.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\libs\LwIP\app_ethernet.h</FilePath>
+            </File>
+            <File>
+              <FileName>ethernetif.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\libs\LwIP\ethernetif.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>ethernetif.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\libs\LwIP\ethernetif.h</FilePath>
+            </File>
+            <File>
+              <FileName>lwipopts.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\libs\LwIP\lwipopts.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -4569,6 +4429,36 @@
                   </Cads>
                 </FileArmAds>
               </FileOption>
+            </File>
+            <File>
+              <FileName>usbd_cdc_interface.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\libs\USBD\usbd_cdc_interface.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>usbd_cdc_interface.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\libs\USBD\usbd_cdc_interface.h</FilePath>
+            </File>
+            <File>
+              <FileName>usbd_conf.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\libs\USBD\usbd_conf.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>usbd_conf.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\libs\USBD\usbd_conf.h</FilePath>
+            </File>
+            <File>
+              <FileName>usbd_desc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\src\libs\USBD\usbd_desc.c</FilePath>
+            </File>
+            <File>
+              <FileName>usbd_desc.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\libs\USBD\usbd_desc.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -4959,6 +4849,16 @@
                   </Cads>
                 </FileArmAds>
               </FileOption>
+            </File>
+            <File>
+              <FileName>usbh_conf.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\libs\USBH\usbh_conf.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>usbh_conf.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\libs\USBH\usbh_conf.h</FilePath>
             </File>
           </Files>
         </Group>

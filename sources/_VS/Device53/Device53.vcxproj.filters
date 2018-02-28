@@ -1,15 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="HAL">
-      <UniqueIdentifier>{750ba45c-0e02-49c8-ba00-5d5127c5f369}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="USBH">
-      <UniqueIdentifier>{9590ccb4-6625-4566-b159-9d759bef4f6b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="LwIP">
-      <UniqueIdentifier>{7e5e7529-1ec9-4382-803b-8532b0301025}</UniqueIdentifier>
-    </Filter>
     <Filter Include="libs">
       <UniqueIdentifier>{588e980a-bc7a-47d5-9aa1-e47f32d1002e}</UniqueIdentifier>
     </Filter>
@@ -55,17 +46,26 @@
     <Filter Include="VCP\SCPI">
       <UniqueIdentifier>{ce88dc7d-ee60-41a1-a0e7-a714ab1d876d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="FatFS">
-      <UniqueIdentifier>{1606bd8b-854e-41f8-bb14-4856c6a2cdb5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="USBD">
-      <UniqueIdentifier>{f92e7198-5594-45ef-9a67-20a9be7c226e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="_VS">
       <UniqueIdentifier>{dc8167d9-f775-4239-8bf3-a1fb77c726e9}</UniqueIdentifier>
     </Filter>
     <Filter Include="Hardware\stm32">
       <UniqueIdentifier>{c566f241-ee67-497d-96fb-0617aa38b15f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="libs\USBD">
+      <UniqueIdentifier>{f92e7198-5594-45ef-9a67-20a9be7c226e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="libs\USBH">
+      <UniqueIdentifier>{9590ccb4-6625-4566-b159-9d759bef4f6b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="libs\LwIP">
+      <UniqueIdentifier>{7e5e7529-1ec9-4382-803b-8532b0301025}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="libs\HAL">
+      <UniqueIdentifier>{750ba45c-0e02-49c8-ba00-5d5127c5f369}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="libs\FatFS">
+      <UniqueIdentifier>{1606bd8b-854e-41f8-bb14-4856c6a2cdb5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -166,9 +166,6 @@
       <Filter>Menu\Pages</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Device53\src\Panel\Panel.cpp">
-      <Filter>Panel</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Device53\src\Panel\Controls.cpp">
       <Filter>Panel</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Device53\src\Panel\PanelFunctions.cpp">
@@ -301,235 +298,235 @@
       <Filter>VCP\SCPI</Filter>
     </ClCompile>
     <ClCompile Include="..\..\libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\diskio.c">
-      <Filter>FatFS</Filter>
+      <Filter>libs\FatFS</Filter>
     </ClCompile>
     <ClCompile Include="..\..\libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\ff.c">
-      <Filter>FatFS</Filter>
+      <Filter>libs\FatFS</Filter>
     </ClCompile>
     <ClCompile Include="..\..\libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\ff_gen_drv.c">
-      <Filter>FatFS</Filter>
+      <Filter>libs\FatFS</Filter>
     </ClCompile>
     <ClCompile Include="..\..\libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\option\syscall.c">
-      <Filter>FatFS</Filter>
+      <Filter>libs\FatFS</Filter>
     </ClCompile>
     <ClCompile Include="..\..\libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\option\unicode.c">
-      <Filter>FatFS</Filter>
+      <Filter>libs\FatFS</Filter>
     </ClCompile>
     <ClCompile Include="..\..\libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\drivers\usbh_diskio.c">
-      <Filter>FatFS</Filter>
+      <Filter>libs\FatFS</Filter>
     </ClCompile>
     <ClCompile Include="..\..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal.c">
-      <Filter>HAL</Filter>
+      <Filter>libs\HAL</Filter>
     </ClCompile>
     <ClCompile Include="..\..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_adc.c">
-      <Filter>HAL</Filter>
+      <Filter>libs\HAL</Filter>
     </ClCompile>
     <ClCompile Include="..\..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_adc_ex.c">
-      <Filter>HAL</Filter>
+      <Filter>libs\HAL</Filter>
     </ClCompile>
     <ClCompile Include="..\..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_cortex.c">
-      <Filter>HAL</Filter>
+      <Filter>libs\HAL</Filter>
     </ClCompile>
     <ClCompile Include="..\..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_crc.c">
-      <Filter>HAL</Filter>
+      <Filter>libs\HAL</Filter>
     </ClCompile>
     <ClCompile Include="..\..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_dac.c">
-      <Filter>HAL</Filter>
+      <Filter>libs\HAL</Filter>
     </ClCompile>
     <ClCompile Include="..\..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_dac_ex.c">
-      <Filter>HAL</Filter>
+      <Filter>libs\HAL</Filter>
     </ClCompile>
     <ClCompile Include="..\..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_dma.c">
-      <Filter>HAL</Filter>
+      <Filter>libs\HAL</Filter>
     </ClCompile>
     <ClCompile Include="..\..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_dma_ex.c">
-      <Filter>HAL</Filter>
+      <Filter>libs\HAL</Filter>
     </ClCompile>
     <ClCompile Include="..\..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_eth.c">
-      <Filter>HAL</Filter>
+      <Filter>libs\HAL</Filter>
     </ClCompile>
     <ClCompile Include="..\..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_flash.c">
-      <Filter>HAL</Filter>
+      <Filter>libs\HAL</Filter>
     </ClCompile>
     <ClCompile Include="..\..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_flash_ex.c">
-      <Filter>HAL</Filter>
+      <Filter>libs\HAL</Filter>
     </ClCompile>
     <ClCompile Include="..\..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_gpio.c">
-      <Filter>HAL</Filter>
+      <Filter>libs\HAL</Filter>
     </ClCompile>
     <ClCompile Include="..\..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_hcd.c">
-      <Filter>HAL</Filter>
+      <Filter>libs\HAL</Filter>
     </ClCompile>
     <ClCompile Include="..\..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_pcd.c">
-      <Filter>HAL</Filter>
+      <Filter>libs\HAL</Filter>
     </ClCompile>
     <ClCompile Include="..\..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_pcd_ex.c">
-      <Filter>HAL</Filter>
+      <Filter>libs\HAL</Filter>
     </ClCompile>
     <ClCompile Include="..\..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_pwr.c">
-      <Filter>HAL</Filter>
+      <Filter>libs\HAL</Filter>
     </ClCompile>
     <ClCompile Include="..\..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_pwr_ex.c">
-      <Filter>HAL</Filter>
+      <Filter>libs\HAL</Filter>
     </ClCompile>
     <ClCompile Include="..\..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_rcc.c">
-      <Filter>HAL</Filter>
+      <Filter>libs\HAL</Filter>
     </ClCompile>
     <ClCompile Include="..\..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_rcc_ex.c">
-      <Filter>HAL</Filter>
+      <Filter>libs\HAL</Filter>
     </ClCompile>
     <ClCompile Include="..\..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_rtc.c">
-      <Filter>HAL</Filter>
+      <Filter>libs\HAL</Filter>
     </ClCompile>
     <ClCompile Include="..\..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_rtc_ex.c">
-      <Filter>HAL</Filter>
+      <Filter>libs\HAL</Filter>
     </ClCompile>
     <ClCompile Include="..\..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_spi.c">
-      <Filter>HAL</Filter>
+      <Filter>libs\HAL</Filter>
     </ClCompile>
     <ClCompile Include="..\..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_sram.c">
-      <Filter>HAL</Filter>
+      <Filter>libs\HAL</Filter>
     </ClCompile>
     <ClCompile Include="..\..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_tim.c">
-      <Filter>HAL</Filter>
+      <Filter>libs\HAL</Filter>
     </ClCompile>
     <ClCompile Include="..\..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_tim_ex.c">
-      <Filter>HAL</Filter>
+      <Filter>libs\HAL</Filter>
     </ClCompile>
     <ClCompile Include="..\..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_ll_fsmc.c">
-      <Filter>HAL</Filter>
+      <Filter>libs\HAL</Filter>
     </ClCompile>
     <ClCompile Include="..\..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_ll_sdmmc.c">
-      <Filter>HAL</Filter>
+      <Filter>libs\HAL</Filter>
     </ClCompile>
     <ClCompile Include="..\..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_ll_usb.c">
-      <Filter>HAL</Filter>
+      <Filter>libs\HAL</Filter>
     </ClCompile>
     <ClCompile Include="..\..\libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\api\api_lib.c">
-      <Filter>LwIP</Filter>
+      <Filter>libs\LwIP</Filter>
     </ClCompile>
     <ClCompile Include="..\..\libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\api\api_msg.c">
-      <Filter>LwIP</Filter>
+      <Filter>libs\LwIP</Filter>
     </ClCompile>
     <ClCompile Include="..\..\libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\ipv4\autoip.c">
-      <Filter>LwIP</Filter>
+      <Filter>libs\LwIP</Filter>
     </ClCompile>
     <ClCompile Include="..\..\libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\def.c">
-      <Filter>LwIP</Filter>
+      <Filter>libs\LwIP</Filter>
     </ClCompile>
     <ClCompile Include="..\..\libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\dns.c">
-      <Filter>LwIP</Filter>
+      <Filter>libs\LwIP</Filter>
     </ClCompile>
     <ClCompile Include="..\..\libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\ip.c">
-      <Filter>LwIP</Filter>
+      <Filter>libs\LwIP</Filter>
     </ClCompile>
     <ClCompile Include="..\..\libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\netif.c">
-      <Filter>LwIP</Filter>
+      <Filter>libs\LwIP</Filter>
     </ClCompile>
     <ClCompile Include="..\..\libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\ipv4\dhcp.c">
-      <Filter>LwIP</Filter>
+      <Filter>libs\LwIP</Filter>
     </ClCompile>
     <ClCompile Include="..\..\libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\ipv4\etharp.c">
-      <Filter>LwIP</Filter>
+      <Filter>libs\LwIP</Filter>
     </ClCompile>
     <ClCompile Include="..\..\libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\ipv4\icmp.c">
-      <Filter>LwIP</Filter>
+      <Filter>libs\LwIP</Filter>
     </ClCompile>
     <ClCompile Include="..\..\libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\ipv4\igmp.c">
-      <Filter>LwIP</Filter>
+      <Filter>libs\LwIP</Filter>
     </ClCompile>
     <ClCompile Include="..\..\libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\ipv4\ip4.c">
-      <Filter>LwIP</Filter>
+      <Filter>libs\LwIP</Filter>
     </ClCompile>
     <ClCompile Include="..\..\libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\ipv4\ip4_addr.c">
-      <Filter>LwIP</Filter>
+      <Filter>libs\LwIP</Filter>
     </ClCompile>
     <ClCompile Include="..\..\libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\ipv4\ip4_frag.c">
-      <Filter>LwIP</Filter>
+      <Filter>libs\LwIP</Filter>
     </ClCompile>
     <ClCompile Include="..\..\libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\api\err.c">
-      <Filter>LwIP</Filter>
+      <Filter>libs\LwIP</Filter>
     </ClCompile>
     <ClCompile Include="..\..\libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\api\netbuf.c">
-      <Filter>LwIP</Filter>
+      <Filter>libs\LwIP</Filter>
     </ClCompile>
     <ClCompile Include="..\..\libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\api\netdb.c">
-      <Filter>LwIP</Filter>
+      <Filter>libs\LwIP</Filter>
     </ClCompile>
     <ClCompile Include="..\..\libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\api\sockets.c">
-      <Filter>LwIP</Filter>
+      <Filter>libs\LwIP</Filter>
     </ClCompile>
     <ClCompile Include="..\..\libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\netif\ethernet.c">
-      <Filter>LwIP</Filter>
+      <Filter>libs\LwIP</Filter>
     </ClCompile>
     <ClCompile Include="..\..\libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\init.c">
-      <Filter>LwIP</Filter>
+      <Filter>libs\LwIP</Filter>
     </ClCompile>
     <ClCompile Include="..\..\libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\mem.c">
-      <Filter>LwIP</Filter>
+      <Filter>libs\LwIP</Filter>
     </ClCompile>
     <ClCompile Include="..\..\libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\memp.c">
-      <Filter>LwIP</Filter>
+      <Filter>libs\LwIP</Filter>
     </ClCompile>
     <ClCompile Include="..\..\libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\pbuf.c">
-      <Filter>LwIP</Filter>
+      <Filter>libs\LwIP</Filter>
     </ClCompile>
     <ClCompile Include="..\..\libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\raw.c">
-      <Filter>LwIP</Filter>
+      <Filter>libs\LwIP</Filter>
     </ClCompile>
     <ClCompile Include="..\..\libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\stats.c">
-      <Filter>LwIP</Filter>
+      <Filter>libs\LwIP</Filter>
     </ClCompile>
     <ClCompile Include="..\..\libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\sys.c">
-      <Filter>LwIP</Filter>
+      <Filter>libs\LwIP</Filter>
     </ClCompile>
     <ClCompile Include="..\..\libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\tcp.c">
-      <Filter>LwIP</Filter>
+      <Filter>libs\LwIP</Filter>
     </ClCompile>
     <ClCompile Include="..\..\libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\tcp_in.c">
-      <Filter>LwIP</Filter>
+      <Filter>libs\LwIP</Filter>
     </ClCompile>
     <ClCompile Include="..\..\libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\tcp_out.c">
-      <Filter>LwIP</Filter>
+      <Filter>libs\LwIP</Filter>
     </ClCompile>
     <ClCompile Include="..\..\libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\timeouts.c">
-      <Filter>LwIP</Filter>
+      <Filter>libs\LwIP</Filter>
     </ClCompile>
     <ClCompile Include="..\..\libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\core\udp.c">
-      <Filter>LwIP</Filter>
+      <Filter>libs\LwIP</Filter>
     </ClCompile>
     <ClCompile Include="..\..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Device_Library\Class\CDC\Src\usbd_cdc.c">
-      <Filter>USBD</Filter>
+      <Filter>libs\USBD</Filter>
     </ClCompile>
     <ClCompile Include="..\..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Device_Library\Core\Src\usbd_core.c">
-      <Filter>USBD</Filter>
+      <Filter>libs\USBD</Filter>
     </ClCompile>
     <ClCompile Include="..\..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Device_Library\Core\Src\usbd_ctlreq.c">
-      <Filter>USBD</Filter>
+      <Filter>libs\USBD</Filter>
     </ClCompile>
     <ClCompile Include="..\..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Device_Library\Core\Src\usbd_ioreq.c">
-      <Filter>USBD</Filter>
+      <Filter>libs\USBD</Filter>
     </ClCompile>
     <ClCompile Include="..\..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Core\Src\usbh_core.c">
-      <Filter>USBH</Filter>
+      <Filter>libs\USBH</Filter>
     </ClCompile>
     <ClCompile Include="..\..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Core\Src\usbh_ctlreq.c">
-      <Filter>USBH</Filter>
+      <Filter>libs\USBH</Filter>
     </ClCompile>
     <ClCompile Include="..\..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Core\Src\usbh_ioreq.c">
-      <Filter>USBH</Filter>
+      <Filter>libs\USBH</Filter>
     </ClCompile>
     <ClCompile Include="..\..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Core\Src\usbh_pipes.c">
-      <Filter>USBH</Filter>
+      <Filter>libs\USBH</Filter>
     </ClCompile>
     <ClCompile Include="..\..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Class\MSC\Src\usbh_msc.c">
-      <Filter>USBH</Filter>
+      <Filter>libs\USBH</Filter>
     </ClCompile>
     <ClCompile Include="..\..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Class\MSC\Src\usbh_msc_bot.c">
-      <Filter>USBH</Filter>
+      <Filter>libs\USBH</Filter>
     </ClCompile>
     <ClCompile Include="..\..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Class\MSC\Src\usbh_msc_scsi.c">
-      <Filter>USBH</Filter>
+      <Filter>libs\USBH</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Device53\src\globals.cpp">
       <Filter>src</Filter>
@@ -556,6 +553,9 @@
       <Filter>Hardware</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Device53\src\Hardware\CPU_It.cpp">
+      <Filter>Hardware</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\common\S8-53\Hardware\Controls.cpp">
       <Filter>Hardware</Filter>
     </ClCompile>
   </ItemGroup>
@@ -640,9 +640,6 @@
     </ClInclude>
     <ClInclude Include="..\..\Device53\src\Menu\Pages\PageMemory.h">
       <Filter>Menu\Pages</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Device53\src\Panel\Controls.h">
-      <Filter>Panel</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Device53\src\Panel\Panel.h">
       <Filter>Panel</Filter>
@@ -780,16 +777,16 @@
       <Filter>VCP\SCPI</Filter>
     </ClInclude>
     <ClInclude Include="..\..\libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\diskio.h">
-      <Filter>FatFS</Filter>
+      <Filter>libs\FatFS</Filter>
     </ClInclude>
     <ClInclude Include="..\..\libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\ff.h">
-      <Filter>FatFS</Filter>
+      <Filter>libs\FatFS</Filter>
     </ClInclude>
     <ClInclude Include="..\..\libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\ff_gen_drv.h">
-      <Filter>FatFS</Filter>
+      <Filter>libs\FatFS</Filter>
     </ClInclude>
     <ClInclude Include="..\..\libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\drivers\usbh_diskio.h">
-      <Filter>FatFS</Filter>
+      <Filter>libs\FatFS</Filter>
     </ClInclude>
     <ClInclude Include="..\..\libs\common\_VS\ctype.h">
       <Filter>_VS</Filter>
@@ -828,130 +825,130 @@
       <Filter>_VS</Filter>
     </ClInclude>
     <ClInclude Include="..\..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Inc\stm32f2xx_hal.h">
-      <Filter>HAL</Filter>
+      <Filter>libs\HAL</Filter>
     </ClInclude>
     <ClInclude Include="..\..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Inc\stm32f2xx_hal_adc.h">
-      <Filter>HAL</Filter>
+      <Filter>libs\HAL</Filter>
     </ClInclude>
     <ClInclude Include="..\..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Inc\stm32f2xx_hal_adc_ex.h">
-      <Filter>HAL</Filter>
+      <Filter>libs\HAL</Filter>
     </ClInclude>
     <ClInclude Include="..\..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Inc\stm32f2xx_hal_cortex.h">
-      <Filter>HAL</Filter>
+      <Filter>libs\HAL</Filter>
     </ClInclude>
     <ClInclude Include="..\..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Inc\stm32f2xx_hal_crc.h">
-      <Filter>HAL</Filter>
+      <Filter>libs\HAL</Filter>
     </ClInclude>
     <ClInclude Include="..\..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Inc\stm32f2xx_hal_dac.h">
-      <Filter>HAL</Filter>
+      <Filter>libs\HAL</Filter>
     </ClInclude>
     <ClInclude Include="..\..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Inc\stm32f2xx_hal_dac_ex.h">
-      <Filter>HAL</Filter>
+      <Filter>libs\HAL</Filter>
     </ClInclude>
     <ClInclude Include="..\..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Inc\stm32f2xx_hal_dma.h">
-      <Filter>HAL</Filter>
+      <Filter>libs\HAL</Filter>
     </ClInclude>
     <ClInclude Include="..\..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Inc\stm32f2xx_hal_dma_ex.h">
-      <Filter>HAL</Filter>
+      <Filter>libs\HAL</Filter>
     </ClInclude>
     <ClInclude Include="..\..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Inc\stm32f2xx_hal_eth.h">
-      <Filter>HAL</Filter>
+      <Filter>libs\HAL</Filter>
     </ClInclude>
     <ClInclude Include="..\..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Inc\stm32f2xx_hal_flash.h">
-      <Filter>HAL</Filter>
+      <Filter>libs\HAL</Filter>
     </ClInclude>
     <ClInclude Include="..\..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Inc\stm32f2xx_hal_flash_ex.h">
-      <Filter>HAL</Filter>
+      <Filter>libs\HAL</Filter>
     </ClInclude>
     <ClInclude Include="..\..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Inc\stm32f2xx_hal_gpio.h">
-      <Filter>HAL</Filter>
+      <Filter>libs\HAL</Filter>
     </ClInclude>
     <ClInclude Include="..\..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Inc\stm32f2xx_hal_hcd.h">
-      <Filter>HAL</Filter>
+      <Filter>libs\HAL</Filter>
     </ClInclude>
     <ClInclude Include="..\..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Inc\stm32f2xx_hal_pcd.h">
-      <Filter>HAL</Filter>
+      <Filter>libs\HAL</Filter>
     </ClInclude>
     <ClInclude Include="..\..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Inc\stm32f2xx_hal_pcd_ex.h">
-      <Filter>HAL</Filter>
+      <Filter>libs\HAL</Filter>
     </ClInclude>
     <ClInclude Include="..\..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Inc\stm32f2xx_hal_pwr.h">
-      <Filter>HAL</Filter>
+      <Filter>libs\HAL</Filter>
     </ClInclude>
     <ClInclude Include="..\..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Inc\stm32f2xx_hal_pwr_ex.h">
-      <Filter>HAL</Filter>
+      <Filter>libs\HAL</Filter>
     </ClInclude>
     <ClInclude Include="..\..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Inc\stm32f2xx_hal_rcc.h">
-      <Filter>HAL</Filter>
+      <Filter>libs\HAL</Filter>
     </ClInclude>
     <ClInclude Include="..\..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Inc\stm32f2xx_hal_rcc_ex.h">
-      <Filter>HAL</Filter>
+      <Filter>libs\HAL</Filter>
     </ClInclude>
     <ClInclude Include="..\..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Inc\stm32f2xx_hal_rtc.h">
-      <Filter>HAL</Filter>
+      <Filter>libs\HAL</Filter>
     </ClInclude>
     <ClInclude Include="..\..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Inc\stm32f2xx_hal_rtc_ex.h">
-      <Filter>HAL</Filter>
+      <Filter>libs\HAL</Filter>
     </ClInclude>
     <ClInclude Include="..\..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Inc\stm32f2xx_hal_spi.h">
-      <Filter>HAL</Filter>
+      <Filter>libs\HAL</Filter>
     </ClInclude>
     <ClInclude Include="..\..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Inc\stm32f2xx_hal_sram.h">
-      <Filter>HAL</Filter>
+      <Filter>libs\HAL</Filter>
     </ClInclude>
     <ClInclude Include="..\..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Inc\stm32f2xx_hal_tim.h">
-      <Filter>HAL</Filter>
+      <Filter>libs\HAL</Filter>
     </ClInclude>
     <ClInclude Include="..\..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Inc\stm32f2xx_hal_tim_ex.h">
-      <Filter>HAL</Filter>
+      <Filter>libs\HAL</Filter>
     </ClInclude>
     <ClInclude Include="..\..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Inc\stm32f2xx_ll_fsmc.h">
-      <Filter>HAL</Filter>
+      <Filter>libs\HAL</Filter>
     </ClInclude>
     <ClInclude Include="..\..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Inc\stm32f2xx_ll_sdmmc.h">
-      <Filter>HAL</Filter>
+      <Filter>libs\HAL</Filter>
     </ClInclude>
     <ClInclude Include="..\..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Inc\stm32f2xx_ll_usb.h">
-      <Filter>HAL</Filter>
+      <Filter>libs\HAL</Filter>
     </ClInclude>
     <ClInclude Include="..\..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Device_Library\Class\CDC\Inc\usbd_cdc.h">
-      <Filter>USBD</Filter>
+      <Filter>libs\USBD</Filter>
     </ClInclude>
     <ClInclude Include="..\..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_core.h">
-      <Filter>USBD</Filter>
+      <Filter>libs\USBD</Filter>
     </ClInclude>
     <ClInclude Include="..\..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_ctlreq.h">
-      <Filter>USBD</Filter>
+      <Filter>libs\USBD</Filter>
     </ClInclude>
     <ClInclude Include="..\..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_def.h">
-      <Filter>USBD</Filter>
+      <Filter>libs\USBD</Filter>
     </ClInclude>
     <ClInclude Include="..\..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_ioreq.h">
-      <Filter>USBD</Filter>
+      <Filter>libs\USBD</Filter>
     </ClInclude>
     <ClInclude Include="..\..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Core\Inc\usbh_core.h">
-      <Filter>USBH</Filter>
+      <Filter>libs\USBH</Filter>
     </ClInclude>
     <ClInclude Include="..\..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Core\Inc\usbh_ctlreq.h">
-      <Filter>USBH</Filter>
+      <Filter>libs\USBH</Filter>
     </ClInclude>
     <ClInclude Include="..\..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Core\Inc\usbh_def.h">
-      <Filter>USBH</Filter>
+      <Filter>libs\USBH</Filter>
     </ClInclude>
     <ClInclude Include="..\..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Core\Inc\usbh_ioreq.h">
-      <Filter>USBH</Filter>
+      <Filter>libs\USBH</Filter>
     </ClInclude>
     <ClInclude Include="..\..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Core\Inc\usbh_pipes.h">
-      <Filter>USBH</Filter>
+      <Filter>libs\USBH</Filter>
     </ClInclude>
     <ClInclude Include="..\..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Class\MSC\Inc\usbh_msc.h">
-      <Filter>USBH</Filter>
+      <Filter>libs\USBH</Filter>
     </ClInclude>
     <ClInclude Include="..\..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Class\MSC\Inc\usbh_msc_bot.h">
-      <Filter>USBH</Filter>
+      <Filter>libs\USBH</Filter>
     </ClInclude>
     <ClInclude Include="..\..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Class\MSC\Inc\usbh_msc_scsi.h">
-      <Filter>USBH</Filter>
+      <Filter>libs\USBH</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Device53\src\Menu\Pages\PageChannels.h">
       <Filter>Menu\Pages</Filter>
@@ -969,7 +966,7 @@
       <Filter>libs</Filter>
     </ClInclude>
     <ClInclude Include="..\..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Inc\stm32f2xx_hal_gpio_ex.h">
-      <Filter>HAL</Filter>
+      <Filter>libs\HAL</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Device53\src\globals.h">
       <Filter>src</Filter>
@@ -987,6 +984,9 @@
       <Filter>Hardware\stm32</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Device53\src\Hardware\CPU.h">
+      <Filter>Hardware</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\common\S8-53\Hardware\Controls.h">
       <Filter>Hardware</Filter>
     </ClInclude>
   </ItemGroup>
