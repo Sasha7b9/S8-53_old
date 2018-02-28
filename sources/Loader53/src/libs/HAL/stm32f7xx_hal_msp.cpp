@@ -1,7 +1,6 @@
 #include "defines.h"
 #include "Hardware/Hardware.h"
 
-
 void HAL_SPI_MspInit(SPI_HandleTypeDef *)
 {
 

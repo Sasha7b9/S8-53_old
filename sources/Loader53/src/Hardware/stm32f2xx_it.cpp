@@ -4,6 +4,11 @@
 #include "globals.h"
 
 
+#ifdef MSVC
+#define __attribute(x)
+#endif
+
+
 #ifdef __cplusplus
 extern "C" {
 #endif

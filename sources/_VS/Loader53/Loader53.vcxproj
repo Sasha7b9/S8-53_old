@@ -70,7 +70,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>..\..\libs\common;..\..\libs\common\_VS;..\..\Loader53\src;..\..\Loader53\src\libs;..\..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Inc;..\..\libs\STM32Cube_F2\Drivers\CMSIS\Device\ST\STM32F2xx\Include;..\..\libs\STM32Cube_F2\Drivers\CMSIS\Include;..\..\libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\drivers;..\..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Core\Inc;..\..\libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src;..\..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Class\MSC\Inc</IncludePath>
+    <IncludePath>..\..\Loader53\src;..\..\Loader53\src\libs\FatFS;..\..\Loader53\src\libs\HAL;..\..\Loader53\src\libs\USBH;..\..\libs\common\S8-53;..\..\libs\common;..\..\libs\common\_VS;..\..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Inc;..\..\libs\STM32Cube_F2\Drivers\CMSIS\Device\ST\STM32F2xx\Include;..\..\libs\STM32Cube_F2\Drivers\CMSIS\Include;..\..\libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\drivers;..\..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Core\Inc;..\..\libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src;..\..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Class\MSC\Inc</IncludePath>
     <OutDir>..\Debug\</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -78,7 +78,7 @@
       <WarningLevel>EnableAllWarnings</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>USE_HAL_DRIVER;STM32F207xx;WIN32;S8_53;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>USE_HAL_DRIVER;STM32F207xx;S8_53;MSVC</PreprocessorDefinitions>
       <DisableSpecificWarnings>4068;4131;4201;4255;4514;4820;5039</DisableSpecificWarnings>
       <MinimalRebuild>false</MinimalRebuild>
       <AdditionalOptions>-MP %(AdditionalOptions)</AdditionalOptions>
@@ -124,10 +124,10 @@
     <ClCompile Include="..\..\libs\common\Display\Colors.cpp" />
     <ClCompile Include="..\..\libs\common\Display\Painter.cpp" />
     <ClCompile Include="..\..\libs\common\Display\PainterText.cpp" />
+    <ClCompile Include="..\..\libs\common\Hardware\stm32\207\Timer207.cpp" />
     <ClCompile Include="..\..\libs\common\Hardware\Timer.cpp" />
-    <ClCompile Include="..\..\libs\common\stm32\207\Timer207.cpp" />
+    <ClCompile Include="..\..\libs\common\S8-53\Hardware\Controls.cpp" />
     <ClCompile Include="..\..\libs\common\Utils\Math.cpp" />
-    <ClCompile Include="..\..\libs\common\VCP\VCP.cpp" />
     <ClCompile Include="..\..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal.c">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
@@ -224,26 +224,23 @@
     <ClCompile Include="..\..\Loader53\src\Hardware\FSMC.cpp" />
     <ClCompile Include="..\..\Loader53\src\Hardware\Hardware.cpp" />
     <ClCompile Include="..\..\Loader53\src\Hardware\stm32f2xx_it.cpp" />
-    <ClCompile Include="..\..\Loader53\src\libs\stm32f2xx_hal_msp.cpp" />
-    <ClCompile Include="..\..\Loader53\src\libs\system_stm32f2xx.c">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
+    <ClCompile Include="..\..\Loader53\src\libs\CMSIS\system_stm32f2xx.c" />
+    <ClCompile Include="..\..\Loader53\src\libs\HAL\stm32f2xx_hal_msp.cpp" />
     <ClCompile Include="..\..\Loader53\src\libs\usbh_conf.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\..\Loader53\src\main.cpp" />
-    <ClCompile Include="..\..\Loader53\src\Panel\Controls.cpp" />
     <ClCompile Include="..\..\Loader53\src\Panel\Panel.cpp" />
     <ClCompile Include="..\..\Loader53\src\Settings\Settings.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\libs\common\Display\Colors.h" />
     <ClInclude Include="..\..\libs\common\Display\Painter.h" />
+    <ClInclude Include="..\..\libs\common\Hardware\stm32\207\Timer207.h" />
     <ClInclude Include="..\..\libs\common\Hardware\Timer.h" />
-    <ClInclude Include="..\..\libs\common\stm32\207\Timer207.h" />
+    <ClInclude Include="..\..\libs\common\S8-53\Hardware\Controls.h" />
     <ClInclude Include="..\..\libs\common\stub.h" />
     <ClInclude Include="..\..\libs\common\Utils\Math.h" />
-    <ClInclude Include="..\..\libs\common\VCP\VCP.h" />
     <ClInclude Include="..\..\libs\common\_VS\ctype.h" />
     <ClInclude Include="..\..\libs\common\_VS\integer.h" />
     <ClInclude Include="..\..\libs\common\_VS\inttypes.h" />
@@ -303,14 +300,13 @@
     <ClInclude Include="..\..\Loader53\src\Hardware\Hardware.h" />
     <ClInclude Include="..\..\Loader53\src\Hardware\it.h" />
     <ClInclude Include="..\..\Loader53\src\Hardware\stm32f2xx_it.h" />
-    <ClInclude Include="..\..\Loader53\src\libs\ffconf.h" />
-    <ClInclude Include="..\..\Loader53\src\libs\interrupts.h" />
-    <ClInclude Include="..\..\Loader53\src\libs\stm32f2xx_hal_conf.h" />
+    <ClInclude Include="..\..\Loader53\src\libs\FatFS\ffconf.h" />
+    <ClInclude Include="..\..\Loader53\src\libs\HAL\stm32f2xx_hal_conf.h" />
+    <ClInclude Include="..\..\Loader53\src\libs\HAL\stm32f7xx_hal_conf.h" />
     <ClInclude Include="..\..\Loader53\src\libs\usbh_conf.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClInclude>
     <ClInclude Include="..\..\Loader53\src\main.h" />
-    <ClInclude Include="..\..\Loader53\src\Panel\Controls.h" />
     <ClInclude Include="..\..\Loader53\src\Panel\Panel.h" />
     <ClInclude Include="..\..\Loader53\src\Settings\Settings.h" />
     <ClInclude Include="..\..\Loader53\src\Settings\SettingsDisplay.h" />
@@ -325,9 +321,7 @@
     <None Include="..\..\Loader53\src\Display\font\fontUGO2.inc" />
     <None Include="..\..\Loader53\src\Display\font\fontUGO2display.inc" />
     <None Include="..\..\Loader53\src\Display\font\fontUGOdisplay.inc" />
-    <None Include="..\..\Loader53\src\libs\startup_stm32f207xx.s">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </None>
+    <None Include="..\..\Loader53\src\libs\CMSIS\startup_stm32f207xx.s" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
