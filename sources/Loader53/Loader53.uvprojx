@@ -2094,6 +2094,51 @@
           </Files>
         </Group>
         <Group>
+          <GroupName>src</GroupName>
+          <Files>
+            <File>
+              <FileName>defines.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\defines.h</FilePath>
+            </File>
+            <File>
+              <FileName>globals.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\globals.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>globals.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\globals.h</FilePath>
+            </File>
+            <File>
+              <FileName>main.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>main.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main.h</FilePath>
+            </File>
+            <File>
+              <FileName>structs.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\libs\common\structs.h</FilePath>
+            </File>
+            <File>
+              <FileName>Log.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\libs\common\Log.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Log.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\libs\common\Log.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
           <GroupName>Display</GroupName>
           <Files>
             <File>
@@ -2195,6 +2240,61 @@
               <FileName>PainterTextPIC24.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>..\libs\common\Display\PainterTextPIC24.cpp</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Display/fonts</GroupName>
+          <Files>
+            <File>
+              <FileName>Font.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\Display\font\Font.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Font.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\Display\font\Font.h</FilePath>
+            </File>
+            <File>
+              <FileName>font5.inc</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\Display\font\font5.inc</FilePath>
+            </File>
+            <File>
+              <FileName>font5display.inc</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\Display\font\font5display.inc</FilePath>
+            </File>
+            <File>
+              <FileName>font8.inc</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\Display\font\font8.inc</FilePath>
+            </File>
+            <File>
+              <FileName>font8display.inc</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\Display\font\font8display.inc</FilePath>
+            </File>
+            <File>
+              <FileName>fontUGO.inc</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\Display\font\fontUGO.inc</FilePath>
+            </File>
+            <File>
+              <FileName>fontUGO2.inc</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\Display\font\fontUGO2.inc</FilePath>
+            </File>
+            <File>
+              <FileName>fontUGO2display.inc</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\Display\font\fontUGO2display.inc</FilePath>
+            </File>
+            <File>
+              <FileName>fontUGOdisplay.inc</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\Display\font\fontUGOdisplay.inc</FilePath>
             </File>
           </Files>
         </Group>
@@ -2354,51 +2454,6 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>src</GroupName>
-          <Files>
-            <File>
-              <FileName>defines.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\defines.h</FilePath>
-            </File>
-            <File>
-              <FileName>globals.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\globals.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>globals.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\globals.h</FilePath>
-            </File>
-            <File>
-              <FileName>main.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>main.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main.h</FilePath>
-            </File>
-            <File>
-              <FileName>structs.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\libs\common\structs.h</FilePath>
-            </File>
-            <File>
-              <FileName>Log.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>..\libs\common\Log.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Log.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\libs\common\Log.h</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
           <GroupName>Utils</GroupName>
           <Files>
             <File>
@@ -2430,71 +2485,6 @@
               <FileName>Dictionary.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\Utils\Dictionary.h</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>Display/fonts</GroupName>
-          <Files>
-            <File>
-              <FileName>Font.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\Display\font\Font.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Font.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\Display\font\Font.h</FilePath>
-            </File>
-            <File>
-              <FileName>font5.inc</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\Display\font\font5.inc</FilePath>
-            </File>
-            <File>
-              <FileName>font5display.inc</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\Display\font\font5display.inc</FilePath>
-            </File>
-            <File>
-              <FileName>font8.inc</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\Display\font\font8.inc</FilePath>
-            </File>
-            <File>
-              <FileName>font8display.inc</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\Display\font\font8display.inc</FilePath>
-            </File>
-            <File>
-              <FileName>fontUGO.inc</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\Display\font\fontUGO.inc</FilePath>
-            </File>
-            <File>
-              <FileName>fontUGO2.inc</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\Display\font\fontUGO2.inc</FilePath>
-            </File>
-            <File>
-              <FileName>fontUGO2display.inc</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\Display\font\fontUGO2display.inc</FilePath>
-            </File>
-            <File>
-              <FileName>fontUGOdisplay.inc</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\Display\font\fontUGOdisplay.inc</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>FPGA</GroupName>
-          <Files>
-            <File>
-              <FileName>FPGATypes.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\FPGA\FPGATypes.h</FilePath>
             </File>
           </Files>
         </Group>
