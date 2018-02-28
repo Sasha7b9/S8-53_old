@@ -15,6 +15,7 @@ Global
 		{F1BEFAC2-FA30-4A15-AA7C-5D80A2D2C827}.Debug|x86.ActiveCfg = Debug|Win32
 		{F1BEFAC2-FA30-4A15-AA7C-5D80A2D2C827}.Debug|x86.Build.0 = Debug|Win32
 		{1C302064-7611-4D86-8605-EA51531A34AB}.Debug|x86.ActiveCfg = Debug|Win32
+		{1C302064-7611-4D86-8605-EA51531A34AB}.Debug|x86.Build.0 = Debug|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

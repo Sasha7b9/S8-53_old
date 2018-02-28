@@ -181,7 +181,8 @@ float CalculateVoltageMax(Channel chan)
         markerHor[chan][0] = (int)max;                           // Здесь не округляем, потому что max может быть только целым
     }
 
-    return MathFPGA::Point2Voltage((uint8)ROUND(max), dataSet->range[chan], chan == A ? dataSet->rShiftCh0 : dataSet->rShiftCh1) * VALUE_MULTIPLIER(chan);
+    return MathFPGA::Point2Voltage((uint8)ROUND(max), dataSet->range[chan], (uint16)(chan == A ? dataSet->rShiftCh0 : dataSet->rShiftCh1)) * 
+        VALUE_MULTIPLIER(chan);
 }
 
 float CalculateVoltageMin(Channel chan)
@@ -193,7 +194,8 @@ float CalculateVoltageMin(Channel chan)
         markerHor[chan][0] = (int)min;                           // Здесь не округляем, потому что min может быть только целым
     }
 
-    return MathFPGA::Point2Voltage((uint8)ROUND(min), dataSet->range[chan], chan == A ? dataSet->rShiftCh0 : dataSet->rShiftCh1) * VALUE_MULTIPLIER(chan);
+    return MathFPGA::Point2Voltage((uint8)ROUND(min), dataSet->range[chan], (uint16)(chan == A ? dataSet->rShiftCh0 : dataSet->rShiftCh1)) * 
+        VALUE_MULTIPLIER(chan);
 }
 
 float CalculateVoltagePic(Channel chan)
@@ -221,7 +223,7 @@ float CalculateVoltageMinSteady(Channel chan)
     }
 
     return (MathFPGA::Point2Voltage((uint8)ROUND(min), dataSet->range[chan], 
-        chan == A ? dataSet->rShiftCh0 : dataSet->rShiftCh1) * VALUE_MULTIPLIER(chan));
+        (uint16)(chan == A ? dataSet->rShiftCh0 : dataSet->rShiftCh1)) * VALUE_MULTIPLIER(chan));
 }
 
 float CalculateVoltageMaxSteady(Channel chan)
@@ -254,7 +256,7 @@ float CalculateVoltageVybrosPlus(Channel chan)
         markerHor[chan][1] = (int)maxSteady;
     }
 
-    int16 rShift = chan == A ? dataSet->rShiftCh0 : dataSet->rShiftCh1;
+    int16 rShift = (int16)(chan == A ? dataSet->rShiftCh0 : dataSet->rShiftCh1);
     return fabsf(MathFPGA::Point2Voltage((uint8)ROUND(maxSteady), dataSet->range[chan], (uint16)rShift) - 
         MathFPGA::Point2Voltage((uint8)ROUND(max), dataSet->range[chan], (uint16)rShift)) * VALUE_MULTIPLIER(chan);
 }
@@ -271,7 +273,7 @@ float CalculateVoltageVybrosMinus(Channel chan)
         markerHor[chan][1] = (int)minSteady;
     }
 
-    int16 rShift = chan == A ? dataSet->rShiftCh0 : dataSet->rShiftCh1;
+    int16 rShift = (int16)(chan == A ? dataSet->rShiftCh0 : dataSet->rShiftCh1);
     return fabsf(MathFPGA::Point2Voltage((uint8)ROUND(minSteady), dataSet->range[chan], (uint16)rShift) - 
         MathFPGA::Point2Voltage((uint8)ROUND(min), dataSet->range[chan], (uint16)rShift)) * VALUE_MULTIPLIER(chan);
 }
@@ -311,7 +313,8 @@ float CalculateVoltageAverage(Channel chan)
         markerHor[chan][0] = aveRel;
     }
 
-    return (MathFPGA::Point2Voltage(aveRel, dataSet->range[chan], chan == A ? dataSet->rShiftCh0 : dataSet->rShiftCh1) * VALUE_MULTIPLIER(chan));
+    return (MathFPGA::Point2Voltage(aveRel, dataSet->range[chan], (uint16)(chan == A ? dataSet->rShiftCh0 : dataSet->rShiftCh1)) * 
+            VALUE_MULTIPLIER(chan));
 }
 
 float CalculateVoltageRMS(Channel chan)
@@ -321,7 +324,7 @@ float CalculateVoltageRMS(Channel chan)
     EXIT_IF_ERROR_INT(period);
 
     float rms = 0.0f;
-    int16 rShift = chan == A ? dataSet->rShiftCh0 : dataSet->rShiftCh1;
+    int16 rShift = (int16)(chan == A ? dataSet->rShiftCh0 : dataSet->rShiftCh1);
     for(int i = firstPoint; i < firstPoint + period; i++)
     {
         float volts = MathFPGA::Point2Voltage(dataIn[chan][i], dataSet->range[chan], (uint16)rShift);
@@ -1205,7 +1208,7 @@ void CountedToCurrentSettings()
         }
     }
  
-    if (dataSet->enableCh0 == 1 && (dataSet->range[0] != SET_RANGE_A || dataSet->rShiftCh0 != SET_RSHIFT_A))
+    if (dataSet->enableCh0 == 1 && (dataSet->range[0] != SET_RANGE_A || dataSet->rShiftCh0 != (uint)SET_RSHIFT_A))
     {
         Range range = SET_RANGE_A;
         int16 rShift = SET_RSHIFT_A;
@@ -1220,7 +1223,7 @@ void CountedToCurrentSettings()
             else                            { dataOut0[i] = (uint8)relValue; }
         }
     }
-    if (dataSet->enableCh1 == 1 && (dataSet->range[1] != SET_RANGE_B || dataSet->rShiftCh1 != SET_RSHIFT_B))
+    if (dataSet->enableCh1 == 1 && (dataSet->range[1] != SET_RANGE_B || dataSet->rShiftCh1 != (uint)SET_RSHIFT_B))
     {
         Range range = SET_RANGE_B;
         int16 rShift = SET_RSHIFT_B;

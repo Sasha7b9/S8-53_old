@@ -509,7 +509,7 @@ static void DRAW_SPECTRUM(const uint8 *data, int numPoints, Channel channel)
     int y1 = 0;
     int s = 2;
 
-    MathFPGA::PointsRel2Voltage(data, numPoints, gDSet->range[channel], channel == A ? gDSet->rShiftCh0 : gDSet->rShiftCh1, dataR);
+    MathFPGA::PointsRel2Voltage(data, numPoints, gDSet->range[channel], (int16)(channel == A ? gDSet->rShiftCh0 : gDSet->rShiftCh1), dataR);
     MathFPGA::CalculateFFT(dataR, numPoints, spectrum, &freq0, &density0, &freq1, &density1, &y0, &y1);
     DrawSpectrumChannel(spectrum, Color::CHAN[channel]);
     if (!MENU_IS_SHOWN || Menu::IsMinimize())
@@ -1133,7 +1133,7 @@ void Display::DrawHiRightPart()
     }
 
     // Режим работы
-    static const char *strings[][2] =
+    static const char *strings_[][2] =
     {
         {"ИЗМ",     "MEAS"},
         {"ПОСЛ",    "LAST"},
@@ -1146,7 +1146,7 @@ void Display::DrawHiRightPart()
         Painter::DrawVLine(x, 1, GRID_TOP - 2, Color::FILL);
         x += 2;
         Painter::DrawText(set.common.lang == Russian ? x : x + 3, -1, set.common.lang == Russian ? "режим" : "mode");
-        Painter::DrawStringInCenterRect(x + 1, 9, 25, 8, strings[MODE_WORK][set.common.lang]);
+        Painter::DrawStringInCenterRect(x + 1, 9, 25, 8, strings_[MODE_WORK][set.common.lang]);
     }
     else
     {
@@ -2287,7 +2287,7 @@ void Display::Clear()
 //---------------------------------------------------------------------------------------------------------------------------------------------------
 void Display::ShiftScreen(int delta)
 {
-    SHIFT_IN_MEMORY += delta;
+    SHIFT_IN_MEMORY += (int16)delta;
     Limitation<int16>(&SHIFT_IN_MEMORY, 0, (int16)(sMemory_GetNumPoints(false) - 282));
 }
 

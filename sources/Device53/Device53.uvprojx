@@ -4451,14 +4451,14 @@
               <FilePath>.\src\libs\USBD\usbd_conf.h</FilePath>
             </File>
             <File>
-              <FileName>usbd_desc.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\src\libs\USBD\usbd_desc.c</FilePath>
-            </File>
-            <File>
               <FileName>usbd_desc.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\libs\USBD\usbd_desc.h</FilePath>
+            </File>
+            <File>
+              <FileName>usbd_desc.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\libs\USBD\usbd_desc.cpp</FilePath>
             </File>
           </Files>
         </Group>

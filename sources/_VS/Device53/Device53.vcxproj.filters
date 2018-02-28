@@ -31,20 +31,11 @@
     <Filter Include="Menu\Pages">
       <UniqueIdentifier>{fe0b4803-db1f-4158-89ff-2d7aa8f8cea6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Panel">
-      <UniqueIdentifier>{f58cc03d-a935-4f60-8c06-7ea1166d85aa}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Settings">
       <UniqueIdentifier>{888eacfd-0546-4bf3-9ac0-a370394a0756}</UniqueIdentifier>
     </Filter>
     <Filter Include="Utils">
       <UniqueIdentifier>{c509fd62-8b88-44a2-b47e-312e5c0859be}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="VCP">
-      <UniqueIdentifier>{540e0af4-ecf2-46fb-b2e6-479f4cb73cd1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="VCP\SCPI">
-      <UniqueIdentifier>{ce88dc7d-ee60-41a1-a0e7-a714ab1d876d}</UniqueIdentifier>
     </Filter>
     <Filter Include="_VS">
       <UniqueIdentifier>{dc8167d9-f775-4239-8bf3-a1fb77c726e9}</UniqueIdentifier>
@@ -67,32 +58,14 @@
     <Filter Include="libs\FatFS">
       <UniqueIdentifier>{1606bd8b-854e-41f8-bb14-4856c6a2cdb5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="libs\CMSIS">
+      <UniqueIdentifier>{08044b62-328c-440d-8846-02046c7d4435}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SCPI">
+      <UniqueIdentifier>{ce88dc7d-ee60-41a1-a0e7-a714ab1d876d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Device53\src\libs\system_stm32f2xx.c">
-      <Filter>libs</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Device53\src\libs\usbd_desc.c">
-      <Filter>libs</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Device53\src\libs\app_ethernet.cpp">
-      <Filter>libs</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Device53\src\libs\ethernetif.cpp">
-      <Filter>libs</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Device53\src\libs\usbh_conf.cpp">
-      <Filter>libs</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Device53\src\libs\usbd_conf.cpp">
-      <Filter>libs</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Device53\src\libs\usbd_cdc_interface.cpp">
-      <Filter>libs</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Device53\src\libs\stm32f2xx_hal_msp.cpp">
-      <Filter>libs</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Device53\src\main.cpp">
       <Filter>src</Filter>
     </ClCompile>
@@ -165,12 +138,6 @@
     <ClCompile Include="..\..\Device53\src\Menu\Pages\PageTrig.cpp">
       <Filter>Menu\Pages</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Device53\src\Panel\Panel.cpp">
-      <Filter>Panel</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Device53\src\Panel\PanelFunctions.cpp">
-      <Filter>Panel</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Device53\src\Settings\Settings.cpp">
       <Filter>Settings</Filter>
     </ClCompile>
@@ -195,9 +162,6 @@
     <ClCompile Include="..\..\Device53\src\Utils\ProcessingSignal.cpp">
       <Filter>Utils</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Device53\src\VCP\VCP.cpp">
-      <Filter>VCP</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\libs\common\Utils\Math.cpp">
       <Filter>Utils</Filter>
     </ClCompile>
@@ -212,9 +176,6 @@
     </ClCompile>
     <ClCompile Include="..\..\Device53\src\FPGA\FPGASettings.cpp">
       <Filter>FPGA</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\libs\common\commonDefines.cpp">
-      <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\..\libs\common\Utils\CommonFunctions.cpp">
       <Filter>Utils</Filter>
@@ -275,27 +236,6 @@
     </ClCompile>
     <ClCompile Include="..\..\libs\common\Log.cpp">
       <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\libs\common\VCP\SCPI\channelSCPI.cpp">
-      <Filter>VCP\SCPI</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\libs\common\VCP\SCPI\commonSCPI.cpp">
-      <Filter>VCP\SCPI</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\libs\common\VCP\SCPI\controlSCPI.cpp">
-      <Filter>VCP\SCPI</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\libs\common\VCP\SCPI\displaySCPI.cpp">
-      <Filter>VCP\SCPI</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\libs\common\VCP\SCPI\SCPI.cpp">
-      <Filter>VCP\SCPI</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\libs\common\VCP\SCPI\tbaseSCPI.cpp">
-      <Filter>VCP\SCPI</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\libs\common\VCP\SCPI\trigSCPI.cpp">
-      <Filter>VCP\SCPI</Filter>
     </ClCompile>
     <ClCompile Include="..\..\libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\diskio.c">
       <Filter>libs\FatFS</Filter>
@@ -558,35 +498,62 @@
     <ClCompile Include="..\..\libs\common\S8-53\Hardware\Controls.cpp">
       <Filter>Hardware</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Device53\src\libs\HAL\stm32f2xx_hal_msp.cpp">
+      <Filter>libs\HAL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Device53\src\libs\LwIP\app_ethernet.cpp">
+      <Filter>libs\LwIP</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Device53\src\libs\LwIP\ethernetif.cpp">
+      <Filter>libs\LwIP</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Device53\src\libs\CMSIS\system_stm32f2xx.c">
+      <Filter>libs\CMSIS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Device53\src\libs\USBD\usbd_cdc_interface.cpp">
+      <Filter>libs\USBD</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Device53\src\libs\USBD\usbd_conf.cpp">
+      <Filter>libs\USBD</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Device53\src\libs\USBH\usbh_conf.cpp">
+      <Filter>libs\USBH</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Device53\src\Hardware\VCP.cpp">
+      <Filter>Hardware</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Device53\src\Hardware\Panel.cpp">
+      <Filter>Hardware</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Device53\src\Hardware\PanelFunctions.cpp">
+      <Filter>Hardware</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\common\SCPI\channelSCPI.cpp">
+      <Filter>SCPI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\common\SCPI\commonSCPI.cpp">
+      <Filter>SCPI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\common\SCPI\controlSCPI.cpp">
+      <Filter>SCPI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\common\SCPI\displaySCPI.cpp">
+      <Filter>SCPI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\common\SCPI\SCPI.cpp">
+      <Filter>SCPI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\common\SCPI\tbaseSCPI.cpp">
+      <Filter>SCPI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\common\SCPI\trigSCPI.cpp">
+      <Filter>SCPI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Device53\src\libs\USBD\usbd_desc.cpp">
+      <Filter>libs\USBD</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Device53\src\libs\app_ethernet.h">
-      <Filter>libs</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Device53\src\libs\ethernetif.h">
-      <Filter>libs</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Device53\src\libs\ffconf.h">
-      <Filter>libs</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Device53\src\libs\lwipopts.h">
-      <Filter>libs</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Device53\src\libs\stm32f2xx_hal_conf.h">
-      <Filter>libs</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Device53\src\libs\usbd_cdc_interface.h">
-      <Filter>libs</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Device53\src\libs\usbd_conf.h">
-      <Filter>libs</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Device53\src\libs\usbd_desc.h">
-      <Filter>libs</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Device53\src\libs\usbh_conf.h">
-      <Filter>libs</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Device53\src\defines.h">
       <Filter>src</Filter>
     </ClInclude>
@@ -641,9 +608,6 @@
     <ClInclude Include="..\..\Device53\src\Menu\Pages\PageMemory.h">
       <Filter>Menu\Pages</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Device53\src\Panel\Panel.h">
-      <Filter>Panel</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Device53\src\Settings\Settings.h">
       <Filter>Settings</Filter>
     </ClInclude>
@@ -683,17 +647,11 @@
     <ClInclude Include="..\..\Device53\src\Utils\ProcessingSignal.h">
       <Filter>Utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Device53\src\VCP\VCP.h">
-      <Filter>VCP</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\libs\common\Utils\Math.h">
       <Filter>Utils</Filter>
     </ClInclude>
     <ClInclude Include="..\..\libs\common\Utils\StringUtils.h">
       <Filter>Utils</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\libs\common\commonDefines.h">
-      <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Device53\src\FPGA\FPGATypes.h">
       <Filter>FPGA</Filter>
@@ -767,15 +725,6 @@
     <ClInclude Include="..\..\libs\common\stub.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\libs\common\VCP\SCPI\commonSCPI.h">
-      <Filter>VCP\SCPI</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\libs\common\VCP\SCPI\controlSCPI.h">
-      <Filter>VCP\SCPI</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\libs\common\VCP\SCPI\SCPI.h">
-      <Filter>VCP\SCPI</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\diskio.h">
       <Filter>libs\FatFS</Filter>
     </ClInclude>
@@ -787,42 +736,6 @@
     </ClInclude>
     <ClInclude Include="..\..\libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\drivers\usbh_diskio.h">
       <Filter>libs\FatFS</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\libs\common\_VS\ctype.h">
-      <Filter>_VS</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\libs\common\_VS\integer.h">
-      <Filter>_VS</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\libs\common\_VS\inttypes.h">
-      <Filter>_VS</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\libs\common\_VS\limits.h">
-      <Filter>_VS</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\libs\common\_VS\math.h">
-      <Filter>_VS</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\libs\common\_VS\stdarg.h">
-      <Filter>_VS</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\libs\common\_VS\stdint.h">
-      <Filter>_VS</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\libs\common\_VS\stdio.h">
-      <Filter>_VS</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\libs\common\_VS\stdlib.h">
-      <Filter>_VS</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\libs\common\_VS\string.h">
-      <Filter>_VS</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\libs\common\_VS\tchar.h">
-      <Filter>_VS</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\libs\common\_VS\windows.h">
-      <Filter>_VS</Filter>
     </ClInclude>
     <ClInclude Include="..\..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Inc\stm32f2xx_hal.h">
       <Filter>libs\HAL</Filter>
@@ -962,9 +875,6 @@
     <ClInclude Include="..\..\Device53\src\Menu\Pages\PageTime.h">
       <Filter>Menu\Pages</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Device53\src\libs\interrupts.h">
-      <Filter>libs</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Inc\stm32f2xx_hal_gpio_ex.h">
       <Filter>libs\HAL</Filter>
     </ClInclude>
@@ -989,11 +899,104 @@
     <ClInclude Include="..\..\libs\common\S8-53\Hardware\Controls.h">
       <Filter>Hardware</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Device53\src\libs\FatFS\ffconf.h">
+      <Filter>libs\FatFS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Device53\src\libs\HAL\stm32f2xx_hal_conf.h">
+      <Filter>libs\HAL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Device53\src\libs\LwIP\app_ethernet.h">
+      <Filter>libs\LwIP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Device53\src\libs\LwIP\ethernetif.h">
+      <Filter>libs\LwIP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Device53\src\libs\LwIP\lwipopts.h">
+      <Filter>libs\LwIP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Device53\src\libs\USBD\usbd_cdc_interface.h">
+      <Filter>libs\USBD</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Device53\src\libs\USBD\usbd_conf.h">
+      <Filter>libs\USBD</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Device53\src\libs\USBD\usbd_desc.h">
+      <Filter>libs\USBD</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Device53\src\libs\USBH\usbh_conf.h">
+      <Filter>libs\USBH</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\common\_VS\cmsis_armcc.h">
+      <Filter>_VS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\common\_VS\cmsis_armcc_V6.h">
+      <Filter>_VS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\common\_VS\core_cm4.h">
+      <Filter>_VS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\common\_VS\core_cmFunc.h">
+      <Filter>_VS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\common\_VS\core_cmInstr.h">
+      <Filter>_VS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\common\_VS\core_cmSimd.h">
+      <Filter>_VS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\common\_VS\ctype.h">
+      <Filter>_VS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\common\_VS\integer.h">
+      <Filter>_VS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\common\_VS\inttypes.h">
+      <Filter>_VS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\common\_VS\limits.h">
+      <Filter>_VS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\common\_VS\math.h">
+      <Filter>_VS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\common\_VS\stdarg.h">
+      <Filter>_VS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\common\_VS\stdint.h">
+      <Filter>_VS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\common\_VS\stdio.h">
+      <Filter>_VS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\common\_VS\stdlib.h">
+      <Filter>_VS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\common\_VS\string.h">
+      <Filter>_VS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\common\_VS\tchar.h">
+      <Filter>_VS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\common\_VS\windows.h">
+      <Filter>_VS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Device53\src\Hardware\VCP.h">
+      <Filter>Hardware</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Device53\src\Hardware\Panel.h">
+      <Filter>Hardware</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\common\SCPI\commonSCPI.h">
+      <Filter>SCPI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\common\SCPI\controlSCPI.h">
+      <Filter>SCPI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\common\SCPI\SCPI.h">
+      <Filter>SCPI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\Device53\src\libs\startup_stm32f207xx.s">
-      <Filter>libs</Filter>
-    </None>
     <None Include="..\..\Device53\src\main2.s">
       <Filter>src</Filter>
     </None>
@@ -1021,7 +1024,19 @@
     <None Include="..\..\Device53\src\Display\font\fontUGOdisplay.inc">
       <Filter>Display\fonts</Filter>
     </None>
+    <None Include="..\..\Device53\src\libs\CMSIS\startup_stm32f207xx.s">
+      <Filter>libs\CMSIS</Filter>
+    </None>
     <None Include="..\..\libs\common\_VS\algorithm">
+      <Filter>_VS</Filter>
+    </None>
+    <None Include="..\..\libs\common\_VS\cstdlib">
+      <Filter>_VS</Filter>
+    </None>
+    <None Include="..\..\libs\common\_VS\cstring">
+      <Filter>_VS</Filter>
+    </None>
+    <None Include="..\..\libs\common\_VS\limits">
       <Filter>_VS</Filter>
     </None>
   </ItemGroup>
