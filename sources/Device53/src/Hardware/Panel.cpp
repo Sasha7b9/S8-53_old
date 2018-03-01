@@ -136,10 +136,10 @@ static PanelButton ButtonIsRelease(uint16 command)
     PanelButton button = B_Empty;
     if(command < B_NumButtons && command > B_Empty)
     {
-        if(gTimeMS - timePrevReleaseButton > 100)
+        if(TIME_MS - timePrevReleaseButton > 100)
         {
             button = (PanelButton)command;
-            timePrevReleaseButton = gTimeMS;
+            timePrevReleaseButton = TIME_MS;
         }
     }
     return button;
@@ -150,10 +150,10 @@ static PanelButton ButtonIsPress(uint16 command)
     PanelButton button = B_Empty;
     if (((command & 0x7f) < B_NumButtons) && ((command & 0x7f) > B_Empty))
     {
-        if(gTimeMS - timePrevPressButton > 100)
+        if(TIME_MS - timePrevPressButton > 100)
         {
             button = (PanelButton)(command & 0x7f);
-            timePrevPressButton = gTimeMS;
+            timePrevPressButton = TIME_MS;
         }
     }
     return button;
@@ -294,13 +294,13 @@ void Panel::EnableLEDTrig(bool enable)
     {
         TransmitData(LED_TRIG_DISABLE);
         Display::EnableTrigLabel(false);
-        timeEnable = gTimeMS;
+        timeEnable = TIME_MS;
         first = false;
     }
 
     if(enable)
     {
-        timeEnable = gTimeMS;
+        timeEnable = TIME_MS;
     }
 
     if(enable != fired)
@@ -311,7 +311,7 @@ void Panel::EnableLEDTrig(bool enable)
             Display::EnableTrigLabel(true);
             fired = true;
         }
-        else if(gTimeMS - timeEnable > 100)
+        else if(TIME_MS - timeEnable > 100)
         {
             TransmitData(LED_TRIG_DISABLE);
             Display::EnableTrigLabel(false);

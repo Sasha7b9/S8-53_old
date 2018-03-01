@@ -91,17 +91,17 @@ void Display::Update1()
     static uint max = 0;
     static uint current = 0;
 
-    uint time = gTimeMS;
+    uint time = TIME_MS;
 
     Painter::BeginScene(Color::BLACK);
 
-    Painter::DrawFormText(5, 200, Color::WHITE, "%f секунд", gTimeMS / 1000.0);
+    Painter::DrawFormText(5, 200, Color::WHITE, "%f секунд", TIME_MS / 1000.0);
 
     Painter::DrawFormText(5, 220, Color::WHITE, "min = %d max = %d, current = %d", min , max, current);
 
     Painter::EndScene();
 
-    current = gTimeMS - time;
+    current = TIME_MS - time;
 
     if (current < min)
     {
@@ -118,8 +118,8 @@ void Display::Update()
 {
     ms->display.isRun = true;
 
-    uint dT = gTimeMS - ms->display.timePrev;
-    ms->display.timePrev = gTimeMS;
+    uint dT = TIME_MS - ms->display.timePrev;
+    ms->display.timePrev = TIME_MS;
 
     Painter::BeginScene(Color::BLACK);
 
@@ -219,10 +219,10 @@ static void DrawBigMNIPI()
     if (first)
     {
         first = false;
-        startTime = gTimeMS;
+        startTime = TIME_MS;
     }
 
-    uint time = gTimeMS - startTime;
+    uint time = TIME_MS - startTime;
 
     int numColor = (int)(time / (float)TIME_WAIT * 13.0f);
     Limitation<int>(&numColor, 0, 13);

@@ -67,15 +67,15 @@ void Ethernet::Init()
 //------------------------------------------------------------------------------------------------------------------------------------------------------
 void Ethernet::Update(uint timeMS)
 {
-    uint time = gTimeMS;
+    uint time = TIME_MS;
 
     do 
     {
-        gBF.cableEthIsConnected = gTimeMS - gEthTimeLastEthifInput <= 1500;
+        gBF.cableEthIsConnected = TIME_MS - gEthTimeLastEthifInput <= 1500;
 
         ethernetif_input(&gnetif);
         sys_check_timeouts();
-    } while (gTimeMS - time < timeMS);
+    } while (TIME_MS - time < timeMS);
 }
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------

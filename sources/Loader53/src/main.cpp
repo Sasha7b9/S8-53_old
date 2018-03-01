@@ -46,11 +46,11 @@ int main()
 
     Timer::SetAndEnable(kTemp, Display::Update, 10);
 
-    uint timeStart = gTimeMS;
+    uint timeStart = TIME_MS;
 
     FDrive::Init();
 
-    while (gTimeMS - timeStart < TIME_WAIT && !FDrive::Update())
+    while (TIME_MS - timeStart < TIME_WAIT && !FDrive::Update())
     {
     }
 

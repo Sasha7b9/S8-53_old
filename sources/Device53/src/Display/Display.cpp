@@ -1231,7 +1231,7 @@ extern uint8 *pool;
 //---------------------------------------------------------------------------------------------------------------------------------------------------
 void Display::Update()
 {
-	uint timeStart = gTimeTics;
+	uint timeStart = TIME_TICKS;
     if (funcOnHand != 0)
     {
         funcOnHand();
@@ -1283,7 +1283,7 @@ void Display::Update()
         WriteValueTrigLevel();
     }
 
-    DrawTimeForFrame(gTimeTics - timeStart);
+    DrawTimeForFrame(TIME_TICKS - timeStart);
 
     Painter::SetColor(Color::FILL);
 
@@ -2131,7 +2131,7 @@ void Display::DrawLowPart()
     }
 
     // Ethernet
-    if ((gBF.ethIsConnected == 1 || gBF.cableEthIsConnected == 1) && gTimeMS > 2000)
+    if ((gBF.ethIsConnected == 1 || gBF.cableEthIsConnected == 1) && TIME_MS > 2000)
     {
         Painter::Draw4SymbolsInRect(x + 87, GRID_BOTTOM + 2, SYMBOL_ETHERNET, gBF.ethIsConnected ? Color::FILL : Color::FLASH_01);
     }
@@ -2171,16 +2171,16 @@ void Display::DrawTimeForFrame(uint timeTicks)
     static float numMS = 0.0f;
     if(first)
     {
-        timeMSstartCalculation = gTimeMS;
+        timeMSstartCalculation = TIME_MS;
         first = false;
     }
     numMS += timeTicks / 120000.0f;
     numFrames++;
     
-    if((gTimeMS - timeMSstartCalculation) >= 500)
+    if((TIME_MS - timeMSstartCalculation) >= 500)
     {
         sprintf(buffer, "%.1fms/%d", (double)(numMS / numFrames), numFrames * 2);
-        timeMSstartCalculation = gTimeMS;
+        timeMSstartCalculation = TIME_MS;
         numMS = 0.0f;
         numFrames = 0;
     }
@@ -2497,12 +2497,12 @@ void Display::ShowWarn(const char *message)
         if (warnings[i] == 0 && !alreadyStored)
         {
             warnings[i] = message;
-            timeWarnings[i] = gTimeMS;
+            timeWarnings[i] = TIME_MS;
             alreadyStored = true;
         }
         else if (warnings[i] == message)
         {
-            timeWarnings[i] = gTimeMS;
+            timeWarnings[i] = TIME_MS;
             return;
         }
     }
@@ -2511,7 +2511,7 @@ void Display::ShowWarn(const char *message)
 //---------------------------------------------------------------------------------------------------------------------------------------------------
 static void OnTimerShowWarning()
 {
-    uint time = gTimeMS;
+    uint time = TIME_MS;
     for (int i = 0; i < NUM_WARNINGS; i++)
     {
         if ((int)(time - timeWarnings[i]) > TIME_MESSAGES * 1000)

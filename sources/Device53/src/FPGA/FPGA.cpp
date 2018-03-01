@@ -79,7 +79,7 @@ void FPGA::Start()
     }
     FSMC::Write(WR_START, 1);
     FillDataPointer(&ds);
-    timeStart = gTimeMS;
+    timeStart = TIME_MS;
     stateWork = StateWorkFPGA_Wait;
     gBF.FPGAcritiacalSituation = 0;
 }
@@ -103,7 +103,7 @@ bool FPGA::ProcessingData()
         uint8 flag = ReadFlag();
         if (gBF.FPGAcritiacalSituation == 1)
         {
-            if (gTimeMS - timeStart > 500)
+            if (TIME_MS - timeStart > 500)
             {
                 SwitchingTrig();
                 gBF.FPGAtrigAutoFind = 1;
@@ -143,7 +143,7 @@ bool FPGA::ProcessingData()
                 {
                     gBF.FPGAcritiacalSituation = 1;
                 }
-                timeStart = gTimeMS;
+                timeStart = TIME_MS;
             }
         }
         Panel::EnableLEDTrig(_GET_BIT(flag, BIT_TRIG) ? true : false);
@@ -438,9 +438,9 @@ void FPGA::DataRead(bool necessaryShift, bool saveToStorage)
 
     static uint prevTime = 0;
 
-    if (saveToStorage || (gTimeMS - prevTime > 500))
+    if (saveToStorage || (TIME_MS - prevTime > 500))
     {
-        prevTime = gTimeMS;
+        prevTime = TIME_MS;
         if (!sTime_RandomizeModeEnabled())
         {
             InverseDataIsNecessary(A, dataRel0);
@@ -773,13 +773,13 @@ static float CalculateFreqFromCounterFreq()
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 static float CalculateFreqFromCounterPeriod()
 {
-    uint start = gTimeMS;
-    while (gTimeMS - start < 1000 && _GET_BIT(FSMC::Read(RD_FL), BIT_PERIOD_READY) == 0) {};
+    uint start = TIME_MS;
+    while (TIME_MS - start < 1000 && _GET_BIT(FSMC::Read(RD_FL), BIT_PERIOD_READY) == 0) {};
     ReadRegPeriod();
-    start = gTimeMS;
-    while (gTimeMS - start < 1000 && _GET_BIT(FSMC::Read(RD_FL), BIT_PERIOD_READY) == 0) {};
+    start = TIME_MS;
+    while (TIME_MS - start < 1000 && _GET_BIT(FSMC::Read(RD_FL), BIT_PERIOD_READY) == 0) {};
     BitSet32 period = ReadRegPeriod();
-    if (period.word > 0 && (gTimeMS - start < 1000))
+    if (period.word > 0 && (TIME_MS - start < 1000))
     {
         return PeriodCounterToValue(&period);
     }
