@@ -4,6 +4,10 @@
  extern "C" {
 #endif
 
+#ifdef MSVC
+#define __attribute(x)
+#endif
+
 
 #define HAL_MODULE_ENABLED  
 #define HAL_ADC_MODULE_ENABLED  

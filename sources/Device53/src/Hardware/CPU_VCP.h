@@ -2,10 +2,12 @@
 #include <usbd_def.h>
 
 
-#define VCP_FLUSH()                         VCP::Flush()
-#define VCP_SEND_DATA_SYNCH(buffer, size)   VCP::SendDataSynch(buffer, size)
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#define VCP_FLUSH()                         CPU::VCP::Flush()
+#define VCP_SEND_DATA_SYNCH(buffer, size)   CPU::VCP::SendDataSynch(buffer, size)
 
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 class VCP
 {
 public:
@@ -20,7 +22,7 @@ public:
     static void SendStringAsinch(char *data);
 
     static USBD_HandleTypeDef handleUSBD;
-    static PCD_HandleTypeDef handlePCD;
+    static PCD_HandleTypeDef  handlePCD;
 
 private:
     static bool PrevSendingComplete();

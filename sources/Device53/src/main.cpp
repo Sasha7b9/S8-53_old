@@ -13,8 +13,8 @@
 #include "Hardware/FLASH.h"
 #include "Menu/Pages/PageCursors.h"
 #include "Menu/Menu.h"
+#include "Hardware/CPU.h"
 #include "Hardware/Panel.h"
-#include "Hardware/VCP.h"
 #include "Settings/Settings.h"
 #include "Utils/ProcessingSignal.h"
 
@@ -103,6 +103,6 @@ void ProcessingSignal()
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 void Init() 
 {
-    VCP::Init();
+    CPU::VCP::Init();
 }
 

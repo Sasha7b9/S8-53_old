@@ -1,6 +1,6 @@
 #include "main.h"
 #include "globals.h"
-#include "Hardware/VCP.h"
+#include "Hardware/CPU.h"
 #include "SCPI/SCPI.h"
 #include "Log.h"
 #include "Hardware/Timer.h"
@@ -46,7 +46,7 @@ static void SetAttributeConnected()
 //---------------------------------------------------------------------------------------------------------------------------------------------------
 static int8_t CDC_Itf_Init()
 {
-    USBD_CDC_SetRxBuffer(&VCP::handleUSBD, UserRxBuffer);
+    USBD_CDC_SetRxBuffer(&CPU::VCP::handleUSBD, UserRxBuffer);
     Timer::SetAndStartOnce(kTemp, SetAttributeConnected, 100);  // GOVNOCODE Задержка введена для того, чтобы не было ложных срабатываний в 
     return (USBD_OK);                                           // usbd_conf.c:HAL_PCD_SetupStageCallback при определении подключения хоста
 }
@@ -127,6 +127,6 @@ static int8_t CDC_Itf_Receive(uint8* buffer, uint *length)
 {
     SCPI::AddNewData(buffer, *length);
 
-    USBD_CDC_ReceivePacket(&VCP::handleUSBD);
+    USBD_CDC_ReceivePacket(&CPU::VCP::handleUSBD);
     return (USBD_OK);
 }

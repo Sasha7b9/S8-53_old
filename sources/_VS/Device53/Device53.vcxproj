@@ -123,13 +123,13 @@
   <ItemGroup>
     <ClCompile Include="..\..\Device53\src\globals.cpp" />
     <ClCompile Include="..\..\Device53\src\Hardware\CPU.cpp" />
-    <ClCompile Include="..\..\Device53\src\Hardware\CPU_It.cpp" />
-    <ClCompile Include="..\..\Device53\src\Hardware\CPU_Rtc.cpp" />
+    <ClCompile Include="..\..\Device53\src\Hardware\CPU_IT.cpp" />
+    <ClCompile Include="..\..\Device53\src\Hardware\CPU_RTC.cpp" />
+    <ClCompile Include="..\..\Device53\src\Hardware\CPU_VCP.cpp" />
     <ClCompile Include="..\..\Device53\src\Hardware\Panel.cpp" />
     <ClCompile Include="..\..\Device53\src\Hardware\PanelFunctions.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="..\..\Device53\src\Hardware\VCP.cpp" />
     <ClCompile Include="..\..\Device53\src\libs\CMSIS\system_stm32f2xx.c" />
     <ClCompile Include="..\..\Device53\src\libs\HAL\stm32f2xx_hal_msp.cpp" />
     <ClCompile Include="..\..\Device53\src\libs\LwIP\app_ethernet.cpp" />
@@ -445,8 +445,8 @@
   <ItemGroup>
     <ClInclude Include="..\..\Device53\src\globals.h" />
     <ClInclude Include="..\..\Device53\src\Hardware\CPU.h" />
+    <ClInclude Include="..\..\Device53\src\Hardware\CPU_VCP.h" />
     <ClInclude Include="..\..\Device53\src\Hardware\Panel.h" />
-    <ClInclude Include="..\..\Device53\src\Hardware\VCP.h" />
     <ClInclude Include="..\..\Device53\src\libs\FatFS\ffconf.h" />
     <ClInclude Include="..\..\Device53\src\libs\HAL\stm32f2xx_hal_conf.h" />
     <ClInclude Include="..\..\Device53\src\libs\LwIP\app_ethernet.h" />

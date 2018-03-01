@@ -124,6 +124,7 @@
     <ClCompile Include="..\..\libs\common\Display\Colors.cpp" />
     <ClCompile Include="..\..\libs\common\Display\Painter.cpp" />
     <ClCompile Include="..\..\libs\common\Display\PainterText.cpp" />
+    <ClCompile Include="..\..\libs\common\Hardware\CPU_VCP.cpp" />
     <ClCompile Include="..\..\libs\common\Hardware\stm32\207\Timer207.cpp" />
     <ClCompile Include="..\..\libs\common\Hardware\Timer.cpp" />
     <ClCompile Include="..\..\libs\common\S8-53\Hardware\Controls.cpp" />
@@ -236,6 +237,7 @@
   <ItemGroup>
     <ClInclude Include="..\..\libs\common\Display\Colors.h" />
     <ClInclude Include="..\..\libs\common\Display\Painter.h" />
+    <ClInclude Include="..\..\libs\common\Hardware\CPU_VCP.h" />
     <ClInclude Include="..\..\libs\common\Hardware\stm32\207\Timer207.h" />
     <ClInclude Include="..\..\libs\common\Hardware\Timer.h" />
     <ClInclude Include="..\..\libs\common\S8-53\Hardware\Controls.h" />

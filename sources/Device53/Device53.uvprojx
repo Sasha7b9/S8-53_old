@@ -5321,14 +5321,14 @@
               </FileOption>
             </File>
             <File>
-              <FileName>VCP.cpp</FileName>
+              <FileName>CPU_VCP.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\src\Hardware\VCP.cpp</FilePath>
+              <FilePath>.\src\Hardware\CPU_VCP.cpp</FilePath>
             </File>
             <File>
-              <FileName>VCP.h</FileName>
+              <FileName>CPU_VCP.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\Hardware\VCP.h</FilePath>
+              <FilePath>.\src\Hardware\CPU_VCP.h</FilePath>
             </File>
           </Files>
         </Group>

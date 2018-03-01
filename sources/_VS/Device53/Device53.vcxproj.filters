@@ -489,12 +489,6 @@
     <ClCompile Include="..\..\Device53\src\Hardware\CPU.cpp">
       <Filter>Hardware</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Device53\src\Hardware\CPU_Rtc.cpp">
-      <Filter>Hardware</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Device53\src\Hardware\CPU_It.cpp">
-      <Filter>Hardware</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\libs\common\S8-53\Hardware\Controls.cpp">
       <Filter>Hardware</Filter>
     </ClCompile>
@@ -518,9 +512,6 @@
     </ClCompile>
     <ClCompile Include="..\..\Device53\src\libs\USBH\usbh_conf.cpp">
       <Filter>libs\USBH</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Device53\src\Hardware\VCP.cpp">
-      <Filter>Hardware</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Device53\src\Hardware\Panel.cpp">
       <Filter>Hardware</Filter>
@@ -551,6 +542,15 @@
     </ClCompile>
     <ClCompile Include="..\..\Device53\src\libs\USBD\usbd_desc.cpp">
       <Filter>libs\USBD</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Device53\src\Hardware\CPU_IT.cpp">
+      <Filter>Hardware</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Device53\src\Hardware\CPU_RTC.cpp">
+      <Filter>Hardware</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Device53\src\Hardware\CPU_VCP.cpp">
+      <Filter>Hardware</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -980,9 +980,6 @@
     <ClInclude Include="..\..\libs\common\_VS\windows.h">
       <Filter>_VS</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Device53\src\Hardware\VCP.h">
-      <Filter>Hardware</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Device53\src\Hardware\Panel.h">
       <Filter>Hardware</Filter>
     </ClInclude>
@@ -994,6 +991,9 @@
     </ClInclude>
     <ClInclude Include="..\..\libs\common\SCPI\SCPI.h">
       <Filter>SCPI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Device53\src\Hardware\CPU_VCP.h">
+      <Filter>Hardware</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
