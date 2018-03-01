@@ -477,9 +477,6 @@
     <ClCompile Include="..\..\libs\common\Display\PainterPIC24.cpp">
       <Filter>Display</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\libs\common\Hardware\stm32\207\Timer207.cpp">
-      <Filter>Hardware\stm32</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\libs\common\Hardware\stm32\stm32.cpp">
       <Filter>Hardware\stm32</Filter>
     </ClCompile>
@@ -551,6 +548,9 @@
     </ClCompile>
     <ClCompile Include="..\..\Device53\src\Hardware\CPU_VCP.cpp">
       <Filter>Hardware</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\common\Hardware\stm32\2XX\Timer2XX.cpp">
+      <Filter>Hardware\stm32</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -884,9 +884,6 @@
     <ClInclude Include="..\..\Device53\src\Utils\Dictionary.h">
       <Filter>Utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\libs\common\Hardware\stm32\207\Timer207.h">
-      <Filter>Hardware\stm32</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\libs\common\Hardware\stm32\stm32.h">
       <Filter>Hardware\stm32</Filter>
     </ClInclude>
@@ -994,6 +991,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Device53\src\Hardware\CPU_VCP.h">
       <Filter>Hardware</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\common\Hardware\stm32\2XX\Timer2XX.h">
+      <Filter>Hardware\stm32</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

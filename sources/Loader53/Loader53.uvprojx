@@ -2407,14 +2407,14 @@
           <GroupName>Hardware/stm32</GroupName>
           <Files>
             <File>
-              <FileName>Timer207.cpp</FileName>
+              <FileName>Timer2XX.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>..\libs\common\Hardware\stm32\207\Timer207.cpp</FilePath>
+              <FilePath>..\libs\common\Hardware\stm32\2XX\Timer2XX.cpp</FilePath>
             </File>
             <File>
-              <FileName>Timer207.h</FileName>
+              <FileName>Timer2XX.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\libs\common\Hardware\stm32\207\Timer207.h</FilePath>
+              <FilePath>..\libs\common\Hardware\stm32\2XX\Timer2XX.h</FilePath>
             </File>
           </Files>
         </Group>

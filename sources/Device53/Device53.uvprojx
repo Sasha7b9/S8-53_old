@@ -5336,16 +5336,6 @@
           <GroupName>Hardware/stm32</GroupName>
           <Files>
             <File>
-              <FileName>Timer207.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>..\libs\common\Hardware\stm32\207\Timer207.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Timer207.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\libs\common\Hardware\stm32\207\Timer207.h</FilePath>
-            </File>
-            <File>
               <FileName>stm32.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>..\libs\common\Hardware\stm32\stm32.cpp</FilePath>
@@ -5369,6 +5359,16 @@
               <FileName>stm32_it.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>..\libs\common\Hardware\stm32\stm32_it.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Timer2XX.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\libs\common\Hardware\stm32\2XX\Timer2XX.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Timer2XX.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\libs\common\Hardware\stm32\2XX\Timer2XX.h</FilePath>
             </File>
           </Files>
         </Group>
