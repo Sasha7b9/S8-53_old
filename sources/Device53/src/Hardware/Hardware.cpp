@@ -19,11 +19,8 @@ static void SystemClock_Config();
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-#ifdef __cplusplus
-extern "C" {
-#endif
     
-void Hardware_Init()
+void Hardware::Init()
 {
     __GPIOA_CLK_ENABLE();
     __GPIOB_CLK_ENABLE();
@@ -43,8 +40,6 @@ void Hardware_Init()
     Sound::Init();
     
     Panel::Init();
-
-    CPU::FSMC::Init();
 
     FDrive::Init();
 
@@ -76,10 +71,6 @@ void Hardware_Init()
         ERROR_HANDLER();
     }
 }
-
-#ifdef __cplusplus
-}
-#endif
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 static void SystemClock_Config()
@@ -115,7 +106,7 @@ static void SystemClock_Config()
 }
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
-uint Hardware_CalculateCRC32(uint address, uint numBytes)
+uint Hardware::CalculateCRC32(uint address, uint numBytes)
 {
     return HAL_CRC_Calculate(&crcHandle, (uint *)address, numBytes);
 }

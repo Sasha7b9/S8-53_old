@@ -21,15 +21,14 @@
 //static void FuncConnect(int _id);
 //static void FuncReciever(int _id, const char *_buffer, uint _length);
 static void ProcessingSignal();
-static void Init();
 
 #define TICS ((gTimerTics - time) / 120.0f)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 int main()
 {
-    Hardware_Init();
-    Init();
+    Hardware::Init();
+    CPU::VCP::Init();
     Settings::Load(false);
     FPGA::Init();    
     Timer::PauseOnTime(250);
@@ -98,10 +97,3 @@ void ProcessingSignal()
 
     Cursors_Update();    // В случае, если находимся в режиме курсорных измерений, обновляем их положение, если нужно.
 }
-
-//----------------------------------------------------------------------------------------------------------------------------------------------------
-void Init() 
-{
-    CPU::VCP::Init();
-}
-

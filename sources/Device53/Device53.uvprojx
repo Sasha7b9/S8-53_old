@@ -4876,11 +4876,6 @@
               <FilePath>.\src\main.h</FilePath>
             </File>
             <File>
-              <FileName>main2.s</FileName>
-              <FileType>2</FileType>
-              <FilePath>.\src\main2.s</FilePath>
-            </File>
-            <File>
               <FileName>Tables.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\Tables.h</FilePath>

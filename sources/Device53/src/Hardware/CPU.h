@@ -86,10 +86,16 @@ public:
     //------------------------------------------------------------------------------------------------------------------------------------------------
     class FSMC
     {
-    public:
+    friend class CPU;
+
+    private:
+
         static void Init();
 
+    public:
+
         static uint8 Read(uint8* address);
+
         static void Write(uint8 *address, uint8 value);
     };
 };

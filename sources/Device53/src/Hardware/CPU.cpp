@@ -8,4 +8,5 @@ void CPU::Init()
     Timer::Init();
     RTC_::Init();
     ADC_::Init();
+    FSMC::Init();
 }

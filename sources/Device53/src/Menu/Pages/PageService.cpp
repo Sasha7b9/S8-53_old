@@ -688,7 +688,7 @@ static void Information_Draw()
     y += dY;
 
     Painter::SetColor(Color::FILL);
-    Painter::DrawFormatText(x, y, "CRC32 : %X", Hardware_CalculateCRC32());
+    Painter::DrawFormatText(x, y, "CRC32 : %X", Hardware::CalculateCRC32());
 
     dY = -10;
     Painter::DrawStringInCenterRect(0, 190 + dY, 320, 20, "Для получения помощи нажмите и удерживайте кнопку ПОМОЩЬ");
