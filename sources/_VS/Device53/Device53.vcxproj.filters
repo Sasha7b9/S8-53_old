@@ -90,9 +90,6 @@
     <ClCompile Include="..\..\Device53\src\FPGA\FPGA.cpp">
       <Filter>FPGA</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Device53\src\Hardware\MSP_USBH.cpp">
-      <Filter>Hardware</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Device53\src\Menu\Pages\HelpContent.cpp">
       <Filter>Menu\Pages</Filter>
     </ClCompile>
@@ -531,9 +528,6 @@
     <ClCompile Include="..\..\Device53\src\Hardware\CPU_RTC.cpp">
       <Filter>Hardware</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Device53\src\Hardware\CPU_VCP.cpp">
-      <Filter>Hardware</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\libs\common\Hardware\stm32\2XX\Timer2XX.cpp">
       <Filter>Hardware\stm32</Filter>
     </ClCompile>
@@ -544,6 +538,9 @@
       <Filter>Hardware</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Device53\src\Hardware\CPU_FSMC.cpp">
+      <Filter>Hardware</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Device53\src\Hardware\VCP.cpp">
       <Filter>Hardware</Filter>
     </ClCompile>
   </ItemGroup>
@@ -971,11 +968,11 @@
     <ClInclude Include="..\..\libs\common\SCPI\SCPI.h">
       <Filter>SCPI</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Device53\src\Hardware\CPU_VCP.h">
-      <Filter>Hardware</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\libs\common\Hardware\stm32\2XX\Timer2XX.h">
       <Filter>Hardware\stm32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Device53\src\Hardware\VCP.h">
+      <Filter>Hardware</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

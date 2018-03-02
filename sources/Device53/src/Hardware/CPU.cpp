@@ -22,8 +22,6 @@ void CPU::Init()
 
     FSMC::Init();
 
-    VCP::Init();
-
     crcHandle.Instance = CRC;
     if (HAL_CRC_Init(&crcHandle) != HAL_OK)
     {

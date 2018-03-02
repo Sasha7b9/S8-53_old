@@ -14,6 +14,7 @@
 #include "Hardware/CPU.h"
 #include "Hardware/Panel.h"
 #include "Hardware/Timer.h"
+#include "Hardware/VCP.h"
 #include "Settings/Settings.h"
 #include "Utils/ProcessingSignal.h"
 
@@ -36,6 +37,8 @@ int main()
     Panel::Init();
 
     FDrive::Init();
+    
+    VCP::Init();
 
     Settings::Load(false);
     FPGA::Init();    

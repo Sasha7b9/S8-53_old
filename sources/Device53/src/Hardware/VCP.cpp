@@ -1,4 +1,5 @@
 #include "defines.h"
+#include "VCP.h"
 #include "Utils/Math.h"
 #include "SCPI/SCPI.h"
 #include "usbd_desc.h"
@@ -14,12 +15,12 @@
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-USBD_HandleTypeDef CPU::VCP::handleUSBD;
-PCD_HandleTypeDef  CPU::VCP::handlePCD;
+USBD_HandleTypeDef VCP::handleUSBD;
+PCD_HandleTypeDef  VCP::handlePCD;
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-void CPU::VCP::Init()
+void VCP::Init()
 {
     USBD_Init(&handleUSBD, &VCP_Desc, 0);
     USBD_RegisterClass(&handleUSBD, &USBD_CDC);
@@ -28,14 +29,14 @@ void CPU::VCP::Init()
 } 
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
-bool CPU::VCP::PrevSendingComplete()
+bool VCP::PrevSendingComplete()
 {
     USBD_CDC_HandleTypeDef *pCDC = (USBD_CDC_HandleTypeDef *)handleUSBD.pClassData;
     return pCDC->TxState == 0;
 }
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
-void CPU::VCP::SendDataAsinch(uint8 *buffer, int size)
+void VCP::SendDataAsinch(uint8 *buffer, int size)
 {
     const int SIZE_BUFFER = 64;
     static uint8 trBuf[SIZE_BUFFER];
@@ -53,7 +54,7 @@ static uint8 buffSend[SIZE_BUFFER_VCP];
 static int sizeBuffer = 0;
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
-void CPU::VCP::Flush()
+void VCP::Flush()
 {
     if (sizeBuffer)
     {
@@ -67,7 +68,7 @@ void CPU::VCP::Flush()
 }
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
-void CPU::VCP::SendDataSynch(const uint8 *buffer, int size)
+void VCP::SendDataSynch(const uint8 *buffer, int size)
 {
     if (gBF.connectToHost == 0)
     {
@@ -100,19 +101,19 @@ void CPU::VCP::SendDataSynch(const uint8 *buffer, int size)
 }
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
-void CPU::VCP::SendStringAsinch(char *data)
+void VCP::SendStringAsinch(char *data)
 {
     SendDataAsinch((uint8*)data, (int)strlen(data));
 }
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
-void CPU::VCP::SendStringSynch(char *data)
+void VCP::SendStringSynch(char *data)
 {
     SendDataSynch((uint8*)data, (int)strlen(data));
 }
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
-void CPU::VCP::SendFormatStringAsynch(char *format, ...)
+void VCP::SendFormatStringAsynch(char *format, ...)
 {
     static const int SIZE_BUFFER = 200;
     static char buffer[SIZE_BUFFER];
@@ -125,7 +126,7 @@ void CPU::VCP::SendFormatStringAsynch(char *format, ...)
 }
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
-void CPU::VCP::SendFormatStringSynch(char *format, ...) {
+void VCP::SendFormatStringSynch(char *format, ...) {
     static const int SIZE_BUFFER = 200;
     char buffer[SIZE_BUFFER];
     va_list args;
@@ -137,7 +138,7 @@ void CPU::VCP::SendFormatStringSynch(char *format, ...) {
 }
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
-void CPU::VCP::SendByte(uint8 byte)
+void VCP::SendByte(uint8 byte)
 {
     SendDataSynch(&byte, 1);
 }
@@ -148,7 +149,7 @@ extern "C" {
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 void OTG_FS_IRQHandler() {
-    HAL_PCD_IRQHandler(&CPU::VCP::handlePCD);
+    HAL_PCD_IRQHandler(&VCP::handlePCD);
 }
 
 #ifdef __cplusplus

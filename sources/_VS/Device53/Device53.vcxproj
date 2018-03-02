@@ -128,8 +128,8 @@
     <ClCompile Include="..\..\Device53\src\Hardware\CPU_FSMC.cpp" />
     <ClCompile Include="..\..\Device53\src\Hardware\CPU_IT.cpp" />
     <ClCompile Include="..\..\Device53\src\Hardware\CPU_RTC.cpp" />
-    <ClCompile Include="..\..\Device53\src\Hardware\CPU_VCP.cpp" />
     <ClCompile Include="..\..\Device53\src\Hardware\Panel.cpp" />
+    <ClCompile Include="..\..\Device53\src\Hardware\VCP.cpp" />
     <ClCompile Include="..\..\Device53\src\libs\CMSIS\system_stm32f2xx.c" />
     <ClCompile Include="..\..\Device53\src\libs\HAL\stm32f2xx_hal_msp.cpp" />
     <ClCompile Include="..\..\Device53\src\libs\LwIP\app_ethernet.cpp" />
@@ -181,7 +181,6 @@
     <ClCompile Include="..\..\Device53\src\FPGA\FPGA.cpp" />
     <ClCompile Include="..\..\Device53\src\FPGA\FPGACalibration.cpp" />
     <ClCompile Include="..\..\Device53\src\FPGA\FPGASettings.cpp" />
-    <ClCompile Include="..\..\Device53\src\Hardware\MSP_USBH.cpp" />
     <ClCompile Include="..\..\Device53\src\main.cpp" />
     <ClCompile Include="..\..\Device53\src\Menu\Pages\HelpContent.cpp" />
     <ClCompile Include="..\..\Device53\src\Menu\Pages\PageChannels.cpp" />
@@ -441,8 +440,8 @@
   <ItemGroup>
     <ClInclude Include="..\..\Device53\src\globals.h" />
     <ClInclude Include="..\..\Device53\src\Hardware\CPU.h" />
-    <ClInclude Include="..\..\Device53\src\Hardware\CPU_VCP.h" />
     <ClInclude Include="..\..\Device53\src\Hardware\Panel.h" />
+    <ClInclude Include="..\..\Device53\src\Hardware\VCP.h" />
     <ClInclude Include="..\..\Device53\src\libs\FatFS\ffconf.h" />
     <ClInclude Include="..\..\Device53\src\libs\HAL\stm32f2xx_hal_conf.h" />
     <ClInclude Include="..\..\Device53\src\libs\LwIP\app_ethernet.h" />

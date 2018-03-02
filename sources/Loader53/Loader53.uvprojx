@@ -2392,14 +2392,14 @@
               <FilePath>.\src\Hardware\CPU.h</FilePath>
             </File>
             <File>
-              <FileName>CPU_VCP.cpp</FileName>
+              <FileName>VCP.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>..\libs\common\Hardware\CPU_VCP.cpp</FilePath>
+              <FilePath>..\libs\common\Hardware\VCP.cpp</FilePath>
             </File>
             <File>
-              <FileName>CPU_VCP.h</FileName>
+              <FileName>VCP.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\libs\common\Hardware\CPU_VCP.h</FilePath>
+              <FilePath>..\libs\common\Hardware\VCP.h</FilePath>
             </File>
           </Files>
         </Group>

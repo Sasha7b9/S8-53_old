@@ -198,9 +198,6 @@
     <ClCompile Include="..\..\libs\common\S8-53\Hardware\Controls.cpp">
       <Filter>Hardware</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\libs\common\Hardware\CPU_VCP.cpp">
-      <Filter>Hardware</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\libs\common\Hardware\stm32\2XX\Timer2XX.cpp">
       <Filter>Hardware\stm32</Filter>
     </ClCompile>
@@ -354,9 +351,6 @@
       <Filter>libs\HAL</Filter>
     </ClInclude>
     <ClInclude Include="..\..\libs\common\S8-53\Hardware\Controls.h">
-      <Filter>Hardware</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\libs\common\Hardware\CPU_VCP.h">
       <Filter>Hardware</Filter>
     </ClInclude>
     <ClInclude Include="..\..\libs\common\Hardware\stm32\2XX\Timer2XX.h">
