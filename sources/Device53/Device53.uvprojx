@@ -5196,11 +5196,6 @@
               <FilePath>.\src\Hardware\CPU_VCP.cpp</FilePath>
             </File>
             <File>
-              <FileName>MSP_USBH.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\Hardware\MSP_USBH.cpp</FilePath>
-            </File>
-            <File>
               <FileName>Panel.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\Hardware\Panel.cpp</FilePath>

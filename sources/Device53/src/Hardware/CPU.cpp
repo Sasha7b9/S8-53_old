@@ -70,4 +70,5 @@ void CPU::EnablePeriphery()
 
     __PWR_CLK_ENABLE();
     __SYSCFG_CLK_ENABLE();
+    __USB_OTG_HS_CLK_ENABLE();
 }
