@@ -15,13 +15,13 @@
 #endif
 
 #if defined S8_53
-#define MODEL_RU "?8-53"
+#define MODEL_RU "С8-53"
 #define MODEL_EN "S8-53"
 #elif defined S8_54
-#define MODEL_RU "?8-54"
+#define MODEL_RU "С8-54"
 #define MODEL_EN "S8-54"
 #elif defined S8_55
-#define MODEL_RU "?8-55"
+#define MODEL_RU "С8-55"
 #define MODEL_EN "S8-55"
 #endif
 
@@ -76,23 +76,20 @@ typedef void  (*pFuncVpI8I8I8)(int8 *, int8, int8);
 #endif
 #endif
 
-#define ENABLE_RU "???"
+#define ENABLE_RU "Вкл"
 #define ENABLE_EN "On"
-#define DISABLE_RU "????"
+#define DISABLE_RU "Откл"
 #define DISABLE_EN "Off"
 
 #define SAFE_FREE(x) if(x) free(x); (x) = 0;
 
 #define NUM_VER "1.3"
 
-#define INTERRUPT_P2P   // ???? ??????????, ?? ??? ?????? ????? ???????????? ??????????
+#define INTERRUPT_P2P
  
 #define OLD_RECORDER
 
 #define DEBUG
-
-
-
 
 #define NUM_VER "1.3"
 

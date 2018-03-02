@@ -90,9 +90,6 @@
     <ClCompile Include="..\..\Device53\src\FPGA\FPGA.cpp">
       <Filter>FPGA</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Device53\src\Hardware\Hardware.cpp">
-      <Filter>Hardware</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Device53\src\Hardware\MSP_USBH.cpp">
       <Filter>Hardware</Filter>
     </ClCompile>
@@ -578,9 +575,6 @@
     <ClInclude Include="..\..\Device53\src\FPGA\FPGA.h">
       <Filter>FPGA</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Device53\src\Hardware\Hardware.h">
-      <Filter>Hardware</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Device53\src\Menu\Pages\HelpContent.h">
       <Filter>Menu\Pages</Filter>
     </ClInclude>
@@ -985,9 +979,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\Device53\src\main2.s">
-      <Filter>src</Filter>
-    </None>
     <None Include="..\..\Device53\src\Display\font\font5.inc">
       <Filter>Display\fonts</Filter>
     </None>

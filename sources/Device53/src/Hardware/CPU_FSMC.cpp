@@ -1,5 +1,4 @@
 #include "defines.h"
-#include "Hardware.h"
 #include "FPGA/FPGATypes.h"
 #include "Settings/Settings.h"
 #include "Hardware/CPU.h"

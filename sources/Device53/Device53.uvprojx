@@ -5196,11 +5196,6 @@
               <FilePath>.\src\Hardware\CPU_VCP.cpp</FilePath>
             </File>
             <File>
-              <FileName>Hardware.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\Hardware\Hardware.cpp</FilePath>
-            </File>
-            <File>
               <FileName>MSP_USBH.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\Hardware\MSP_USBH.cpp</FilePath>
@@ -5234,11 +5229,6 @@
               <FileName>CPU_VCP.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\Hardware\CPU_VCP.h</FilePath>
-            </File>
-            <File>
-              <FileName>Hardware.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\Hardware\Hardware.h</FilePath>
             </File>
             <File>
               <FileName>Panel.h</FileName>

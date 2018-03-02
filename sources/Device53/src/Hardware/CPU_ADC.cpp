@@ -1,6 +1,5 @@
 #include "defines.h"
 #include "Hardware/CPU.h"
-#include "Hardware.h"
 #include "globals.h"
 
 

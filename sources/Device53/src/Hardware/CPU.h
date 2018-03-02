@@ -19,6 +19,8 @@ public:
     
     static void Init();
 
+    static uint CalculateCRC32(uint address = 0x08020000, uint numBytes = 128 * 1024 * 3 / 4);
+
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 #include "Hardware/CPU_VCP.h"
 
@@ -98,6 +100,10 @@ public:
 
         static void Write(uint8 *address, uint8 value);
     };
+
+private:
+
+    static void EnablePeriphery();
 };
 
 

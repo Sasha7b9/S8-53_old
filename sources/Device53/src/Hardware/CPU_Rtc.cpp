@@ -1,6 +1,5 @@
 #include "defines.h"
 #include "Hardware/CPU.h"
-#include "Hardware/Hardware.h"
 #include "Log.h"
 #include "Display/Display.h"
 #include "Menu/Menu.h"

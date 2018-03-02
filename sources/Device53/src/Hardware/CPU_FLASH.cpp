@@ -1,5 +1,4 @@
 #include "defines.h"
-#include "Hardware.h"
 #include "Hardware/CPU.h"
 #include "Hardware/Sound.h"
 #include "Settings/Settings.h"

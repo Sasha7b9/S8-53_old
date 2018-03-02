@@ -9,7 +9,6 @@
 #include "Display/Grid.h"
 #include "Utils/Math.h"
 #include "Utils/StringUtils.h"
-#include "Hardware/Hardware.h"
 #include "Hardware/Sound.h"
 #include "Hardware/CPU.h"
 #include "FlashDrive/FlashDrive.h"

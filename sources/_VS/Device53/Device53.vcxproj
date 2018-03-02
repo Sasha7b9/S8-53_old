@@ -81,6 +81,7 @@
       <PreprocessorDefinitions>USE_HAL_DRIVER;STM32F207xx;S8_53;USBD_LPM_ENABLED=0;MSVC</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <DisableSpecificWarnings>4068;4131;4201;4310;4514;4365;4548;4774;4820;5039</DisableSpecificWarnings>
+      <AdditionalOptions>-MP %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <TargetMachine>MachineARM</TargetMachine>
@@ -180,7 +181,6 @@
     <ClCompile Include="..\..\Device53\src\FPGA\FPGA.cpp" />
     <ClCompile Include="..\..\Device53\src\FPGA\FPGACalibration.cpp" />
     <ClCompile Include="..\..\Device53\src\FPGA\FPGASettings.cpp" />
-    <ClCompile Include="..\..\Device53\src\Hardware\Hardware.cpp" />
     <ClCompile Include="..\..\Device53\src\Hardware\MSP_USBH.cpp" />
     <ClCompile Include="..\..\Device53\src\main.cpp" />
     <ClCompile Include="..\..\Device53\src\Menu\Pages\HelpContent.cpp" />
@@ -495,7 +495,6 @@
     <ClInclude Include="..\..\Device53\src\FPGA\DataStorage.h" />
     <ClInclude Include="..\..\Device53\src\FPGA\FPGA.h" />
     <ClInclude Include="..\..\Device53\src\FPGA\FPGATypes.h" />
-    <ClInclude Include="..\..\Device53\src\Hardware\Hardware.h" />
     <ClInclude Include="..\..\Device53\src\main.h" />
     <ClInclude Include="..\..\Device53\src\Menu\MenuPagesNames.h" />
     <ClInclude Include="..\..\Device53\src\Menu\Pages\HelpContent.h" />
@@ -686,7 +685,6 @@
     <None Include="..\..\Device53\src\Display\font\fontUGO2display.inc" />
     <None Include="..\..\Device53\src\Display\font\fontUGOdisplay.inc" />
     <None Include="..\..\Device53\src\libs\CMSIS\startup_stm32f207xx.s" />
-    <None Include="..\..\Device53\src\main2.s" />
     <None Include="..\..\libs\common\_VS\algorithm" />
     <None Include="..\..\libs\common\_VS\cstdlib" />
     <None Include="..\..\libs\common\_VS\cstring" />

@@ -8,12 +8,12 @@
 #include "FlashDrive/FlashDrive.h"
 #include "FPGA/FPGA.h"
 #include "FPGA/DataStorage.h"
-#include "Hardware/Hardware.h"
 #include "Hardware/Sound.h"
 #include "Menu/Pages/PageCursors.h"
 #include "Menu/Menu.h"
 #include "Hardware/CPU.h"
 #include "Hardware/Panel.h"
+#include "Hardware/Timer.h"
 #include "Settings/Settings.h"
 #include "Utils/ProcessingSignal.h"
 
@@ -27,8 +27,16 @@ static void ProcessingSignal();
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 int main()
 {
-    Hardware::Init();
-    CPU::VCP::Init();
+    CPU::Init();
+
+    Timer::Init();
+
+    Sound::Init();
+
+    Panel::Init();
+
+    FDrive::Init();
+
     Settings::Load(false);
     FPGA::Init();    
     Timer::PauseOnTime(250);

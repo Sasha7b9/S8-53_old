@@ -3,8 +3,8 @@
 #include "FPGA/FPGA.h"
 #include "FPGA/FPGAMath.h"
 #include "Menu/Menu.h"
+#include "Hardware/CPU.h"
 #include "Hardware/Panel.h"
-#include "Hardware/Hardware.h"
 #include "Hardware/Sound.h"
 #include "Hardware/Timer.h"
 #include "Utils/Math.h"
@@ -688,7 +688,7 @@ static void Information_Draw()
     y += dY;
 
     Painter::SetColor(Color::FILL);
-    Painter::DrawFormatText(x, y, "CRC32 : %X", Hardware::CalculateCRC32());
+    Painter::DrawFormatText(x, y, "CRC32 : %X", CPU::CalculateCRC32());
 
     dY = -10;
     Painter::DrawStringInCenterRect(0, 190 + dY, 320, 20, "Для получения помощи нажмите и удерживайте кнопку ПОМОЩЬ");
