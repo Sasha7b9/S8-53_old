@@ -195,11 +195,11 @@
     <ClCompile Include="..\..\Loader53\src\libs\CMSIS\system_stm32f2xx.c">
       <Filter>libs\CMSIS</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\libs\common\S8-53\Hardware\Controls.cpp">
-      <Filter>Hardware</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\libs\common\Hardware\stm32\2XX\Timer2XX.cpp">
       <Filter>Hardware\stm32</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\common\Hardware\Controls\Controls53.cpp">
+      <Filter>Hardware</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -350,11 +350,14 @@
     <ClInclude Include="..\..\Loader53\src\libs\HAL\stm32f7xx_hal_conf.h">
       <Filter>libs\HAL</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\libs\common\S8-53\Hardware\Controls.h">
-      <Filter>Hardware</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\libs\common\Hardware\stm32\2XX\Timer2XX.h">
       <Filter>Hardware\stm32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Loader53\src\Hardware\Controls.h">
+      <Filter>Hardware</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\common\Hardware\Controls\Controls53.h">
+      <Filter>Hardware</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

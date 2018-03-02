@@ -71,7 +71,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <OutDir>..\Debug\</OutDir>
-    <IncludePath>..\..\Device53\src;..\..\Device53\src\libs\FatFS;..\..\Device53\src\libs\HAL;..\..\Device53\src\libs\LwIP;..\..\Device53\src\libs\USBD;..\..\Device53\src\libs\USBH;..\..\libs\common\S8-53;..\..\libs\common;..\..\libs\common\_VS;..\..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Inc;..\..\libs\STM32Cube_F2\Drivers\CMSIS\Include;..\..\libs\STM32Cube_F2\Drivers\CMSIS\Device\ST\STM32F2xx\Include;..\..\libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\include;..\..\libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\system;..\..\libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\drivers;..\..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Device_Library\Core\Inc;..\..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Class\MSC\Inc;..\..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Core\Inc;..\..\libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src;..\..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Device_Library\Class\CDC\Inc</IncludePath>
+    <IncludePath>..\..\Device53\src;..\..\Device53\src\libs\FatFS;..\..\Device53\src\libs\HAL;..\..\Device53\src\libs\LwIP;..\..\Device53\src\libs\USBD;..\..\Device53\src\libs\USBH;..\..\libs\common;..\..\libs\common\_VS;..\..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Inc;..\..\libs\STM32Cube_F2\Drivers\CMSIS\Include;..\..\libs\STM32Cube_F2\Drivers\CMSIS\Device\ST\STM32F2xx\Include;..\..\libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\src\include;..\..\libs\STM32Cube_F2\Middlewares\Third_Party\LwIP\system;..\..\libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src\drivers;..\..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Device_Library\Core\Inc;..\..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Class\MSC\Inc;..\..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Host_Library\Core\Inc;..\..\libs\STM32Cube_F2\Middlewares\Third_Party\FatFs\src;..\..\libs\STM32Cube_F2\Middlewares\ST\STM32_USB_Device_Library\Class\CDC\Inc</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -146,6 +146,7 @@
     <ClCompile Include="..\..\libs\common\Display\PainterPIC24.cpp" />
     <ClCompile Include="..\..\libs\common\Display\PainterText.cpp" />
     <ClCompile Include="..\..\libs\common\FPGA\FPGAMath.cpp" />
+    <ClCompile Include="..\..\libs\common\Hardware\Controls\Controls53.cpp" />
     <ClCompile Include="..\..\libs\common\Hardware\Sound.cpp" />
     <ClCompile Include="..\..\libs\common\Hardware\stm32\207\stm207.cpp" />
     <ClCompile Include="..\..\libs\common\Hardware\stm32\2XX\Timer2XX.cpp" />
@@ -157,7 +158,6 @@
     <ClCompile Include="..\..\libs\common\Menu\MenuItemsGraphics.cpp" />
     <ClCompile Include="..\..\libs\common\Menu\MenuItemsLogic.cpp" />
     <ClCompile Include="..\..\libs\common\Menu\Pages\Definition.cpp" />
-    <ClCompile Include="..\..\libs\common\S8-53\Hardware\Controls.cpp" />
     <ClCompile Include="..\..\libs\common\SCPI\channelSCPI.cpp" />
     <ClCompile Include="..\..\libs\common\SCPI\commonSCPI.cpp" />
     <ClCompile Include="..\..\libs\common\SCPI\controlSCPI.cpp" />
@@ -439,6 +439,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Device53\src\globals.h" />
+    <ClInclude Include="..\..\Device53\src\Hardware\Controls.h" />
     <ClInclude Include="..\..\Device53\src\Hardware\CPU.h" />
     <ClInclude Include="..\..\Device53\src\Hardware\Panel.h" />
     <ClInclude Include="..\..\Device53\src\Hardware\VCP.h" />
@@ -462,6 +463,7 @@
     <ClInclude Include="..\..\libs\common\Display\Grid.h" />
     <ClInclude Include="..\..\libs\common\Display\Painter.h" />
     <ClInclude Include="..\..\libs\common\FPGA\FPGAMath.h" />
+    <ClInclude Include="..\..\libs\common\Hardware\Controls\Controls53.h" />
     <ClInclude Include="..\..\libs\common\Hardware\Sound.h" />
     <ClInclude Include="..\..\libs\common\Hardware\stm32\207\stm207.h" />
     <ClInclude Include="..\..\libs\common\Hardware\stm32\2XX\Timer2XX.h" />
@@ -472,7 +474,6 @@
     <ClInclude Include="..\..\libs\common\Menu\MenuItems.h" />
     <ClInclude Include="..\..\libs\common\Menu\MenuItemsDefs.h" />
     <ClInclude Include="..\..\libs\common\Menu\Pages\Definition.h" />
-    <ClInclude Include="..\..\libs\common\S8-53\Hardware\Controls.h" />
     <ClInclude Include="..\..\libs\common\SCPI\commonSCPI.h" />
     <ClInclude Include="..\..\libs\common\SCPI\controlSCPI.h" />
     <ClInclude Include="..\..\libs\common\SCPI\SCPI.h" />

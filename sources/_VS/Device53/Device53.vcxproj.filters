@@ -471,9 +471,6 @@
     <ClCompile Include="..\..\Device53\src\Hardware\CPU.cpp">
       <Filter>Hardware</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\libs\common\S8-53\Hardware\Controls.cpp">
-      <Filter>Hardware</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Device53\src\libs\HAL\stm32f2xx_hal_msp.cpp">
       <Filter>libs\HAL</Filter>
     </ClCompile>
@@ -541,6 +538,9 @@
       <Filter>Hardware</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Device53\src\Hardware\VCP.cpp">
+      <Filter>Hardware</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\common\Hardware\Controls\Controls53.cpp">
       <Filter>Hardware</Filter>
     </ClCompile>
   </ItemGroup>
@@ -872,9 +872,6 @@
     <ClInclude Include="..\..\Device53\src\Hardware\CPU.h">
       <Filter>Hardware</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\libs\common\S8-53\Hardware\Controls.h">
-      <Filter>Hardware</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Device53\src\libs\FatFS\ffconf.h">
       <Filter>libs\FatFS</Filter>
     </ClInclude>
@@ -972,6 +969,12 @@
       <Filter>Hardware\stm32</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Device53\src\Hardware\VCP.h">
+      <Filter>Hardware</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Device53\src\Hardware\Controls.h">
+      <Filter>Hardware</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\common\Hardware\Controls\Controls53.h">
       <Filter>Hardware</Filter>
     </ClInclude>
   </ItemGroup>
