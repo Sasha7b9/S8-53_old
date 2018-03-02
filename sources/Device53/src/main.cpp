@@ -10,7 +10,6 @@
 #include "FPGA/DataStorage.h"
 #include "Hardware/Hardware.h"
 #include "Hardware/Sound.h"
-#include "Hardware/FLASH.h"
 #include "Menu/Pages/PageCursors.h"
 #include "Menu/Menu.h"
 #include "Hardware/CPU.h"
@@ -82,7 +81,7 @@ void ProcessingSignal()
         data0 = &gData0memInt;
         data1 = &gData1memInt;
         ds = &gDSmemInt;
-        FLASHMem::GetData(gMemory.currentNumIntSignal, &gDSmemInt, &gData0memInt, &gData1memInt);
+        CPU::FLASH_::GetData(gMemory.currentNumIntSignal, &gDSmemInt, &gData0memInt, &gData1memInt);
     }
 
     if (MODE_WORK_IS_ROM)

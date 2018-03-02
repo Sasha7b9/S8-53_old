@@ -1,6 +1,6 @@
 #include "Settings.h"
-#include "Hardware/FLASH.h"
 #include "Display/Display.h"
+#include "Hardware/CPU.h"
 #include "Hardware/Panel.h"
 #include "FPGA/FPGA.h"
 #include "FPGA/FPGATypes.h"
@@ -283,7 +283,7 @@ void Settings::Load(bool _default)
 {
     set = defaultSettings;
     
-    FLASHMem::LoadSettings();
+    CPU::FLASH_::LoadSettings();
 
     if (_default)                                                               // Если нужно сбросить настройки
     {
@@ -337,7 +337,7 @@ void Settings::Load(bool _default)
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 void Settings::Save()
 {
-    FLASHMem::SaveSettings();
+    CPU::FLASH_::SaveSettings();
 }
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------

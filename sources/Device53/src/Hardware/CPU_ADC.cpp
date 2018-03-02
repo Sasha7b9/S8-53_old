@@ -131,7 +131,7 @@ extern "C" {
             }
 
             /* Conversion complete callback */
-            CPU::ADC_::value = (uint16)HAL_ADC_GetValue(&handleADC);
+            CPU::ADC_::value = (uint16)ADC3->DR;
 
             /* Clear regular group conversion flag */
             __HAL_ADC_CLEAR_FLAG(hadc, ADC_FLAG_STRT | ADC_FLAG_EOC);

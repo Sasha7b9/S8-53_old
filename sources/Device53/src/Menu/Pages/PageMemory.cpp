@@ -17,7 +17,7 @@
 #include "Utils/StringUtils.h"
 #include "Utils/CommonFunctions.h"
 #include "FlashDrive/FlashDrive.h"
-#include "Hardware/FLASH.h"
+#include "Hardware/CPU.h"
 #include "Hardware/Sound.h"
 #include "Log.h"
 #include "Tables.h"
@@ -175,7 +175,7 @@ DEF_SMALL_BUTTON(   sbMemLastNext,                                              
 static void PressSB_MemLast_IntEnter()
 {
     MODE_WORK = ModeWork_ROM;
-    FLASHMem::GetData(gMemory.currentNumIntSignal, &gDSmemInt, &gData0memInt, &gData1memInt);
+    CPU::FLASH_::GetData(gMemory.currentNumIntSignal, &gDSmemInt, &gData0memInt, &gData1memInt);
     gMemory.exitFromIntToLast = 1;
 }
 
@@ -480,8 +480,8 @@ static void SaveSignalToIntMemory()
     {
         if  (gDSmemLast != 0)
         {
-            FLASHMem::SaveData(gMemory.currentNumIntSignal, gDSmemLast, gData0memLast, gData1memLast);
-            FLASHMem::GetData(gMemory.currentNumIntSignal, &gDSmemInt, &gData0memInt, &gData1memInt);
+            CPU::FLASH_::SaveData(gMemory.currentNumIntSignal, gDSmemLast, gData0memLast, gData1memLast);
+            CPU::FLASH_::GetData(gMemory.currentNumIntSignal, &gDSmemInt, &gData0memInt, &gData1memInt);
             Display::ShowWarningGood(SignalIsSaved);
         }
     }
@@ -489,8 +489,8 @@ static void SaveSignalToIntMemory()
     {
         if (gDSet != 0)
         {
-            FLASHMem::SaveData(gMemory.currentNumIntSignal, gDSet, gData0, gData1);
-            FLASHMem::GetData(gMemory.currentNumIntSignal, &gDSet, &gData0memInt, &gData1memInt);
+            CPU::FLASH_::SaveData(gMemory.currentNumIntSignal, gDSet, gData0, gData1);
+            CPU::FLASH_::GetData(gMemory.currentNumIntSignal, &gDSet, &gData0memInt, &gData1memInt);
             Display::ShowWarningGood(SignalIsSaved);
         }
     }
@@ -522,7 +522,7 @@ static void FuncAdditionDrawingSPageMemoryInt()
 
     bool exist[MAX_NUM_SAVED_WAVES] = {false};
 
-    FLASHMem::GetDataInfo(exist);
+    CPU::FLASH_::GetDataInfo(exist);
 
     for (int i = 0; i < MAX_NUM_SAVED_WAVES; i++)
     {
@@ -541,7 +541,7 @@ static void FuncOnRegSetMemInt(int delta)
     {
         CircleIncrease<int8>(&gMemory.currentNumIntSignal, 0, MAX_NUM_SAVED_WAVES - 1);
     }
-    FLASHMem::GetData(gMemory.currentNumIntSignal, &gDSmemInt, &gData0memInt, &gData1memInt);
+    CPU::FLASH_::GetData(gMemory.currentNumIntSignal, &gDSmemInt, &gData0memInt, &gData1memInt);
     Painter::ResetFlash();
 }
 
@@ -713,7 +713,7 @@ DEF_SMALL_BUTTON(   sbExitSetName,                                              
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 static void PressSB_MemInt_Exit()
 {
-    FLASHMem::GetData(gMemory.currentNumIntSignal, &gDSmemInt, &gData0memInt, &gData1memInt);
+    CPU::FLASH_::GetData(gMemory.currentNumIntSignal, &gDSmemInt, &gData0memInt, &gData1memInt);
     if (gMemory.exitFromIntToLast == 1)
     {
         MODE_WORK = ModeWork_RAM;
@@ -1104,7 +1104,7 @@ DEF_PAGE_6(         mspMemoryExt,                                               
 static void OnPressMemoryInt()
 {
     MODE_WORK = ModeWork_ROM;
-    FLASHMem::GetData(gMemory.currentNumIntSignal, &gDSmemInt, &gData0memInt, &gData1memInt);
+    CPU::FLASH_::GetData(gMemory.currentNumIntSignal, &gDSmemInt, &gData0memInt, &gData1memInt);
 }
 
 DEF_PAGE_SB(        mspMemInt,                                                                                                // œ¿Ãﬂ“‹ - ¬Õ”“– «” ///

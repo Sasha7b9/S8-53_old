@@ -3,6 +3,16 @@
 #include "globals.h"
 
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#define ADDR_BANK           0x60000000
+#define ADDR_CDISPLAY       ((uint8*)(ADDR_BANK + 0x00800000))
+#define ADDR_FPGA           ((uint8*)(ADDR_BANK + 0x00c80000))  // Адрес записи в аппаратные регистры.
+
+#define FSMC_SET_MODE(x)
+#define FSMC_RESTORE_MODE()
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 class CPU : public STM207
 {
 public:
@@ -39,6 +49,48 @@ public:
     public:
 
         static uint16 value;
+    };
+
+    //------------------------------------------------------------------------------------------------------------------------------------------------
+    class FLASH_
+    {
+    /// Пока ограничено количеством квадратиков, которые можно вывести в одну линию внизу сетки
+    #define MAX_NUM_SAVED_WAVES 23
+
+    public:
+        static void LoadSettings();
+
+        static void SaveSettings(bool verifyLoaded = false);
+        /// Если даннные есть, соответствующий элемент массива равен true/.
+        static void GetDataInfo(bool existData[MAX_NUM_SAVED_WAVES]);
+
+        static bool ExistData(int num);
+
+        static void SaveData(int num, DataSettings *ds, uint8 *data0, uint8 *data1);
+
+        static bool GetData(int num, DataSettings **ds, uint8 **data0, uint8 **data1);
+
+        static void DeleteData(int num);
+    };
+
+    //------------------------------------------------------------------------------------------------------------------------------------------------
+    class OTP
+    {
+    public:
+        
+        static bool SaveSerialNumber(char *serialNumber);
+        /// Функция возвращает число свободных мест для записи. Если 0, то места в OTP уже не осталось. 
+        static int GetSerialNumber(char buffer[17]);
+    };
+
+    //------------------------------------------------------------------------------------------------------------------------------------------------
+    class FSMC
+    {
+    public:
+        static void Init();
+
+        static uint8 Read(uint8* address);
+        static void Write(uint8 *address, uint8 value);
     };
 };
 

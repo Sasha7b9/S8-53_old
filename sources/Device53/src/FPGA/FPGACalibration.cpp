@@ -6,8 +6,8 @@
 #include "Display/Colors.h"
 #include "Display/Painter.h"
 #include "Menu/Pages/PageDebug.h"
+#include "Hardware/CPU.h"
 #include "Hardware/Panel.h"
-#include "Hardware/FSMC.h"
 #include "Settings/SettingsTypes.h"
 #include "Settings/Settings.h"
 #include "Utils/Math.h"
@@ -90,8 +90,8 @@ void FPGA::ProcedureCalibration()
         FPGA::SetRShift(B, RShiftZero);
         FPGA::SetModeCouple(A, ModeCouple_GND);
         FPGA::SetModeCouple(B, ModeCouple_GND);
-        FSMC::Write(WR_ADD_RSHIFT_DAC1, 0);
-        FSMC::Write(WR_ADD_RSHIFT_DAC2, 0);
+        CPU::FSMC::Write(WR_ADD_RSHIFT_DAC1, 0);
+        CPU::FSMC::Write(WR_ADD_RSHIFT_DAC2, 0);
 
         deltaADCPercentsOld[0] = CalculateDeltaADC(A, &avrADC1old[A], &avrADC2old[A], &deltaADCold[A]);
         deltaADCPercentsOld[1] = CalculateDeltaADC(B, &avrADC1old[B], &avrADC2old[B], &deltaADCold[B]);
@@ -191,8 +191,8 @@ void FPGA::ProcedureCalibration()
 
     SET_BALANCE_ADC_A = shiftADC0;
     SET_BALANCE_ADC_B = shiftADC1;
-    FSMC::Write(WR_ADD_RSHIFT_DAC1, (uint8)SET_BALANCE_ADC_A);
-    FSMC::Write(WR_ADD_RSHIFT_DAC2, (uint8)SET_BALANCE_ADC_B);
+    CPU::FSMC::Write(WR_ADD_RSHIFT_DAC1, (uint8)SET_BALANCE_ADC_A);
+    CPU::FSMC::Write(WR_ADD_RSHIFT_DAC2, (uint8)SET_BALANCE_ADC_B);
 
     FPGA::SetRShift(A, SET_RSHIFT_A);
     FPGA::SetRShift(B, SET_RSHIFT_B);
@@ -366,27 +366,27 @@ float CalculateDeltaADC(Channel chan, float *avgADC1, float *avgADC2, float *del
     static const int numCicles = 10;
     for(int cicle = 0; cicle < numCicles; cicle++)
     {
-        FSMC::Write(WR_START, 1);
-        while(_GET_BIT(FSMC::Read(RD_FL), 2) == 0) {};
+        CPU::FSMC::Write(WR_START, 1);
+        while(_GET_BIT(CPU::FSMC::Read(RD_FL), 2) == 0) {};
         FPGA::SwitchingTrig();
-        while(_GET_BIT(FSMC::Read(RD_FL), 0) == 0) {};
-        FSMC::Write(WR_STOP, 1);
+        while(_GET_BIT(CPU::FSMC::Read(RD_FL), 0) == 0) {};
+        CPU::FSMC::Write(WR_STOP, 1);
 
         for(int i = 0; i < FPGA_MAX_POINTS; i++)
         {
             if(chan == A)
             {
-                *avgADC1 += FSMC::Read(address1);
-                *avgADC2 += FSMC::Read(address2);
-                FSMC::Read(RD_ADC_B1);
-                FSMC::Read(RD_ADC_B2);
+                *avgADC1 += CPU::FSMC::Read(address1);
+                *avgADC2 += CPU::FSMC::Read(address2);
+                CPU::FSMC::Read(RD_ADC_B1);
+                CPU::FSMC::Read(RD_ADC_B2);
             }
             else
             {
-                FSMC::Read(RD_ADC_A1);
-                FSMC::Read(RD_ADC_A2);
-                *avgADC1 += FSMC::Read(address1);
-                *avgADC2 += FSMC::Read(address2);
+                CPU::FSMC::Read(RD_ADC_A1);
+                CPU::FSMC::Read(RD_ADC_A2);
+                *avgADC1 += CPU::FSMC::Read(address1);
+                *avgADC2 += CPU::FSMC::Read(address2);
             }
         }
         
@@ -409,8 +409,8 @@ void AlignmentADC()
     SET_BALANCE_ADC_A = shiftADC0;
     shiftADC1 = (int8)((deltaADCold[1] > 0) ? (deltaADCold[1] + 0.5f) : (deltaADCold[1] - 0.5f));
     SET_BALANCE_ADC_B = shiftADC1;
-    FSMC::Write(WR_ADD_RSHIFT_DAC1, (uint8)SET_BALANCE_ADC_A);
-    FSMC::Write(WR_ADD_RSHIFT_DAC2, (uint8)SET_BALANCE_ADC_B);
+    CPU::FSMC::Write(WR_ADD_RSHIFT_DAC1, (uint8)SET_BALANCE_ADC_A);
+    CPU::FSMC::Write(WR_ADD_RSHIFT_DAC2, (uint8)SET_BALANCE_ADC_B);
 }
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
@@ -438,8 +438,8 @@ int16 CalculateAdditionRShift(Channel chan, Range range)
         uint startTime = TIME_MS;
         const uint timeWait = 100;
 
-        FSMC::Write(WR_START, 1);
-        while(_GET_BIT(FSMC::Read(RD_FL), 2) == 0 && (TIME_MS - startTime < timeWait)) {}; 
+        CPU::FSMC::Write(WR_START, 1);
+        while(_GET_BIT(CPU::FSMC::Read(RD_FL), 2) == 0 && (TIME_MS - startTime < timeWait)) {}; 
         if(TIME_MS - startTime > timeWait)                 // Если прошло слишком много времени - 
         {
             return ERROR_VALUE_INT16;                       // выход с ошибкой.
@@ -449,21 +449,21 @@ int16 CalculateAdditionRShift(Channel chan, Range range)
 
         startTime = TIME_MS;
 
-        while(_GET_BIT(FSMC::Read(RD_FL), 0) == 0 && (TIME_MS - startTime < timeWait)) {};
+        while(_GET_BIT(CPU::FSMC::Read(RD_FL), 0) == 0 && (TIME_MS - startTime < timeWait)) {};
         if(TIME_MS - startTime > timeWait)                 // Если прошло слишком много времени - 
         {
             return ERROR_VALUE_INT16;                       // выход с ошибкой.
         }
 
-        FSMC::Write(WR_STOP, 1);
+        CPU::FSMC::Write(WR_STOP, 1);
 
         uint8 *addressRead1 = chan == A ? RD_ADC_A1 : RD_ADC_B1;
         uint8 *addressRead2 = chan == A ? RD_ADC_A2 : RD_ADC_B2;
 
         for(int j = 0; j < FPGA_MAX_POINTS; j += 2)
         {
-            sum += FSMC::Read(addressRead1);
-            sum += FSMC::Read(addressRead2);
+            sum += CPU::FSMC::Read(addressRead1);
+            sum += CPU::FSMC::Read(addressRead2);
             numPoints += 2;
         }
     }
@@ -502,8 +502,8 @@ float CalculateKoeffCalibration(Channel chan)
         while(TIME_MS - startTime < 20) {}
         startTime = TIME_MS;
 
-        FSMC::Write(WR_START, 1);
-        while(_GET_BIT(FSMC::Read(RD_FL), 2) == 0 && (TIME_MS - startTime > timeWait)) {};
+        CPU::FSMC::Write(WR_START, 1);
+        while(_GET_BIT(CPU::FSMC::Read(RD_FL), 2) == 0 && (TIME_MS - startTime > timeWait)) {};
         if(TIME_MS - startTime > timeWait)
         {
             return ERROR_VALUE_FLOAT;
@@ -512,20 +512,20 @@ float CalculateKoeffCalibration(Channel chan)
         FPGA::SwitchingTrig();
         startTime = TIME_MS;
 
-        while(_GET_BIT(FSMC::Read(RD_FL), 0) == 0 && (TIME_MS - startTime > timeWait)) {};
+        while(_GET_BIT(CPU::FSMC::Read(RD_FL), 0) == 0 && (TIME_MS - startTime > timeWait)) {};
         if(TIME_MS - startTime > timeWait)
         {
             return ERROR_VALUE_FLOAT;
         }
 
-        FSMC::Write(WR_STOP, 1);
+        CPU::FSMC::Write(WR_STOP, 1);
 
         uint8 *addressRead1 = chan == A ? RD_ADC_A1 : RD_ADC_B1;
         uint8 *addressRead2 = chan == A ? RD_ADC_A2 : RD_ADC_B2;
 
         for(int j = 0; j < FPGA_MAX_POINTS; j += 2)
         {
-            uint8 val0 = FSMC::Read(addressRead1);
+            uint8 val0 = CPU::FSMC::Read(addressRead1);
             if(val0 > AVE_VALUE + 60)
             {
                 numMAX++;
@@ -537,7 +537,7 @@ float CalculateKoeffCalibration(Channel chan)
                 sumMIN += val0;
             }
 
-            uint8 val1 = FSMC::Read(addressRead2);
+            uint8 val1 = CPU::FSMC::Read(addressRead2);
             if(val1 > AVE_VALUE + 60)
             {
                 numMAX++;

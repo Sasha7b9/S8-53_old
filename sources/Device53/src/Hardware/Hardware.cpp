@@ -1,9 +1,7 @@
 #include "defines.h"
 #include "Hardware.h"
-#include "FLASH.h"
 #include "Hardware/CPU.h"
 #include "Hardware/Sound.h"
-#include "FSMC.h"
 #include "Hardware/Timer.h"
 #include "Log.h"
 #include "Ethernet/Ethernet.h"
@@ -46,7 +44,7 @@ void Hardware_Init()
     
     Panel::Init();
 
-    FSMC::Init();
+    CPU::FSMC::Init();
 
     FDrive::Init();
 

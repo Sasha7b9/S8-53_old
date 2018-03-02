@@ -4,7 +4,6 @@
 #include "FPGA/FPGAMath.h"
 #include "Menu/Menu.h"
 #include "Hardware/Panel.h"
-#include "Hardware/FLASH.h"
 #include "Hardware/Hardware.h"
 #include "Hardware/Sound.h"
 #include "Hardware/Timer.h"

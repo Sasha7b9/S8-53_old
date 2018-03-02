@@ -9,9 +9,8 @@
 #include "Display/Symbols.h"
 #include "FPGA/FPGA.h"
 #include "FPGA/FPGATypes.h"
-#include "Hardware/FSMC.h"
+#include "Hardware/CPU.h"
 #include "Hardware/Sound.h"
-#include "Hardware/FLASH.h"
 #include "Menu/Menu.h"
 #include "Utils/Math.h"
 #include "Log.h"
@@ -598,7 +597,7 @@ static void OnPress_SerialNumber_Save()
 
     snprintf(stringSN, 19, "%02d %04d", s->number, s->year);
 
-    if (!OTPMem::SaveSerialNumber(stringSN))
+    if (!CPU::OTP::SaveSerialNumber(stringSN))
     {
         Display::ShowWarningBad(FullyCompletedOTP);
     }
@@ -669,7 +668,7 @@ static void Draw_EnterSerialNumber()
 
     // Теперь выведем информацию об оставшемся месте в OTP-памяти для записи
 
-    int allShots = OTPMem::GetSerialNumber(buffer);
+    int allShots = CPU::OTP::GetSerialNumber(buffer);
 
     Painter::SetColor(Color::FILL);
 

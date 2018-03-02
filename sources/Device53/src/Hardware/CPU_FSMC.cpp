@@ -1,5 +1,4 @@
 #include "defines.h"
-#include "FSMC.h"
 #include "Hardware.h"
 #include "FPGA/FPGATypes.h"
 #include "Settings/Settings.h"
@@ -48,13 +47,13 @@ static const char *addrNamesForWrite[32] =
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-uint8 FSMC::Read(uint8 *address)
+uint8 CPU::FSMC::Read(uint8 *address)
 {
     return(*(address));
 }
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
-void FSMC::Write(uint8 *address, uint8 value)
+void CPU::FSMC::Write(uint8 *address, uint8 value)
 {
     char buffer[9];
     char buffer8[3];
@@ -74,7 +73,7 @@ void FSMC::Write(uint8 *address, uint8 value)
 }
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
-void FSMC::Init()
+void CPU::FSMC::Init()
 {
     static const FSMC_NORSRAM_TimingTypeDef sramTiming =
     {

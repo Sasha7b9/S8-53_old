@@ -5171,6 +5171,21 @@
               <FilePath>.\src\Hardware\CPU.cpp</FilePath>
             </File>
             <File>
+              <FileName>CPU_ADC.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\Hardware\CPU_ADC.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>CPU_FLASH.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\Hardware\CPU_FLASH.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>CPU_FSMC.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\Hardware\CPU_FSMC.cpp</FilePath>
+            </File>
+            <File>
               <FileName>CPU_IT.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\Hardware\CPU_IT.cpp</FilePath>
@@ -5184,16 +5199,6 @@
               <FileName>CPU_VCP.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\Hardware\CPU_VCP.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>FLASH.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\Hardware\FLASH.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>FSMC.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\Hardware\FSMC.cpp</FilePath>
             </File>
             <File>
               <FileName>Hardware.cpp</FileName>
@@ -5236,16 +5241,6 @@
               <FilePath>.\src\Hardware\CPU_VCP.h</FilePath>
             </File>
             <File>
-              <FileName>FLASH.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\Hardware\FLASH.h</FilePath>
-            </File>
-            <File>
-              <FileName>FSMC.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\Hardware\FSMC.h</FilePath>
-            </File>
-            <File>
               <FileName>Hardware.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\Hardware\Hardware.h</FilePath>
@@ -5264,11 +5259,6 @@
               <FileName>Timer.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\libs\common\Hardware\Timer.h</FilePath>
-            </File>
-            <File>
-              <FileName>CPU_ADC.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\Hardware\CPU_ADC.cpp</FilePath>
             </File>
           </Files>
         </Group>

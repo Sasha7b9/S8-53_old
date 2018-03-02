@@ -1,5 +1,9 @@
 #pragma once
 
+#ifdef MSVC
+#define __ARMCLIB_VERSION 6070001
+#endif
+
 #pragma clang diagnostic ignored "-Wold-style-cast"
 #pragma clang diagnostic ignored "-Wchar-subscripts"
 #pragma clang diagnostic ignored "-Winvalid-source-encoding"
