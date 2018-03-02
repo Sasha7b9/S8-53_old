@@ -2,6 +2,7 @@
 #include "it.h"
 #include <stm32f2xx.h>
 #include "globals.h"
+#include "Hardware/Timer.h"
 
 
 #ifdef MSVC
@@ -80,3 +81,10 @@ void OTG_HS_IRQHandler()
 #ifdef __cplusplus
 }
 #endif
+
+//----------------------------------------------------------------------------------------------------------------------------------------------------
+// Эта функция вызывается при срабатывании любого аппаратного таймера
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+{
+    Timer::ElapsedCallback(htim);
+}
