@@ -11,12 +11,6 @@ extern "C" {
 #endif
 
     //------------------------------------------------------------------------------------------------------------------------------------------------
-    void ADC_IRQHandler()
-    {
-        HAL_ADC_IRQHandler(&handleADC);
-    }
-
-    //------------------------------------------------------------------------------------------------------------------------------------------------
     /// This interrupt call soft NSS for spi (see Hardware::SPIforPanel.c::PanelInit() and HAL_GPIO_EXTI_Callback().
     void EXTI0_IRQHandler()
     {

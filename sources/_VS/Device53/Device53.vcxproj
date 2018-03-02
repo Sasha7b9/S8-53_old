@@ -123,6 +123,7 @@
   <ItemGroup>
     <ClCompile Include="..\..\Device53\src\globals.cpp" />
     <ClCompile Include="..\..\Device53\src\Hardware\CPU.cpp" />
+    <ClCompile Include="..\..\Device53\src\Hardware\CPU_ADC.cpp" />
     <ClCompile Include="..\..\Device53\src\Hardware\CPU_IT.cpp" />
     <ClCompile Include="..\..\Device53\src\Hardware\CPU_RTC.cpp" />
     <ClCompile Include="..\..\Device53\src\Hardware\CPU_VCP.cpp" />
@@ -178,7 +179,6 @@
     <ClCompile Include="..\..\Device53\src\FPGA\FPGA.cpp" />
     <ClCompile Include="..\..\Device53\src\FPGA\FPGACalibration.cpp" />
     <ClCompile Include="..\..\Device53\src\FPGA\FPGASettings.cpp" />
-    <ClCompile Include="..\..\Device53\src\Hardware\ADC.cpp" />
     <ClCompile Include="..\..\Device53\src\Hardware\FLASH.cpp" />
     <ClCompile Include="..\..\Device53\src\Hardware\FSMC.cpp" />
     <ClCompile Include="..\..\Device53\src\Hardware\Hardware.cpp" />
@@ -496,7 +496,6 @@
     <ClInclude Include="..\..\Device53\src\FPGA\DataStorage.h" />
     <ClInclude Include="..\..\Device53\src\FPGA\FPGA.h" />
     <ClInclude Include="..\..\Device53\src\FPGA\FPGATypes.h" />
-    <ClInclude Include="..\..\Device53\src\Hardware\ADC.h" />
     <ClInclude Include="..\..\Device53\src\Hardware\FLASH.h" />
     <ClInclude Include="..\..\Device53\src\Hardware\FSMC.h" />
     <ClInclude Include="..\..\Device53\src\Hardware\Hardware.h" />

@@ -1,6 +1,5 @@
 #include "defines.h"
 #include "Hardware.h"
-#include "ADC.h"
 #include "FLASH.h"
 #include "Hardware/CPU.h"
 #include "Hardware/Sound.h"
@@ -48,8 +47,6 @@ void Hardware_Init()
     Panel::Init();
 
     FSMC::Init();
-
-    ADConverter::Init();
 
     FDrive::Init();
 

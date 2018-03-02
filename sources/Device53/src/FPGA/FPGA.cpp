@@ -2,7 +2,7 @@
 #include "FPGA.h"
 #include "Log.h"
 #include "structs.h"
-#include "Hardware/ADC.h"
+#include "Hardware/CPU.h"
 #include "Hardware/FSMC.h"
 #include "Hardware/Timer.h"
 #include "Hardware/Panel.h"
@@ -532,7 +532,7 @@ bool FPGA::CalculateGate(uint16 rand, uint16 *eMin, uint16 *eMax)
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 int FPGA::CalculateShift()            // \todo Не забыть восстановить функцию
 {
-    uint16 rand = ADConverter::GetValue();
+    uint16 rand = CPU::ADC_::value;
     //LOG_WRITE("rand = %d", (int)rand);
     uint16 min = 0;
     uint16 max = 0;

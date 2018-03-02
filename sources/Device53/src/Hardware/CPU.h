@@ -27,5 +27,37 @@ public:
 
         static PackedTime GetPackedTime();
     };
+
+    //------------------------------------------------------------------------------------------------------------------------------------------------
+    class ADC_
+    {
+    friend class CPU;
+    
+    private:
+        static void Init();
+
+    public:
+
+        static uint16 value;
+    };
 };
 
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+    /// Для рандомизатора
+    void ADC_IRQHandler();
+    /// Программный NSS для SPI (смотри Hardware::SPIforPanel.c::PanelInit() and HAL_GPIO_EXTI_Callback().
+    void EXTI0_IRQHandler();
+    /// See Hardware::SPIforPanel.c::HAL_SPI_RxCpltCallback().
+    void SPI1_IRQHandler();
+
+    void OTG_HS_IRQHandler();
+
+    void DMA1_Stream5_IRQHandler();
+
+#ifdef __cplusplus
+}
+#endif

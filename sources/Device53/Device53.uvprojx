@@ -5161,11 +5161,6 @@
           <GroupName>Hardware</GroupName>
           <Files>
             <File>
-              <FileName>ADC.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\Hardware\ADC.cpp</FilePath>
-            </File>
-            <File>
               <FileName>Controls.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>..\libs\common\S8-53\Hardware\Controls.cpp</FilePath>
@@ -5226,11 +5221,6 @@
               <FilePath>..\libs\common\Hardware\Timer.cpp</FilePath>
             </File>
             <File>
-              <FileName>ADC.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\Hardware\ADC.h</FilePath>
-            </File>
-            <File>
               <FileName>Controls.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\libs\common\S8-53\Hardware\Controls.h</FilePath>
@@ -5274,6 +5264,11 @@
               <FileName>Timer.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\libs\common\Hardware\Timer.h</FilePath>
+            </File>
+            <File>
+              <FileName>CPU_ADC.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\Hardware\CPU_ADC.cpp</FilePath>
             </File>
           </Files>
         </Group>

@@ -90,9 +90,6 @@
     <ClCompile Include="..\..\Device53\src\FPGA\FPGA.cpp">
       <Filter>FPGA</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Device53\src\Hardware\ADC.cpp">
-      <Filter>Hardware</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Device53\src\Hardware\FLASH.cpp">
       <Filter>Hardware</Filter>
     </ClCompile>
@@ -549,6 +546,9 @@
     <ClCompile Include="..\..\libs\common\Hardware\stm32\2XX\Timer2XX.cpp">
       <Filter>Hardware\stm32</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Device53\src\Hardware\CPU_ADC.cpp">
+      <Filter>Hardware</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Device53\src\defines.h">
@@ -577,9 +577,6 @@
     </ClInclude>
     <ClInclude Include="..\..\Device53\src\FPGA\FPGA.h">
       <Filter>FPGA</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Device53\src\Hardware\ADC.h">
-      <Filter>Hardware</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Device53\src\Hardware\FLASH.h">
       <Filter>Hardware</Filter>
