@@ -127,9 +127,6 @@
     <ClCompile Include="..\..\Device53\src\Hardware\CPU_RTC.cpp" />
     <ClCompile Include="..\..\Device53\src\Hardware\CPU_VCP.cpp" />
     <ClCompile Include="..\..\Device53\src\Hardware\Panel.cpp" />
-    <ClCompile Include="..\..\Device53\src\Hardware\PanelFunctions.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
     <ClCompile Include="..\..\Device53\src\libs\CMSIS\system_stm32f2xx.c" />
     <ClCompile Include="..\..\Device53\src\libs\HAL\stm32f2xx_hal_msp.cpp" />
     <ClCompile Include="..\..\Device53\src\libs\LwIP\app_ethernet.cpp" />

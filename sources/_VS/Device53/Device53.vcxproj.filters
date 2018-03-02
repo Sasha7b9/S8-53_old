@@ -513,9 +513,6 @@
     <ClCompile Include="..\..\Device53\src\Hardware\Panel.cpp">
       <Filter>Hardware</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Device53\src\Hardware\PanelFunctions.cpp">
-      <Filter>Hardware</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\libs\common\SCPI\channelSCPI.cpp">
       <Filter>SCPI</Filter>
     </ClCompile>

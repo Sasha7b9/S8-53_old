@@ -13,7 +13,6 @@
 #include "Hardware/Sound.h"
 #include <stdio.h>
 #include <string.h>
-#include "PanelFunctions.cpp"
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -27,6 +26,8 @@
 #define LED_TRIG_DISABLE    3
 #define POWER_OFF           4
 
+static const uint MIN_TIME = 500;
+
 static PanelButton pressedKey = B_Empty;
 static PanelButton pressedButton = B_Empty;         // Это используется для отслеживания нажатой кнопки при отключенной панели
 static uint16 dataTransmitted[MAX_DATA] = {0x00};
@@ -34,8 +35,10 @@ static uint16 numDataForTransmitted = 0;
 static uint timePrevPressButton = 0;
 static uint timePrevReleaseButton = 0;
 
+uint8 Panel::dataSPIfromPanel = 0;
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-static void(*funcOnKeyDown[B_NumButtons])()    =
+void (*Panel::funcOnKeyDown[B_NumButtons])()    =
 {    
     0,
     EmptyFuncVV,    // B_ChannelA
@@ -81,30 +84,30 @@ static void (*funcOnKeyUp[B_NumButtons])()    =
     EmptyFuncVV     // B_F5
 };
 
-static void (*funcOnLongPressure[B_NumButtons])()    =
+void (*Panel::funcOnLongPressure[B_NumButtons])() =
 {
     0,
-    ChannelALong,       // B_ChannelA
-    EmptyFuncVV,        // B_Service
-    ChannelBLong,       // B_ChannelB
-    EmptyFuncVV,        // B_Display
-    TimeLong,           // B_Time
-    EmptyFuncVV,        // B_Memory
-    TrigLong,           // B_Sinchro
-    EmptyFuncVV,        // B_Start
-    EmptyFuncVV,        // B_Cursors
-    EmptyFuncVV,        // B_Measures
-    EmptyFuncVV,        // B_Power
-    Panel::Long_Help,   // B_Help
-    MenuLong,           // B_Menu
-    F1Long,             // B_F1
-    F2Long,             // B_F2
-    F3Long,             // B_F3
-    F4Long,             // B_F4
-    F5Long              // B_F5
+    ChannelALong,   // B_ChannelA
+    EmptyFuncVV,    // B_Service
+    ChannelBLong,   // B_ChannelB
+    EmptyFuncVV,    // B_Display
+    TimeLong,       // B_Time
+    EmptyFuncVV,    // B_Memory
+    TrigLong,       // B_Sinchro
+    EmptyFuncVV,    // B_Start
+    EmptyFuncVV,    // B_Cursors
+    EmptyFuncVV,    // B_Measures
+    EmptyFuncVV,    // B_Power
+    Long_Help,      // B_Help
+    MenuLong,       // B_Menu
+    F1Long,         // B_F1
+    F2Long,         // B_F2
+    F3Long,         // B_F3
+    F4Long,         // B_F4
+    F5Long          // B_F5
 };
 
-static void (*funculatorLeft[R_Set + 1])()    =
+void (*Panel::funculatorLeft[R_Set + 1])() =
 {
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
     RangeALeft,     // R_RangeA
@@ -116,7 +119,7 @@ static void (*funculatorLeft[R_Set + 1])()    =
     TrigLevLeft,    // R_TrigLev
     SetLeft         // R_Set
 };
-static void (*funculatorRight[R_Set + 1])() =
+void (*Panel::funculatorRight[R_Set + 1])() =
 {
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
     RangeARight,    // R_RangeA
@@ -129,6 +132,400 @@ static void (*funculatorRight[R_Set + 1])() =
     SetRight        // R_Set
 };
 
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+void Panel::Long_Help()
+{
+    gBF.showHelpHints++;
+    gStringForHint = 0;
+    gItemHint = 0;
+}
+
+//----------------------------------------------------------------------------------------------------------------------------------------------------
+void Panel::ChannelALong()
+{
+    Menu::LongPressureButton(B_ChannelA);
+}
+
+//----------------------------------------------------------------------------------------------------------------------------------------------------
+void Panel::ChannelBLong()
+{
+    Menu::LongPressureButton(B_ChannelB);
+}
+
+//----------------------------------------------------------------------------------------------------------------------------------------------------
+void Panel::TimeLong()
+{
+    Menu::LongPressureButton(B_Time);
+}
+
+//----------------------------------------------------------------------------------------------------------------------------------------------------
+void Panel::TrigLong()
+{
+    if (MODE_LONG_PRESS_TRIG_IS_LEVEL0)
+    {
+        Menu::LongPressureButton(B_Trig);
+    }
+    else
+    {
+        FPGA::FindAndSetTrigLevel();
+    }
+}
+
+//----------------------------------------------------------------------------------------------------------------------------------------------------
+void Panel::StartDown()
+{
+    if (MODE_WORK_IS_DIR)
+    {
+        Menu::PressButton(B_Start);
+    }
+}
+
+//----------------------------------------------------------------------------------------------------------------------------------------------------
+void Panel::PowerDown()
+{
+    Settings::Save();
+    Panel::TransmitData(0x04);           // Посылаем команду выключения
+}
+
+//----------------------------------------------------------------------------------------------------------------------------------------------------
+void Panel::MenuLong()
+{
+    Menu::LongPressureButton(B_Menu);
+}
+
+//----------------------------------------------------------------------------------------------------------------------------------------------------
+void Panel::F1Long()
+{
+    Menu::LongPressureButton(B_F1);
+}
+
+//----------------------------------------------------------------------------------------------------------------------------------------------------
+void Panel::F2Long()
+{
+    Menu::LongPressureButton(B_F2);
+}
+
+//----------------------------------------------------------------------------------------------------------------------------------------------------
+void Panel::F3Long()
+{
+    Menu::LongPressureButton(B_F3);
+}
+
+//----------------------------------------------------------------------------------------------------------------------------------------------------
+void Panel::F4Long()
+{
+    Menu::LongPressureButton(B_F4);
+}
+
+//----------------------------------------------------------------------------------------------------------------------------------------------------
+void Panel::F5Long()
+{
+    Menu::LongPressureButton(B_F5);
+}
+
+//----------------------------------------------------------------------------------------------------------------------------------------------------
+static int CalculateCount(int *prevTime)
+{
+    uint time = TIME_MS;
+    uint delta = time - (uint)(*prevTime);
+    *prevTime = (int)time;
+
+    if (delta > 75)
+    {
+        return 1;
+    }
+    else if (delta > 50)
+    {
+        return 2;
+    }
+    else if (delta > 25)
+    {
+        return 3;
+    }
+    return 4;
+}
+
+//----------------------------------------------------------------------------------------------------------------------------------------------------
+static bool CanChangeTShift(int16 tShift)
+{
+    static uint time = 0;
+    if (tShift == 0)
+    {
+        time = TIME_MS;
+        return true;
+    }
+    else if (time == 0)
+    {
+        return true;
+    }
+    else if (TIME_MS - time > MIN_TIME)
+    {
+        time = 0;
+        return true;
+    }
+    return false;
+}
+
+//----------------------------------------------------------------------------------------------------------------------------------------------------
+static bool CanChangeRShiftOrTrigLev(TrigSource channel, int16 rShift)
+{
+    static uint time[3] = {0, 0, 0};
+    if (rShift == RShiftZero)
+    {
+        time[channel] = TIME_MS;
+        return true;
+    }
+    else if (time[channel] == 0)
+    {
+        return true;
+    }
+    else if (TIME_MS - time[channel] > MIN_TIME)
+    {
+        time[channel] = 0;
+        return true;
+    }
+    return false;
+}
+
+//----------------------------------------------------------------------------------------------------------------------------------------------------
+static void ChangeRShift(int *prevTime, void(*f)(Channel, int16), Channel chan, int16 relStep)
+{
+    if (ENUM_ACCUM_IS_NONE)
+    {
+        FPGA::TemporaryPause();
+    }
+    int count = CalculateCount(prevTime);
+    int rShiftOld = SET_RSHIFT(chan);
+    int rShift = SET_RSHIFT(chan) + relStep * count;
+    if ((rShiftOld > RShiftZero && rShift < RShiftZero) || (rShiftOld < RShiftZero && rShift > RShiftZero))
+    {
+        rShift = RShiftZero;
+    }
+    if (CanChangeRShiftOrTrigLev((TrigSource)chan, (int16)rShift))
+    {
+        Sound::RegulatorShiftRotate();
+        f(chan, (int16)rShift);
+    }
+}
+
+//----------------------------------------------------------------------------------------------------------------------------------------------------
+static void ChangeTrigLev(int *prevTime, void(*f)(TrigSource, int16), TrigSource trigSource, int16 relStep)
+{
+    int count = CalculateCount(prevTime);
+    int trigLevOld = SET_TRIGLEV(trigSource);
+    int trigLev = SET_TRIGLEV(trigSource) + relStep * count;
+    if ((trigLevOld > TrigLevZero && trigLev < TrigLevZero) || (trigLevOld < TrigLevZero && trigLev > TrigLevZero))
+    {
+        trigLev = TrigLevZero;
+    }
+    if (CanChangeRShiftOrTrigLev(trigSource, (int16)trigLev))
+    {
+        Sound::RegulatorShiftRotate();
+        f(trigSource, (int16)trigLev);
+    }
+}
+
+//----------------------------------------------------------------------------------------------------------------------------------------------------
+static void ChangeTShift(int *prevTime, void(*f)(int), int16 relStep)
+{
+    int count = CalculateCount(prevTime);
+    int tShiftOld = SET_TSHIFT;
+    float step = (float)(relStep * count);
+    if (step < 0)
+    {
+        if (step > -1)
+        {
+            step = -1;
+        }
+    }
+    else
+    {
+        if (step < 1)
+        {
+            step = 1;
+        }
+    }
+
+    int16 tShift = (int16)(SET_TSHIFT + step);
+    if (((tShiftOld > 0) && (tShift < 0)) || (tShiftOld < 0 && tShift > 0))
+    {
+        tShift = 0;
+    }
+    if (CanChangeTShift(tShift))
+    {
+        Sound::RegulatorShiftRotate();
+        f(tShift);
+    }
+}
+
+//----------------------------------------------------------------------------------------------------------------------------------------------------
+static void ChangeShiftScreen(int *prevTime, void(*f)(int), int16 relStep)
+{
+    int count = CalculateCount(prevTime);
+    float step = (float)(relStep * count);
+    if (step < 0)
+    {
+        if (step > -1)
+        {
+            step = -1;
+        }
+    }
+    else if (step < 1)
+    {
+        step = 1;
+    }
+    f((int)step);
+}
+
+//----------------------------------------------------------------------------------------------------------------------------------------------------
+static void SetRShift(Channel ch, int16 rShift)
+{
+    FPGA::SetRShift(ch, rShift);
+}
+
+//----------------------------------------------------------------------------------------------------------------------------------------------------
+void Panel::RShiftALeft()
+{
+    static int prevTime = 0;
+    ChangeRShift(&prevTime, SetRShift, A, -STEP_RSHIFT);
+}
+
+//----------------------------------------------------------------------------------------------------------------------------------------------------
+void Panel::RShiftARight()
+{
+    static int prevTime = 0;
+    ChangeRShift(&prevTime, SetRShift, A, +STEP_RSHIFT);
+}
+
+//----------------------------------------------------------------------------------------------------------------------------------------------------
+void Panel::RShiftBLeft()
+{
+    static int prevTime = 0;
+    ChangeRShift(&prevTime, SetRShift, B, -STEP_RSHIFT);
+}
+
+//----------------------------------------------------------------------------------------------------------------------------------------------------
+void Panel::RShiftBRight()
+{
+    static int prevTime = 0;
+    ChangeRShift(&prevTime, SetRShift, B, +STEP_RSHIFT);
+}
+
+//----------------------------------------------------------------------------------------------------------------------------------------------------
+static void SetTrigLev(TrigSource ch, int16 trigLev)
+{
+    FPGA::SetTrigLev(ch, trigLev);
+}
+
+//----------------------------------------------------------------------------------------------------------------------------------------------------
+void Panel::TrigLevLeft()
+{
+    static int prevTime = 0;
+    ChangeTrigLev(&prevTime, SetTrigLev, TRIGSOURCE, -STEP_RSHIFT);
+}
+
+//----------------------------------------------------------------------------------------------------------------------------------------------------
+void Panel::TrigLevRight()
+{
+    static int prevTime = 0;
+    ChangeTrigLev(&prevTime, SetTrigLev, TRIGSOURCE, +STEP_RSHIFT);
+}
+
+//----------------------------------------------------------------------------------------------------------------------------------------------------
+static void ShiftScreen(int shift)
+{
+    Display::ShiftScreen(shift);
+}
+
+//----------------------------------------------------------------------------------------------------------------------------------------------------
+static void SetTShift(int tShift)
+{
+    FPGA::SetTShift(tShift);
+}
+
+//----------------------------------------------------------------------------------------------------------------------------------------------------
+static void XShift(int delta)
+{
+    static int prevTime = 0;
+    if (!FPGA::IsRunning() || TIME_DIV_XPOS_IS_SHIFT_IN_MEMORY)
+    {
+        if (!ENUM_POINTS_IS_281)
+        {
+            ChangeShiftScreen(&prevTime, ShiftScreen, (int16)(2 * delta));
+        }
+    }
+    else
+    {
+        ChangeTShift(&prevTime, SetTShift, (int16)delta);
+    }
+}
+
+//----------------------------------------------------------------------------------------------------------------------------------------------------
+void Panel::TShiftLeft()
+{
+    XShift(-1);
+}
+
+//----------------------------------------------------------------------------------------------------------------------------------------------------
+void Panel::TShiftRight()
+{
+    XShift(1);
+}
+
+//----------------------------------------------------------------------------------------------------------------------------------------------------
+void Panel::RangeALeft()
+{
+    Sound::RegulatorSwitchRotate();
+    FPGA::RangeIncrease(A);
+}
+
+//----------------------------------------------------------------------------------------------------------------------------------------------------
+void Panel::RangeARight()
+{
+    Sound::RegulatorSwitchRotate();
+    FPGA::RangeDecrease(A);
+}
+
+//----------------------------------------------------------------------------------------------------------------------------------------------------
+void Panel::RangeBLeft()
+{
+    Sound::RegulatorSwitchRotate();
+    FPGA::RangeIncrease(B);
+}
+
+//----------------------------------------------------------------------------------------------------------------------------------------------------
+void Panel::RangeBRight()
+{
+    Sound::RegulatorSwitchRotate();
+    FPGA::RangeDecrease(B);
+}
+
+//----------------------------------------------------------------------------------------------------------------------------------------------------
+void Panel::TBaseLeft()
+{
+    Sound::RegulatorSwitchRotate();
+    FPGA::TBaseIncrease();
+}
+
+//----------------------------------------------------------------------------------------------------------------------------------------------------
+void Panel::TBaseRight()
+{
+    Sound::RegulatorSwitchRotate();
+    FPGA::TBaseDecrease();
+}
+
+//----------------------------------------------------------------------------------------------------------------------------------------------------
+void Panel::SetLeft()
+{
+    Menu::RotateRegSetLeft();
+}
+
+//----------------------------------------------------------------------------------------------------------------------------------------------------
+void Panel::SetRight()
+{
+    Menu::RotateRegSetRight();
+}
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 static PanelButton ButtonIsRelease(uint16 command)
@@ -145,6 +542,7 @@ static PanelButton ButtonIsRelease(uint16 command)
     return button;
 }
 
+//----------------------------------------------------------------------------------------------------------------------------------------------------
 static PanelButton ButtonIsPress(uint16 command)
 {
     PanelButton button = B_Empty;
@@ -159,6 +557,7 @@ static PanelButton ButtonIsPress(uint16 command)
     return button;
 }
 
+//----------------------------------------------------------------------------------------------------------------------------------------------------
 static PanelRegulator RegulatorLeft(uint16 command)
 {
     if(command >= 20 && command <= 27)
@@ -168,6 +567,7 @@ static PanelRegulator RegulatorLeft(uint16 command)
     return R_Empty;
 }
 
+//----------------------------------------------------------------------------------------------------------------------------------------------------
 static PanelRegulator RegulatorRight(uint16 command)
 {
     if(((command & 0x7f) >= 20) && ((command & 0x7f) <= 27))
@@ -177,7 +577,8 @@ static PanelRegulator RegulatorRight(uint16 command)
     return R_Empty;
 }
 
-static void OnTimerPressedKey()
+//----------------------------------------------------------------------------------------------------------------------------------------------------
+void Panel::OnTimerPressedKey()
 {
     if(pressedKey != B_Empty)
     {
@@ -192,6 +593,7 @@ static void OnTimerPressedKey()
     Timer::Disable(kPressKey);
 }
 
+//----------------------------------------------------------------------------------------------------------------------------------------------------
 bool Panel::ProcessingCommandFromPIC(uint16 command)
 {
     static int allRecData = 0;
@@ -275,16 +677,19 @@ bool Panel::ProcessingCommandFromPIC(uint16 command)
     return true;
 }
 
+//----------------------------------------------------------------------------------------------------------------------------------------------------
 void Panel::EnableLEDChannelA(bool enable)
 {
     TransmitData(enable ? LED_CHANA_ENABLE : LED_CHANA_DISABLE);
 }
 
+//----------------------------------------------------------------------------------------------------------------------------------------------------
 void Panel::EnableLEDChannelB(bool enable)
 {
     TransmitData(enable ? LED_CHANB_ENABLE : LED_CHANB_DISABLE);
 }
 
+//----------------------------------------------------------------------------------------------------------------------------------------------------
 void Panel::EnableLEDTrig(bool enable)
 {
     static uint timeEnable = 0;
@@ -320,6 +725,7 @@ void Panel::EnableLEDTrig(bool enable)
     }
 }
 
+//----------------------------------------------------------------------------------------------------------------------------------------------------
 void Panel::TransmitData(uint16 data)
 {
     if(numDataForTransmitted >= MAX_DATA)
@@ -333,6 +739,7 @@ void Panel::TransmitData(uint16 data)
     }
 }
 
+//----------------------------------------------------------------------------------------------------------------------------------------------------
 uint16 Panel::NextData()
 {
     if (numDataForTransmitted > 0)
@@ -343,11 +750,13 @@ uint16 Panel::NextData()
     return 0;
 }
 
+//----------------------------------------------------------------------------------------------------------------------------------------------------
 void Panel::Disable()
 {
     gBF.panelIsRunning = 0;
 }
 
+//----------------------------------------------------------------------------------------------------------------------------------------------------
 void Panel::Enable()
 {
     gBF.panelIsRunning = 1;
@@ -361,8 +770,7 @@ void Panel::Enable()
     135 - PB5 - MOSI
 */
 
-
-
+//----------------------------------------------------------------------------------------------------------------------------------------------------
 void Panel::Init()
 {
     __SPI1_CLK_ENABLE();
@@ -414,11 +822,13 @@ void Panel::Init()
     EnableLEDRegSet(false);
 }
 
+//----------------------------------------------------------------------------------------------------------------------------------------------------
 void Panel::EnableLEDRegSet(bool enable)
 {
     HAL_GPIO_WritePin(GPIOG, GPIO_PIN_12, enable ? GPIO_PIN_RESET : GPIO_PIN_SET);
 }
 
+//----------------------------------------------------------------------------------------------------------------------------------------------------
 PanelButton Panel::WaitPressingButton()
 {
     pressedButton = B_Empty;
@@ -426,20 +836,19 @@ PanelButton Panel::WaitPressingButton()
     return pressedButton;
 }
 
-static uint8 dataSPIfromPanel;
-
+//----------------------------------------------------------------------------------------------------------------------------------------------------
 void HAL_GPIO_EXTI_Callback(uint16_t pin)
 {
     if (pin == GPIO_PIN_0)
     {
-        HAL_SPI_Receive_IT(&handleSPI, &dataSPIfromPanel, 1);
+        HAL_SPI_Receive_IT(&handleSPI, &Panel::dataSPIfromPanel, 1);
     }
 }
 
-
+//----------------------------------------------------------------------------------------------------------------------------------------------------
 void HAL_SPI_RxCpltCallback(SPI_HandleTypeDef* handle)
 {
-    if (!Panel::ProcessingCommandFromPIC(dataSPIfromPanel))
+    if (!Panel::ProcessingCommandFromPIC(Panel::dataSPIfromPanel))
     {
         HAL_SPI_DeInit(handle);
         HAL_SPI_Init(handle);

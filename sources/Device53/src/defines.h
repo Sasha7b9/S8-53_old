@@ -1,7 +1,10 @@
 #pragma once
 
+#ifdef MSVC
+#define __ARMCLIB_VERSION 6070001
+#endif
+
 #include <stm32f2xx_hal.h>
-//#include <ctype.h>
 
 #if (!(defined S8_53) && !(defined S8_54) && !(defined S8_55) && !(defined KORNET))
 #error ("You must selelect device")
