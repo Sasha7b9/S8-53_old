@@ -73,7 +73,7 @@
         <LExpSel>0</LExpSel>
       </OPTXL>
       <OPTFL>
-        <tvExp>0</tvExp>
+        <tvExp>1</tvExp>
         <tvExpOptDlg>0</tvExpOptDlg>
         <IsCurrentTarget>1</IsCurrentTarget>
       </OPTFL>
@@ -2447,18 +2447,6 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\libs\common\Hardware\stm32\207\stm207.cpp</PathWithFileName>
-      <FilenameWithoutPath>stm207.cpp</FilenameWithoutPath>
-      <RteFlg>0</RteFlg>
-      <bShared>0</bShared>
-    </File>
-    <File>
-      <GroupNumber>14</GroupNumber>
-      <FileNumber>175</FileNumber>
-      <FileType>8</FileType>
-      <tvExp>0</tvExp>
-      <tvExpOptDlg>0</tvExpOptDlg>
-      <bDave2>0</bDave2>
       <PathWithFileName>..\libs\common\Hardware\stm32\2XX\Timer2XX.cpp</PathWithFileName>
       <FilenameWithoutPath>Timer2XX.cpp</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
@@ -2466,7 +2454,7 @@
     </File>
     <File>
       <GroupNumber>14</GroupNumber>
-      <FileNumber>176</FileNumber>
+      <FileNumber>175</FileNumber>
       <FileType>5</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
@@ -2478,13 +2466,25 @@
     </File>
     <File>
       <GroupNumber>14</GroupNumber>
-      <FileNumber>177</FileNumber>
+      <FileNumber>176</FileNumber>
       <FileType>5</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\libs\common\Hardware\stm32\207\stm207.h</PathWithFileName>
-      <FilenameWithoutPath>stm207.h</FilenameWithoutPath>
+      <PathWithFileName>..\libs\common\Hardware\stm32\2XX\Timer2XX.h</PathWithFileName>
+      <FilenameWithoutPath>Timer2XX.h</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>14</GroupNumber>
+      <FileNumber>177</FileNumber>
+      <FileType>8</FileType>
+      <tvExp>0</tvExp>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>..\libs\common\Hardware\stm32\2XX\stm207.cpp</PathWithFileName>
+      <FilenameWithoutPath>stm207.cpp</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -2495,8 +2495,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\libs\common\Hardware\stm32\2XX\Timer2XX.h</PathWithFileName>
-      <FilenameWithoutPath>Timer2XX.h</FilenameWithoutPath>
+      <PathWithFileName>..\libs\common\Hardware\stm32\2XX\stm207.h</PathWithFileName>
+      <FilenameWithoutPath>stm207.h</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>

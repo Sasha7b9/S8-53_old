@@ -1,5 +1,5 @@
 #pragma once
-#include "Hardware/stm32/207/stm207.h"
+#include "Hardware/stm32/2XX/stm207.h"
 #include "globals.h"
 
 
