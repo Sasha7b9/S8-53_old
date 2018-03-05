@@ -34,7 +34,7 @@ typedef signed   short int      int16;
 typedef unsigned char           uchar;
 typedef unsigned long  long int uint64;
 typedef unsigned char           BYTE;
-
+typedef uint16                  col_val;
 
 typedef void  (*pFuncVV)();
 typedef void  (*pFuncVpV)(void*);
