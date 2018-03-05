@@ -11,6 +11,13 @@ extern "C" {
 #endif
 
     //------------------------------------------------------------------------------------------------------------------------------------------------
+    void SysTick_Handler()
+    {
+        HAL_IncTick();
+        HAL_SYSTICK_IRQHandler();
+    }
+
+    //------------------------------------------------------------------------------------------------------------------------------------------------
     /// This interrupt call soft NSS for spi (see Hardware::SPIforPanel.c::PanelInit() and HAL_GPIO_EXTI_Callback().
     void EXTI0_IRQHandler()
     {

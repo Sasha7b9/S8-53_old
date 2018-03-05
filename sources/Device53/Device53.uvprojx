@@ -5256,11 +5256,6 @@
               <FilePath>..\libs\common\Hardware\stm32\stm32.cpp</FilePath>
             </File>
             <File>
-              <FileName>stm32_it.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>..\libs\common\Hardware\stm32\stm32_it.cpp</FilePath>
-            </File>
-            <File>
               <FileName>Timer2XX.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>..\libs\common\Hardware\stm32\2XX\Timer2XX.cpp</FilePath>
