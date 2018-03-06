@@ -438,6 +438,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Device53\src\Display\DisplayTypes.h" />
     <ClInclude Include="..\..\Device53\src\globals.h" />
     <ClInclude Include="..\..\Device53\src\Hardware\Controls.h" />
     <ClInclude Include="..\..\Device53\src\Hardware\CPU.h" />
@@ -459,7 +460,6 @@
     <ClInclude Include="..\..\Device53\src\Utils\Dictionary.h" />
     <ClInclude Include="..\..\libs\common\Display\Colors.h" />
     <ClInclude Include="..\..\libs\common\Display\DisplayPrimitives.h" />
-    <ClInclude Include="..\..\libs\common\Display\DisplayTypes.h" />
     <ClInclude Include="..\..\libs\common\Display\Grid.h" />
     <ClInclude Include="..\..\libs\common\Display\Painter.h" />
     <ClInclude Include="..\..\libs\common\FPGA\FPGAMath.h" />

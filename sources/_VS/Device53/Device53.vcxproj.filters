@@ -674,9 +674,6 @@
     <ClInclude Include="..\..\libs\common\Display\DisplayPrimitives.h">
       <Filter>Display</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\libs\common\Display\DisplayTypes.h">
-      <Filter>Display</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\libs\common\Display\Grid.h">
       <Filter>Display</Filter>
     </ClInclude>
@@ -976,6 +973,9 @@
     </ClInclude>
     <ClInclude Include="..\..\libs\common\Hardware\stm32\2XX\stm207.h">
       <Filter>Hardware\stm32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Device53\src\Display\DisplayTypes.h">
+      <Filter>Display</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
