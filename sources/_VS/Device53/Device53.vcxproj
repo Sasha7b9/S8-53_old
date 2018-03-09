@@ -80,7 +80,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>USE_HAL_DRIVER;STM32F207xx;S8_53;USBD_LPM_ENABLED=0;MSVC</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
-      <DisableSpecificWarnings>4068;4131;4201;4310;4514;4365;4548;4774;4820;5039</DisableSpecificWarnings>
+      <DisableSpecificWarnings>4068;4131;4201;4310;4514;4365;4548;4623;4626;4774;4820;5027;5039</DisableSpecificWarnings>
       <AdditionalOptions>-MP %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>

@@ -23,7 +23,7 @@ extern DAC_HandleTypeDef handleDAC;
 
 #define SETTINGS_IS_LOADED  (gBF.settingsLoaded)
 #define TOP_MEASURES        (gBF.topMeasures)
-#define HINT_MODE_ENABLE    (gBF.showHelpHints)
+#define HINT_MODE_ENABLED   (gBF.showHelpHints)
 #define NEED_FINISH_DRAW    (gBF.needFinishDraw)
 #define FDRIVE_IS_CONNECTED (gBF.flashDriveIsConnected)
 #define SHOW_DEBUG_MENU     (gBF.showDebugMenu)
@@ -32,7 +32,7 @@ extern DAC_HandleTypeDef handleDAC;
 #define CONNECTED_TO_USB    (gBF.connectToHost)
 
 
-typedef struct
+struct BitField
 {
     // Ethernet
     uint ethTimeLastEthifInput      : 32;   // Время последнего входа в процедуру ethernetif.c:ethernetif_input() Используется для определения того, 
@@ -102,7 +102,7 @@ typedef struct
     int topMeasures                 : 9;    // Верх таблицы вывода измерений. Это значение нужно для нормального вывода сообщений на экран - чтобы 
                                             // они ничего не перекрывали
     uint notUsed1                   : 13;
-} BitField;
+};
 
 
 extern BitField gBF;
@@ -115,7 +115,7 @@ extern BitField gBF;
 #define EXIT_FROM_SETNAME_TO    (gMemory.exitFromModeSetNameTo)
 
 
-typedef struct 
+struct GMemory
 {
     int16   currentNumLatestSignal;                 // Текущий номер последнего сигнала в режиме ПАМЯТЬ - Последние
     int8    currentNumIntSignal;                    // Текущий номер сигнала, сохранённого в ППЗУ
@@ -126,13 +126,13 @@ typedef struct
                                                     // последних, 2 - в окно Внутр ЗУ, 3 - в основно окно в выключенным меню
     uint    needForSaveToFlashDrive         : 1;    // Если 1, то нужно сохранить после отрисовки на флешку.
     uint8   notUsed                         : 2;
-} GMemory;
+};
 
 
 extern GMemory gMemory;
 
 
-typedef enum
+enum StateCalibration
 {
     StateCalibration_None,
     StateCalibration_ADCinProgress,
@@ -142,7 +142,7 @@ typedef enum
     StateCalibration_RShift1inProgress,
     StateCalibration_ErrorCalibration0,
     StateCalibration_ErrorCalibration1
-} StateCalibration;
+};
 
 typedef enum
 {
@@ -154,14 +154,14 @@ typedef enum
 } StateWorkFPGA;
 
 
-typedef struct
+struct StateFPGA
 {
     bool needCalibration;				        // Установленное в true значение означает, что необходимо произвести калибровку.
     StateWorkFPGA stateWorkBeforeCalibration;
     StateCalibration stateCalibration;          // Текущее состояние калибровки. Используется в процессе калибровки.
-} StateFPGA;
+};
 
-typedef struct
+struct PackedTime
 {
     uint hours      : 5;
     uint minutes    : 6;
@@ -171,10 +171,10 @@ typedef struct
     uint notUsed0   : 4;
     uint day        : 5;
     uint notUsed1   : 27;
-} PackedTime;
+};
 
 
-typedef struct
+struct DataSettings
 {
     void*       addrNext;               // Адрес следующей записи.
     void*       addrPrev;               // Адрес предыдущей записи.
@@ -202,7 +202,7 @@ typedef struct
     uint        multiplier1     : 1;
     uint        notUsed3        : 17;
     PackedTime  time;
-} DataSettings;
+};
 
 
 extern const char *gStringForHint;  // Строка подсказки, которую надо выводить в случае включённого режима подсказок.
