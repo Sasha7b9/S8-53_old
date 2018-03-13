@@ -11,6 +11,9 @@
 #define FSMC_SET_MODE(x)
 #define FSMC_RESTORE_MODE()
 
+#define RTC_GET_PACKED_TIME()                       CPU::RTC_::GetPackedTime()
+#define RTC_SET_TIME_AND_DATA(d, m, y, h, min, s)   CPU::RTC_::SetTimeAndData(d, m, y, h, min, s)
+
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 class CPU : public STM207

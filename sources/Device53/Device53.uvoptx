@@ -159,7 +159,7 @@
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_adc.c</Filename>
+          <Filename>&lt;1&gt;..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_adc.c</Filename>
           <ExecCommand></ExecCommand>
           <Expression>\\Device53\../libs/STM32Cube_F2/Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_adc.c\990</Expression>
         </Bp>
@@ -175,7 +175,7 @@
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_adc.c</Filename>
+          <Filename>&lt;1&gt;..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_adc.c</Filename>
           <ExecCommand></ExecCommand>
           <Expression>\\Device53\../libs/STM32Cube_F2/Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_adc.c\970</Expression>
         </Bp>
@@ -191,7 +191,7 @@
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_adc.c</Filename>
+          <Filename>&lt;1&gt;..\libs\STM32Cube_F2\Drivers\STM32F2xx_HAL_Driver\Src\stm32f2xx_hal_adc.c</Filename>
           <ExecCommand></ExecCommand>
           <Expression>\\Device53\../libs/STM32Cube_F2/Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_adc.c\926</Expression>
         </Bp>
@@ -1511,7 +1511,7 @@
 
   <Group>
     <GroupName>src</GroupName>
-    <tvExp>1</tvExp>
+    <tvExp>0</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
