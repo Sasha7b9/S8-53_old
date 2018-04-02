@@ -118,7 +118,7 @@ void CPU::FLASH_::LoadSettings()
         }
         memcpy(&set, (const void *)(record->addrData - 4), (uint)record->sizeData);         // Считываем их
         EraseSector(ADDR_SECTOR_SETTINGS);                                                  // Стираем сектор настроек
-        CPU::FLASH_::SaveSettings(true);                                                       // И сохраняем настройки в новом формате
+        CPU::FLASH_::SaveSettings(true);                                                    // И сохраняем настройки в новом формате
     }
     else
     {
